@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="4" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-21T21:47:44 IST" name="Default suite" finished-at="2022-11-21T21:48:15 IST" duration-ms="31579">
+    <groups>
+    </groups>
+    <test started-at="2022-11-21T21:47:44 IST" name="Default test" finished-at="2022-11-21T21:48:15 IST" duration-ms="31579">
+      <class name="com.wakesmart.testcases.HomePageTest">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@2ddc9a9f]" started-at="2022-11-21T21:47:44 IST" name="browserLaunch" finished-at="2022-11-21T21:47:57 IST" duration-ms="12578" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserLaunch -->
+        <test-method signature="validUserLogin()[pri:0, instance:com.wakesmart.testcases.HomePageTest@2ddc9a9f]" started-at="2022-11-21T21:47:57 IST" name="validUserLogin" finished-at="2022-11-21T21:48:03 IST" duration-ms="6525" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validUserLogin -->
+        <test-method signature="reporting()[pri:0, instance:com.wakesmart.testcases.HomePageTest@2ddc9a9f]" started-at="2022-11-21T21:48:03 IST" name="reporting" finished-at="2022-11-21T21:48:15 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="12344" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting -->
+      </class> <!-- com.wakesmart.testcases.HomePageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
