@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,10 +22,81 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 import com.wakesmart.base.BaseClass;
 
 public class Action extends BaseClass {
+	
+	
+	
+	//Soft assertion for string
+	public void softAssertion(String actual,String expected) {
+		try {
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(actual, expected);
+			softAssert.assertAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//soft assertion for integer
+	public void softAssertionInt(Integer actual,Integer expected) {
+		try {
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(actual, expected);
+			softAssert.assertAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// dropdown select
+	public void dropdown(WebElement ele, String str) {
+
+		Select sel = new Select(ele);
+
+		List<WebElement> lst = sel.getOptions();
+
+		for (WebElement option : lst) {
+			if (option.getText().equals(str)) {
+				option.click();
+				break;
+			}
+		}
+	}
+
+	
+	// verify name from a table 
+	public String nameVerifyFromTable(List<WebElement> ele, String str) {
+
+		String tablename ="";
+		for (WebElement option : ele) {
+			
+			if(option.getText().equalsIgnoreCase(str)) {
+				tablename=option.getText();
+				break;
+			}
+		}
+		return tablename ;
+	}
+	
+	
+	public void nameVerifyFromTableAndClick(List<WebElement> ele, String str) {
+
+		for (WebElement option : ele) {
+			
+			if(option.getText().equalsIgnoreCase(str)) {
+				option.click();
+				break;
+			}
+		}
+	}
+	
+	
+	
+	
 
 	// date month converter
 	public String dateFormat(String MDY) throws ParseException {
@@ -34,34 +106,34 @@ public class Action extends BaseClass {
 		Date date = format1.parse(MDY);
 		return format2.format(date);
 	}
-	
-	//to print the current date
+
+	// to print the current date
 	public String currentDate() throws ParseException {
 
-		  Date date = new Date();
-	      SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
-	       String str = formatter.format(date);
-	    return str;
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+		String str = formatter.format(date);
+		return str;
 	}
-	
-	//print previous date from current date
+
+	// print previous date from current date
 	public String currentDateMinusone() throws ParseException {
 
 		Date currentDate = new Date();
 		Date oneDayFromCurrentDate = new Date(currentDate.getTime() - Duration.ofDays(1).toMillis());
-	      SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
-	       String str = formatter.format(oneDayFromCurrentDate);
-	    return str;
+		SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+		String str = formatter.format(oneDayFromCurrentDate);
+		return str;
 	}
-	
-	//7 days before
+
+	// 7 days before
 	public String currentDateMinusSeven(int Days) throws ParseException {
 
 		Date currentDate = new Date();
 		Date oneDayFromCurrentDate = new Date(currentDate.getTime() - Duration.ofDays(Days).toMillis());
-	      SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
-	       String str = formatter.format(oneDayFromCurrentDate);
-	    return str;
+		SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+		String str = formatter.format(oneDayFromCurrentDate);
+		return str;
 	}
 
 	// color verify of the element
@@ -103,7 +175,7 @@ public class Action extends BaseClass {
 	}
 
 	// pass
-	public void scrollByVisibilityOfElement(WebElement ele) {
+	public void scrollByVisibilityOfElement(WebDriver driver ,WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ele);
 	}
@@ -733,11 +805,12 @@ public class Action extends BaseClass {
 	public void explicitWait(WebDriver driver, WebElement element, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.visibilityOf(element));
+		
 
 	}
 
 	public void pageLoadTimeOut(WebDriver driver, int timeOut) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

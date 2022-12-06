@@ -117,4 +117,63 @@ public class Reporting extends BaseClass {
 	
 		return driver.findElement(EndDateVerifyAtExport);
 	}
+	
+	//Asset Inventory
+	
+	
+	By AssetInventoryIcon = By.xpath("(//button[@class='photothumb'])[2]");
+	
+	public WebElement getAssetInventoryIcon() {
+		return driver.findElement(AssetInventoryIcon);
+	}
+	
+	
+	By AssetInventoryHeader = By.xpath("//div[@id='reportsDlgheader']");
+	
+	public WebElement getAssetInventoryHeader() {
+		return driver.findElement(AssetInventoryHeader);
+	}
+	
+	By AssetInventoryReportMessege = By.xpath("//p[@id='reportsMessage']");
+	
+	public WebElement getAssetInventoryReportMessege() {
+		return driver.findElement(AssetInventoryReportMessege);
+	}
+	
+	
+	By AssetInventoryGroupsSelectedText = By.xpath("//label[normalize-space()='Groups Selected']");
+	
+	public WebElement getAssetInventoryGroupsSelectedText() {
+		return driver.findElement(AssetInventoryGroupsSelectedText);
+	}
+	
+	By AssetInventoryGroupsSelectedOptions = By.xpath("//select[@id='grpSelector']");
+	public WebElement getAssetInventoryGroupsSelectedOptions() {
+		return driver.findElement(AssetInventoryGroupsSelectedOptions);
+	}
+	
+	By AssetInventoryDeviceTypesSelected = By.xpath("//label[normalize-space()='Device Types Selected']");
+	
+	public WebElement getAssetInventoryDeviceTypesSelectedText() {
+		return driver.findElement(AssetInventoryDeviceTypesSelected);
+	}
+	
+	By AssetInventoryDeviceTypeSelectorOptions = By.xpath("//select[@id='typeSelector']");
+	
+	public WebElement getAssetInventoryDeviceTypeSelectorOptions() {
+		return driver.findElement(AssetInventoryDeviceTypeSelectorOptions);
+	}
+	
+	By AssetInventoryOkButton = By.xpath("//button[@id='saveBtn']");
+	
+	public WebElement getAssetInventoryOkButton() {
+		return driver.findElement(AssetInventoryOkButton);
+	}
+	
+	
+	
+	
+	
+	
+	
 }

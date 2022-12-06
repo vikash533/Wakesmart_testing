@@ -8,11 +8,9 @@
     <classes>
       <class name="com.wakesmart.testcases.HomePageTest">
         <methods>
-          <include name="tearDown"/>
           <include name="browserLaunch"/>
-          <include name="about"/>
-          <include name="validUserLogin"/>
-          <include name="user"/>
+          <include name="manage_Devices_Groups"/>
+          <include name="manageEditGroups"/>
         </methods>
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </classes>

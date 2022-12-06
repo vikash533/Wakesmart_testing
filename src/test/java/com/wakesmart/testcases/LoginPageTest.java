@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -35,7 +34,7 @@ public class LoginPageTest extends BaseClass {
 	@Test(priority = 1)
 	public void getTitle() {
 		String actualtitle = indexpage.getTitle(driver);
-		Assert.assertEquals(actualtitle, prop.getProperty("title"));
+		action.softAssertion(actualtitle,  prop.getProperty("title"));
 	}
 
 	@Test(priority = 4)
@@ -47,7 +46,7 @@ public class LoginPageTest extends BaseClass {
 		action.click(driver, indexpage.getLoginForm());
 		action.click(driver, indexpage.getLogin());
 		String actaualmessege = indexpage.getErrorMsg().getText();
-		Assert.assertEquals(actaualmessege, prop.getProperty("ErorMessege"));
+		action.softAssertion(actaualmessege,  prop.getProperty("ErorMessege"));
 	}
 
 	@Test(priority = 5)
@@ -59,7 +58,7 @@ public class LoginPageTest extends BaseClass {
 		action.click(driver, indexpage.getLoginForm());
 		action.click(driver, indexpage.getLogin());
 		String actaualmessege = indexpage.getErrorMsg().getText();
-		Assert.assertEquals(actaualmessege, prop.getProperty("ErorMessege"));
+		action.softAssertion(actaualmessege,  prop.getProperty("ErorMessege"));
 	}
 
 	@Test(priority = 6)
@@ -71,7 +70,7 @@ public class LoginPageTest extends BaseClass {
 		action.click(driver, indexpage.getLoginForm());
 		action.click(driver, indexpage.getLogin());
 		String actaualmessege = indexpage.getErrorMsg().getText();
-		Assert.assertEquals(actaualmessege, prop.getProperty("ErorMessege"));
+		action.softAssertion(actaualmessege,  prop.getProperty("ErorMessege"));
 	}
 
 	@Test(priority = 7)
@@ -91,7 +90,7 @@ public class LoginPageTest extends BaseClass {
 		action.type(indexpage.getPassWord(), prop.getProperty("InvalidPassword"));
 		String passwordValue = indexpage.getpasswordVisibiltyOnDom()
 				.getDomAttribute(prop.getProperty("passwordDOMAttribute"));
-		Assert.assertEquals(passwordValue, prop.getProperty("passwordValue"));
+		action.softAssertion(passwordValue,  prop.getProperty("passwordValue"));
 	}
 
 	@Test(priority = 9, groups= {"Smoke"})
@@ -104,7 +103,8 @@ public class LoginPageTest extends BaseClass {
 		action.click(driver, indexpage.getLogin());
 		action.fluentWait(driver, homepage.getScreenTitle());
 		String actualmessege = homepage.getScreenTitle().getText();
-		Assert.assertEquals(actualmessege, prop.getProperty("WelcomeMessgeOnHomePage"));
+		
+		action.softAssertion(actualmessege,  prop.getProperty("WelcomeMessgeOnHomePage"));
 	}
 	
 	@Test(priority = 10, groups= {"Smoke"})
@@ -112,7 +112,8 @@ public class LoginPageTest extends BaseClass {
 		homepage = new HomePage(driver);
 		indexpage = new IndexPage(driver);
 		action.click(driver, homepage.getlogout());
-		Assert.assertEquals(indexpage.getLoginDialougeTitle().getText(), prop.getProperty("LoginDialougeTitle"));
+		
+		action.softAssertion(indexpage.getLoginDialougeTitle().getText(),  prop.getProperty("LoginDialougeTitle"));
 	}
 
 	@Test(priority = 2)
@@ -120,8 +121,9 @@ public class LoginPageTest extends BaseClass {
 		indexpage = new IndexPage(driver);
 
 		String actualColor = action.colorVerify(indexpage.getLoginFormColor(), prop.getProperty("formColorvalueRGB"));
-
-		Assert.assertEquals(prop.getProperty("formHEXvalue"), actualColor);
+		
+		
+		action.softAssertion(actualColor,  prop.getProperty("formHEXvalue"));
 	}
 
 	@Test(priority = 3, groups= {"Smoke"})
@@ -130,6 +132,6 @@ public class LoginPageTest extends BaseClass {
 
 		String actualColor = action.colorVerify(indexpage.getLogin(), prop.getProperty("loginButtonColorvalueRGB"));
 
-		Assert.assertEquals(prop.getProperty("loginButtonHEXvalue"), actualColor);
+		action.softAssertion(actualColor,  prop.getProperty("loginButtonHEXvalue"));
 	}
 }
