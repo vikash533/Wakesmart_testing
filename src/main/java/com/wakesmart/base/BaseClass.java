@@ -23,10 +23,6 @@ public class BaseClass{
 
 	public WebDriver launchBrowser() throws IOException {
 		
-		
-		
-	
-
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Configuration\\Config.Properties");
 		prop =new Properties();
 		prop.load(fis);

@@ -3,15 +3,17 @@ package com.wakesmart.testcases;
 import java.io.IOException;
 import java.text.ParseException;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.wakesmart.action.Action;
 import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.About;
+import com.wakesmart.pageObjects.Automation;
 import com.wakesmart.pageObjects.HomePage;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.Manage;
@@ -28,6 +30,8 @@ public class HomePageTest extends BaseClass {
 	private About about;
 	private Reporting reporting;
 	private Manage manage;
+	private Automation automation;
+	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeClass
 	public void browserLaunch() throws IOException {
@@ -35,12 +39,12 @@ public class HomePageTest extends BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass
-	public void tearDown() throws InterruptedException {
-		driver.quit();
-	}
+//	@AfterClass
+//	public void tearDown() throws InterruptedException {
+//		driver.quit();
+//	}
 
-	@Test
+	@Test(priority=1)
 	public void validUserLogin() {
 		indexpage = new IndexPage(driver);
 		homepage = new HomePage(driver);
@@ -53,11 +57,10 @@ public class HomePageTest extends BaseClass {
 		action.fluentWait(driver, homepage.getScreenTitle());
 		String actualmessege = homepage.getScreenTitle().getText();
 		
-		
 		action.softAssertion(actualmessege,  prop.getProperty("WelcomeMessgeOnHomePage"));
 	}
 
-	@Test(dependsOnMethods = { "validUserLogin" })
+	@Test(priority=2)
 	public void user() {
 		homepage = new HomePage(driver);
 		action = new Action();
@@ -75,7 +78,7 @@ public class HomePageTest extends BaseClass {
 		Assert.assertTrue(actualMessegeContent.contains(prop.getProperty("UserContentMessege")));
 	}	
 
-	@Test(dependsOnMethods = { "user" })
+	@Test(priority=3)
 	public void about() {
 		action = new Action();
 		homepage = new HomePage(driver);
@@ -89,7 +92,7 @@ public class HomePageTest extends BaseClass {
 		Assert.assertTrue(actualmessegecontent.contains(prop.getProperty("AboutContentMessege")));
 	}
 
-	@Test(dependsOnMethods = { "about" })
+	@Test(priority=3)
 	public void reporting() throws InterruptedException, ParseException {
 		homepage = new HomePage(driver);
 		reporting = new Reporting(driver);
@@ -170,7 +173,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 
-	@Test(dependsOnMethods = { "reporting" })
+	@Test(priority=4)
 	public void assetInventory() throws InterruptedException {
 
 		reporting = new Reporting(driver);
@@ -199,7 +202,7 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, reporting.getAssetInventoryOkButton());
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 5)
 	public void manage_Device_Groups() throws InterruptedException {
 		manage = new Manage(driver);
 
@@ -223,23 +226,25 @@ public class HomePageTest extends BaseClass {
 		action.type(manage.getNewGroupDescription(), prop.getProperty("ManageNewGroupDescription"));
 		action.click(driver, manage.getNewGroupSubmitButton());
 
-		String newGroupName = action.nameVerifyFromTable(manage.getGroupNameVeriyText(),
-				prop.getProperty("ManageNewGroupName"));
+		String newGroupName = action.nameVerifyFromTable(manage.getGroupNameVeriyText(),prop.getProperty("ManageNewGroupName"));
+		
 		action.softAssertion(newGroupName, prop.getProperty("ManageNewGroupName"));
-
+		System.out.println(newGroupName);
+		System.out.println(prop.getProperty("ManageNewGroupName"));
 		String newgroupdescription = action.nameVerifyFromTable(manage.getGroupNameDescriptionVeriftText(),
 				prop.getProperty("ManageNewGroupDescription"));
 		action.softAssertion(newgroupdescription, prop.getProperty("ManageNewGroupDescription"));
 
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getDevicesList());
-
+		
 		action.softAssertion(manage.getDevicePageHeaderText().getText(), prop.getProperty("DevicesPageHeaderText"));
 
 		String Groupnameverify = action.nameVerifyFromTable(manage.getGroupsList(),
 				prop.getProperty("ManageNewGroupName"));
 
 		action.softAssertion(Groupnameverify, prop.getProperty("ManageNewGroupName"));
+		//////////////
 		
 		action.nameVerifyFromTableAndClick(manage.getGroupsList(),prop.getProperty("ManageNewGroupName"));
 		
@@ -271,7 +276,7 @@ public class HomePageTest extends BaseClass {
 
 	}
 
-	@Test(priority = 2)
+	@Test(priority=6)
 	public void manageEditGroups() {
 		
 		manage = new Manage(driver);
@@ -296,7 +301,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	//(dependsOnMethods= {"validUserLogin"})
-	@Test(dependsOnMethods= {"validUserLogin"},priority = 3)
+	@Test(priority=7)
 	public void managePolicies() {
 		
 		manage = new Manage(driver);
@@ -322,11 +327,283 @@ public class HomePageTest extends BaseClass {
 		
 		action.click(driver, manage.getSchemesEditButton());
 		
+		action.type(manage.getDescriptionEdit(), prop.getProperty("ManagePoliciesPopUpDescription"));
+		
+		action.dropdown(manage.getdisplayInactivityTimeout(), prop.getProperty("DisplayInactivityTimeOut"));
+		
+		action.dropdown(manage.getONDCdisplayInActivityTimeOut(),prop.getProperty("DisplayInactivityTimeOut") );
+		action.dropdown(manage.getONACpuInActivityTimeOut(), prop.getProperty("DisplayInactivityTimeOut"));
+		action.dropdown(manage.getONDCpuInActivityTimeOut(), prop.getProperty("DisplayInactivityTimeOut"));
+
+		action.dropdown(manage.getUSBSleepONAC(), prop.getProperty("DisabledText"));
+		action.dropdown(manage.getUSBSleepONDC(), prop.getProperty("DisabledText"));
+		action.dropdown(manage.getWakeTimersONAC(), prop.getProperty("DisabledText"));
+		action.dropdown(manage.getWakeTimersONDC(), prop.getProperty("DisabledText"));
+		action.dropdown(manage.getHIDWake(), prop.getProperty("DisabledText"));
+		
+		action.type(manage.getCPUMAx(),prop.getProperty("PoliciesCPUmax") );
+		action.type(manage.getScreenDim(), prop.getProperty("PoliciesScreenDim"));
+		action.type(manage.getDiskMax(), prop.getProperty("PoliciesDiskMax"));
+		action.type(manage.getBrightness(), prop.getProperty("PoliciesBrightness"));
+		action.type(manage.getNetworkMax(), prop.getProperty("PoliciesNetworkMax"));
+		action.click(driver, manage.getSaveButton());
+		
+		action.softAssertion(manage.getWakeTimerONACVerifyText(), prop.getProperty("DisabledText"));
+		action.softAssertion(manage.getUsbSleepONACVerifyText(), prop.getProperty("DisabledText"));
+		action.softAssertion(manage.getHidWakeONACVerifyText(), prop.getProperty("DisabledText"));
+		action.softAssertion(manage.getCPUMaxONACVerifyText(), prop.getProperty("PoliciesCPUmax"));
+		action.softAssertion(manage.getDiskMaxONACVerifyText(), prop.getProperty("PoliciesDiskMax"));
+		action.softAssertion(manage.getNetworkMaxONACVerifyText(), prop.getProperty("PoliciesNetworkMax"));
+		action.softAssertion(manage.getWakeTimerONDCVerifyText(), prop.getProperty("DisabledText"));
+		action.softAssertion(manage.getUSBSleepONDCV(), prop.getProperty("DisabledText"));
+	}
+	
+	@Test(priority=8)
+	public void manage_Policies_AddNewScheme() {
+		action.click(driver, manage.getADDSchemeButton());
+		manage.getSelectDaysCheckbox();
+		action.type(manage.getNewSchemeName(), prop.getProperty("NewSchemeName"));
+		
+		action.type(manage.getNewSchemeDescription(),prop.getProperty("PoliciesNewSchemeDescription"));
+		action.type(manage.getNewSchemeStartTime(), prop.getProperty("PoliciesNewSchemeStartTime"));
+		action.keyBoardKeys(driver, Keys.ARROW_DOWN);
+		action.type(manage.getNewSchemeEndTime(), prop.getProperty("PoliciesNewSchemeEndTime"));
+		action.keyBoardKeys(driver, Keys.ARROW_DOWN);
+		
+		action.dropdown(manage.getdisplayInactivityTimeout(), prop.getProperty("DisplayInactivityTimeOut"));
+		
+		action.dropdown(manage.getONDCdisplayInActivityTimeOut(),prop.getProperty("DisplayInactivityTimeOut") );
+		action.dropdown(manage.getONACpuInActivityTimeOut(), prop.getProperty("DisplayInactivityTimeOut"));
+		action.dropdown(manage.getONDCpuInActivityTimeOut(), prop.getProperty("DisplayInactivityTimeOut"));
+
+		action.dropdown(manage.getUSBSleepONAC(), prop.getProperty("DisabledText"));
+		action.dropdown(manage.getUSBSleepONDC(), prop.getProperty("DisabledText"));
+		action.dropdown(manage.getWakeTimersONAC(), prop.getProperty("DisabledText"));
+		action.dropdown(manage.getWakeTimersONDC(), prop.getProperty("DisabledText"));
+		action.dropdown(manage.getHIDWake(), prop.getProperty("DisabledText"));
+		
+		action.type(manage.getCPUMAx(),prop.getProperty("PoliciesCPUmax") );
+		action.type(manage.getScreenDim(), prop.getProperty("PoliciesScreenDim"));
+		action.type(manage.getDiskMax(), prop.getProperty("PoliciesDiskMax"));
+		action.type(manage.getBrightness(), prop.getProperty("PoliciesBrightness"));
+		action.type(manage.getNetworkMax(), prop.getProperty("PoliciesNetworkMax"));
+		action.click(driver, manage.getSaveButton());
 		
 		
+		action.softAssertion(manage.getNewSchemeDaysVerifyText(), prop.getProperty("getSchemeDaysTextVerify"));
+		action.softAssertion(manage.getNewSchemeStartTimeVerifyText(), prop.getProperty("PoliciesNewSchemeStartTimeVerify"));
+		action.softAssertion(manage.getNewSchemeEndTimeVerifyText(), prop.getProperty("PoliciesNewSchemeEndTimeVerify"));
+		
+
+	}
+	
+	@Test(priority=9)
+	public void managePolicies_Scheduled_Events() {
+		manage = new Manage(driver);
+		
+		action.click(driver, manage.getScduledEventAddButton());
+		manage.getScheduledDays();
+		
+		action.dropdown(manage.getEventSelector(), prop.getProperty("PoliciesEventSelector"));
+		action.type(manage.getEventStartTime(), prop.getProperty("PoliciesEventStartTime"));
+		action.keyBoardKeys(driver, Keys.ARROW_DOWN);
+		action.type(manage.getEventStartPreWarningTime(), prop.getProperty("PoliciesEventStartPreWarningTime"));
+		action.type(manage.getEventStartDelayTime(), prop.getProperty("PoliciesEventStartDelayTime"));
+		action.type(manage.getEventStartMessege(), prop.getProperty("PoliciesEventStartMessege"));
+		action.click(driver, manage.getEventStartSaveButton());
+		
+		action.softAssertion(manage.getScheduledEventNameTextVerify(), prop.getProperty("PoliciesEventSelector"));
+		action.softAssertion(manage.getScheduledEventdaysTextVerify(), prop.getProperty("getSchemeDaysTextVerify"));
+		action.softAssertion(manage.getScheduledEventStartTextVerify(), prop.getProperty("PoliciesEventStartTimeVeriftText"));
+		
+		action.click(driver, manage.getNewPolicySaveButton());
+	}
+	
+	@Test(priority=10)
+	public void new_Policy_Verify() {
+		manage = new Manage(driver);
+		
+		action.softAssertion(manage.getPolicyNameVerify(prop.getProperty("ManageNewPolicyName")), prop.getProperty("ManageNewPolicyName"));
+		action.softAssertion(manage.getPolicyDescriptionVerify(prop.getProperty("ManageNewPolicyDescription")), prop.getProperty("ManageNewPolicyDescription"));
+			
+	}
+	
+	@Test(priority=11)
+	public void assign_Policy_To_Sytstem() {
+		manage = new Manage(driver);
 		
 		
+		action.click(driver, manage.getManageIcon());
+		action.click(driver, manage.getDevicesList());
+		action.click(driver, manage.getDefaultGroupName());
+		action.click(driver, manage.getDeviceNameInGroupTest());
+		action.rightclick(driver, manage.getDeviceNameInGroupTest());
+		action.click(driver, manage.getAssignPolicy());
+		action.dropdown(manage.getPolicySelectorFromDropdown(), prop.getProperty("ManageNewPolicyName"));
+		action.click(driver, manage.getAssignPolicyOKButton());
+		action.softAssertion(manage.getPolicyAssignVerifyText(prop.getProperty("ManageNewPolicyName")), prop.getProperty("ManageNewPolicyName"));
+	}
+	
+	
+	@Test(priority=12)
+	public void deleteAssignedPolicy() {
+		manage = new Manage(driver);
 		
+		action.click(driver, manage.getManageIcon());
+		action.click(driver, manage.getPoliciesIcon());
+		manage.getPolicyNameVerifyAndClick(prop.getProperty("ManageNewPolicyName"));
+		action.click(driver, manage.getpolicyDeleteButton());
+		String Text = manage.getPolicyDeleteAlertMessege();
+		softAssert.assertTrue(Text.contains(prop.getProperty("DeletePolicyAlertText")));
+	}
+	
+	
+	@Test(priority=13)
+	public void Unassign_Policy_To_Sytstem() {
+		manage = new Manage(driver);
+		
+		action.click(driver, manage.getManageIcon());
+		action.click(driver, manage.getDevicesList());
+		action.click(driver, manage.getDefaultGroupName());
+		action.click(driver, manage.getDeviceNameInGroupTest());
+		action.rightclick(driver, manage.getDeviceNameInGroupTest());
+		action.click(driver, manage.getAssignPolicy());
+		action.dropdown(manage.getPolicySelectorFromDropdown(), prop.getProperty("DefaultOTSTestingPolicy"));
+		action.click(driver, manage.getAssignPolicyOKButton());
+		action.softAssertion(manage.getPolicyAssignVerifyText(prop.getProperty("DefaultOTSTestingPolicy")), prop.getProperty("DefaultOTSTestingPolicy"));
+	}
+	
+//	@Test
+//	public void delete_UnAssigned_Policy() {
+//		
+//		
+//		
+//	}
+	
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void manage_User() {
+		manage = new Manage(driver);
+		
+		action.click(driver, manage.getManageIcon());
+		action.click(driver, manage.getUsers());
+		softAssert.assertEquals(manage.getUsersHeaderText(), prop.getProperty("UsersHeaderTextVerify"));
+		action.click(driver, manage.getNewUserGroup());
+		softAssert.assertEquals(manage.getpopUpNewUserGroupText(), prop.getProperty("PopUpNewUserGroupText"));
+		
+		action.type(manage.getUsersGroupName(), prop.getProperty("UsersGroupName"));
+		action.type(manage.getUsersGroupDescription(), prop.getProperty("UsersGroupDescription"));
+		action.click(driver, manage.getAddUserButton());
+		action.dropdown(manage.getChooseUserFromExistingUserListDropDown(), prop.getProperty("ValidUserName"));
+		
+		softAssert.assertEquals(manage.getExistingUserNameTextVerify().getText(), prop.getProperty("ValidUserName"));
+		action.click(driver, manage.getExistingUserNameTextVerify());
+		action.click(driver, manage.getDeleteUser());
+		
+		action.click(driver, manage.getAddUserButton());
+		action.type(manage.getUserName(), prop.getProperty("NewUserName"));
+		action.type(manage.getUserEmailAddress(), prop.getProperty("yopemailforADDUSer"));
+		action.type(manage.getUserConfirmEmail(), prop.getProperty("yopemailforADDUSer"));
+		action.click(driver, manage.getAddUserDialougeBox());
+		action.click(driver, manage.getAddUserSaveButton());
+		
+		softAssert.assertEquals(manage.getExistingUserNameTextVerify().getText(), prop.getProperty("NewUserName"));
+		action.click(driver, manage.getNewPolicySaveButton());
+		
+		softAssert.assertEquals(manage.getGroupCreateSuccessMessege(), prop.getProperty("GroupCreateSuccessMessegeTextVerify"));
+		action.click(driver, manage.getGroupCreateOkButton());
+		
+		softAssert.assertAll();
 	}
 
+	
+	@Test(priority=15)
+	public void manage_Users_GroupPermission() throws InterruptedException {
+		manage = new Manage(driver);
+		
+		//Temperory implementation
+		//action.click(driver, manage.getManageIcon());
+		//action.click(driver, manage.getUsers());
+		
+		action.click(driver, manage.getUsersGroupPermissions());
+		action.dropdown(manage.getUsersGroupSelectDropDown(), prop.getProperty("UsersGroupName"));
+		softAssert.assertEquals(action.nameVerifyFromTable(manage.getUserGroupsVerifyText(), prop.getProperty("ManageNewGroupReName")),prop.getProperty("ManageNewGroupReName"));
+		
+	
+		softAssert.assertAll();
+	}
+	
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void manage_Licences() {
+		manage = new Manage(driver);
+		
+		action.click(driver, manage.getManageIcon());
+		action.click(driver, manage.getLicences());
+		action.click(driver, manage.getUpdateLicenceButton());
+		softAssert.assertEquals(manage.getLicenceUpdatedMessge(), prop.getProperty("ManageLicenceUpdatedMessge"));
+		action.click(driver, manage.getLicenceMessegePopUpOKButton());
+		
+		softAssert.assertEquals(manage.getLicenceTabletextVerify(), manage.output(prop));
+		softAssert.assertAll();
+		
+	}
+	
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void manage_Reference() {
+		manage = new Manage(driver);
+		
+		action.click(driver, manage.getManageIcon());
+		action.click(driver, manage.getReference());
+		
+		softAssert.assertEquals(manage.getreferenceScreenTitle(), prop.getProperty("ManagegetreferenceScreenTitle"));
+		softAssert.assertEquals(manage.getInstallerDownloadsVerifyText(), prop.getProperty("ManagegetInstallerDownloadsVerifyText"));
+		softAssert.assertEquals(manage.getPluginDownloadsVerifyText(), prop.getProperty("ManagegetPluginDownloadsVerifyText"));
+		softAssert.assertEquals(manage.getDocumentationVerifyText(), prop.getProperty("ManagegetDocumentationVerifyText"));
+		
+		softAssert.assertAll();
+	}
+	
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void manage_Automation() {
+		automation = new Automation(driver);
+		
+		action.click(driver, automation.getAutomateIcon());
+		softAssert.assertEquals(automation.getAutomationHeaderText(), prop.getProperty("ManageAutomationScreenTitle"));
+		softAssert.assertEquals(automation.getPolicyRulesVerifyText(), prop.getProperty("ManagegetPolicyRulesVerifyText"));
+		softAssert.assertEquals(automation.getAlertRulesVerifyText(), prop.getProperty("ManagegetAlertRulesVerifyText"));
+		softAssert.assertEquals(automation.getGroupRulesVerifyText(), prop.getProperty("ManagegetGroupRulesVerifyText"));
+		
+		action.click(driver, automation.getNewRuleButton());
+		
+		softAssert.assertEquals(automation.getCreateRuleHeaderText(), prop.getProperty("ManagegetCreateRuleHeaderText"));
+		
+		action.click(driver, automation.getEnabledCheckBox());
+		action.dropdown(automation.getOrderDropdown(), prop.getProperty(""));
+		action.type(automation.getRuleName(), prop.getProperty(""));
+		action.type(automation.getRuleDescription(), prop.getProperty(""));
+		action.dropdown(automation.getGroup(), prop.getProperty(""));
+		action.dropdown(automation.getAttributeIF(), prop.getProperty(""));
+		action.dropdown(automation.getOperatorDropDown(), prop.getProperty(""));
+		action.type(automation.getValue(), prop.getProperty(""));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		softAssert.assertAll();
+	}
+	
+	
 }
+
+
+
+

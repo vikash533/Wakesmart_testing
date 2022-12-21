@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +29,7 @@ import com.wakesmart.base.BaseClass;
 
 public class Action extends BaseClass {
 	
-	
+	public Properties prop;
 	
 	//Soft assertion for string
 	public void softAssertion(String actual,String expected) {
@@ -85,15 +86,15 @@ public class Action extends BaseClass {
 	
 	public void nameVerifyFromTableAndClick(List<WebElement> ele, String str) {
 
+		
 		for (WebElement option : ele) {
-			
+	
 			if(option.getText().equalsIgnoreCase(str)) {
 				option.click();
 				break;
 			}
 		}
 	}
-	
 	
 	
 	
@@ -185,6 +186,12 @@ public class Action extends BaseClass {
 		Actions act = new Actions(driver);
 		act.moveToElement(ele).click().build().perform();
 	}
+	
+	public void keyBoardKeys(WebDriver driver, Keys  KeysToSend) {
+		Actions act = new Actions(driver);
+		act.sendKeys(KeysToSend).click().perform();
+		}
+	
 
 	// pass
 	public boolean isDisplayed(WebDriver driver, WebElement ele) {

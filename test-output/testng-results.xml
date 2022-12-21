@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="6" total="8" passed="2" failed="0" skipped="0">
+<testng-results ignored="17" total="19" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-02T18:09:00 IST" name="Default suite" finished-at="2022-12-02T18:09:18 IST" duration-ms="17229">
+  <suite started-at="2022-12-20T19:08:47 IST" name="Default suite" finished-at="2022-12-20T19:09:06 IST" duration-ms="18971">
     <groups>
     </groups>
-    <test started-at="2022-12-02T18:09:00 IST" name="Default test" finished-at="2022-12-02T18:09:18 IST" duration-ms="17229">
+    <test started-at="2022-12-20T19:08:47 IST" name="Default test" finished-at="2022-12-20T19:09:06 IST" duration-ms="18971">
       <class name="com.wakesmart.testcases.HomePageTest">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@26d9b808]" started-at="2022-12-02T18:09:00 IST" name="browserLaunch" finished-at="2022-12-02T18:09:08 IST" duration-ms="7493" status="PASS">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@2eae8e6e]" started-at="2022-12-20T19:08:47 IST" name="browserLaunch" finished-at="2022-12-20T19:08:56 IST" duration-ms="8477" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="validUserLogin()[pri:0, instance:com.wakesmart.testcases.HomePageTest@26d9b808]" started-at="2022-12-02T18:09:08 IST" name="validUserLogin" finished-at="2022-12-02T18:09:15 IST" duration-ms="6667" status="PASS">
+        <test-method signature="validUserLogin()[pri:1, instance:com.wakesmart.testcases.HomePageTest@2eae8e6e]" started-at="2022-12-20T19:08:56 IST" name="validUserLogin" finished-at="2022-12-20T19:09:02 IST" duration-ms="6814" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validUserLogin -->
-        <test-method signature="managePolicies()[pri:3, instance:com.wakesmart.testcases.HomePageTest@26d9b808]" started-at="2022-12-02T18:09:15 IST" name="managePolicies" finished-at="2022-12-02T18:09:18 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="2952" status="PASS">
+        <test-method signature="manage_Automation()[pri:0, instance:com.wakesmart.testcases.HomePageTest@2eae8e6e]" started-at="2022-12-20T19:09:02 IST" name="manage_Automation" finished-at="2022-12-20T19:09:06 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="3570" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- managePolicies -->
+        </test-method> <!-- manage_Automation -->
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

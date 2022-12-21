@@ -6,7 +6,7 @@
       <class name="com.wakesmart.testcases.HomePageTest">
         <methods>
           <include name="browserLaunch"/>
-          <include name="managePolicies"/>
+          <include name="manage_Automation"/>
           <include name="validUserLogin"/>
         </methods>
       </class> <!-- com.wakesmart.testcases.HomePageTest -->

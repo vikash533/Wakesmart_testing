@@ -2,7 +2,6 @@ package com.wakesmart.utility;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Extent_ReportNG {
 	public static ExtentReports extent;
@@ -13,7 +12,7 @@ public class Extent_ReportNG {
 		
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 		reporter.config().setReportName("Web Automation Result");
-		reporter.config().setDocumentTitle("LoanMantraAutomation");
+		reporter.config().setDocumentTitle("Wake Smart Automation");
 		
 		 extent = new ExtentReports();
 		extent.attachReporter(reporter);
