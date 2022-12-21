@@ -473,12 +473,12 @@ public class HomePageTest extends BaseClass {
 		action.softAssertion(manage.getPolicyAssignVerifyText(prop.getProperty("DefaultOTSTestingPolicy")), prop.getProperty("DefaultOTSTestingPolicy"));
 	}
 	
-//	@Test
-//	public void delete_UnAssigned_Policy() {
-//		
-//		
-//		
-//	}
+	@Test(enabled=false)
+	public void delete_UnAssigned_Policy() {
+		
+		
+		
+	}
 	
 	@Test(dependsOnMethods= {"validUserLogin"})
 	public void manage_User() {
@@ -567,38 +567,63 @@ public class HomePageTest extends BaseClass {
 		automation = new Automation(driver);
 		
 		action.click(driver, automation.getAutomateIcon());
-		softAssert.assertEquals(automation.getAutomationHeaderText(), prop.getProperty("ManageAutomationScreenTitle"));
-		softAssert.assertEquals(automation.getPolicyRulesVerifyText(), prop.getProperty("ManagegetPolicyRulesVerifyText"));
-		softAssert.assertEquals(automation.getAlertRulesVerifyText(), prop.getProperty("ManagegetAlertRulesVerifyText"));
-		softAssert.assertEquals(automation.getGroupRulesVerifyText(), prop.getProperty("ManagegetGroupRulesVerifyText"));
+		softAssert.assertEquals(automation.getAutomationHeaderText(), prop.getProperty("AutomationScreenTitle"));
+		softAssert.assertEquals(automation.getPolicyRulesVerifyText(), prop.getProperty("AutomationgetPolicyRulesVerifyText"));
+		softAssert.assertEquals(automation.getAlertRulesVerifyText(), prop.getProperty("AutomationgetAlertRulesVerifyText"));
+		softAssert.assertEquals(automation.getGroupRulesVerifyText(), prop.getProperty("AutomationgetGroupRulesVerifyText"));
 		
 		action.click(driver, automation.getNewRuleButton());
 		
-		softAssert.assertEquals(automation.getCreateRuleHeaderText(), prop.getProperty("ManagegetCreateRuleHeaderText"));
+		softAssert.assertEquals(automation.getCreateRuleHeaderText(), prop.getProperty("AutomationgetCreateRuleHeaderText"));
 		
 		action.click(driver, automation.getEnabledCheckBox());
-		action.dropdown(automation.getOrderDropdown(), prop.getProperty(""));
-		action.type(automation.getRuleName(), prop.getProperty(""));
-		action.type(automation.getRuleDescription(), prop.getProperty(""));
-		action.dropdown(automation.getGroup(), prop.getProperty(""));
-		action.dropdown(automation.getAttributeIF(), prop.getProperty(""));
-		action.dropdown(automation.getOperatorDropDown(), prop.getProperty(""));
-		action.type(automation.getValue(), prop.getProperty(""));
+		action.dropdown(automation.getOrderDropdown(), prop.getProperty("AutomationgetOrderDropdown"));
+		action.type(automation.getRuleName(), prop.getProperty("AutomationgetRuleName"));
+		action.type(automation.getRuleDescription(), prop.getProperty("AutomationgetRuleDescription"));
+		action.dropdown(automation.getGroup(), prop.getProperty("ManageNewGroupReName"));
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		// First Rule
+		action.dropdown(automation.getAttributeIF(), prop.getProperty("AutomationgetAttributeIF"));
+		action.dropdown(automation.getOperatorDropDown(), prop.getProperty("AutomationgetOperatorDropDown"));
+		action.type(automation.getValue(), prop.getProperty("ValidUserName"));
+		action.click(driver, automation.getBlankSpacetoClick());
+		action.click(driver, automation.getAddClauseButton());
+	
+		//Second Rule
+		action.dropdown(automation.getAttributeIFSecondRow(), prop.getProperty("AutomationgetAttributeIFSecondRow"));
+		action.click(driver, automation.getNotCheckBoxSecondRow());
+		action.dropdown(automation.getOperatorDropDownSecondRow(), prop.getProperty("AutomationgetOperatorDropDownSecondRow"));
+		action.type(automation.getValueSecondRow(), prop.getProperty("AutomationValueSecondUser"));
+		action.click(driver, automation.getBlankSpacetoClick());
+		action.click(driver, automation.getCreateRuleSaveButton());
 		
 		softAssert.assertAll();
+	}
+	
+	@Test(dependsOnMethods= {"manage_Automation"})
+	public void rule_Presence_verify() {
+		automation = new Automation(driver);
+		
+		action.click(driver, automation.getAutomateIcon());
+		automation.getRuleNameVerifyText(prop.getProperty("AutomationgetRuleName"));
+		action.click(driver, automation.getEditRuleButton());
+		
+		action.dropdown(automation.getSecondRuleOrDropDown(), prop.getProperty("AutomationgetSecondRuleOrDropDown"));
+		action.click(driver, automation.getAddClauseButton());
+		
+		//Third Rule
+		action.dropdown(automation.getAttributeIFThirdRow(), prop.getProperty("AutomationgetAttributeIFThirdRow"));
+		action.dropdown(automation.getOperatorDropdownThirdRow(), prop.getProperty("AutomationgetOperatorDropDownThirdRow"));
+		action.type(automation.getValueThrirdRow(), prop.getProperty("AutomationgetOperatorDropDownThirdRow"));
+		action.click(driver, automation.getBlankSpacetoClick());
+		action.click(driver, automation.getCreateRuleSaveButton());
+		
+		boolean flag =automation.getRuleVerifyText(prop.getProperty("AutomationgetRuleVerifyText"));
+		
+		softAssert.assertTrue(flag);
+		
+		softAssert.assertAll();
+		
 	}
 	
 	

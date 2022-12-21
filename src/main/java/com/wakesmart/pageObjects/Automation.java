@@ -1,7 +1,5 @@
 package com.wakesmart.pageObjects;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,6 +29,93 @@ public class Automation extends BaseClass {
 	By NotCheckBox = By.xpath("//input[@id='notChk1']");
 	By OperatorDropDown = By.xpath("//select[@id='operatorSelector1']");
 	By Value = By.xpath("//input[@id='value1']");
+	By BlankSpacetoClick = By.xpath("//div[@id='addDiv']");
+	By AddClauseButton = By.xpath("//button[@id='addStmntBtn']");
+	
+	By AttributeIFSecondRow = By.xpath("(//select[@id='devAttribSelector2'])[1]");
+	By NotCheckBoxSecondRow = By.xpath("(//input[@id='notChk2'])[1]");
+	By OperatorDropDownSecondRow = By.xpath("(//select[@id='operatorSelector2'])[1]");
+	By ValueSecondRow= By.xpath("(//input[@id='value2'])[1]");
+	By ClauseDelete = By.xpath("(//button[@id='delClauseBtn3'])[1]");
+	By CreateRuleSaveButton = By.xpath("//button[@id='saveRuleBtn']");
+	By RuleNameVerifyText =  By.xpath("(//div[@id='Rule List'])//table/tbody/tr/td[1]");
+	By EditRuleButton = By.xpath("//button[@id='editRuleBtn']");
+	By SecondRuleOrDropDown = By.xpath("(//select[@id='conSelector2'])[1]");
+	By AttributeIFThirdRow = By.xpath("(//select[@id='devAttribSelector3'])[1]");
+	By OperatorDropdownThirdRow = By.xpath("(//select[@id='operatorSelector3'])[1]");
+	By ValueThrirdRow = By.xpath("(//input[@id='value3'])[1]");
+	By RuleVerifyText = By.xpath("(//div[@id='Rule List'])[1]/table/tbody/tr/td[6]");
+	
+	public boolean  getRuleVerifyText(String str) {
+		boolean flag =false;
+		for(WebElement ele: driver.findElements(RuleVerifyText)) {
+			
+			if(ele.getText().equalsIgnoreCase(str)) {
+				flag=true;
+				break;
+			}
+		}
+		return flag;
+	}
+	
+	
+	public WebElement getAttributeIFThirdRow() {
+		return driver.findElement(AttributeIFThirdRow);
+	}
+	
+	public WebElement getOperatorDropdownThirdRow() {
+		return driver.findElement(OperatorDropdownThirdRow);
+	}
+	
+	public WebElement getValueThrirdRow() {
+		return driver.findElement(ValueThrirdRow);
+	}
+	
+	public WebElement getSecondRuleOrDropDown() {
+		return driver.findElement(SecondRuleOrDropDown );
+	}
+
+	public WebElement getEditRuleButton() {
+		return driver.findElement(EditRuleButton);
+	}
+	
+	public void getRuleNameVerifyText(String str) {
+		
+		for(WebElement ele: driver.findElements(RuleNameVerifyText)) {
+			if(ele.getText().equalsIgnoreCase(str)) {
+				ele.click();
+				break;
+			}	
+		}
+	}
+	
+	public WebElement getCreateRuleSaveButton() {
+		return driver.findElement(CreateRuleSaveButton);
+	}
+	public WebElement getClauseDelete() {
+		return driver.findElement(ClauseDelete);
+	}
+	
+	public WebElement getAttributeIFSecondRow() {
+		return driver.findElement(AttributeIFSecondRow);
+	}
+	public WebElement getNotCheckBoxSecondRow() {
+		return driver.findElement(NotCheckBoxSecondRow);
+	}
+	public WebElement getOperatorDropDownSecondRow() {
+		return driver.findElement(OperatorDropDownSecondRow);
+	}
+	public WebElement getValueSecondRow() {
+		return driver.findElement(ValueSecondRow);
+	}
+	
+	public WebElement getAddClauseButton() {
+		return driver.findElement(AddClauseButton);
+	}
+
+	public WebElement getBlankSpacetoClick() {
+		return driver.findElement(BlankSpacetoClick);
+	}
 	
 	public WebElement getValue() {
 		return driver.findElement(Value);

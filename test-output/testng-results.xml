@@ -1,24 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="17" total="19" passed="2" failed="0" skipped="0">
+<testng-results ignored="18" total="21" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-20T19:08:47 IST" name="Default suite" finished-at="2022-12-20T19:09:06 IST" duration-ms="18971">
+  <suite started-at="2022-12-21T20:28:18 IST" name="Default suite" finished-at="2022-12-21T20:28:50 IST" duration-ms="31677">
     <groups>
     </groups>
-    <test started-at="2022-12-20T19:08:47 IST" name="Default test" finished-at="2022-12-20T19:09:06 IST" duration-ms="18971">
+    <test started-at="2022-12-21T20:28:18 IST" name="Default test" finished-at="2022-12-21T20:28:50 IST" duration-ms="31677">
       <class name="com.wakesmart.testcases.HomePageTest">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@2eae8e6e]" started-at="2022-12-20T19:08:47 IST" name="browserLaunch" finished-at="2022-12-20T19:08:56 IST" duration-ms="8477" status="PASS">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@470734c3]" started-at="2022-12-21T20:28:18 IST" name="browserLaunch" finished-at="2022-12-21T20:28:24 IST" duration-ms="6234" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="validUserLogin()[pri:1, instance:com.wakesmart.testcases.HomePageTest@2eae8e6e]" started-at="2022-12-20T19:08:56 IST" name="validUserLogin" finished-at="2022-12-20T19:09:02 IST" duration-ms="6814" status="PASS">
+        <test-method signature="validUserLogin()[pri:1, instance:com.wakesmart.testcases.HomePageTest@470734c3]" started-at="2022-12-21T20:28:24 IST" name="validUserLogin" finished-at="2022-12-21T20:28:31 IST" duration-ms="6496" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validUserLogin -->
-        <test-method signature="manage_Automation()[pri:0, instance:com.wakesmart.testcases.HomePageTest@2eae8e6e]" started-at="2022-12-20T19:09:02 IST" name="manage_Automation" finished-at="2022-12-20T19:09:06 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="3570" status="PASS">
+        <test-method signature="manage_Automation()[pri:0, instance:com.wakesmart.testcases.HomePageTest@470734c3]" started-at="2022-12-21T20:28:31 IST" name="manage_Automation" finished-at="2022-12-21T20:28:41 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="10368" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- manage_Automation -->
+        <test-method signature="rule_Presence_verify()[pri:0, instance:com.wakesmart.testcases.HomePageTest@470734c3]" started-at="2022-12-21T20:28:41 IST" name="rule_Presence_verify" finished-at="2022-12-21T20:28:50 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.manage_Automation" duration-ms="8478" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+expected [true] but found [false]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.wakesmart.testcases.HomePageTest.rule_Presence_verify(HomePageTest.java:625)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:806)
+at org.testng.TestRunner.run(TestRunner.java:601)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rule_Presence_verify -->
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
