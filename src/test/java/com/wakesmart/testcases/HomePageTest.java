@@ -6,6 +6,7 @@ import java.text.ParseException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -19,6 +20,8 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.Manage;
 import com.wakesmart.pageObjects.Reporting;
 import com.wakesmart.pageObjects.User;
+import com.wakesmart.pageObjects.Settings;
+
 
 public class HomePageTest extends BaseClass {
 
@@ -31,6 +34,7 @@ public class HomePageTest extends BaseClass {
 	private Reporting reporting;
 	private Manage manage;
 	private Automation automation;
+	private Settings settings;
 	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeClass
@@ -39,10 +43,10 @@ public class HomePageTest extends BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
-//	@AfterClass
-//	public void tearDown() throws InterruptedException {
-//		driver.quit();
-//	}
+	@AfterClass
+	public void tearDown() throws InterruptedException {
+		driver.quit();
+	}
 
 	@Test(priority=1)
 	public void validUserLogin() {
@@ -92,7 +96,7 @@ public class HomePageTest extends BaseClass {
 		Assert.assertTrue(actualmessegecontent.contains(prop.getProperty("AboutContentMessege")));
 	}
 
-	@Test(priority=3)
+	@Test(priority=4)
 	public void reporting() throws InterruptedException, ParseException {
 		homepage = new HomePage(driver);
 		reporting = new Reporting(driver);
@@ -173,7 +177,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 
-	@Test(priority=4)
+	@Test(priority=5)
 	public void assetInventory() throws InterruptedException {
 
 		reporting = new Reporting(driver);
@@ -202,7 +206,7 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, reporting.getAssetInventoryOkButton());
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 6)
 	public void manage_Device_Groups() throws InterruptedException {
 		manage = new Manage(driver);
 
@@ -244,7 +248,7 @@ public class HomePageTest extends BaseClass {
 				prop.getProperty("ManageNewGroupName"));
 
 		action.softAssertion(Groupnameverify, prop.getProperty("ManageNewGroupName"));
-		//////////////
+		
 		
 		action.nameVerifyFromTableAndClick(manage.getGroupsList(),prop.getProperty("ManageNewGroupName"));
 		
@@ -276,7 +280,7 @@ public class HomePageTest extends BaseClass {
 
 	}
 
-	@Test(priority=6)
+	@Test(priority=7)
 	public void manageEditGroups() {
 		
 		manage = new Manage(driver);
@@ -301,7 +305,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	//(dependsOnMethods= {"validUserLogin"})
-	@Test(priority=7)
+	@Test(priority=8)
 	public void managePolicies() {
 		
 		manage = new Manage(driver);
@@ -358,7 +362,7 @@ public class HomePageTest extends BaseClass {
 		action.softAssertion(manage.getUSBSleepONDCV(), prop.getProperty("DisabledText"));
 	}
 	
-	@Test(priority=8)
+	@Test(priority=9)
 	public void manage_Policies_AddNewScheme() {
 		action.click(driver, manage.getADDSchemeButton());
 		manage.getSelectDaysCheckbox();
@@ -397,7 +401,7 @@ public class HomePageTest extends BaseClass {
 
 	}
 	
-	@Test(priority=9)
+	@Test(priority=10)
 	public void managePolicies_Scheduled_Events() {
 		manage = new Manage(driver);
 		
@@ -419,7 +423,7 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, manage.getNewPolicySaveButton());
 	}
 	
-	@Test(priority=10)
+	@Test(priority=11)
 	public void new_Policy_Verify() {
 		manage = new Manage(driver);
 		
@@ -428,7 +432,7 @@ public class HomePageTest extends BaseClass {
 			
 	}
 	
-	@Test(priority=11)
+	@Test(priority=12)
 	public void assign_Policy_To_Sytstem() {
 		manage = new Manage(driver);
 		
@@ -445,7 +449,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	
-	@Test(priority=12)
+	@Test(priority=13)
 	public void deleteAssignedPolicy() {
 		manage = new Manage(driver);
 		
@@ -458,7 +462,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	
-	@Test(priority=13)
+	@Test(priority=14)
 	public void Unassign_Policy_To_Sytstem() {
 		manage = new Manage(driver);
 		
@@ -480,7 +484,7 @@ public class HomePageTest extends BaseClass {
 		
 	}
 	
-	@Test(dependsOnMethods= {"validUserLogin"})
+	@Test(priority=15)
 	public void manage_User() {
 		manage = new Manage(driver);
 		
@@ -516,7 +520,7 @@ public class HomePageTest extends BaseClass {
 	}
 
 	
-	@Test(priority=15)
+	@Test(priority=16)
 	public void manage_Users_GroupPermission() throws InterruptedException {
 		manage = new Manage(driver);
 		
@@ -531,8 +535,9 @@ public class HomePageTest extends BaseClass {
 	
 		softAssert.assertAll();
 	}
+	//(dependsOnMethods= {"validUserLogin"})
 	
-	@Test(dependsOnMethods= {"validUserLogin"})
+	@Test(priority=17)
 	public void manage_Licences() {
 		manage = new Manage(driver);
 		
@@ -547,7 +552,7 @@ public class HomePageTest extends BaseClass {
 		
 	}
 	
-	@Test(dependsOnMethods= {"validUserLogin"})
+	@Test(priority=18)
 	public void manage_Reference() {
 		manage = new Manage(driver);
 		
@@ -562,7 +567,7 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	@Test(dependsOnMethods= {"validUserLogin"})
+	@Test(priority=19)
 	public void manage_Automation() {
 		automation = new Automation(driver);
 		
@@ -600,8 +605,8 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	@Test(dependsOnMethods= {"manage_Automation"})
-	public void rule_Presence_verify() {
+	@Test(priority=20)
+	public void Automation_rule_Presence_verify() {
 		automation = new Automation(driver);
 		
 		action.click(driver, automation.getAutomateIcon());
@@ -623,8 +628,128 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertTrue(flag);
 		
 		softAssert.assertAll();
-		
 	}
+	
+	
+	@Test(priority=21)
+	public void Automation_PolicyRules() {
+		automation = new Automation(driver);		
+		  
+		//need to delete
+		action.click(driver, automation.getAutomateIcon());
+		action.click(driver, automation.getPolicyRules());
+		
+		action.click(driver, automation.getNewRuleButton());
+		
+		softAssert.assertEquals(automation.getCreateRuleHeaderText(), prop.getProperty("AutomationgetCreateRuleHeaderText"));
+		
+		action.click(driver, automation.getEnabledCheckBox());
+		action.dropdown(automation.getPolicyRulesDropdown(), prop.getProperty("AutomationPolicyRulesgetOrderDropdown"));
+		action.type(automation.getRuleName(), prop.getProperty("AutomationPolicyRulesgetRuleName"));
+		action.type(automation.getRuleDescription(), prop.getProperty("AutomationPolicyRulesgetRuleDescription"));
+		action.dropdown(automation.getPolicySeclectDropDown(), prop.getProperty("ManageNewPolicyName"));
+		
+		// First Rule
+				action.dropdown(automation.getAttributeIF(), prop.getProperty("AutomationgetAttributeIF"));
+				action.dropdown(automation.getOperatorDropDown(), prop.getProperty("AutomationgetOperatorDropDown"));
+				action.type(automation.getValue(), prop.getProperty("ValidUserName"));
+				action.click(driver, automation.getBlankSpacetoClick());
+				action.click(driver, automation.getAddClauseButton());
+	
+				//Second Rule
+				action.dropdown(automation.getAttributeIFSecondRow(), prop.getProperty("AutomationgetAttributeIFSecondRow"));
+				action.click(driver, automation.getNotCheckBoxSecondRow());
+				action.dropdown(automation.getOperatorDropDownSecondRow(), prop.getProperty("AutomationgetOperatorDropDownSecondRow"));
+				action.type(automation.getValueSecondRow(), prop.getProperty("AutomationValueSecondUser"));
+				action.click(driver, automation.getBlankSpacetoClick());
+				action.click(driver, automation.getCreateRuleSaveButton());
+				
+				boolean flag =automation.getPolicyRulesTableNmaeVerfy(prop.getProperty("AutomationPolicyRulesgetRuleName"));
+				boolean flagRule =automation.getPoliciesRuleVerifyText(prop.getProperty("AutomationPolicyRulsgetRuleVerifyTextRule"));
+				
+				softAssert.assertEquals(flag, true);
+				softAssert.assertEquals(flagRule, true);
+				
+				softAssert.assertAll();	
+	}
+	
+	@Test(priority=22)
+	public void getAutomation_AlertRules() {
+		automation = new Automation(driver);
+		
+		action.click(driver, automation.getAlertRulesTab());
+		softAssert.assertEquals(automation.getAlertRulesTabText(), prop.getProperty("AutomationAlertrulesVerifyText"));
+		softAssert.assertAll();	
+	}
+	
+	
+	@Test(priority=23)
+	public void Settings() {
+		settings = new Settings(driver);
+		
+		action.click(driver, settings.getSettings());
+		action.click(driver, settings.getSettingsAdvanced());
+
+		//Advanced
+		softAssert.assertEquals(settings.getScreenHeader(), prop.getProperty("SettingsTitleHeader"));
+		softAssert.assertEquals(settings.getInttelligentUpdateTextVerify(), prop.getProperty("SettingsgetInttelligentUpdateTextVerify"));
+		softAssert.assertEquals(settings.getDemandReductionTextVerify(), prop.getProperty("SettingsgetDemandReductionTextVerify"));
+		softAssert.assertEquals(settings.getRaptorApplianceConnectionsTextVerify(), prop.getProperty("SettingsgetRaptorApplianceConnectionsTextVerify"));
+		softAssert.assertEquals(settings.getEnableIbutton(), true);
+		softAssert.assertEquals(settings.getEnablePriorityUpdateButton(), true);
+		softAssert.assertEquals(settings.getEnableDemandreductionButton(), true);
+		softAssert.assertEquals(settings.getDisplayDimmingAmount(), prop.getProperty("SettingsgetDisplayDimmingAmount"));
+		softAssert.assertEquals(settings.getMinimumInactivityTimeOut(), prop.getProperty("SettingsgetMinimumInactivityTimeOut"));
+		softAssert.assertEquals(settings.getRaptorApplianceConnectionsButton(), true);
+		
+		//Security
+		action.click(driver, settings.getSettings());
+		action.click(driver, settings.getSecurity());
+		
+		softAssert.assertEquals(settings.getpasswordComplexitySettings(), prop.getProperty("SettingsSecurityPasswordComplexitySettings"));
+		softAssert.assertEquals(settings.getActiveTwoFactorAuthentication(), prop.getProperty("SettingsSecuritygetActiveTwoFactorAuthentication"));
+		softAssert.assertEquals(settings.getMinimumLength(), prop.getProperty("SettingsSecuritygetMinimumLength"));
+		softAssert.assertEquals(settings.getRequireCapitalLetter(), prop.getProperty("SettingsSecuritygetRequireCapitalLetter"));
+		softAssert.assertEquals(settings.getRequireLowerCase(), prop.getProperty("SettingsSecuritygetRequireLowerCase"));
+		softAssert.assertEquals(settings.getRequireNumber(), prop.getProperty("SettingsSecuritygetRequireNumber"));
+		softAssert.assertEquals(settings.getRequireSpecialCharacter(), prop.getProperty("SettingsSecuritygetRequireSpecialCharacter"));
+		
+		softAssert.assertEquals(settings.getMissedAttemptsLimits(), prop.getProperty("SettingsSecuritygetMissedAttemptsLimits"));
+		softAssert.assertEquals(settings.getExpirirationLimit(), prop.getProperty("SettingsSecuritygetExpirirationLimit"));
+		softAssert.assertEquals(settings.getReuseCycle(), prop.getProperty("SettingsSecuritygetReuseCycle"));
+		
+		softAssert.assertEquals(settings.getAutoUpgrade(), prop.getProperty("SettingsSecuritygetAutoUpgrade"));
+		softAssert.assertEquals(settings.getClientVersions(), prop.getProperty("SettingsSecuritygetClientVersions"));
+		softAssert.assertEquals(settings.getWindowsClientVersionText(), prop.getProperty("SettingsSecuritygetWindowsClientVersionText"));
+		softAssert.assertEquals(settings.getMacOSClientVersionText(), prop.getProperty("SettingsSecuritygetMacOSClientVersionText"));
+		softAssert.assertEquals(settings.getChromeBookClientVersionText(), prop.getProperty("SettingsSecuritygetChromeBookClientVersionText"));
+		softAssert.assertEquals(settings.getWindowsVersion(prop.getProperty("SettingsSecuritygetWindowsVersion")), prop.getProperty("SettingsSecuritygetWindowsVersion"));
+		softAssert.assertEquals(settings.getMacOSVersion(prop.getProperty("SettingsSecuritygetMacOSVersion")), prop.getProperty("SettingsSecuritygetMacOSVersion"));
+		softAssert.assertEquals(settings.getChromebookVersion(prop.getProperty("SettingsSecuritygetChromebookVersion")), prop.getProperty("SettingsSecuritygetChromebookVersion"));
+		
+		action.click(driver, settings.getSettings());
+		action.click(driver, settings.getSettingsGeneral());
+		
+		softAssert.assertEquals(settings.getGeneralSettings(), prop.getProperty("SettingsSecuritygetGeneralSettings"));
+
+		softAssert.assertAll();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

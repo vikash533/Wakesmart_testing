@@ -45,6 +45,70 @@ public class Automation extends BaseClass {
 	By OperatorDropdownThirdRow = By.xpath("(//select[@id='operatorSelector3'])[1]");
 	By ValueThrirdRow = By.xpath("(//input[@id='value3'])[1]");
 	By RuleVerifyText = By.xpath("(//div[@id='Rule List'])[1]/table/tbody/tr/td[6]");
+	By PolicySeclectDropDown = By.xpath("//select[@id='devPolicySelector1']");
+	By PolicyRulesDropdown = By.xpath("//select[@id='devpOrderSelector']");
+	By PolicyRulesTableNmaeVerfy = By.xpath("(//div[@id='Rule List'])[2]//table/tbody/tr/td[1]");
+	By PoliciesRuleVerifyText = By.xpath("(//div[@id='Rule List'])[2]//table/tbody/tr/td[6]");
+	By AlertRulesTab = By.xpath("(//label[normalize-space()='Alert Rules'])[1]");
+	By AlertRulesTabText = By.xpath("//div[contains(text(),'This tab will allow for creating/editing rules abo')]");
+	
+	
+	public String getAlertRulesTabText() {
+		return driver.findElement(AlertRulesTabText).getText();
+	}
+	
+
+	public WebElement getAlertRulesTab() {
+		return driver.findElement(AlertRulesTab);
+	}
+	
+	public boolean  getPoliciesRuleVerifyText(String str) {
+		boolean flag =false;
+		for(WebElement ele: driver.findElements(PoliciesRuleVerifyText)) {
+			
+			if(ele.getText().equalsIgnoreCase(str)) {
+				flag=true;
+				break;
+			}
+		}
+		return flag;
+	}
+	
+	
+	public boolean  getPolicyRulesTableNmaeVerfy(String str) {
+		boolean flag =false;
+		for(WebElement ele: driver.findElements(PolicyRulesTableNmaeVerfy)) {
+			
+			if(ele.getText().equalsIgnoreCase(str)) {
+				flag=true;
+				break;
+			}
+		}
+		return flag;
+	}
+	
+	
+	
+	public WebElement getPolicyRulesDropdown() {
+		return driver.findElement(PolicyRulesDropdown);
+	}
+
+	//Policy Rules
+	
+	By PolicyRules = By.xpath("(//label[normalize-space()='Policy Rules'])[1]");
+	
+	
+	
+	public WebElement getPolicyRules() {
+		return driver.findElement(PolicyRules);
+	}
+	
+	public WebElement getPolicySeclectDropDown() {
+		return driver.findElement(PolicySeclectDropDown);
+	}
+	
+	
+	
 	
 	public boolean  getRuleVerifyText(String str) {
 		boolean flag =false;

@@ -6,9 +6,8 @@
       <class name="com.wakesmart.testcases.HomePageTest">
         <methods>
           <include name="browserLaunch"/>
-          <include name="manage_Automation"/>
-          <include name="rule_Presence_verify"/>
           <include name="validUserLogin"/>
+          <include name="Settings"/>
         </methods>
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </classes>
