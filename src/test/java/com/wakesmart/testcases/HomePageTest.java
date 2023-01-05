@@ -682,7 +682,6 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();	
 	}
 	
-	
 	@Test(priority=23)
 	public void Settings() {
 		settings = new Settings(driver);
@@ -702,6 +701,11 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertEquals(settings.getMinimumInactivityTimeOut(), prop.getProperty("SettingsgetMinimumInactivityTimeOut"));
 		softAssert.assertEquals(settings.getRaptorApplianceConnectionsButton(), true);
 		
+		
+		softAssert.assertEquals(settings.getEnableDemandReduction(), prop.getProperty("SettingsEnableDemandReduction"));
+		softAssert.assertEquals(settings.getEnablePriorityUpdate(), prop.getProperty("SettingsEnablePriorityUpdate"));
+		softAssert.assertEquals(settings.getEnableIUpdate(), prop.getProperty("SettingsEnableIUpdate"));
+	
 		//Security
 		action.click(driver, settings.getSettings());
 		action.click(driver, settings.getSecurity());
@@ -731,7 +735,24 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, settings.getSettingsGeneral());
 		
 		softAssert.assertEquals(settings.getGeneralSettings(), prop.getProperty("SettingsSecuritygetGeneralSettings"));
-
+		softAssert.assertEquals(settings.getDevicesShown(), prop.getProperty("DeviceToShow"));
+		softAssert.assertEquals(settings.getDataRetention(), prop.getProperty("DataRetention"));
+		softAssert.assertEquals(settings.getCheckInInterval(), prop.getProperty("CheckInInterval"));
+		softAssert.assertEquals(settings.getUnLicenceAfter(), prop.getProperty("UnLicenceAfter"));
+		softAssert.assertEquals(settings.getShowUnlicencedFor(), prop.getProperty("ShowUnlicencedFor"));
+		softAssert.assertEquals(settings.getAlwaysShowUnlicenced(), prop.getProperty("AlwaysShowUnlicensedDevices"));
+		
+		softAssert.assertEquals(settings.getGreenPower(), prop.getProperty("SettingsGreenPower"));
+		softAssert.assertEquals(settings.getCO2(), prop.getProperty("SettingsCO2"));
+		softAssert.assertEquals(settings.getEnergyCost(), prop.getProperty("SettingsEnergyCost"));
+		
+		action.click(driver, settings.getAlwaysShowUnlicencedClick());
+		action.click(driver, settings.getSettingsSaveButton());
+		softAssert.assertEquals(settings.getAlwaysShowUnlicenced(), prop.getProperty("AlwaysShowUnlicensedDevicesAfterChange"));
+		action.click(driver, settings.getAlwaysShowUnlicencedClick());
+		action.click(driver, settings.getSettingsSaveButton());
+		softAssert.assertEquals(settings.getAlwaysShowUnlicenced(), prop.getProperty("AlwaysShowUnlicensedDevices"));
+		
 		softAssert.assertAll();
 	}
 	

@@ -813,7 +813,7 @@ public class Manage extends BaseClass {
 		return driver.findElement(LicenceMessegePopUpOKButton);
 	}
 
-	By LicenceTabletextVerify = By.xpath("(//table[@class='orgProperties'])//tbody/tr[1]/td");
+	By LicenceTabletextVerify = By.xpath("(//table[@class='orgProperties'])//thead/tr/th");
 
 	public ArrayList<String> getLicenceTabletextVerify() {
 

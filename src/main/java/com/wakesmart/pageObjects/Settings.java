@@ -28,6 +28,23 @@ public class Settings extends BaseClass {
 	By MinimumInactivityTimeOut = By.xpath("//h4[normalize-space()='10 minutes']");
 	By RaptorApplianceConnectionsButton = By.xpath("//img[@id='appconnectimg']");
 	
+	By EnableIUpdate = By.xpath("//img[@id='aiwakeimg']");
+	By EnablePriorityUpdate = By.xpath("//img[@id='prioritywakeimg']");
+	By EnableDemandReduction = By.xpath("//img[@id='demandreductionimg']");
+
+	
+	public String getEnableIUpdate() {
+		return driver.findElement(EnableIUpdate).getDomAttribute("value");
+	}
+	
+	public String getEnablePriorityUpdate() {
+		return driver.findElement(EnablePriorityUpdate).getDomAttribute("value");
+	}
+	
+	public String getEnableDemandReduction() {
+		return driver.findElement(EnableDemandReduction).getDomAttribute("value");
+	}
+
 	//Security
 	
 	By Security = By.xpath("//input[@name='Security']");
@@ -43,6 +60,37 @@ public class Settings extends BaseClass {
 	By ExpirirationLimit = By.xpath("(//h5[normalize-space()='Expiration Limit (Days):'])[1]");
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Pending to implement
+	
+	
+	By ActiveTwoFactorAuthenticationButton = By.xpath("//img[@id='aiwakeimg']");
+	By MinimumLengthField = By.xpath("//input[@id='pwdLength']");
+	By RequireCapitalLetterFiled = By.xpath("//img[@id='pwdCapReqImg']");
+	By RequireLowerCaseField = By.xpath("//img[@id='pwdLwrReqImg']");
+	By RequireNumberField = By.xpath("//img[@id='pwdNumReqImg']");
+	By RequireSpecialCharacterField= By.xpath("//img[@id='pwdSpclReqImg']");
+	By MissedAttemptsLimitField = By.xpath("//input[@id='pwdLockout']");
+	By ExpirirationLimitField = By.xpath("//input[@id='pwdExpire']");
+	By ReuseCycleField = By.xpath("//input[@id='pwdHistory']");
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//Device upgrade settings
 	
 	By DeviceUpgradeSettings = By.xpath("//h4[normalize-space()='Device Upgrade Settings:']");
@@ -55,12 +103,62 @@ public class Settings extends BaseClass {
 	//General
 	
 	By GeneralSettings = By.xpath("//h4[normalize-space()='General Settings:']");
+	By DevicesShown = By.xpath("//input[@id='devicesShown']");
+	By DataRetention =By.xpath("//input[@id='keepdays']");
+	By CheckInInterval = By.xpath("//input[@id='checkin']");
+	By UnLicenceAfter = By.xpath("//input[@id='unlicensespan']");
+	By ShowUnlicencedFor = By.xpath("//input[@id='showunlicensed']");
+	By AlwaysShowUnlicenced = By.xpath("//img[@name='showstaleimg']");
+	By EnergyCost = By.xpath("//input[@id='energycost']");
+	By CO2 = By.xpath("//input[@id='co2cost']");
+	By GreenPower = By.xpath("//input[@id='greenpercent']");
+	By SettingsSaveButton = By.xpath("//button[@id='saveBtn']");
+	
+	public WebElement getSettingsSaveButton() {
+		return driver.findElement(SettingsSaveButton);
+	}
+	
+	public String getEnergyCost() {
+		return driver.findElement(EnergyCost).getDomProperty("value");
+	}
+	public String getCO2() {
+		return driver.findElement(CO2).getDomProperty("value");
+	}
+	public String getGreenPower() {
+		return driver.findElement(GreenPower).getDomProperty("value");
+	}
+	
+	public String getAlwaysShowUnlicenced() {
+		return driver.findElement(AlwaysShowUnlicenced).getDomAttribute("data-val");
+	}
+	
+	public WebElement getAlwaysShowUnlicencedClick() {
+		return driver.findElement(AlwaysShowUnlicenced);
+	}
+	
+	public String getShowUnlicencedFor() {
+		return driver.findElement(ShowUnlicencedFor).getDomProperty("value");
+	}
+	
+	public String getUnLicenceAfter() {
+		return driver.findElement(UnLicenceAfter).getDomProperty("value");
+	}
+	
+	public String getCheckInInterval() {
+		return driver.findElement(CheckInInterval).getDomProperty("value");
+	}
+	
+	public String getDataRetention() {
+		return driver.findElement(DataRetention).getDomProperty("value");
+	}
+	
+	public String getDevicesShown() {
+		return driver.findElement(DevicesShown).getDomProperty("value");
+	}
 	
 	public String getGeneralSettings() {
 		return driver.findElement(GeneralSettings).getText();
 	}
-	
-	
 	
 	By SettingsGeneral = By.xpath("//input[@name='General']");
 	
