@@ -5,6 +5,7 @@
     <classes>
       <class name="com.wakesmart.testcases.HomePageTest">
         <methods>
+          <include name="tearDown"/>
           <include name="browserLaunch"/>
           <include name="validUserLogin"/>
           <include name="Settings"/>

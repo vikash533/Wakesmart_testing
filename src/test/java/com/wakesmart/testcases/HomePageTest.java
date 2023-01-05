@@ -682,6 +682,7 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();	
 	}
 	
+
 	@Test(priority=23)
 	public void Settings() {
 		settings = new Settings(driver);
@@ -710,6 +711,18 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, settings.getSettings());
 		action.click(driver, settings.getSecurity());
 		
+		
+		softAssert.assertEquals(settings.getActiveTwoFactorAuthenticationButton(), prop.getProperty("SettingsSecurityActiveTwoFactorAuthenticationButton"));
+		softAssert.assertEquals(settings.getMinimumLengthField(), prop.getProperty("SettingsSecuritygetMinimumLengthField"));
+		softAssert.assertEquals(settings.getRequireCapitalLetterFiled(), prop.getProperty("SettingsSecuritygetRequireCapitalLetterFiled"));
+		softAssert.assertEquals(settings.getRequireLowerCaseField(), prop.getProperty("SettingsSecuritygetRequireLowerCaseField"));
+		softAssert.assertEquals(settings.getRequireNumberField(), prop.getProperty("SettingsSecuritygetRequireNumberField"));
+		softAssert.assertEquals(settings.getRequireSpecialCharacterField(), prop.getProperty("SettingsSecuritygetRequireSpecialCharacterField"));
+		softAssert.assertEquals(settings.getMissedAttemptsLimitField(), prop.getProperty("SettingsSecuritygetMissedAttemptsLimitField"));
+		softAssert.assertEquals(settings.getExpirirationLimitField(), prop.getProperty("SettingsSecuritygetExpirirationLimitField"));
+		softAssert.assertEquals(settings.getReuseCycleField(), prop.getProperty("SettingsSecuritygetReuseCycleField"));
+		
+
 		softAssert.assertEquals(settings.getpasswordComplexitySettings(), prop.getProperty("SettingsSecurityPasswordComplexitySettings"));
 		softAssert.assertEquals(settings.getActiveTwoFactorAuthentication(), prop.getProperty("SettingsSecuritygetActiveTwoFactorAuthentication"));
 		softAssert.assertEquals(settings.getMinimumLength(), prop.getProperty("SettingsSecuritygetMinimumLength"));

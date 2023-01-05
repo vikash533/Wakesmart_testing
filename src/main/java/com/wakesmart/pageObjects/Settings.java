@@ -59,19 +59,11 @@ public class Settings extends BaseClass {
 	By ReuseCycle = By.xpath("//h5[normalize-space()='Reuse Cycle (Times):']");
 	By ExpirirationLimit = By.xpath("(//h5[normalize-space()='Expiration Limit (Days):'])[1]");
 	
+
+
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	//Pending to implement
-	
-	
-	By ActiveTwoFactorAuthenticationButton = By.xpath("//img[@id='aiwakeimg']");
+	By ActiveTwoFactorAuthenticationButton = By.xpath("//img[@id='activeTwoFactorImg']");
 	By MinimumLengthField = By.xpath("//input[@id='pwdLength']");
 	By RequireCapitalLetterFiled = By.xpath("//img[@id='pwdCapReqImg']");
 	By RequireLowerCaseField = By.xpath("//img[@id='pwdLwrReqImg']");
@@ -81,16 +73,37 @@ public class Settings extends BaseClass {
 	By ExpirirationLimitField = By.xpath("//input[@id='pwdExpire']");
 	By ReuseCycleField = By.xpath("//input[@id='pwdHistory']");
 	
+	public String getActiveTwoFactorAuthenticationButton() {
+		return driver.findElement(ActiveTwoFactorAuthenticationButton).getDomAttribute("value");
+	}
 	
+	public String getMinimumLengthField() {
+		return driver.findElement(MinimumLengthField).getDomAttribute("value");
+	}
+	public String getRequireCapitalLetterFiled() {
+		return driver.findElement(RequireCapitalLetterFiled).getDomAttribute("value");
+	}
+	public String getRequireLowerCaseField() {
+		return driver.findElement(RequireLowerCaseField).getDomAttribute("value");
+	}
+	public String getRequireNumberField() {
+		return driver.findElement(RequireNumberField).getDomAttribute("value");
+	}
 	
+	public String getRequireSpecialCharacterField() {
+		return driver.findElement(RequireSpecialCharacterField).getDomAttribute("value");
+	}
+	public String getMissedAttemptsLimitField() {
+		return driver.findElement(MissedAttemptsLimitField).getDomAttribute("value");
+	}
+	public String getExpirirationLimitField() {
+		return driver.findElement(ExpirirationLimitField).getDomAttribute("value");
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+	public String getReuseCycleField() {
+		return driver.findElement(ReuseCycleField).getDomAttribute("value");
+	}
+
 	//Device upgrade settings
 	
 	By DeviceUpgradeSettings = By.xpath("//h4[normalize-space()='Device Upgrade Settings:']");
