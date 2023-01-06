@@ -171,6 +171,10 @@ public class Reporting extends BaseClass {
 	}
 	
 	
+	//Device Usage
+	
+	By DeviceUsage = By.xpath("//label[normalize-space()='Device Usage']");
+	By ReportMessegeText = By.xpath("//p[@id='reportsMessage']");
 	
 	
 	

@@ -1,66 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="23" total="25" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-05T19:51:02 IST" name="Default suite" finished-at="2023-01-05T19:51:25 IST" duration-ms="23466">
+  <suite started-at="2023-01-05T21:01:29 IST" name="Default suite" finished-at="2023-01-05T21:01:48 IST" duration-ms="18949">
     <groups>
-      <group name="Smoke">
-        <method signature="LoginPageTest.colorOfLoginButton()[pri:3, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" name="colorOfLoginButton" class="com.wakesmart.testcases.LoginPageTest"/>
-        <method signature="LoginPageTest.validUserLogin()[pri:9, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" name="validUserLogin" class="com.wakesmart.testcases.LoginPageTest"/>
-        <method signature="LoginPageTest.userLogout()[pri:10, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" name="userLogout" class="com.wakesmart.testcases.LoginPageTest"/>
-      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2023-01-05T19:51:02 IST" name="Default test" finished-at="2023-01-05T19:51:25 IST" duration-ms="23466">
-      <class name="com.wakesmart.testcases.LoginPageTest">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:02 IST" name="browserLaunch" finished-at="2023-01-05T19:51:09 IST" duration-ms="7122" status="PASS">
+    <test started-at="2023-01-05T21:01:29 IST" name="Default test" finished-at="2023-01-05T21:01:48 IST" duration-ms="18949">
+      <class name="com.wakesmart.testcases.HomePageTest">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@74ea2410]" started-at="2023-01-05T21:01:29 IST" name="browserLaunch" finished-at="2023-01-05T21:01:37 IST" duration-ms="8083" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="getTitle()[pri:1, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:09 IST" name="getTitle" finished-at="2023-01-05T19:51:09 IST" duration-ms="91" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTitle -->
-        <test-method signature="colorOfForm()[pri:2, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:09 IST" name="colorOfForm" finished-at="2023-01-05T19:51:09 IST" duration-ms="59" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- colorOfForm -->
-        <test-method signature="colorOfLoginButton()[pri:3, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:09 IST" name="colorOfLoginButton" finished-at="2023-01-05T19:51:09 IST" duration-ms="39" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- colorOfLoginButton -->
-        <test-method signature="invalidUserName_ValidPasswordLogin()[pri:4, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:09 IST" name="invalidUserName_ValidPasswordLogin" finished-at="2023-01-05T19:51:11 IST" duration-ms="2044" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- invalidUserName_ValidPasswordLogin -->
-        <test-method signature="validUserName_InvalidPasswordLogin()[pri:5, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:11 IST" name="validUserName_InvalidPasswordLogin" finished-at="2023-01-05T19:51:13 IST" duration-ms="1575" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validUserName_InvalidPasswordLogin -->
-        <test-method signature="inValidUserName_InvalidPasswordLogin()[pri:6, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:13 IST" name="inValidUserName_InvalidPasswordLogin" finished-at="2023-01-05T19:51:14 IST" duration-ms="1501" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- inValidUserName_InvalidPasswordLogin -->
-        <test-method signature="empty_Credential_Login()[pri:7, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:14 IST" name="empty_Credential_Login" finished-at="2023-01-05T19:51:15 IST" duration-ms="444" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- empty_Credential_Login -->
-        <test-method signature="passwordVisibilityOnDOM()[pri:8, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:15 IST" name="passwordVisibilityOnDOM" finished-at="2023-01-05T19:51:15 IST" duration-ms="150" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- passwordVisibilityOnDOM -->
-        <test-method signature="validUserLogin()[pri:9, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:15 IST" name="validUserLogin" finished-at="2023-01-05T19:51:24 IST" duration-ms="8733" status="PASS">
+        <test-method signature="validUserLogin()[pri:1, instance:com.wakesmart.testcases.HomePageTest@74ea2410]" started-at="2023-01-05T21:01:37 IST" name="validUserLogin" finished-at="2023-01-05T21:01:45 IST" duration-ms="7909" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validUserLogin -->
-        <test-method signature="userLogout()[pri:10, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:24 IST" name="userLogout" finished-at="2023-01-05T19:51:25 IST" duration-ms="1209" status="PASS">
+        <test-method signature="reporting_DeviceUsage()[pri:0, instance:com.wakesmart.testcases.HomePageTest@74ea2410]" started-at="2023-01-05T21:01:45 IST" name="reporting_DeviceUsage" finished-at="2023-01-05T21:01:48 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="2407" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- userLogout -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.wakesmart.testcases.LoginPageTest@235ecd9f]" started-at="2023-01-05T19:51:25 IST" name="tearDown" finished-at="2023-01-05T19:51:25 IST" duration-ms="385" status="PASS">
+        </test-method> <!-- reporting_DeviceUsage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.wakesmart.testcases.HomePageTest@74ea2410]" started-at="2023-01-05T21:01:48 IST" name="tearDown" finished-at="2023-01-05T21:01:48 IST" duration-ms="439" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.wakesmart.testcases.LoginPageTest -->
+      </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -176,36 +176,6 @@ public class HomePageTest extends BaseClass {
 		driver.navigate().back();
 	}
 	
-
-	@Test(priority=5)
-	public void assetInventory() throws InterruptedException {
-
-		reporting = new Reporting(driver);
-
-		action.click(driver, reporting.getAssetInventoryIcon());
-
-		action.fluentWait(driver, reporting.getAssetInventoryHeader());
-		
-		String ActualTextAssetInventoryHeader = reporting.getAssetInventoryHeader().getText();
-		action.softAssertion(ActualTextAssetInventoryHeader,   prop.getProperty("AssetInventoryHeader"));
-		
-		String ActualTextAssetInventoryReportMessege = reporting.getAssetInventoryReportMessege().getText();
-		action.softAssertion(ActualTextAssetInventoryReportMessege, prop.getProperty("AssetInventoryReportMessege"));
-		
-		String ActualTextGroupsSelected = reporting.getAssetInventoryGroupsSelectedText().getText();
-		action.softAssertion(ActualTextGroupsSelected, prop.getProperty("AssetInventoryGroupsSelectedText"));
-		
-		String ActualTextDevicesTypeSelected = reporting.getAssetInventoryDeviceTypesSelectedText().getText();
-		action.softAssertion(ActualTextDevicesTypeSelected, prop.getProperty("AssetInventoryDeviceTypesSelectedText"));
-		
-
-		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),
-				prop.getProperty("AssetInventoryGropsSelected"));
-		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),
-				prop.getProperty("AssetInventoryDeviceTypesSelected"));
-		action.click(driver, reporting.getAssetInventoryOkButton());
-	}
-
 	@Test(priority = 6)
 	public void manage_Device_Groups() throws InterruptedException {
 		manage = new Manage(driver);
@@ -767,6 +737,59 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertEquals(settings.getAlwaysShowUnlicenced(), prop.getProperty("AlwaysShowUnlicensedDevices"));
 		
 		softAssert.assertAll();
+	}
+	
+	
+	//5
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void assetInventory() throws InterruptedException {
+
+		reporting = new Reporting(driver);
+		
+		
+		action.click(driver, homepage.getReportsIcon());
+		action.click(driver, reporting.getAssetInventoryIcon());
+
+		action.fluentWait(driver, reporting.getAssetInventoryHeader());
+		
+		String ActualTextAssetInventoryHeader = reporting.getAssetInventoryHeader().getText();
+		action.softAssertion(ActualTextAssetInventoryHeader,   prop.getProperty("AssetInventoryHeader"));
+		
+		String ActualTextAssetInventoryReportMessege = reporting.getAssetInventoryReportMessege().getText();
+		action.softAssertion(ActualTextAssetInventoryReportMessege, prop.getProperty("AssetInventoryReportMessege"));
+		
+		String ActualTextGroupsSelected = reporting.getAssetInventoryGroupsSelectedText().getText();
+		action.softAssertion(ActualTextGroupsSelected, prop.getProperty("AssetInventoryGroupsSelectedText"));
+		
+		String ActualTextDevicesTypeSelected = reporting.getAssetInventoryDeviceTypesSelectedText().getText();
+		action.softAssertion(ActualTextDevicesTypeSelected, prop.getProperty("AssetInventoryDeviceTypesSelectedText"));
+		
+
+		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),
+				prop.getProperty("AssetInventoryGropsSelected"));
+		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),
+				prop.getProperty("AssetInventoryDeviceTypesSelected"));
+		action.click(driver, reporting.getAssetInventoryOkButton());
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void reporting_DeviceUsage() {
+		reporting = new Reporting(driver);
+		
+		
+		action.click(driver, homepage.getReportsIcon());
+		action.click(driver, reporting.getAssetInventoryIcon());
+		
+		
+		
 	}
 	
 	
