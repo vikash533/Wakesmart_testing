@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="23" total="25" passed="2" failed="0" skipped="0">
+<testng-results ignored="28" total="30" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-05T21:01:29 IST" name="Default suite" finished-at="2023-01-05T21:01:48 IST" duration-ms="18949">
+  <suite started-at="2023-02-01T21:37:48 IST" name="Default suite" finished-at="2023-02-01T21:38:21 IST" duration-ms="33248">
     <groups>
     </groups>
-    <test started-at="2023-01-05T21:01:29 IST" name="Default test" finished-at="2023-01-05T21:01:48 IST" duration-ms="18949">
+    <test started-at="2023-02-01T21:37:48 IST" name="Default test" finished-at="2023-02-01T21:38:21 IST" duration-ms="33248">
       <class name="com.wakesmart.testcases.HomePageTest">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@74ea2410]" started-at="2023-01-05T21:01:29 IST" name="browserLaunch" finished-at="2023-01-05T21:01:37 IST" duration-ms="8083" status="PASS">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@27406a17]" started-at="2023-02-01T21:37:48 IST" name="browserLaunch" finished-at="2023-02-01T21:37:57 IST" duration-ms="8933" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="validUserLogin()[pri:1, instance:com.wakesmart.testcases.HomePageTest@74ea2410]" started-at="2023-01-05T21:01:37 IST" name="validUserLogin" finished-at="2023-01-05T21:01:45 IST" duration-ms="7909" status="PASS">
+        <test-method signature="validUserLogin()[pri:1, instance:com.wakesmart.testcases.HomePageTest@27406a17]" started-at="2023-02-01T21:37:57 IST" name="validUserLogin" finished-at="2023-02-01T21:38:06 IST" duration-ms="8912" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validUserLogin -->
-        <test-method signature="reporting_DeviceUsage()[pri:0, instance:com.wakesmart.testcases.HomePageTest@74ea2410]" started-at="2023-01-05T21:01:45 IST" name="reporting_DeviceUsage" finished-at="2023-01-05T21:01:48 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="2407" status="PASS">
+        <test-method signature="reporting_Power_State_Report()[pri:0, instance:com.wakesmart.testcases.HomePageTest@27406a17]" started-at="2023-02-01T21:38:06 IST" name="reporting_Power_State_Report" finished-at="2023-02-01T21:38:21 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="15267" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- reporting_DeviceUsage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.wakesmart.testcases.HomePageTest@74ea2410]" started-at="2023-01-05T21:01:48 IST" name="tearDown" finished-at="2023-01-05T21:01:48 IST" duration-ms="439" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
+        </test-method> <!-- reporting_Power_State_Report -->
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

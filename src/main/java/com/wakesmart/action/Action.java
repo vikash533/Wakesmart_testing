@@ -3,6 +3,7 @@ package com.wakesmart.action;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -28,11 +29,41 @@ import org.testng.asserts.SoftAssert;
 import com.wakesmart.base.BaseClass;
 
 public class Action extends BaseClass {
-	
+
 	public Properties prop;
-	
-	//Soft assertion for string
-	public void softAssertion(String actual,String expected) {
+
+	// PDF CSv verify
+	public List<String> verifyDropdown(List<WebElement> dropdown) {
+		
+		List<String> lstString = new ArrayList<>();
+
+		for (WebElement ele : dropdown) {
+			lstString.add(ele.getText());
+		}
+		return lstString;
+	}
+
+	public List<String> verifyDropdownList() {
+
+		List<String> lstString = new ArrayList<>();
+		
+		lstString.add("No");
+		lstString.add("CSV");
+		lstString.add("PDF");
+		
+		return lstString;
+	}
+
+	public static String removeFirstLetter(String str) {
+
+		StringBuilder sb = new StringBuilder(str);
+
+		sb.deleteCharAt(0);
+		return sb.toString();
+	}
+
+	// Soft assertion for string
+	public void softAssertion(String actual, String expected) {
 		try {
 			SoftAssert softAssert = new SoftAssert();
 			softAssert.assertEquals(actual, expected);
@@ -41,9 +72,9 @@ public class Action extends BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
-	//soft assertion for integer
-	public void softAssertionInt(Integer actual,Integer expected) {
+
+	// soft assertion for integer
+	public void softAssertionInt(Integer actual, Integer expected) {
 		try {
 			SoftAssert softAssert = new SoftAssert();
 			softAssert.assertEquals(actual, expected);
@@ -68,36 +99,30 @@ public class Action extends BaseClass {
 		}
 	}
 
-	
-	// verify name from a table 
+	// verify name from a table
 	public String nameVerifyFromTable(List<WebElement> ele, String str) {
 
-		String tablename ="";
+		String tablename = "";
 		for (WebElement option : ele) {
-			
-			if(option.getText().equalsIgnoreCase(str)) {
-				tablename=option.getText();
+
+			if (option.getText().equalsIgnoreCase(str)) {
+				tablename = option.getText();
 				break;
 			}
 		}
-		return tablename ;
+		return tablename;
 	}
-	
-	
+
 	public void nameVerifyFromTableAndClick(List<WebElement> ele, String str) {
 
-		
 		for (WebElement option : ele) {
-	
-			if(option.getText().equalsIgnoreCase(str)) {
+
+			if (option.getText().equalsIgnoreCase(str)) {
 				option.click();
 				break;
 			}
 		}
 	}
-	
-	
-	
 
 	// date month converter
 	public String dateFormat(String MDY) throws ParseException {
@@ -132,6 +157,15 @@ public class Action extends BaseClass {
 
 		Date currentDate = new Date();
 		Date oneDayFromCurrentDate = new Date(currentDate.getTime() - Duration.ofDays(Days).toMillis());
+		SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+		String str = formatter.format(oneDayFromCurrentDate);
+		return str;
+	}
+	
+	public String currentDatePlusSeven(int Days) throws ParseException {
+
+		Date currentDate = new Date();
+		Date oneDayFromCurrentDate = new Date(currentDate.getTime() + Duration.ofDays(Days).toMillis());
 		SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
 		String str = formatter.format(oneDayFromCurrentDate);
 		return str;
@@ -176,7 +210,7 @@ public class Action extends BaseClass {
 	}
 
 	// pass
-	public void scrollByVisibilityOfElement(WebDriver driver ,WebElement ele) {
+	public void scrollByVisibilityOfElement(WebDriver driver, WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ele);
 	}
@@ -186,12 +220,11 @@ public class Action extends BaseClass {
 		Actions act = new Actions(driver);
 		act.moveToElement(ele).click().build().perform();
 	}
-	
-	public void keyBoardKeys(WebDriver driver, Keys  KeysToSend) {
+
+	public void keyBoardKeys(WebDriver driver, Keys KeysToSend) {
 		Actions act = new Actions(driver);
 		act.sendKeys(KeysToSend).click().perform();
-		}
-	
+	}
 
 	// pass
 	public boolean isDisplayed(WebDriver driver, WebElement ele) {
@@ -812,12 +845,10 @@ public class Action extends BaseClass {
 	public void explicitWait(WebDriver driver, WebElement element, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.visibilityOf(element));
-		
 
 	}
 
 	public void pageLoadTimeOut(WebDriver driver, int timeOut) {
-		
 
 	}
 

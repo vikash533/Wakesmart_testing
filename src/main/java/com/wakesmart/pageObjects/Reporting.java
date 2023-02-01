@@ -1,5 +1,7 @@
 package com.wakesmart.pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -175,6 +177,116 @@ public class Reporting extends BaseClass {
 	
 	By DeviceUsage = By.xpath("//label[normalize-space()='Device Usage']");
 	By ReportMessegeText = By.xpath("//p[@id='reportsMessage']");
+	By PolicySelector = By.xpath("//select[@id='polSelector']");
+	
+	public WebElement getPolicySelector() {
+		return driver.findElement(PolicySelector);
+	}
+	
+	
+	public WebElement getDeviceUsage() {
+		return driver.findElement(DeviceUsage);
+	}
+	
+	public String getReportMessegeText() {
+		return driver.findElement(ReportMessegeText).getText();
+	}
+	
+	
+	//License summary 
+	
+	By LicenseSummary = By.xpath("//label[normalize-space()='License Summary']");
+	By LicenseSummaryContentText = By.xpath("(//div[@id='reportsMessageArea'])/section/div[2]/p");
+	By LicenseStartDate = By.xpath("//div[1]//label[2]");
+	By LicenseEnddate = By.xpath("//body/div[@class='page']/div[@class='main']/div[@class='full-right-panel']/div[@class='chartsection']/div[1]/div[1]/label[4]");
+	By cancelButton = By.xpath("//button[@id='Cancelbtn']");
+	By ExportOption = By.xpath("(//select[@id='intervalSelector'])//option");
+	
+	
+	public List<WebElement> getExportOption() {
+		return driver.findElements(ExportOption);
+	}
+	
+	public WebElement getcancelButton() {
+		return driver.findElement(cancelButton);
+	}
+	
+	public String getLicenseEnddate() {
+		return driver.findElement(LicenseEnddate).getText();
+	}
+	
+	
+	public String getLicenseStartDate() {
+		return driver.findElement(LicenseStartDate).getText();
+	}
+	
+	public WebElement getLicenseSummary() {
+		return driver.findElement(LicenseSummary);
+	}
+	
+	public String getLicenseSummaryContentText() {
+		return driver.findElement(LicenseSummaryContentText).getText();
+	}
+	
+	
+	//Policy Summary
+	
+	By PolicySummary = By.xpath("//label[normalize-space()='Policy Summary']");
+	
+	public WebElement getPolicySummary() {
+		return driver.findElement(PolicySummary);
+	}
+	
+	//Devices vs Time
+	
+	By DeviceVStime = By.xpath("//label[normalize-space()='Devices vs. Time']");
+	
+	
+	public WebElement getDeviceVStime() {
+		return driver.findElement(DeviceVStime);
+	}
+	
+	
+	//Device Type by Percentage
+	
+	By DeviceTypePercentage = By.xpath("//label[normalize-space()='Device Type by Percentage']");
+	By PolicySelection = By.xpath("//div[1]//label[8]");
+	
+	public WebElement getDeviceTypePercentage() {
+		return driver.findElement(DeviceTypePercentage);
+	}
+	
+	public WebElement getPolicySelection() {
+		return driver.findElement(PolicySelection);
+	}
+	
+	
+	
+	
+	// Powerstate Report
+	
+	By PowerStateReport = By.xpath("//label[normalize-space()='Powerstate Report']");
+	By DeviceSelection = By.xpath("//div[1]//label[10]");
+	
+	
+	public WebElement getDeviceSelection() {
+		return driver.findElement(DeviceSelection);
+	}
+	
+	public WebElement getPowerStateReport() {
+		return driver.findElement(PowerStateReport);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

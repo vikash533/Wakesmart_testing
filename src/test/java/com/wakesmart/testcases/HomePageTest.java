@@ -26,7 +26,7 @@ import com.wakesmart.pageObjects.Settings;
 public class HomePageTest extends BaseClass {
 
 	public WebDriver driver;
-	public Action action;
+	private Action action;
 	private HomePage homepage;
 	private IndexPage indexpage;
 	private User user;
@@ -43,10 +43,10 @@ public class HomePageTest extends BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass
-	public void tearDown() throws InterruptedException {
-		driver.quit();
-	}
+//	@AfterClass
+//	public void tearDown() throws InterruptedException {
+//		driver.quit();
+//	}
 
 	@Test(priority=1)
 	public void validUserLogin() {
@@ -114,7 +114,7 @@ public class HomePageTest extends BaseClass {
 		
 		String actualEnergyReports = reporting.getEnergyReports().getText();
 		action.softAssertion(actualEnergyReports,  prop.getProperty("ReportingEnergyMessege"));
-
+		
 		// Battery Health
 		String actaualBatteryHealthText = reporting.getBatteryHealthText().getText();
 		action.softAssertion(actaualBatteryHealthText,  prop.getProperty("BatteryHealthText"));
@@ -149,6 +149,7 @@ public class HomePageTest extends BaseClass {
 		action.selectByVisibleText(prop.getProperty("BatteryHealthDateRange"), reporting.getDateRange());
 		action.click(driver, reporting.getOKButton());
 
+		
 		String startDateAtSevenDays = reporting.getStartDateVerifyAtExport().getText();
 		action.softAssertion(startDateAtSevenDays,  action.currentDateMinusSeven(8));
 		
@@ -765,52 +766,243 @@ public class HomePageTest extends BaseClass {
 		action.softAssertion(ActualTextDevicesTypeSelected, prop.getProperty("AssetInventoryDeviceTypesSelectedText"));
 		
 
-		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),
-				prop.getProperty("AssetInventoryGropsSelected"));
-		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),
-				prop.getProperty("AssetInventoryDeviceTypesSelected"));
+		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),prop.getProperty("ManageNewGroupReName"));
+		action.dropdown(reporting.getAssetInventoryDeviceTypeSelectorOptions(),prop.getProperty("AssetInventoryDeviceTypesSelected"));
 		action.click(driver, reporting.getAssetInventoryOkButton());
-		
-		
-		
-		
-		
-		
 		
 	}
 	
+	// not working to check
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void reporting_DeviceUsage() throws ParseException {
+		reporting = new Reporting(driver);
+		
+		action.click(driver, homepage.getReportsIcon());
+		action.click(driver, reporting.getDeviceUsage());
+		
+		softAssert.assertEquals(reporting.getReportMessegeText(), prop.getProperty("DeviceUsagePopupHeader"));
+
+		action.type(reporting.getStartDate(), prop.getProperty("BatteryHealthStartDate"));
+		action.type(reporting.getEndDate(), prop.getProperty("BatteryHealthEndDate"));
+		action.selectByVisibleText(prop.getProperty("ManageNewPolicyName"), reporting.getPolicySelector());
+		action.click(driver, reporting.getOKButton());
+
+		//Verification for the Start date, end date and Policy name
+		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthStartDateTextVerify") );
+		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthEndDateTextVerify") );
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewPolicyName") );
+		
+		action.selectByVisibleText(prop.getProperty("DownloadFormatTwo"), reporting.getExportDropDown());
+		action.selectByVisibleText(prop.getProperty("DownloadFormat"), reporting.getExportDropDown());
+		
+		action.click(driver, homepage.getReportsIcon());
+		action.click(driver, reporting.getDeviceUsage());
+		
+		action.selectByVisibleText(prop.getProperty("BatteryHealthDateRange"), reporting.getDateRange());
+		action.selectByVisibleText(prop.getProperty("ManageNewPolicyName"), reporting.getPolicySelector());
+		action.click(driver, reporting.getOKButton());
+		
+		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(), action.currentDateMinusSeven(8));
+		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(), action.currentDateMinusSeven(1));
+		
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewPolicyName") );
+		
+		action.click(driver, homepage.getReportsIcon());
+		action.click(driver, reporting.getDeviceUsage());
+		
+		action.selectByVisibleText(prop.getProperty("BatteryHealthDateRangeTwoWeeks"), reporting.getDateRange());
+		action.selectByVisibleText(prop.getProperty("ManageNewPolicyName"), reporting.getPolicySelector());
+		action.click(driver, reporting.getOKButton());
+		
+		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(), action.currentDateMinusSeven(15));
+		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(), action.currentDateMinusSeven(1));
+		
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewPolicyName") );
+		
+		softAssert.assertAll();
+	}
 	
 	@Test(dependsOnMethods= {"validUserLogin"})
-	public void reporting_DeviceUsage() {
+	public void reporting_Licence_Summary() throws ParseException {
+		reporting = new Reporting(driver);
+		
+		action.click(driver, homepage.getReportsIcon());
+		action.click(driver, reporting.getLicenseSummary());
+		action.click(driver, reporting.getcancelButton());
+		action.click(driver, reporting.getLicenseSummary());
+		
+		softAssert.assertEquals(reporting.getLicenseSummary().getText(), prop.getProperty("LicenseSummaryHeaderText"));
+		softAssert.assertEquals(reporting.getBatteryHealthPopUpHeader().getText(), prop.getProperty("LicenseSummaryHeaderText"));
+		softAssert.assertEquals(reporting.getLicenseSummaryContentText(), prop.getProperty("LicenseSummaryContentText"));
+		action.click(driver, reporting.getOKButton());
+		softAssert.assertEquals(action.verifyDropdown(reporting.getExportOption()),action.verifyDropdownList());
+		softAssert.assertEquals(reporting.getLicenseStartDate(), action.currentDate());
+		softAssert.assertEquals(reporting.getLicenseEnddate(), action.currentDate());
+		
+		softAssert.assertAll();
+	}
+
+
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void reporting_Policy_Summary() throws ParseException {
+		reporting = new Reporting(driver);
+		
+		action.click(driver, homepage.getReportsIcon());
+		softAssert.assertEquals(reporting.getPolicySummary().getText(), prop.getProperty("PolicySummaryHeaderText"));
+		action.click(driver, reporting.getPolicySummary());
+		action.click(driver, reporting.getcancelButton());
+		action.click(driver, reporting.getPolicySummary());
+		
+		softAssert.assertEquals(reporting.getBatteryHealthPopUpHeader().getText(), prop.getProperty("PolicySummaryHeaderText"));
+		softAssert.assertEquals(reporting.getLicenseSummaryContentText(), prop.getProperty("LicenseSummaryContentText"));
+		action.click(driver, reporting.getOKButton());
+		softAssert.assertEquals(action.verifyDropdown(reporting.getExportOption()),action.verifyDropdownList());
+		
+		//Need to check with days
+		softAssert.assertEquals(reporting.getLicenseStartDate(), action.currentDateMinusSeven(31));
+		softAssert.assertEquals(reporting.getLicenseEnddate(),action.currentDate() );
+		
+		softAssert.assertAll();		
+	}
+	
+	@Test(dependsOnMethods= {"validUserLogin"})
+	public void reporting_DevicesVStime() {
+		reporting = new Reporting(driver);
+		
+		action.click(driver, homepage.getReportsIcon());
+		softAssert.assertEquals(reporting.getDeviceVStime().getText(),prop.getProperty("DevicevstimetextVerify") );
+		action.click(driver, reporting.getDeviceVStime());
+		action.click(driver, reporting.getcancelButton());
+		action.click(driver, reporting.getDeviceVStime());
+		softAssert.assertEquals(reporting.getBatteryHealthPopUpHeader().getText(), prop.getProperty("DevicevstimeHeaderText"));
+		softAssert.assertEquals(reporting.getLicenseSummaryContentText(), prop.getProperty("DevicevstimeContentText"));
+		
+		
+		
+		action.type(reporting.getStartDate(), prop.getProperty("BatteryHealthStartDate"));
+		action.type(reporting.getEndDate(), prop.getProperty("BatteryHealthEndDate"));
+		action.selectByVisibleText(prop.getProperty("ManageNewGroupReName"), reporting.getGroupsSelected());
+		action.click(driver, reporting.getOKButton());
+
+		//Verification for the Start date, end date and Policy name
+		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthStartDateTextVerify") );
+		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthEndDateTextVerify") );
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewPolicyName") );
+		
+		action.selectByVisibleText(prop.getProperty("DownloadFormatTwo"), reporting.getExportDropDown());
+		action.selectByVisibleText(prop.getProperty("DownloadFormat"), reporting.getExportDropDown());
+		
+		
+		
+		
+		
+		
+		softAssert.assertAll();	
+	}
+	
+	//Completed
+	@Test(dependsOnMethods = { "validUserLogin" })
+	public void reporting_DeviceTypebyPercentage() throws ParseException {
+
+		reporting = new Reporting(driver);
+		action.click(driver, homepage.getReportsIcon());
+		softAssert.assertEquals(reporting.getDeviceTypePercentage().getText(),prop.getProperty("ReportingDeviceTypePercentageText") );
+		action.click(driver,reporting.getDeviceTypePercentage() );
+		
+		softAssert.assertEquals(reporting.getBatteryHealthPopUpHeader().getText(), prop.getProperty("ReportingDeviceTypePercentageHeaderText"));
+		softAssert.assertEquals(reporting.getLicenseSummaryContentText(), prop.getProperty("ReportingDeviceTypePercentageContentText"));
+		
+		action.selectByVisibleText(prop.getProperty("ManageNewGroupReName"), reporting.getGroupsSelected());
+		action.selectByVisibleText(prop.getProperty("ManageNewPolicyName"), reporting.getPolicySelector());
+		action.click(driver, reporting.getOKButton());
+		
+		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(),action.currentDateMinusSeven(31) );
+		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(),action.currentDate());
+		
+		
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewGroupReName") );
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getPolicySelection().getText()), prop.getProperty("ManageNewPolicyName") );
+		
+		
+		action.click(driver, homepage.getReportsIcon());
+		softAssert.assertEquals(reporting.getDeviceTypePercentage().getText(),prop.getProperty("ReportingDeviceTypePercentageText") );
+		action.click(driver,reporting.getDeviceTypePercentage() );
+		
+		action.selectByVisibleText(prop.getProperty("GroupsAndPoliciesSelected"), reporting.getGroupsSelected());
+		action.selectByVisibleText(prop.getProperty("GroupsAndPoliciesSelected"), reporting.getPolicySelector());
+		action.click(driver, reporting.getOKButton());
+		
+		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(),action.currentDateMinusSeven(31) );
+		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(),action.currentDate());
+		
+		
+		softAssert.assertAll();	
+	}
+	
+	
+	
+	@Test(dependsOnMethods = { "validUserLogin" })
+	public void reporting_Power_State_Report() throws ParseException {
+
 		reporting = new Reporting(driver);
 		
 		
 		action.click(driver, homepage.getReportsIcon());
-		action.click(driver, reporting.getAssetInventoryIcon());
+		softAssert.assertEquals(reporting.getPowerStateReport().getText(),prop.getProperty("ReportingPowerStateReportVerifyText") );
+		action.click(driver,reporting.getPowerStateReport() );
+		
+		softAssert.assertEquals(reporting.getBatteryHealthPopUpHeader().getText(), prop.getProperty("ReportingPowerStateReportPopUpHeader"));
+		softAssert.assertEquals(reporting.getLicenseSummaryContentText(), prop.getProperty("ReportingPowerStateReportPopupContentText"));
+		
+		action.selectByVisibleText(prop.getProperty("BatteryHealthDateRange"), reporting.getDateRange());
+	
+		
+		action.selectByVisibleText(prop.getProperty("ManageNewGroupReName"), reporting.getGroupsSelected());
+		action.selectByVisibleText(prop.getProperty("ManageNewPolicyName"), reporting.getPolicySelector());
+		action.dropdown(reporting.getAssetInventoryDeviceTypeSelectorOptions(),prop.getProperty("AssetInventoryDeviceTypesSelected"));
+		action.dropdown(reporting.getExportDropDown(),prop.getProperty("ReportingPowerStateReportTimeInterval"));
+		action.click(driver, reporting.getOKButton());
+		
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewGroupReName") );
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getPolicySelection().getText()), prop.getProperty("ManageNewPolicyName"));
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getDeviceSelection().getText()), prop.getProperty("AssetInventoryDeviceTypesSelected"));
+		
+		action.click(driver, homepage.getReportsIcon());
+		softAssert.assertEquals(reporting.getPowerStateReport().getText(),prop.getProperty("ReportingPowerStateReportVerifyText") );
+		action.click(driver,reporting.getPowerStateReport() );
 		
 		
 		
+		action.type(reporting.getStartDate(), prop.getProperty("BatteryHealthStartDate"));
+		action.type(reporting.getEndDate(), prop.getProperty("BatteryHealthEndDate"));
+		
+		action.selectByVisibleText(prop.getProperty("GroupsAndPoliciesSelected"), reporting.getGroupsSelected());
+		action.selectByVisibleText(prop.getProperty("GroupsAndPoliciesSelected"), reporting.getPolicySelector());
+		action.dropdown(reporting.getExportDropDown(),prop.getProperty("GroupsAndPoliciesSelected"));
+		action.click(driver, reporting.getOKButton());
+		
+		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthStartDateTextVerify") );
+		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthEndDateTextVerify") );
+		
+		action.click(driver, homepage.getReportsIcon());
+		softAssert.assertEquals(reporting.getPowerStateReport().getText(),prop.getProperty("ReportingPowerStateReportVerifyText") );
+		action.click(driver,reporting.getPowerStateReport() );
+		
+		
+		action.selectByVisibleText(prop.getProperty("ReportingPowerStateReportDateRange"), reporting.getDateRange());
+		action.dropdown(reporting.getExportDropDown(),prop.getProperty("ReportingPowerStateReportTimeIntervalDay"));
+		action.selectByVisibleText(prop.getProperty("GroupsAndPoliciesSelected"), reporting.getGroupsSelected());
+		action.selectByVisibleText(prop.getProperty("GroupsAndPoliciesSelected"), reporting.getPolicySelector());
+		action.click(driver, reporting.getOKButton());
+		
+		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(),action.currentDateMinusSeven(31) );
+		softAssert.assertEquals(reporting.getLicenseEnddate(), action.currentDate());
+		
+		
+		softAssert.assertAll();	
+		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
 
 
