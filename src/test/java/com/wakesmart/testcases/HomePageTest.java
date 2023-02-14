@@ -19,8 +19,8 @@ import com.wakesmart.pageObjects.HomePage;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.Manage;
 import com.wakesmart.pageObjects.Reporting;
-import com.wakesmart.pageObjects.User;
 import com.wakesmart.pageObjects.Settings;
+import com.wakesmart.pageObjects.User;
 
 
 public class HomePageTest extends BaseClass {
@@ -35,7 +35,7 @@ public class HomePageTest extends BaseClass {
 	private Manage manage;
 	private Automation automation;
 	private Settings settings;
-	SoftAssert softAssert = new SoftAssert();
+	SoftAssert softAssert;
 
 	@BeforeClass
 	public void browserLaunch() throws IOException {
@@ -43,16 +43,17 @@ public class HomePageTest extends BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
-//	@AfterClass
-//	public void tearDown() throws InterruptedException {
-//		driver.quit();
-//	}
+	@AfterClass
+	public void tearDown() throws InterruptedException {
+		driver.quit();
+	}
 
 	@Test(priority=1)
 	public void validUserLogin() {
 		indexpage = new IndexPage(driver);
 		homepage = new HomePage(driver);
 		action = new Action();
+		softAssert = new SoftAssert();
 
 		action.type(indexpage.getUserName(), prop.getProperty("ValidUserName"));
 		action.type(indexpage.getPassWord(), prop.getProperty("ValidPassword"));
@@ -61,7 +62,8 @@ public class HomePageTest extends BaseClass {
 		action.fluentWait(driver, homepage.getScreenTitle());
 		String actualmessege = homepage.getScreenTitle().getText();
 		
-		action.softAssertion(actualmessege,  prop.getProperty("WelcomeMessgeOnHomePage"));
+		softAssert.assertEquals(actualmessege,  prop.getProperty("WelcomeMessgeOnHomePage"));
+		softAssert.assertAll();
 	}
 
 	@Test(priority=2)
@@ -69,17 +71,19 @@ public class HomePageTest extends BaseClass {
 		homepage = new HomePage(driver);
 		action = new Action();
 		user = new User(driver);
-
+		softAssert = new SoftAssert();
+		
 		String userName = homepage.getuserIconUserID().getText();
 		
-		action.softAssertion(userName,  prop.getProperty("ValidUserName"));
+		softAssert.assertEquals(userName,  prop.getProperty("ValidUserName"));
 		action.JSClick(driver, homepage.getuserIcon());
 
 		String actualmessege = user.getUserTitleHomePageMessege().getText();
-		action.softAssertion(actualmessege,  prop.getProperty("UserTitleMessege"));
+		softAssert.assertEquals(actualmessege,  prop.getProperty("UserTitleMessege"));
 		String actualMessegeContent = user.getAboutContent().getText();
 		
-		Assert.assertTrue(actualMessegeContent.contains(prop.getProperty("UserContentMessege")));
+		softAssert.assertTrue(actualMessegeContent.contains(prop.getProperty("UserContentMessege")));
+		softAssert.assertAll();
 	}	
 
 	@Test(priority=3)
@@ -87,41 +91,45 @@ public class HomePageTest extends BaseClass {
 		action = new Action();
 		homepage = new HomePage(driver);
 		about = new About(driver);
-
+		softAssert = new SoftAssert();
+		
 		action.click(driver, homepage.getAboutIcon());
 		String actualmessegeheader = about.getAboutHeader().getText();
 		String actualmessegecontent = about.getAboutContent().getText();
 		
-		Assert.assertTrue(actualmessegeheader.contains(prop.getProperty("AboutTitleMessege")));
-		Assert.assertTrue(actualmessegecontent.contains(prop.getProperty("AboutContentMessege")));
+		softAssert.assertTrue(actualmessegeheader.contains(prop.getProperty("AboutTitleMessege")));
+		softAssert.assertTrue(actualmessegecontent.contains(prop.getProperty("AboutContentMessege")));
+		softAssert.assertAll();
 	}
 
 	@Test(priority=4)
 	public void reporting() throws InterruptedException, ParseException {
 		homepage = new HomePage(driver);
 		reporting = new Reporting(driver);
-
+		softAssert = new SoftAssert();
+		
+		
 		action.click(driver, homepage.getReportsIcon());
 		
 		String reportingHeader = reporting.getHeaderTitle().getText();
-		action.softAssertion(reportingHeader,  prop.getProperty("ReportingPageHeaderMessege"));
+		softAssert.assertEquals(reportingHeader,  prop.getProperty("ReportingPageHeaderMessege"));
 		
 		String actualOperationalReports = reporting.getoperationalReports().getText();
-		action.softAssertion(actualOperationalReports,  prop.getProperty("ReportingOperationalMessege"));
+		softAssert.assertEquals(actualOperationalReports,  prop.getProperty("ReportingOperationalMessege"));
 		
 		String actualActivityReports = reporting.getActivityReports().getText();
-		action.softAssertion(actualActivityReports,  prop.getProperty("ReportingActivityMessege"));
+		softAssert.assertEquals(actualActivityReports,  prop.getProperty("ReportingActivityMessege"));
 		
 		String actualEnergyReports = reporting.getEnergyReports().getText();
-		action.softAssertion(actualEnergyReports,  prop.getProperty("ReportingEnergyMessege"));
+		softAssert.assertEquals(actualEnergyReports,  prop.getProperty("ReportingEnergyMessege"));
 		
 		// Battery Health
 		String actaualBatteryHealthText = reporting.getBatteryHealthText().getText();
-		action.softAssertion(actaualBatteryHealthText,  prop.getProperty("BatteryHealthText"));
+		softAssert.assertEquals(actaualBatteryHealthText,  prop.getProperty("BatteryHealthText"));
 		action.click(driver, reporting.getBatteryHealthIcon());
 
 		String actualStartdateText = reporting.getStartDateText().getText();
-		action.softAssertion(actualStartdateText,  prop.getProperty("StartDateText"));
+		softAssert.assertEquals(actualStartdateText,  prop.getProperty("StartDateText"));
 
 		action.type(reporting.getStartDate(), prop.getProperty("BatteryHealthStartDate"));
 		action.type(reporting.getEndDate(), prop.getProperty("BatteryHealthEndDate"));
@@ -129,14 +137,14 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, reporting.getOKButton());
 
 		String actualExporttext = reporting.getExport().getText();
-		action.softAssertion(actualExporttext,  prop.getProperty("ExportText"));
+		softAssert.assertEquals(actualExporttext,  prop.getProperty("ExportText"));
 		String actualstartdateverify = action.dateFormat(prop.getProperty("BatteryHealthStartDate"));
 		String expectedstartdate = reporting.getStartDateVerifyAtExport().getText();
-		action.softAssertion(actualstartdateverify, expectedstartdate);
+		softAssert.assertEquals(actualstartdateverify, expectedstartdate);
 		
 
 		String expectedGroupSelectionTest = reporting.getFinalGroupSelectionverifyText().getText();
-		action.softAssertion(expectedGroupSelectionTest,  prop.getProperty("FinalGroupSelectionverifyText"));
+		softAssert.assertEquals(expectedGroupSelectionTest,  prop.getProperty("FinalGroupSelectionverifyText"));
 		
 		action.selectByVisibleText(prop.getProperty("DownloadFormatTwo"), reporting.getExportDropDown());
 		action.selectByVisibleText(prop.getProperty("DownloadFormat"), reporting.getExportDropDown());
@@ -151,10 +159,10 @@ public class HomePageTest extends BaseClass {
 
 		
 		String startDateAtSevenDays = reporting.getStartDateVerifyAtExport().getText();
-		action.softAssertion(startDateAtSevenDays,  action.currentDateMinusSeven(8));
+		softAssert.assertEquals(startDateAtSevenDays,  action.currentDateMinusSeven(8));
 		
 		String endDateAtSevenDays = reporting.getEndDateVerifyAtExport().getText();
-		action.softAssertion(endDateAtSevenDays,  action.currentDateMinusone());
+		softAssert.assertEquals(endDateAtSevenDays,  action.currentDateMinusone());
 		
 		action.selectByVisibleText(prop.getProperty("DownloadFormatTwo"), reporting.getExportDropDown());
 		action.selectByVisibleText(prop.getProperty("DownloadFormat"), reporting.getExportDropDown());
@@ -166,36 +174,40 @@ public class HomePageTest extends BaseClass {
 		action.selectByVisibleText(prop.getProperty("BatteryHealthDateRangeTwoWeeks"), reporting.getDateRange());
 		action.click(driver, reporting.getOKButton());
 		String startDateAtTwoweeks = reporting.getStartDateVerifyAtExport().getText();
-		action.softAssertion(startDateAtTwoweeks,  action.currentDateMinusSeven(15));
+		softAssert.assertEquals(startDateAtTwoweeks,  action.currentDateMinusSeven(15));
 		
 		String endDateAtTwoWeeks = reporting.getEndDateVerifyAtExport().getText();
-		action.softAssertion(endDateAtTwoWeeks,  action.currentDateMinusone());
+		softAssert.assertEquals(endDateAtTwoWeeks,  action.currentDateMinusone());
 		
 		action.selectByVisibleText(prop.getProperty("DownloadFormatTwo"), reporting.getExportDropDown());
 		action.selectByVisibleText(prop.getProperty("DownloadFormat"), reporting.getExportDropDown());
 
 		driver.navigate().back();
+		softAssert.assertAll();
 	}
 	
-	@Test(priority = 6)
+	
+	//
+	@Test(priority=5)
 	public void manage_Device_Groups() throws InterruptedException {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getGroups());
 
-		action.softAssertion(manage.getGroupManagementHeaderText(), prop.getProperty("ManageGroupsHeaderText"));
+		softAssert.assertEquals(manage.getGroupManagementHeaderText(), prop.getProperty("ManageGroupsHeaderText"));
 
-		action.softAssertion(manage.getTableHeaderGroupName().getText(), prop.getProperty("ManageTableHeaderGroupName"));
+		softAssert.assertEquals(manage.getTableHeaderGroupName().getText(), prop.getProperty("ManageTableHeaderGroupName"));
 		
-		action.softAssertion(manage.getTableDescriptionHeaderText().getText(), prop.getProperty("TableDescriptionHeaderText"));
+		softAssert.assertEquals(manage.getTableDescriptionHeaderText().getText(), prop.getProperty("TableDescriptionHeaderText"));
 		
 		
-		action.softAssertion(manage.getTableAutomationHeaderText().getText(), prop.getProperty("TableAutomationHeaderText"));
+		softAssert.assertEquals(manage.getTableAutomationHeaderText().getText(), prop.getProperty("TableAutomationHeaderText"));
 
 		action.dropdown(manage.getOptionsDropDown(), prop.getProperty("ManageNewGroupCreate"));
 
-		action.softAssertion(manage.getCreateGroupPopupHeaderText().getText(), prop.getProperty("ManagePopupScreenHeaderText"));
+		softAssert.assertEquals(manage.getCreateGroupPopupHeaderText().getText(), prop.getProperty("ManagePopupScreenHeaderText"));
 
 		action.type(manage.getNewGroupName(), prop.getProperty("ManageNewGroupName"));
 		action.type(manage.getNewGroupDescription(), prop.getProperty("ManageNewGroupDescription"));
@@ -203,22 +215,21 @@ public class HomePageTest extends BaseClass {
 
 		String newGroupName = action.nameVerifyFromTable(manage.getGroupNameVeriyText(),prop.getProperty("ManageNewGroupName"));
 		
-		action.softAssertion(newGroupName, prop.getProperty("ManageNewGroupName"));
-		System.out.println(newGroupName);
-		System.out.println(prop.getProperty("ManageNewGroupName"));
+		softAssert.assertEquals(newGroupName, prop.getProperty("ManageNewGroupName"));
 		String newgroupdescription = action.nameVerifyFromTable(manage.getGroupNameDescriptionVeriftText(),
 				prop.getProperty("ManageNewGroupDescription"));
-		action.softAssertion(newgroupdescription, prop.getProperty("ManageNewGroupDescription"));
+		softAssert.assertEquals(newgroupdescription, prop.getProperty("ManageNewGroupDescription"));
 
+		
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getDevicesList());
 		
-		action.softAssertion(manage.getDevicePageHeaderText().getText(), prop.getProperty("DevicesPageHeaderText"));
+		softAssert.assertEquals(manage.getDevicePageHeaderText().getText(), prop.getProperty("DevicesPageHeaderText"));
 
 		String Groupnameverify = action.nameVerifyFromTable(manage.getGroupsList(),
 				prop.getProperty("ManageNewGroupName"));
 
-		action.softAssertion(Groupnameverify, prop.getProperty("ManageNewGroupName"));
+		softAssert.assertEquals(Groupnameverify, prop.getProperty("ManageNewGroupName"));
 		
 		
 		action.nameVerifyFromTableAndClick(manage.getGroupsList(),prop.getProperty("ManageNewGroupName"));
@@ -227,7 +238,7 @@ public class HomePageTest extends BaseClass {
 		
 		String NoCompuersReportingText = manage.getNoCompuersReportingText().getText();
 		
-		action.softAssertion(NoCompuersReportingText, prop.getProperty("getNoCompuersReportingText"));
+		softAssert.assertEquals(NoCompuersReportingText, prop.getProperty("getNoCompuersReportingText"));
 		
 		action.click(driver, manage.getOrderColumns());
 
@@ -237,7 +248,7 @@ public class HomePageTest extends BaseClass {
 
 		manage.tableHeaderText();
 
-		action.softAssertionInt(1, manage.countTable);
+		softAssert.assertEquals(1, manage.countTable);
 
 		action.click(driver, manage.getOrderColumns());
 
@@ -247,15 +258,82 @@ public class HomePageTest extends BaseClass {
 
 		manage.tableHeaderText();
 
-		action.softAssertionInt(22, manage.countTable);
+		softAssert.assertEquals(22, manage.countTable);
+		
+		manage.getDeviceSearchFunctionality().click();;
+		manage.getDeviceSearchFunctionality().sendKeys(prop.getProperty("DeviceNeedsToBeSearch"));
 
+		
+		//action.type(manage.getDeviceSearchFunctionality(), prop.getProperty("DeviceNeedsToBeSearch"));
+		
+		manage.getDeviceSearchFunctionality().submit();
+		
+		
+		softAssert.assertEquals(manage.getDeviceListVerifyFromTable(prop.getProperty("DeviceNeedsToBeSearch")),true,"On search");
+		
+		action.click(driver, manage.getGroupsOption());
+		
+		manage.getSelectGroups(prop.getProperty("AssetInventoryGropsSelected"));
+		
+		action.click(driver, manage.getSearchBtn());
+		
+		softAssert.assertEquals(manage.getDeviceListVerifyFromTable(prop.getProperty("DeviceNeedsToBeSearch")),true,"Groups selected");
+		
+		action.click(driver, manage.getDeviceType());
+		
+		manage.getSelectDevicesTypes(prop.getProperty("AssetInventoryDeviceTypesSelected"));
+		
+		action.click(driver, manage.getSearchBtnDeviceType());
+		
+		softAssert.assertEquals(manage.getDeviceListVerifyFromTable(prop.getProperty("DeviceNeedsToBeSearch")),true,"Device Type selected");
+		
+		manage.getActionsOnSystem();
+		
+		//softAssert.assertEquals(manage.getVerifyOptionsInListfromWEB(), manage.getVerifyOptionsInListfromLocal(prop));
+		
+		manage.getActionsNeedToBePerformed(prop.getProperty("DeviceSearchAssignGroupTextVerify"));
+		
+		softAssert.assertEquals(manage.getGroupSelectedDevices(), prop.getProperty("GroupSelectedDevicesText"));
+		
+		action.dropdown(manage.getGroupSelectDropDown(), prop.getProperty("ManageNewGroupName"));
+		
+		action.click(driver, manage.getGroupSelectDevicesOKButton());
+		
+		manage.getDeviceSearchFunctionality().click();;
+		manage.getDeviceSearchFunctionality().sendKeys(prop.getProperty("DeviceNeedsToBeSearch"));
+		
+		manage.getDeviceSearchFunctionality().submit();
+		
+		softAssert.assertEquals(manage.getGroupAssignedStatusVerifyAfterAssign(prop.getProperty("ManageNewGroupName")),true,"On search");
+
+		
+		manage.getActionsOnSystem();
+				
+		manage.getActionsNeedToBePerformed(prop.getProperty("DeviceSearchAssignGroupTextVerify"));
+		
+		action.dropdown(manage.getGroupSelectDropDown(), prop.getProperty("DefaulftGroupOnDevicesearchPage"));
+		
+		action.click(driver, manage.getGroupSelectDevicesOKButton());
+		
+		manage.getDeviceSearchFunctionality().click();;
+		manage.getDeviceSearchFunctionality().sendKeys(prop.getProperty("DeviceNeedsToBeSearch"));
+		
+		manage.getDeviceSearchFunctionality().submit();
+		
+		softAssert.assertEquals(manage.getGroupAssignedStatusVerifyAfterAssign(prop.getProperty("ManageNewGroupName")),false,"On search");
+		
+		
+		softAssert.assertAll();
+		
 	}
 
-	@Test(priority=7)
+	
+	//
+	@Test(priority=6)
 	public void manageEditGroups() {
 		
 		manage = new Manage(driver);
-		
+		softAssert = new SoftAssert();
 		// Edit group name
 
 		action.click(driver, manage.getManageIcon());
@@ -267,25 +345,43 @@ public class HomePageTest extends BaseClass {
 		
 		action.type(manage.getNewGroupName(), prop.getProperty("ManageNewGroupReName"));
 		
+		manage.getNewGroupDescription().clear();
+		
 		action.click(driver, manage.getNewGroupSubmitButton());
 		
-		String newGroupName = action.nameVerifyFromTable(manage.getGroupNameVeriyText(),
-				prop.getProperty("ManageNewGroupReName"));
+		String newGroupName = action.nameVerifyFromTable(manage.getGroupNameVeriyText(),prop.getProperty("ManageNewGroupReName"));
 		
-		action.softAssertion(newGroupName, prop.getProperty("ManageNewGroupReName"));
+		softAssert.assertEquals(manage.getDescriptionPresentUpdate(prop.getProperty("ManageNewGroupDescription")), true);
+		softAssert.assertEquals(newGroupName, prop.getProperty("ManageNewGroupReName"));
+		
+		//manage.getVerifyTextClickOnElement(prop.getProperty("ManageNewGroupReName"));
+		
+		//action.dropdown(manage.getOptionsDropDown(), prop.getProperty("ManageNewGroupEditGroup"));
+		
+		//action.type(manage.getNewGroupDescription(), prop.getProperty("ManageNewGroupDescription"));
+		
+		//action.click(driver, manage.getDialougeBox());
+		//action.click(driver, manage.getNewGroupSubmitButton());
+		
+		//String newgroupdescription = action.nameVerifyFromTable(manage.getGroupNameDescriptionVeriftText(),prop.getProperty("ManageNewGroupDescription"));
+		
+		//softAssert.assertEquals(newgroupdescription, prop.getProperty("ManageNewGroupDescription"));
+		
+		softAssert.assertAll();
 	}
 	
 	//(dependsOnMethods= {"validUserLogin"})
-	@Test(priority=8)
+	@Test(priority=7)
 	public void managePolicies() {
 		
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getPoliciesIcon());
 		
-		action.softAssertion(manage.getPoliciesHeaderTitle().getText(), prop.getProperty("PoliciesHeaderTitleText"));
-		action.softAssertion(manage.getSelectAPolicyToEditHeaderText().getText(), prop.getProperty("SelectAPolicyToEditHeaderText"));
+		softAssert.assertEquals(manage.getPoliciesHeaderTitle().getText(), prop.getProperty("PoliciesHeaderTitleText"));
+		softAssert.assertEquals(manage.getSelectAPolicyToEditHeaderText().getText(), prop.getProperty("SelectAPolicyToEditHeaderText"));
 		action.click(driver, manage.getNewPolicyButtonClick());
 		
 		action.type(manage.getNewpolicyName(), prop.getProperty("ManageNewPolicyName"));
@@ -293,12 +389,12 @@ public class HomePageTest extends BaseClass {
 		
 		String schemeVerifyText = manage.getSchemesVerifyText().getText();
 		
-		action.softAssertion(schemeVerifyText, prop.getProperty("ManageSchemeVerifyText"));
+		softAssert.assertEquals(schemeVerifyText, prop.getProperty("ManageSchemeVerifyText"));
 		
-		action.softAssertion(manage.getSchemeNameText(), prop.getProperty("getSchemeNameTextVerify"));
-		action.softAssertion(manage.getSchemeStartText(), prop.getProperty("getSchemeStartTextVerify"));
-		action.softAssertion(manage.getSchemeDaysText(), prop.getProperty("getSchemeDaysTextVerify"));
-		action.softAssertion(manage.getSchemeEndText(), prop.getProperty("getSchemeEndTextVerify"));
+		softAssert.assertEquals(manage.getSchemeNameText(), prop.getProperty("getSchemeNameTextVerify"));
+		softAssert.assertEquals(manage.getSchemeStartText(), prop.getProperty("getSchemeStartTextVerify"));
+		softAssert.assertEquals(manage.getSchemeDaysText(), prop.getProperty("getSchemeDaysTextVerify"));
+		softAssert.assertEquals(manage.getSchemeEndText(), prop.getProperty("getSchemeEndTextVerify"));
 		
 		action.click(driver, manage.getSchemesEditButton());
 		
@@ -323,18 +419,22 @@ public class HomePageTest extends BaseClass {
 		action.type(manage.getNetworkMax(), prop.getProperty("PoliciesNetworkMax"));
 		action.click(driver, manage.getSaveButton());
 		
-		action.softAssertion(manage.getWakeTimerONACVerifyText(), prop.getProperty("DisabledText"));
-		action.softAssertion(manage.getUsbSleepONACVerifyText(), prop.getProperty("DisabledText"));
-		action.softAssertion(manage.getHidWakeONACVerifyText(), prop.getProperty("DisabledText"));
-		action.softAssertion(manage.getCPUMaxONACVerifyText(), prop.getProperty("PoliciesCPUmax"));
-		action.softAssertion(manage.getDiskMaxONACVerifyText(), prop.getProperty("PoliciesDiskMax"));
-		action.softAssertion(manage.getNetworkMaxONACVerifyText(), prop.getProperty("PoliciesNetworkMax"));
-		action.softAssertion(manage.getWakeTimerONDCVerifyText(), prop.getProperty("DisabledText"));
-		action.softAssertion(manage.getUSBSleepONDCV(), prop.getProperty("DisabledText"));
+		softAssert.assertEquals(manage.getWakeTimerONACVerifyText(), prop.getProperty("DisabledText"));
+		softAssert.assertEquals(manage.getUsbSleepONACVerifyText(), prop.getProperty("DisabledText"));
+		softAssert.assertEquals(manage.getHidWakeONACVerifyText(), prop.getProperty("DisabledText"));
+		softAssert.assertEquals(manage.getCPUMaxONACVerifyText(), prop.getProperty("PoliciesCPUmax"));
+		softAssert.assertEquals(manage.getDiskMaxONACVerifyText(), prop.getProperty("PoliciesDiskMax"));
+		softAssert.assertEquals(manage.getNetworkMaxONACVerifyText(), prop.getProperty("PoliciesNetworkMax"));
+		softAssert.assertEquals(manage.getWakeTimerONDCVerifyText(), prop.getProperty("DisabledText"));
+		softAssert.assertEquals(manage.getUSBSleepONDCV(), prop.getProperty("DisabledText"));
+		softAssert.assertAll();
 	}
 	
-	@Test(priority=9)
+	@Test(priority=8)
 	public void manage_Policies_AddNewScheme() {
+		softAssert = new SoftAssert();
+		
+		
 		action.click(driver, manage.getADDSchemeButton());
 		manage.getSelectDaysCheckbox();
 		action.type(manage.getNewSchemeName(), prop.getProperty("NewSchemeName"));
@@ -365,9 +465,10 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, manage.getSaveButton());
 		
 		
-		action.softAssertion(manage.getNewSchemeDaysVerifyText(), prop.getProperty("getSchemeDaysTextVerify"));
-		action.softAssertion(manage.getNewSchemeStartTimeVerifyText(), prop.getProperty("PoliciesNewSchemeStartTimeVerify"));
-		action.softAssertion(manage.getNewSchemeEndTimeVerifyText(), prop.getProperty("PoliciesNewSchemeEndTimeVerify"));
+		softAssert.assertEquals(manage.getNewSchemeDaysVerifyText(), prop.getProperty("getSchemeDaysTextVerify"));
+		softAssert.assertEquals(manage.getNewSchemeStartTimeVerifyText(), prop.getProperty("PoliciesNewSchemeStartTimeVerify"));
+		softAssert.assertEquals(manage.getNewSchemeEndTimeVerifyText(), prop.getProperty("PoliciesNewSchemeEndTimeVerify"));
+		softAssert.assertAll();
 		
 
 	}
@@ -375,6 +476,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=10)
 	public void managePolicies_Scheduled_Events() {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, manage.getScduledEventAddButton());
 		manage.getScheduledDays();
@@ -387,26 +489,28 @@ public class HomePageTest extends BaseClass {
 		action.type(manage.getEventStartMessege(), prop.getProperty("PoliciesEventStartMessege"));
 		action.click(driver, manage.getEventStartSaveButton());
 		
-		action.softAssertion(manage.getScheduledEventNameTextVerify(), prop.getProperty("PoliciesEventSelector"));
-		action.softAssertion(manage.getScheduledEventdaysTextVerify(), prop.getProperty("getSchemeDaysTextVerify"));
-		action.softAssertion(manage.getScheduledEventStartTextVerify(), prop.getProperty("PoliciesEventStartTimeVeriftText"));
+		softAssert.assertEquals(manage.getScheduledEventNameTextVerify(), prop.getProperty("PoliciesEventSelector"));
+		softAssert.assertEquals(manage.getScheduledEventdaysTextVerify(), prop.getProperty("getSchemeDaysTextVerify"));
+		softAssert.assertEquals(manage.getScheduledEventStartTextVerify(), prop.getProperty("PoliciesEventStartTimeVeriftText"));
 		
 		action.click(driver, manage.getNewPolicySaveButton());
+		softAssert.assertAll();
 	}
 	
 	@Test(priority=11)
 	public void new_Policy_Verify() {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
-		action.softAssertion(manage.getPolicyNameVerify(prop.getProperty("ManageNewPolicyName")), prop.getProperty("ManageNewPolicyName"));
-		action.softAssertion(manage.getPolicyDescriptionVerify(prop.getProperty("ManageNewPolicyDescription")), prop.getProperty("ManageNewPolicyDescription"));
-			
+		softAssert.assertEquals(manage.getPolicyNameVerify(prop.getProperty("ManageNewPolicyName")), prop.getProperty("ManageNewPolicyName"));
+		softAssert.assertEquals(manage.getPolicyDescriptionVerify(prop.getProperty("ManageNewPolicyDescription")), prop.getProperty("ManageNewPolicyDescription"));
+		softAssert.assertAll();
 	}
 	
 	@Test(priority=12)
 	public void assign_Policy_To_Sytstem() {
 		manage = new Manage(driver);
-		
+		softAssert = new SoftAssert();
 		
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getDevicesList());
@@ -416,13 +520,15 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, manage.getAssignPolicy());
 		action.dropdown(manage.getPolicySelectorFromDropdown(), prop.getProperty("ManageNewPolicyName"));
 		action.click(driver, manage.getAssignPolicyOKButton());
-		action.softAssertion(manage.getPolicyAssignVerifyText(prop.getProperty("ManageNewPolicyName")), prop.getProperty("ManageNewPolicyName"));
+		softAssert.assertEquals(manage.getPolicyAssignVerifyText(prop.getProperty("ManageNewPolicyName")), prop.getProperty("ManageNewPolicyName"));
+		softAssert.assertAll();
 	}
 	
 	
 	@Test(priority=13)
 	public void deleteAssignedPolicy() {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getPoliciesIcon());
@@ -430,12 +536,14 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, manage.getpolicyDeleteButton());
 		String Text = manage.getPolicyDeleteAlertMessege();
 		softAssert.assertTrue(Text.contains(prop.getProperty("DeletePolicyAlertText")));
+		softAssert.assertAll();
 	}
 	
 	
 	@Test(priority=14)
 	public void Unassign_Policy_To_Sytstem() {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getDevicesList());
@@ -445,7 +553,8 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, manage.getAssignPolicy());
 		action.dropdown(manage.getPolicySelectorFromDropdown(), prop.getProperty("DefaultOTSTestingPolicy"));
 		action.click(driver, manage.getAssignPolicyOKButton());
-		action.softAssertion(manage.getPolicyAssignVerifyText(prop.getProperty("DefaultOTSTestingPolicy")), prop.getProperty("DefaultOTSTestingPolicy"));
+		softAssert.assertEquals(manage.getPolicyAssignVerifyText(prop.getProperty("DefaultOTSTestingPolicy")), prop.getProperty("DefaultOTSTestingPolicy"));
+		softAssert.assertAll();
 	}
 	
 	@Test(enabled=false)
@@ -458,6 +567,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=15)
 	public void manage_User() {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getUsers());
@@ -494,6 +604,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=16)
 	public void manage_Users_GroupPermission() throws InterruptedException {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
 		//Temperory implementation
 		//action.click(driver, manage.getManageIcon());
@@ -511,6 +622,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=17)
 	public void manage_Licences() {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getLicences());
@@ -526,6 +638,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=18)
 	public void manage_Reference() {
 		manage = new Manage(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, manage.getManageIcon());
 		action.click(driver, manage.getReference());
@@ -541,6 +654,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=19)
 	public void manage_Automation() {
 		automation = new Automation(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, automation.getAutomateIcon());
 		softAssert.assertEquals(automation.getAutomationHeaderText(), prop.getProperty("AutomationScreenTitle"));
@@ -579,6 +693,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=20)
 	public void Automation_rule_Presence_verify() {
 		automation = new Automation(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, automation.getAutomateIcon());
 		automation.getRuleNameVerifyText(prop.getProperty("AutomationgetRuleName"));
@@ -604,7 +719,8 @@ public class HomePageTest extends BaseClass {
 	
 	@Test(priority=21)
 	public void Automation_PolicyRules() {
-		automation = new Automation(driver);		
+		automation = new Automation(driver);	
+		softAssert = new SoftAssert();
 		  
 		//need to delete
 		action.click(driver, automation.getAutomateIcon());
@@ -647,6 +763,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=22)
 	public void getAutomation_AlertRules() {
 		automation = new Automation(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, automation.getAlertRulesTab());
 		softAssert.assertEquals(automation.getAlertRulesTabText(), prop.getProperty("AutomationAlertrulesVerifyText"));
@@ -657,6 +774,7 @@ public class HomePageTest extends BaseClass {
 	@Test(priority=23)
 	public void Settings() {
 		settings = new Settings(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, settings.getSettings());
 		action.click(driver, settings.getSettingsAdvanced());
@@ -741,11 +859,12 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	
-	//5
-	@Test(dependsOnMethods= {"validUserLogin"})
+	//5 need to implement for none and none
+	@Test(priority=24)
 	public void assetInventory() throws InterruptedException {
 
 		reporting = new Reporting(driver);
+		softAssert = new SoftAssert();
 		
 		
 		action.click(driver, homepage.getReportsIcon());
@@ -754,28 +873,29 @@ public class HomePageTest extends BaseClass {
 		action.fluentWait(driver, reporting.getAssetInventoryHeader());
 		
 		String ActualTextAssetInventoryHeader = reporting.getAssetInventoryHeader().getText();
-		action.softAssertion(ActualTextAssetInventoryHeader,   prop.getProperty("AssetInventoryHeader"));
+		softAssert.assertEquals(ActualTextAssetInventoryHeader,   prop.getProperty("AssetInventoryHeader"));
 		
 		String ActualTextAssetInventoryReportMessege = reporting.getAssetInventoryReportMessege().getText();
-		action.softAssertion(ActualTextAssetInventoryReportMessege, prop.getProperty("AssetInventoryReportMessege"));
+		softAssert.assertEquals(ActualTextAssetInventoryReportMessege, prop.getProperty("AssetInventoryReportMessege"));
 		
 		String ActualTextGroupsSelected = reporting.getAssetInventoryGroupsSelectedText().getText();
-		action.softAssertion(ActualTextGroupsSelected, prop.getProperty("AssetInventoryGroupsSelectedText"));
+		softAssert.assertEquals(ActualTextGroupsSelected, prop.getProperty("AssetInventoryGroupsSelectedText"));
 		
 		String ActualTextDevicesTypeSelected = reporting.getAssetInventoryDeviceTypesSelectedText().getText();
-		action.softAssertion(ActualTextDevicesTypeSelected, prop.getProperty("AssetInventoryDeviceTypesSelectedText"));
+		softAssert.assertEquals(ActualTextDevicesTypeSelected, prop.getProperty("AssetInventoryDeviceTypesSelectedText"));
 		
 
 		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),prop.getProperty("ManageNewGroupReName"));
 		action.dropdown(reporting.getAssetInventoryDeviceTypeSelectorOptions(),prop.getProperty("AssetInventoryDeviceTypesSelected"));
 		action.click(driver, reporting.getAssetInventoryOkButton());
-		
+		softAssert.assertAll();
 	}
 	
-	// not working to check
-	@Test(dependsOnMethods= {"validUserLogin"})
+	// completed
+	@Test(priority=25)
 	public void reporting_DeviceUsage() throws ParseException {
 		reporting = new Reporting(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, homepage.getReportsIcon());
 		action.click(driver, reporting.getDeviceUsage());
@@ -792,8 +912,8 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthEndDateTextVerify") );
 		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewPolicyName") );
 		
-		action.selectByVisibleText(prop.getProperty("DownloadFormatTwo"), reporting.getExportDropDown());
-		action.selectByVisibleText(prop.getProperty("DownloadFormat"), reporting.getExportDropDown());
+//		action.selectByVisibleText(prop.getProperty("DownloadFormatTwo"), reporting.getExportDropDown());
+//		action.selectByVisibleText(prop.getProperty("DownloadFormat"), reporting.getExportDropDown());
 		
 		action.click(driver, homepage.getReportsIcon());
 		action.click(driver, reporting.getDeviceUsage());
@@ -822,9 +942,11 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	@Test(dependsOnMethods= {"validUserLogin"})
+	//completed
+	@Test(priority=26)
 	public void reporting_Licence_Summary() throws ParseException {
 		reporting = new Reporting(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, homepage.getReportsIcon());
 		action.click(driver, reporting.getLicenseSummary());
@@ -842,10 +964,11 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 
-
-	@Test(dependsOnMethods= {"validUserLogin"})
+	//Completed
+	@Test(priority=27)
 	public void reporting_Policy_Summary() throws ParseException {
 		reporting = new Reporting(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, homepage.getReportsIcon());
 		softAssert.assertEquals(reporting.getPolicySummary().getText(), prop.getProperty("PolicySummaryHeaderText"));
@@ -854,7 +977,7 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, reporting.getPolicySummary());
 		
 		softAssert.assertEquals(reporting.getBatteryHealthPopUpHeader().getText(), prop.getProperty("PolicySummaryHeaderText"));
-		softAssert.assertEquals(reporting.getLicenseSummaryContentText(), prop.getProperty("LicenseSummaryContentText"));
+		softAssert.assertEquals(reporting.getLicenseSummaryContentText(), prop.getProperty("PolicySummaryContentText"));
 		action.click(driver, reporting.getOKButton());
 		softAssert.assertEquals(action.verifyDropdown(reporting.getExportOption()),action.verifyDropdownList());
 		
@@ -865,9 +988,11 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();		
 	}
 	
-	@Test(dependsOnMethods= {"validUserLogin"})
+	// working need to add more dropdown content
+	@Test(priority=28)
 	public void reporting_DevicesVStime() {
 		reporting = new Reporting(driver);
+		softAssert = new SoftAssert();
 		
 		action.click(driver, homepage.getReportsIcon());
 		softAssert.assertEquals(reporting.getDeviceVStime().getText(),prop.getProperty("DevicevstimetextVerify") );
@@ -887,24 +1012,18 @@ public class HomePageTest extends BaseClass {
 		//Verification for the Start date, end date and Policy name
 		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthStartDateTextVerify") );
 		softAssert.assertEquals(reporting.getEndDateVerifyAtExport().getText(), prop.getProperty("BatteryHealthEndDateTextVerify") );
-		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewPolicyName") );
-		
-		action.selectByVisibleText(prop.getProperty("DownloadFormatTwo"), reporting.getExportDropDown());
-		action.selectByVisibleText(prop.getProperty("DownloadFormat"), reporting.getExportDropDown());
-		
-		
-		
-		
-		
+		softAssert.assertEquals(action.removeFirstLetter(reporting.getFinalGroupSelectionverifyText().getText()), prop.getProperty("ManageNewGroupReName") );
 		
 		softAssert.assertAll();	
 	}
 	
 	//Completed
-	@Test(dependsOnMethods = { "validUserLogin" })
+	@Test(priority=29)
 	public void reporting_DeviceTypebyPercentage() throws ParseException {
 
 		reporting = new Reporting(driver);
+		softAssert = new SoftAssert();
+		
 		action.click(driver, homepage.getReportsIcon());
 		softAssert.assertEquals(reporting.getDeviceTypePercentage().getText(),prop.getProperty("ReportingDeviceTypePercentageText") );
 		action.click(driver,reporting.getDeviceTypePercentage() );
@@ -940,11 +1059,13 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	
-	
-	@Test(dependsOnMethods = { "validUserLogin" })
+	// Completed
+	@Test(priority=30)
 	public void reporting_Power_State_Report() throws ParseException {
 
+
 		reporting = new Reporting(driver);
+		softAssert = new SoftAssert();
 		
 		
 		action.click(driver, homepage.getReportsIcon());
@@ -1003,7 +1124,26 @@ public class HomePageTest extends BaseClass {
 		
 
 	}
+	
+	@Test(priority=31)
+	public void logOutFunctionality() {
+		homepage = new HomePage(driver);
+		indexpage = new IndexPage(driver);
+		softAssert = new SoftAssert();
+		
+		action.click(driver, homepage.getlogout());
+		softAssert.assertEquals(indexpage.getLoginDialougeTitle().getText(), prop.getProperty("LoginDialougeTitle"));
+		
+		
+		softAssert.assertAll();
+	}
+	
+	
+	
+	
 }
+
+
 
 
 

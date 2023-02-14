@@ -10,13 +10,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="browserLaunch"/>
-          <include name="manage_Automation"/>
           <include name="Automation_rule_Presence_verify"/>
-          <include name="getAutomation_AlertRules"/>
-          <include name="manage_Licences"/>
-          <include name="Settings"/>
-          <include name="manage_Reference"/>
-          <include name="Automation_PolicyRules"/>
         </methods>
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </classes>

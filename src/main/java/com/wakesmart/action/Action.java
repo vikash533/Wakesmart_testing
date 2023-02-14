@@ -62,27 +62,27 @@ public class Action extends BaseClass {
 		return sb.toString();
 	}
 
-	// Soft assertion for string
-	public void softAssertion(String actual, String expected) {
-		try {
-			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(actual, expected);
-			softAssert.assertAll();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	// soft assertion for integer
-	public void softAssertionInt(Integer actual, Integer expected) {
-		try {
-			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(actual, expected);
-			softAssert.assertAll();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	// Soft assertion for string
+//	public void softAssertion(String actual, String expected) {
+//		try {
+//			SoftAssert softAssert = new SoftAssert();
+//			softAssert.assertEquals(actual, expected);
+//			softAssert.assertAll();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+//
+//	// soft assertion for integer
+//	public void softAssertionInt(Integer actual, Integer expected) {
+//		try {
+//			SoftAssert softAssert = new SoftAssert();
+//			softAssert.assertEquals(actual, expected);
+//			softAssert.assertAll();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	// dropdown select
 	public void dropdown(WebElement ele, String str) {
@@ -112,6 +112,21 @@ public class Action extends BaseClass {
 		}
 		return tablename;
 	}
+	
+	
+	public void ClickOnGroup(List<WebElement> ele, String str) {
+
+		for (WebElement option : ele) {
+
+			if (option.getText().equalsIgnoreCase(str)) {
+				option.click();
+				break;
+			}
+		}
+	}
+	
+	
+	
 
 	public void nameVerifyFromTableAndClick(List<WebElement> ele, String str) {
 

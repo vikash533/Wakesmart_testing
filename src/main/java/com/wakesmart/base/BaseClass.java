@@ -10,6 +10,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -20,6 +21,9 @@ public class BaseClass{
 	public WebDriver driver;
 	public Properties prop;
 	
+	
+	
+	
 
 	public WebDriver launchBrowser() throws IOException {
 		
@@ -29,9 +33,12 @@ public class BaseClass{
 		String browserName = prop.getProperty("browser");
 
 		if (browserName.equalsIgnoreCase("chrome")) {
-
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--headless");
+			chromeOptions.setHeadless(false);
+			
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(chromeOptions);
 		}
 
 		else if (browserName.equalsIgnoreCase("firefox")) {

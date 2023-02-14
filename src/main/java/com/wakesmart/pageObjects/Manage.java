@@ -10,13 +10,185 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.wakesmart.action.Action;
 import com.wakesmart.base.BaseClass;
 
 public class Manage extends BaseClass {
 
+	Action act = new Action();
+	
+	
 	public Manage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	
+	By GroupAssignedStatusVerifyAfterAssign = By.xpath("//body/div/div/div[5]/div/table/tbody/tr/td[18]");
+	
+	public boolean getGroupAssignedStatusVerifyAfterAssign(String GroupName) {
+		boolean result = false;
+		try {
+			for (WebElement ele : driver.findElements(GroupAssignedStatusVerifyAfterAssign)) {
+				if (ele.getText().contains(GroupName)) {
+					result = true;
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
+	
+	By GroupsOption = By.xpath("//button[@id='groupFltrBtn']");
+	By PolicyOption = By.xpath("//button[@id='policyFltrBtn']");
+	By DeviceType = By.xpath("//button[@id='deviceFltrBtn']");
+	By SelectGroups = By.xpath("(//div[@class='groupFltrDlg'])[4]/label");
+	By SearchBtn = By.xpath("(//button[@id='searchBtn1'])[1]");
+	By SelectDevicesTypes = By.xpath("(//div[@class='deviceFltrDlg'])[4]/label");
+	By SearchBtnDeviceType = By.xpath("(//button[@id='searchBtn3'])[1]");
+	
+	public WebElement getSearchBtnDeviceType() {
+		return driver.findElement(SearchBtnDeviceType);
+	}
+	
+	
+	
+	public void getSelectDevicesTypes(String group) {
+		
+		for(WebElement ele:driver.findElements(SelectDevicesTypes)) {
+			if(ele.getText().equalsIgnoreCase(group)) {
+				ele.click();
+				break;
+			}
+		}
+	}
+	
+	public WebElement getSearchBtn() {
+		return driver.findElement(SearchBtn);
+	}
+	
+	public void getSelectGroups(String group) {
+		
+		for(WebElement ele:driver.findElements(SelectGroups)) {
+			if(ele.getText().equalsIgnoreCase(group)) {
+				ele.click();
+				break;
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	public WebElement getGroupsOption() {
+		return driver.findElement(GroupsOption);
+	}
+	
+	public WebElement getPolicyOption() {
+		return driver.findElement(PolicyOption);
+	}
+	
+	public WebElement getDeviceType() {
+		return driver.findElement(DeviceType);
+	}
+	
+	
+	
+	By DeviceSearchFunctionality = By.xpath("//form[@id='searchForm']//input[@id='searchBar']");
+	
+	public WebElement getDeviceSearchFunctionality() {
+		return driver.findElement(DeviceSearchFunctionality);
+	}
+	
+	By DeviceListVerifyFromTable = By.xpath("(//tr[@class='deviceentry'])/td[1]");
+	
+	public boolean getDeviceListVerifyFromTable(String text) {
+		boolean result = false;
+		try {
+			for (WebElement ele : driver.findElements(DeviceListVerifyFromTable)) {
+				if (ele.getText().contains(text)) {
+					result = true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
+	// Right click to the element
+	public void getActionsOnSystem() {
+		for (WebElement ele : driver.findElements(DeviceListVerifyFromTable)) {
+				ele.click();
+				act.rightclick(driver, ele);
+				break;
+		}
+	}
+	
+	By ActionsNeedToBePerformed = By.xpath("(//div[@id='menu'])/p");
+	
+	public void getActionsNeedToBePerformed(String ActionsNeedToBePerformedText) {
+		
+		for(WebElement ele: driver.findElements(ActionsNeedToBePerformed)) {
+			if(ele.getText().equalsIgnoreCase(ActionsNeedToBePerformedText)) {
+				ele.click();
+				break;
+			}
+		}
+	}
+	
+	public List<String> getVerifyOptionsInListfromWEB() {
+		List<String> list = new ArrayList<>();
+		
+		for(WebElement ele: driver.findElements(ActionsNeedToBePerformed)) {
+			
+			list.add(ele.getText());
+		}
+		return list;
+	}
+	
+	public List<String> getVerifyOptionsInListfromLocal(Properties prop) {
+		List<String> list = new ArrayList<>();
+		
+		list.add(prop.getProperty("DeviceSearchActionTextVerify"));
+		list.add(prop.getProperty("DeviceSearchWakeTextVerify"));
+		list.add(prop.getProperty("DeviceSearchSleepTextVerify"));
+		list.add(prop.getProperty("DeviceSearchRestartTextVerify"));
+		list.add(prop.getProperty("DeviceSearchShutdownTextVerify"));
+		list.add(prop.getProperty("DeviceSearchSendMessegeTextVerify"));
+		list.add(prop.getProperty("DeviceSearchAssignGroupTextVerify"));
+		list.add(prop.getProperty("DeviceSearchAssignPolicyTextVerify"));
+		list.add(prop.getProperty("DeviceSearchSetPropertiesTextVerify"));
+		
+		return list;
+	}
+	
+	
+	
+	
+	
+	By GroupSelectDropDown = By.xpath("(//select[@id='groupSelector1'])[1]");
+	By GroupSelectDevicesOKButton = By.xpath("//form[@id='assignGroup']//input[@id='assignBtn']");
+	By GroupSelectedDevices = By.xpath("//label[normalize-space()='Group Selected Devices']");
+	
+	public String getGroupSelectedDevices() {
+		return driver.findElement(GroupSelectedDevices).getText();
+	}
+	
+	public WebElement getGroupSelectDevicesOKButton() {
+		return driver.findElement(GroupSelectDevicesOKButton);
+	}
+	
+	public WebElement getGroupSelectDropDown() {
+		return driver.findElement(GroupSelectDropDown);
+	}
+	
+	
 
 	By ManageIcon = By.xpath("//input[@id='manage']");
 
@@ -61,6 +233,11 @@ public class Manage extends BaseClass {
 	public WebElement getNewGroupDescription() {
 		return driver.findElement(NewGroupDescription);
 	}
+	
+
+	
+	
+	
 
 	By NewGroupParent = By.xpath("//select[@id='parentSelector']");
 
@@ -108,6 +285,27 @@ public class Manage extends BaseClass {
 		return driver.findElements(GroupNameDescriptionVeriftText);
 	}
 
+	
+	public boolean getDescriptionPresentUpdate(String description) {
+		boolean result = true;
+		for(WebElement ele:getGroupNameDescriptionVeriftText()) {
+			if(ele.getText().equalsIgnoreCase(description)) {
+				result=false;
+			}
+		}
+		return result;
+	}
+	
+	
+	By DialougeBox = By.xpath("//form[@id='groupEditDialog']");
+	
+	public WebElement getDialougeBox() {
+		return driver.findElement(DialougeBox);
+	}
+	
+	
+	
+	
 	// Devices
 
 	By NoCompuersReportingText = By.xpath("//span[normalize-space()='No computers reporting']");

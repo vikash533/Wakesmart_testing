@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.wakesmart.utility.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="WakeSmart(failed)">
     <classes>
       <class name="com.wakesmart.testcases.HomePageTest">
         <methods>
+          <include name="tearDown"/>
           <include name="browserLaunch"/>
-          <include name="reporting_Power_State_Report"/>
-          <include name="validUserLogin"/>
+          <include name="Automation_rule_Presence_verify"/>
         </methods>
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- WakeSmart(failed) -->
+</suite> <!-- Failed suite [Suite] -->

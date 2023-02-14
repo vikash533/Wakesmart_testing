@@ -6,8 +6,8 @@
       <class name="com.wakesmart.testcases.HomePageTest">
         <methods>
           <include name="browserLaunch"/>
-          <include name="reporting_Power_State_Report"/>
           <include name="validUserLogin"/>
+          <include name="manageEditGroups"/>
         </methods>
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
     </classes>

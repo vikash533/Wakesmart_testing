@@ -1,25 +1,238 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="28" total="30" passed="2" failed="0" skipped="0">
+<testng-results ignored="1" total="41" passed="39" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-01T21:37:48 IST" name="Default suite" finished-at="2023-02-01T21:38:21 IST" duration-ms="33248">
+  <suite started-at="2023-02-14T23:17:00 IST" name="Suite" finished-at="2023-02-14T23:20:42 IST" duration-ms="221850">
     <groups>
+      <group name="Smoke">
+        <method signature="LoginPageTest.colorOfLoginButton()[pri:3, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" name="colorOfLoginButton" class="com.wakesmart.testcases.LoginPageTest"/>
+        <method signature="LoginPageTest.validUserLogin()[pri:9, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" name="validUserLogin" class="com.wakesmart.testcases.LoginPageTest"/>
+        <method signature="LoginPageTest.userLogout()[pri:10, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" name="userLogout" class="com.wakesmart.testcases.LoginPageTest"/>
+      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2023-02-01T21:37:48 IST" name="Default test" finished-at="2023-02-01T21:38:21 IST" duration-ms="33248">
-      <class name="com.wakesmart.testcases.HomePageTest">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@27406a17]" started-at="2023-02-01T21:37:48 IST" name="browserLaunch" finished-at="2023-02-01T21:37:57 IST" duration-ms="8933" status="PASS">
+    <test started-at="2023-02-14T23:17:00 IST" name="WakeSmart" finished-at="2023-02-14T23:20:42 IST" duration-ms="221850">
+      <class name="com.wakesmart.testcases.LoginPageTest">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:00 IST" name="browserLaunch" finished-at="2023-02-14T23:17:06 IST" duration-ms="5900" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="validUserLogin()[pri:1, instance:com.wakesmart.testcases.HomePageTest@27406a17]" started-at="2023-02-01T21:37:57 IST" name="validUserLogin" finished-at="2023-02-01T21:38:06 IST" duration-ms="8912" status="PASS">
+        <test-method signature="getTitle()[pri:1, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:06 IST" name="getTitle" finished-at="2023-02-14T23:17:06 IST" duration-ms="53" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTitle -->
+        <test-method signature="colorOfForm()[pri:2, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:06 IST" name="colorOfForm" finished-at="2023-02-14T23:17:06 IST" duration-ms="54" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- colorOfForm -->
+        <test-method signature="colorOfLoginButton()[pri:3, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:06 IST" name="colorOfLoginButton" finished-at="2023-02-14T23:17:06 IST" duration-ms="31" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- colorOfLoginButton -->
+        <test-method signature="invalidUserName_ValidPasswordLogin()[pri:4, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:06 IST" name="invalidUserName_ValidPasswordLogin" finished-at="2023-02-14T23:17:08 IST" duration-ms="1414" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidUserName_ValidPasswordLogin -->
+        <test-method signature="validUserName_InvalidPasswordLogin()[pri:5, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:08 IST" name="validUserName_InvalidPasswordLogin" finished-at="2023-02-14T23:17:09 IST" duration-ms="1427" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validUserName_InvalidPasswordLogin -->
+        <test-method signature="inValidUserName_InvalidPasswordLogin()[pri:6, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:09 IST" name="inValidUserName_InvalidPasswordLogin" finished-at="2023-02-14T23:17:11 IST" duration-ms="1278" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inValidUserName_InvalidPasswordLogin -->
+        <test-method signature="empty_Credential_Login()[pri:7, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:11 IST" name="empty_Credential_Login" finished-at="2023-02-14T23:17:11 IST" duration-ms="456" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- empty_Credential_Login -->
+        <test-method signature="passwordVisibilityOnDOM()[pri:8, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:11 IST" name="passwordVisibilityOnDOM" finished-at="2023-02-14T23:17:11 IST" duration-ms="166" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- passwordVisibilityOnDOM -->
+        <test-method signature="validUserLogin()[pri:9, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:11 IST" name="validUserLogin" finished-at="2023-02-14T23:17:17 IST" duration-ms="6288" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validUserLogin -->
-        <test-method signature="reporting_Power_State_Report()[pri:0, instance:com.wakesmart.testcases.HomePageTest@27406a17]" started-at="2023-02-01T21:38:06 IST" name="reporting_Power_State_Report" finished-at="2023-02-01T21:38:21 IST" depends-on-methods="com.wakesmart.testcases.HomePageTest.validUserLogin" duration-ms="15267" status="PASS">
+        <test-method signature="userLogout()[pri:10, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:17 IST" name="userLogout" finished-at="2023-02-14T23:17:19 IST" duration-ms="1137" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogout -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.wakesmart.testcases.LoginPageTest@344f4dea]" started-at="2023-02-14T23:17:19 IST" name="tearDown" finished-at="2023-02-14T23:17:19 IST" duration-ms="263" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.wakesmart.testcases.LoginPageTest -->
+      <class name="com.wakesmart.testcases.HomePageTest">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:17:19 IST" name="browserLaunch" finished-at="2023-02-14T23:17:22 IST" duration-ms="3582" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserLaunch -->
+        <test-method signature="validUserLogin()[pri:1, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:17:22 IST" name="validUserLogin" finished-at="2023-02-14T23:17:28 IST" duration-ms="6014" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validUserLogin -->
+        <test-method signature="user()[pri:2, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:17:28 IST" name="user" finished-at="2023-02-14T23:17:29 IST" duration-ms="838" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- user -->
+        <test-method signature="about()[pri:3, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:17:29 IST" name="about" finished-at="2023-02-14T23:17:30 IST" duration-ms="943" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- about -->
+        <test-method signature="reporting()[pri:4, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:17:30 IST" name="reporting" finished-at="2023-02-14T23:17:42 IST" duration-ms="12268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting -->
+        <test-method signature="manage_Device_Groups()[pri:5, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:17:42 IST" name="manage_Device_Groups" finished-at="2023-02-14T23:18:22 IST" duration-ms="39022" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_Device_Groups -->
+        <test-method signature="manageEditGroups()[pri:6, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:22 IST" name="manageEditGroups" finished-at="2023-02-14T23:18:26 IST" duration-ms="4787" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageEditGroups -->
+        <test-method signature="managePolicies()[pri:7, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:26 IST" name="managePolicies" finished-at="2023-02-14T23:18:33 IST" duration-ms="6574" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managePolicies -->
+        <test-method signature="manage_Policies_AddNewScheme()[pri:8, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:33 IST" name="manage_Policies_AddNewScheme" finished-at="2023-02-14T23:18:36 IST" duration-ms="2660" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_Policies_AddNewScheme -->
+        <test-method signature="managePolicies_Scheduled_Events()[pri:10, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:36 IST" name="managePolicies_Scheduled_Events" finished-at="2023-02-14T23:18:42 IST" duration-ms="6011" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- managePolicies_Scheduled_Events -->
+        <test-method signature="new_Policy_Verify()[pri:11, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:42 IST" name="new_Policy_Verify" finished-at="2023-02-14T23:18:42 IST" duration-ms="627" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- new_Policy_Verify -->
+        <test-method signature="assign_Policy_To_Sytstem()[pri:12, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:42 IST" name="assign_Policy_To_Sytstem" finished-at="2023-02-14T23:18:49 IST" duration-ms="6852" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assign_Policy_To_Sytstem -->
+        <test-method signature="deleteAssignedPolicy()[pri:13, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:49 IST" name="deleteAssignedPolicy" finished-at="2023-02-14T23:18:53 IST" duration-ms="3660" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteAssignedPolicy -->
+        <test-method signature="Unassign_Policy_To_Sytstem()[pri:14, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:53 IST" name="Unassign_Policy_To_Sytstem" finished-at="2023-02-14T23:18:59 IST" duration-ms="6218" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Unassign_Policy_To_Sytstem -->
+        <test-method signature="manage_User()[pri:15, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:18:59 IST" name="manage_User" finished-at="2023-02-14T23:19:10 IST" duration-ms="11375" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_User -->
+        <test-method signature="manage_Users_GroupPermission()[pri:16, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:19:10 IST" name="manage_Users_GroupPermission" finished-at="2023-02-14T23:19:14 IST" duration-ms="3924" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_Users_GroupPermission -->
+        <test-method signature="manage_Licences()[pri:17, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:19:14 IST" name="manage_Licences" finished-at="2023-02-14T23:19:19 IST" duration-ms="4850" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_Licences -->
+        <test-method signature="manage_Reference()[pri:18, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:19:19 IST" name="manage_Reference" finished-at="2023-02-14T23:19:21 IST" duration-ms="2145" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_Reference -->
+        <test-method signature="manage_Automation()[pri:19, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:19:21 IST" name="manage_Automation" finished-at="2023-02-14T23:19:32 IST" duration-ms="10657" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manage_Automation -->
+        <test-method signature="Automation_rule_Presence_verify()[pri:20, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:19:32 IST" name="Automation_rule_Presence_verify" finished-at="2023-02-14T23:19:41 IST" duration-ms="8777" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+expected [true] but found [false]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.wakesmart.testcases.HomePageTest.Automation_rule_Presence_verify(HomePageTest.java:716)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:806)
+at org.testng.TestRunner.run(TestRunner.java:601)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Automation_rule_Presence_verify -->
+        <test-method signature="Automation_PolicyRules()[pri:21, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:19:41 IST" name="Automation_PolicyRules" finished-at="2023-02-14T23:19:53 IST" duration-ms="12261" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Automation_PolicyRules -->
+        <test-method signature="getAutomation_AlertRules()[pri:22, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:19:53 IST" name="getAutomation_AlertRules" finished-at="2023-02-14T23:19:53 IST" duration-ms="169" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAutomation_AlertRules -->
+        <test-method signature="Settings()[pri:23, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:19:53 IST" name="Settings" finished-at="2023-02-14T23:20:04 IST" duration-ms="10505" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Settings -->
+        <test-method signature="assetInventory()[pri:24, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:04 IST" name="assetInventory" finished-at="2023-02-14T23:20:07 IST" duration-ms="2810" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assetInventory -->
+        <test-method signature="reporting_DeviceUsage()[pri:25, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:07 IST" name="reporting_DeviceUsage" finished-at="2023-02-14T23:20:14 IST" duration-ms="7731" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting_DeviceUsage -->
+        <test-method signature="reporting_Licence_Summary()[pri:26, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:14 IST" name="reporting_Licence_Summary" finished-at="2023-02-14T23:20:18 IST" duration-ms="3866" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting_Licence_Summary -->
+        <test-method signature="reporting_Policy_Summary()[pri:27, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:18 IST" name="reporting_Policy_Summary" finished-at="2023-02-14T23:20:21 IST" duration-ms="2679" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting_Policy_Summary -->
+        <test-method signature="reporting_DevicesVStime()[pri:28, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:21 IST" name="reporting_DevicesVStime" finished-at="2023-02-14T23:20:24 IST" duration-ms="3116" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting_DevicesVStime -->
+        <test-method signature="reporting_DeviceTypebyPercentage()[pri:29, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:24 IST" name="reporting_DeviceTypebyPercentage" finished-at="2023-02-14T23:20:29 IST" duration-ms="5345" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting_DeviceTypebyPercentage -->
+        <test-method signature="reporting_Power_State_Report()[pri:30, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:29 IST" name="reporting_Power_State_Report" finished-at="2023-02-14T23:20:41 IST" duration-ms="11141" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reporting_Power_State_Report -->
+        <test-method signature="logOutFunctionality()[pri:31, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:41 IST" name="logOutFunctionality" finished-at="2023-02-14T23:20:42 IST" duration-ms="1097" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logOutFunctionality -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.wakesmart.testcases.HomePageTest@4ce1d6d0]" started-at="2023-02-14T23:20:42 IST" name="tearDown" finished-at="2023-02-14T23:20:42 IST" duration-ms="305" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.wakesmart.testcases.HomePageTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- WakeSmart -->
+  </suite> <!-- Suite -->
 </testng-results>
