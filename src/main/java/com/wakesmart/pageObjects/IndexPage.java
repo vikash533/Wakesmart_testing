@@ -7,6 +7,11 @@ import org.openqa.selenium.WebElement;
 import com.wakesmart.base.BaseClass;
 
 public class IndexPage extends BaseClass {
+	
+	// Constructor
+	public IndexPage(WebDriver driver) {
+		this.driver = driver;
+	}
 
 	By UserName = By.xpath("//input[@id='username']");
 	By PassWord = By.xpath("//input[@id='userPwd']");
@@ -16,11 +21,18 @@ public class IndexPage extends BaseClass {
 	By passwordVisibiltyOnDom = By.xpath("//input[@id='userPwd']");
 	By LoginFormColor = By.xpath("//div[@class='logon-center']//div");
 	By LoginDialougeTitle = By.xpath("//h2[@id='loginDlgTitle']");
-
-	// Constructor
-	public IndexPage(WebDriver driver) {
-		this.driver = driver;
+	By ForgotPassword = By.xpath("//label[@id='forgotline']");
+	By EmailIDForReset = By.xpath("//input[@id='olduserPwd']");
+	
+	public WebElement getEmailIDForReset() {
+		return driver.findElement(EmailIDForReset);
 	}
+	
+	
+	public WebElement getForgotPassword() {
+		return driver.findElement(ForgotPassword);
+	}
+	
 	
 	public WebElement getLoginDialougeTitle() {
 		return driver.findElement(LoginDialougeTitle);

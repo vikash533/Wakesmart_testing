@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>WakeSmart</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>39/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/10/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 14 23:17:00 IST 2023</td>
+<td>Started on:</td><td>Tue Mar 21 20:19:26 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>221 seconds (221850 ms)</td>
+<tr><td>Total time:</td><td>112 seconds (112025 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,17 +76,58 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.wakesmart.testcases.HomePageTest.Automation_rule_Presence_verify()'><b>Automation_rule_Presence_verify</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td><div><pre>java.lang.AssertionError: The following asserts failed:
-	expected [true] but found [false]
-	at com.wakesmart.testcases.HomePageTest.Automation_rule_Presence_verify(HomePageTest.java:716)
+<td title='com.wakesmart.testcases.LoginPageTest.passwordVisibilityOnDOM()'><b>passwordVisibilityOnDOM</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;userPwd&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;userPwd&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getPassWord(IndexPage.java:46)
+	at com.wakesmart.testcases.LoginPageTest.passwordVisibilityOnDOM(LoginPageTest.java:103)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1615348777", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1615348777'><pre>java.lang.AssertionError: The following asserts failed:
-	expected [true] but found [false]
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-	at com.wakesmart.testcases.HomePageTest.Automation_rule_Presence_verify(HomePageTest.java:716)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace673412242", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace673412242'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;userPwd&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;userPwd&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getPassWord(IndexPage.java:46)
+	at com.wakesmart.testcases.LoginPageTest.passwordVisibilityOnDOM(LoginPageTest.java:103)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -116,212 +157,723 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>8</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.deleteAssignedPolicy()'><b>deleteAssignedPolicy</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>3</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.manage_Automation()'><b>manage_Automation</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
 <td>10</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.validUserLogin()'><b>validUserLogin</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>6</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.reporting()'><b>reporting</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>12</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.manageEditGroups()'><b>manageEditGroups</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>4</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.user()'><b>user</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>0</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.reporting_Policy_Summary()'><b>reporting_Policy_Summary</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>2</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.reporting_DevicesVStime()'><b>reporting_DevicesVStime</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>3</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.manage_Reference()'><b>manage_Reference</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>2</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.manage_User()'><b>manage_User</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>11</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.LoginPageTest.inValidUserName_InvalidPasswordLogin()'><b>inValidUserName_InvalidPasswordLogin</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>1</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.LoginPageTest.validUserLogin()'><b>validUserLogin</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>6</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.Unassign_Policy_To_Sytstem()'><b>Unassign_Policy_To_Sytstem</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>6</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.reporting_DeviceUsage()'><b>reporting_DeviceUsage</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>7</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
 <tr>
 <td title='com.wakesmart.testcases.LoginPageTest.validUserName_InvalidPasswordLogin()'><b>validUserName_InvalidPasswordLogin</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>1</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.logOutFunctionality()'><b>logOutFunctionality</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>1</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.assign_Policy_To_Sytstem()'><b>assign_Policy_To_Sytstem</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>6</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.manage_Device_Groups()'><b>manage_Device_Groups</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>39</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.LoginPageTest.passwordVisibilityOnDOM()'><b>passwordVisibilityOnDOM</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.LoginPageTest.userLogout()'><b>userLogout</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>1</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.about()'><b>about</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>0</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.managePolicies()'><b>managePolicies</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>6</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.Settings()'><b>Settings</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;username&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;username&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getUserName(IndexPage.java:42)
+	at com.wakesmart.testcases.LoginPageTest.validUserName_InvalidPasswordLogin(LoginPageTest.java:64)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace59257066", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace59257066'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;username&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;username&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getUserName(IndexPage.java:42)
+	at com.wakesmart.testcases.LoginPageTest.validUserName_InvalidPasswordLogin(LoginPageTest.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
 <td>10</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
 <tr>
-<td title='com.wakesmart.testcases.HomePageTest.reporting_DeviceTypebyPercentage()'><b>reporting_DeviceTypebyPercentage</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>5</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.manage_Licences()'><b>manage_Licences</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>4</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.getAutomation_AlertRules()'><b>getAutomation_AlertRules</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>0</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.reporting_Licence_Summary()'><b>reporting_Licence_Summary</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>3</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.LoginPageTest.colorOfLoginButton()'><b>colorOfLoginButton</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.manage_Policies_AddNewScheme()'><b>manage_Policies_AddNewScheme</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>2</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.managePolicies_Scheduled_Events()'><b>managePolicies_Scheduled_Events</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>6</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.LoginPageTest.invalidUserName_ValidPasswordLogin()'><b>invalidUserName_ValidPasswordLogin</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>1</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.manage_Users_GroupPermission()'><b>manage_Users_GroupPermission</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>3</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.reporting_Power_State_Report()'><b>reporting_Power_State_Report</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>11</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.LoginPageTest.empty_Credential_Login()'><b>empty_Credential_Login</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.assetInventory()'><b>assetInventory</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>2</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.LoginPageTest.getTitle()'><b>getTitle</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.HomePageTest.Automation_PolicyRules()'><b>Automation_PolicyRules</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
-<td>12</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
+<td title='com.wakesmart.testcases.LoginPageTest.validUserLogin()'><b>validUserLogin</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;username&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;username&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getUserName(IndexPage.java:42)
+	at com.wakesmart.testcases.LoginPageTest.validUserLogin(LoginPageTest.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2113919627", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2113919627'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;username&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;username&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getUserName(IndexPage.java:42)
+	at com.wakesmart.testcases.LoginPageTest.validUserLogin(LoginPageTest.java:116)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
 <tr>
 <td title='com.wakesmart.testcases.LoginPageTest.colorOfForm()'><b>colorOfForm</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.wakesmart.testcases.LoginPageTest@344f4dea</td></tr>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;logon-center&apos;]//div&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//div[@class=&apos;logon-center&apos;]//div}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getLoginFormColor(IndexPage.java:69)
+	at com.wakesmart.testcases.LoginPageTest.colorOfForm(LoginPageTest.java:144)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1268786037", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1268786037'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;logon-center&apos;]//div&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//div[@class=&apos;logon-center&apos;]//div}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getLoginFormColor(IndexPage.java:69)
+	at com.wakesmart.testcases.LoginPageTest.colorOfForm(LoginPageTest.java:144)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
 <tr>
-<td title='com.wakesmart.testcases.HomePageTest.new_Policy_Verify()'><b>new_Policy_Verify</b><br>Test class: com.wakesmart.testcases.HomePageTest</td>
-<td></td>
+<td title='com.wakesmart.testcases.LoginPageTest.invalidUserName_ValidPasswordLogin()'><b>invalidUserName_ValidPasswordLogin</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;username&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;username&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getUserName(IndexPage.java:42)
+	at com.wakesmart.testcases.LoginPageTest.invalidUserName_ValidPasswordLogin(LoginPageTest.java:50)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1529305105", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1529305105'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;username&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;username&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getUserName(IndexPage.java:42)
+	at com.wakesmart.testcases.LoginPageTest.invalidUserName_ValidPasswordLogin(LoginPageTest.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.LoginPageTest.empty_Credential_Login()'><b>empty_Credential_Login</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//form[@id=&apos;loginForm&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//form[@id=&apos;loginForm&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getLoginForm(IndexPage.java:58)
+	at com.wakesmart.testcases.LoginPageTest.empty_Credential_Login(LoginPageTest.java:92)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1476484694", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1476484694'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//form[@id=&apos;loginForm&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//form[@id=&apos;loginForm&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getLoginForm(IndexPage.java:58)
+	at com.wakesmart.testcases.LoginPageTest.empty_Credential_Login(LoginPageTest.java:92)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.LoginPageTest.userLogout()'><b>userLogout</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;loginout&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;loginout&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.HomePage.getlogout(HomePage.java:31)
+	at com.wakesmart.testcases.LoginPageTest.userLogout(LoginPageTest.java:133)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1157624710", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1157624710'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;loginout&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;loginout&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.HomePage.getlogout(HomePage.java:31)
+	at com.wakesmart.testcases.LoginPageTest.userLogout(LoginPageTest.java:133)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.LoginPageTest.getTitle()'><b>getTitle</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	expected [Raptor Administration Site] but found [WakeSMART]
+	at com.wakesmart.testcases.LoginPageTest.getTitle(LoginPageTest.java:41)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1125614861", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1125614861'><pre>java.lang.AssertionError: The following asserts failed:
+	expected [Raptor Administration Site] but found [WakeSMART]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.wakesmart.testcases.LoginPageTest.getTitle(LoginPageTest.java:41)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
 <td>0</td>
-<td>com.wakesmart.testcases.HomePageTest@4ce1d6d0</td></tr>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.LoginPageTest.inValidUserName_InvalidPasswordLogin()'><b>inValidUserName_InvalidPasswordLogin</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;username&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;username&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getUserName(IndexPage.java:42)
+	at com.wakesmart.testcases.LoginPageTest.inValidUserName_InvalidPasswordLogin(LoginPageTest.java:79)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace929219836", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace929219836'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;username&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//input[@id=&apos;username&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getUserName(IndexPage.java:42)
+	at com.wakesmart.testcases.LoginPageTest.inValidUserName_InvalidPasswordLogin(LoginPageTest.java:79)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.LoginPageTest.colorOfLoginButton()'><b>colorOfLoginButton</b><br>Test class: com.wakesmart.testcases.LoginPageTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[@id=&apos;okButton&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//button[@id=&apos;okButton&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getLogin(IndexPage.java:50)
+	at com.wakesmart.testcases.LoginPageTest.colorOfLoginButton(LoginPageTest.java:156)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1387293679", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1387293679'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[@id=&apos;okButton&apos;]&quot;}
+  (Session info: chrome=111.0.5563.65)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;OTS-LP-O-0237&apos;, ip: &apos;10.10.11.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [95f24f9a64ecaeec4959ce51453c0ab9, findElement {using=xpath, value=//button[@id=&apos;okButton&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 111.0.5563.65, chrome: {chromedriverVersion: 111.0.5563.64 (c710e93d5b63..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51013}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51013/devtoo..., se:cdpVersion: 111.0.5563.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f24f9a64ecaeec4959ce51453c0ab9
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at com.wakesmart.pageObjects.IndexPage.getLogin(IndexPage.java:50)
+	at com.wakesmart.testcases.LoginPageTest.colorOfLoginButton(LoginPageTest.java:156)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>com.wakesmart.testcases.LoginPageTest@10cf09e8</td></tr>
 </table><p>
 </body>
 </html>

@@ -43,10 +43,10 @@ public class HomePageTest extends BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass
-	public void tearDown() throws InterruptedException {
-		driver.quit();
-	}
+//	@AfterClass
+//	public void tearDown() throws InterruptedException {
+//		driver.quit();
+//	}
 
 	@Test(priority=1)
 	public void validUserLogin() {
@@ -507,6 +507,8 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
+	//(dependsOnMethods= {"validUserLogin"})
+	//
 	@Test(priority=12)
 	public void assign_Policy_To_Sytstem() {
 		manage = new Manage(driver);
@@ -564,7 +566,8 @@ public class HomePageTest extends BaseClass {
 		
 	}
 	
-	@Test(priority=15)
+	//(priority=15)
+	@Test(dependsOnMethods= {"validUserLogin"})
 	public void manage_User() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -584,18 +587,34 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, manage.getExistingUserNameTextVerify());
 		action.click(driver, manage.getDeleteUser());
 		
+	
+		action.click(driver, manage.getNewPolicySaveButton());
+		
+		action.fluentWait(driver, manage.getGroupCreateSuccessMessege());
+		
+		softAssert.assertEquals(manage.getGroupCreateSuccessMessege().getText(), prop.getProperty("GroupCreateSuccessMessegeTextVerify"));
+		action.click(driver, manage.getGroupCreateOkButton());
+		
+		manage.getClickOnGroupAdminCheckBox();
+		
+		action.click(driver, manage.getuserGroupSaveButton());
+		
+		manage.getEditGroupButton();
+		
 		action.click(driver, manage.getAddUserButton());
 		action.type(manage.getUserName(), prop.getProperty("NewUserName"));
 		action.type(manage.getUserEmailAddress(), prop.getProperty("yopemailforADDUSer"));
 		action.type(manage.getUserConfirmEmail(), prop.getProperty("yopemailforADDUSer"));
+		action.click(driver, manage.getAddUserDialougeBox());
 		action.click(driver, manage.getAddUserDialougeBox());
 		action.click(driver, manage.getAddUserSaveButton());
 		
 		softAssert.assertEquals(manage.getExistingUserNameTextVerify().getText(), prop.getProperty("NewUserName"));
 		action.click(driver, manage.getNewPolicySaveButton());
 		
-		softAssert.assertEquals(manage.getGroupCreateSuccessMessege(), prop.getProperty("GroupCreateSuccessMessegeTextVerify"));
-		action.click(driver, manage.getGroupCreateOkButton());
+		softAssert.assertEquals(manage.getUserAddedAlertMessege(), prop.getProperty("UserAddedSuccessmessegeAlert"));
+		
+		action.click(driver, manage.getUserAddedAlertMessegeOKButton());
 		
 		softAssert.assertAll();
 	}
@@ -690,6 +709,7 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
+	//
 	@Test(priority=20)
 	public void Automation_rule_Presence_verify() {
 		automation = new Automation(driver);
@@ -1125,14 +1145,38 @@ public class HomePageTest extends BaseClass {
 
 	}
 	
-	@Test(priority=31)
+	//(priority=31)
+	@Test(dependsOnMethods= {"validUserLogin"})
 	public void logOutFunctionality() {
 		homepage = new HomePage(driver);
 		indexpage = new IndexPage(driver);
 		softAssert = new SoftAssert();
 		
+		
 		action.click(driver, homepage.getlogout());
 		softAssert.assertEquals(indexpage.getLoginDialougeTitle().getText(), prop.getProperty("LoginDialougeTitle"));
+		
+		action.click(driver, indexpage.getForgotPassword());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ForgotPasswordHeaderMessege"));
+		
+		action.type(indexpage.getUserName(), prop.getProperty("ValidUserName"));
+		action.type(indexpage.getEmailIDForReset(), prop.getProperty("UnregistredMailID"));
+		
+		action.click(driver, indexpage.getLogin());
+		
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ErorMessege"));
+		
+		action.click(driver, indexpage.getForgotPassword());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ForgotPasswordHeaderMessege"));
+		
+		action.type(indexpage.getUserName(), prop.getProperty("InvalidUserName"));
+		action.type(indexpage.getEmailIDForReset(), prop.getProperty("skumarRegistredMailID"));
+		
+		action.click(driver, indexpage.getLogin());
+		
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ErorMessege"));
+		
+		
 		
 		
 		softAssert.assertAll();

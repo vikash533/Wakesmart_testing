@@ -6,13 +6,22 @@
   </listeners>
   <test thread-count="5" name="WakeSmart(failed)">
     <classes>
-      <class name="com.wakesmart.testcases.HomePageTest">
+      <class name="com.wakesmart.testcases.LoginPageTest">
         <methods>
+          <include name="inValidUserName_InvalidPasswordLogin"/>
+          <include name="invalidUserName_ValidPasswordLogin"/>
           <include name="tearDown"/>
+          <include name="empty_Credential_Login"/>
+          <include name="validUserName_InvalidPasswordLogin"/>
+          <include name="userLogout"/>
+          <include name="colorOfLoginButton"/>
+          <include name="validUserLogin"/>
+          <include name="getTitle"/>
+          <include name="colorOfForm"/>
           <include name="browserLaunch"/>
-          <include name="Automation_rule_Presence_verify"/>
+          <include name="passwordVisibilityOnDOM"/>
         </methods>
-      </class> <!-- com.wakesmart.testcases.HomePageTest -->
+      </class> <!-- com.wakesmart.testcases.LoginPageTest -->
     </classes>
   </test> <!-- WakeSmart(failed) -->
 </suite> <!-- Failed suite [Suite] -->

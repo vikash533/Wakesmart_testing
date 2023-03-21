@@ -838,8 +838,10 @@ public class Manage extends BaseClass {
 		return driver.findElement(PolicySelectorFromDropdown);
 	}
 
-	By AssignPolicyOKButton = By.xpath("//form[@id='assignPolicy']//input[@id='assignBtn']");
-
+	//By AssignPolicyOKButton = By.xpath("//form[@id='assignPolicy']//input[@id='assignBtn']");
+	By AssignPolicyOKButton = By.xpath("//div[@id='assignPDlg']//div//input[@id='assignBtn']");
+	
+	
 	public WebElement getAssignPolicyOKButton() {
 		return driver.findElement(AssignPolicyOKButton);
 	}
@@ -957,8 +959,8 @@ public class Manage extends BaseClass {
 
 	By GroupCreateSuccessMessege = By.xpath("//label[@id='alertMsg']");
 
-	public String getGroupCreateSuccessMessege() {
-		return driver.findElement(GroupCreateSuccessMessege).getText();
+	public WebElement getGroupCreateSuccessMessege() {
+		return driver.findElement(GroupCreateSuccessMessege);
 	}
 
 	By GroupCreateOkButton = By.xpath("//button[@id='okBtn']");
@@ -1076,13 +1078,59 @@ public class Manage extends BaseClass {
 	}
 	
 	
+	// manage user table
+	
+	By LastCreatedGroupAdminCheckbox = By.xpath("");
 	
 	
 	
+	By UserGroupSize = By.xpath("(//div[@class='tabbed'])/section[1]/div/form/table/tbody/tr/td[1]");
+	
+	private int getUserGroupSize() {
+		
+		return driver.findElements(UserGroupSize).size()+1;
+	}
+	
+	public void getClickOnGroupAdminCheckBox() {
+		driver.findElement(By.xpath("//tbody/tr["+getUserGroupSize()+"]/td[6]/input")).click();
+	}
+	
+	
+	By userGroupSaveButton = By.xpath("//button[@id='adminSaver']");
+	
+	
+	public WebElement getuserGroupSaveButton() {
+		return driver.findElement(userGroupSaveButton);
+	}
+	
+	By EditGroupButton = By.xpath("(//div[@class='tabbed'])/section[1]/div/form/table/tbody/tr/th[1]/button");
 	
 	
 	
+	public void getEditGroupButton() {
+		int num = driver.findElements(EditGroupButton).size();
+		int iteration = 1;
+		
+		for(WebElement ele:driver.findElements(EditGroupButton)) {
+			
+			if(iteration==num) {
+				ele.click();
+				break;
+			}
+				iteration++;
+		}
+	}
 	
+	By UserAddedAlertMessege = By.xpath("//label[@id=\"alertMsg\"]");
 	
-
+	public String getUserAddedAlertMessege() {
+		return driver.findElement(UserAddedAlertMessege).getText();
+	}
+	
+	By UserAddedAlertMessegeOKButton = By.xpath("//button[@id=\"okBtn\"]");
+	
+	public WebElement getUserAddedAlertMessegeOKButton() {
+		return driver.findElement(UserAddedAlertMessegeOKButton);
+	}
+	
 }

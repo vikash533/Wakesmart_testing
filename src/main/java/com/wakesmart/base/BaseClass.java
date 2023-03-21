@@ -23,7 +23,6 @@ public class BaseClass{
 	
 	
 	
-	
 
 	public WebDriver launchBrowser() throws IOException {
 		
@@ -36,6 +35,8 @@ public class BaseClass{
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--headless");
 			chromeOptions.setHeadless(false);
+			chromeOptions.addArguments("--remote-allow-origins=*");
+		//	chromeOptions.addArguments("--headless");
 			
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(chromeOptions);
