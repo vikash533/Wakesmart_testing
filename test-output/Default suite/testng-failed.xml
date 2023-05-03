@@ -3,22 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.wakesmart.testcases.LoginPageTest">
+      <class name="com.wakesmart.testcases.WSManagementPoliciesTest">
         <methods>
-          <include name="inValidUserName_InvalidPasswordLogin"/>
-          <include name="invalidUserName_ValidPasswordLogin"/>
-          <include name="tearDown"/>
-          <include name="empty_Credential_Login"/>
-          <include name="userLogout"/>
-          <include name="validUserName_InvalidPasswordLogin"/>
-          <include name="colorOfLoginButton"/>
-          <include name="validUserLogin"/>
-          <include name="getTitle"/>
-          <include name="colorOfForm"/>
           <include name="browserLaunch"/>
-          <include name="passwordVisibilityOnDOM"/>
+          <include name="tearDown"/>
+          <include name="managementPolicies"/>
         </methods>
-      </class> <!-- com.wakesmart.testcases.LoginPageTest -->
+      </class> <!-- com.wakesmart.testcases.WSManagementPoliciesTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

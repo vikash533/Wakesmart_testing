@@ -6,10 +6,14 @@
 		<listener class-name="com.wakesmart.utility.Listeners"></listener>
 	</listeners>
 
-	<test name="WakeSmart">
+	<test name="WakeSmart" verbose="3" parallel="classes" thread-count="6">
 		<classes>
-			<class name="com.wakesmart.testcases.LoginPageTest" />
-		<!-- <class name="com.wakesmart.testcases.HomePageTest" />-->	
+			<class name="com.wakesmart.testcases.WSLoginPageTest" />
+			<class name="com.wakesmart.testcases.WSHomePageTest" />
+			<class name="com.wakesmart.testcases.WSAutomationGroupRulesTest" />
+			<class name="com.wakesmart.testcases.WSAutomationPolicyRules" />
+			<class name="com.wakesmart.testcases.WSAutomationAlertRulesTest" />
+			<class name="com.wakesmart.testcases.WSManagementPoliciesTest" />
 		</classes>
 	</test>
-</suite> 
+</suite>

@@ -13,33 +13,28 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass{
 
 	public WebDriver driver;
 	public Properties prop;
-	
-	
-	
 
 	public WebDriver launchBrowser() throws IOException {
 		
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Configuration\\Config.Properties");
+		FileInputStream fis1 = new FileInputStream(System.getProperty("user.dir") + "\\Configuration\\Configuration.Properties");
+		
 		prop =new Properties();
 		prop.load(fis);
+		prop.load(fis1);
 		String browserName = prop.getProperty("browser");
 
 		if (browserName.equalsIgnoreCase("chrome")) {
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("--headless");
-			chromeOptions.setHeadless(false);
-			chromeOptions.addArguments("--remote-allow-origins=*");
-		//	chromeOptions.addArguments("--headless");
+			//ChromeOptions chromeOptions = new ChromeOptions();
 			
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver(chromeOptions);
+			driver = new ChromeDriver();
 		}
 
 		else if (browserName.equalsIgnoreCase("firefox")) {

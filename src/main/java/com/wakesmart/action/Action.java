@@ -16,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -24,13 +25,51 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
-
 import com.wakesmart.base.BaseClass;
 
 public class Action extends BaseClass {
 
 	public Properties prop;
+	
+	
+	
+	public void getSelectOptionFromDropdown(List<WebElement> ele , String AttributrValue) throws InterruptedException {
+		
+		try {
+			for (WebElement element :ele) {
+
+				if (element.getText().equalsIgnoreCase(AttributrValue)) {
+					element.click();
+					break;
+				}
+			}
+			Thread.sleep(500);
+		} catch (StaleElementReferenceException  e) {
+			
+			for (WebElement element : ele) {
+				
+				if (element.getText().equalsIgnoreCase(AttributrValue)) {
+					element.click();
+					break;
+				}
+			}
+			
+		}
+	}
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// PDF CSv verify
 	public List<String> verifyDropdown(List<WebElement> dropdown) {
@@ -238,7 +277,7 @@ public class Action extends BaseClass {
 
 	public void keyBoardKeys(WebDriver driver, Keys KeysToSend) {
 		Actions act = new Actions(driver);
-		act.sendKeys(KeysToSend).click().perform();
+		act.sendKeys(KeysToSend).perform();
 	}
 
 	// pass
@@ -269,26 +308,12 @@ public class Action extends BaseClass {
 	}
 
 	// pass
-	public boolean type(WebElement ele, String text) {
-		boolean flag = false;
-		try {
-			flag = ele.isDisplayed();
-			ele.clear();
-			ele.sendKeys(text);
-			// logger.info("Entered text :"+text);
-			flag = true;
-		} catch (Exception e) {
-			System.out.println("Location Not found");
-			flag = false;
-		} finally {
-			if (flag) {
-				System.out.println("Successfully entered value");
-			} else {
-				System.out.println("Unable to enter value");
-			}
+	public void type(WebElement ele, String text) {
+			
+		ele.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
 
-		}
-		return flag;
+			ele.sendKeys(text);
+	
 	}
 
 	// pass
@@ -445,6 +470,7 @@ public class Action extends BaseClass {
 		try {
 			// WebElement element = driver.findElement(locator);
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
+			
 			executor.executeScript("arguments[0].click();", ele);
 			// driver.executeAsyncScript("arguments[0].click();", element);
 
@@ -465,6 +491,15 @@ public class Action extends BaseClass {
 		return flag;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public boolean switchToFrameByIndex(WebDriver driver, int index) {
 		boolean flag = false;
 		try {
@@ -845,7 +880,7 @@ public class Action extends BaseClass {
 		Wait<WebDriver> wait = null;
 		try {
 			wait = new FluentWait<WebDriver>((WebDriver) driver).withTimeout(Duration.ofSeconds(20))
-					.pollingEvery(Duration.ofSeconds(2)).ignoring(Exception.class);
+					.pollingEvery(Duration.ofSeconds(1)).ignoring(Exception.class);
 			wait.until(ExpectedConditions.visibilityOf(element));
 			// element.click();
 		} catch (Exception e) {

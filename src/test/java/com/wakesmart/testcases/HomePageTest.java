@@ -5,7 +5,6 @@ import java.text.ParseException;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -38,15 +37,21 @@ public class HomePageTest extends BaseClass {
 	SoftAssert softAssert;
 
 	@BeforeClass
-	public void browserLaunch() throws IOException {
-		driver = launchBrowser();
+	public void browserLaunch()  {
+		try {
+			driver = launchBrowser();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		driver.get(prop.getProperty("url"));
 	}
 
-//	@AfterClass
-//	public void tearDown() throws InterruptedException {
-//		driver.quit();
-//	}
+	@AfterClass
+	public void tearDown() {
+		if (driver != null) {
+	        driver.quit();
+	    }
+	}
 
 	@Test(priority=1)
 	public void validUserLogin() {
@@ -57,16 +62,14 @@ public class HomePageTest extends BaseClass {
 
 		action.type(indexpage.getUserName(), prop.getProperty("ValidUserName"));
 		action.type(indexpage.getPassWord(), prop.getProperty("ValidPassword"));
-		action.click(driver, indexpage.getLoginForm());
 		action.click(driver, indexpage.getLogin());
-		action.fluentWait(driver, homepage.getScreenTitle());
-		String actualmessege = homepage.getScreenTitle().getText();
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("WelcomeMessgeOnHomeNewPage"));
 		
-		softAssert.assertEquals(actualmessege,  prop.getProperty("WelcomeMessgeOnHomePage"));
 		softAssert.assertAll();
 	}
 
-	@Test(priority=2)
+	@Test(dependsOnMethods= {"validUserLogin"},priority=2)
 	public void user() {
 		homepage = new HomePage(driver);
 		action = new Action();
@@ -86,7 +89,7 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}	
 
-	@Test(priority=3)
+	@Test(priority=3,enabled=false)
 	public void about() {
 		action = new Action();
 		homepage = new HomePage(driver);
@@ -102,7 +105,7 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 
-	@Test(priority=4)
+	@Test(priority=4,enabled=false)
 	public void reporting() throws InterruptedException, ParseException {
 		homepage = new HomePage(driver);
 		reporting = new Reporting(driver);
@@ -188,7 +191,7 @@ public class HomePageTest extends BaseClass {
 	
 	
 	//
-	@Test(priority=5)
+	@Test(priority=5,enabled=false)
 	public void manage_Device_Groups() throws InterruptedException {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -326,10 +329,8 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 		
 	}
-
 	
-	//
-	@Test(priority=6)
+	@Test(priority=6,enabled=false)
 	public void manageEditGroups() {
 		
 		manage = new Manage(driver);
@@ -371,7 +372,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	//(dependsOnMethods= {"validUserLogin"})
-	@Test(priority=7)
+	@Test(priority=7,enabled=false)
 	public void managePolicies() {
 		
 		manage = new Manage(driver);
@@ -430,7 +431,7 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	@Test(priority=8)
+	@Test(priority=8,enabled=false)
 	public void manage_Policies_AddNewScheme() {
 		softAssert = new SoftAssert();
 		
@@ -473,7 +474,7 @@ public class HomePageTest extends BaseClass {
 
 	}
 	
-	@Test(priority=10)
+	@Test(priority=10,enabled=false)
 	public void managePolicies_Scheduled_Events() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -497,7 +498,7 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	@Test(priority=11)
+	@Test(priority=11,enabled=false)
 	public void new_Policy_Verify() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -509,7 +510,7 @@ public class HomePageTest extends BaseClass {
 	
 	//(dependsOnMethods= {"validUserLogin"})
 	//
-	@Test(priority=12)
+	@Test(priority=12,enabled=false)
 	public void assign_Policy_To_Sytstem() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -527,7 +528,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	
-	@Test(priority=13)
+	@Test(priority=13,enabled=false)
 	public void deleteAssignedPolicy() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -542,7 +543,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	
-	@Test(priority=14)
+	@Test(priority=14,enabled=false)
 	public void Unassign_Policy_To_Sytstem() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -567,7 +568,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	//(priority=15)
-	@Test(dependsOnMethods= {"validUserLogin"})
+	@Test(dependsOnMethods= {"validUserLogin"},enabled=false)
 	public void manage_User() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -587,7 +588,6 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, manage.getExistingUserNameTextVerify());
 		action.click(driver, manage.getDeleteUser());
 		
-	
 		action.click(driver, manage.getNewPolicySaveButton());
 		
 		action.fluentWait(driver, manage.getGroupCreateSuccessMessege());
@@ -620,7 +620,7 @@ public class HomePageTest extends BaseClass {
 	}
 
 	
-	@Test(priority=16)
+	@Test(priority=16,enabled=false)
 	public void manage_Users_GroupPermission() throws InterruptedException {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -638,7 +638,7 @@ public class HomePageTest extends BaseClass {
 	}
 	//(dependsOnMethods= {"validUserLogin"})
 	
-	@Test(priority=17)
+	@Test(priority=17,enabled=false)
 	public void manage_Licences() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -654,7 +654,7 @@ public class HomePageTest extends BaseClass {
 		
 	}
 	
-	@Test(priority=18)
+	@Test(priority=18,enabled=false)
 	public void manage_Reference() {
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();
@@ -670,7 +670,7 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	@Test(priority=19)
+	@Test(priority=19,enabled=false)
 	public void manage_Automation() {
 		automation = new Automation(driver);
 		softAssert = new SoftAssert();
@@ -710,7 +710,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	//
-	@Test(priority=20)
+	@Test(priority=20,enabled=false)
 	public void Automation_rule_Presence_verify() {
 		automation = new Automation(driver);
 		softAssert = new SoftAssert();
@@ -737,7 +737,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	
-	@Test(priority=21)
+	@Test(priority=21,enabled=false)
 	public void Automation_PolicyRules() {
 		automation = new Automation(driver);	
 		softAssert = new SoftAssert();
@@ -780,7 +780,7 @@ public class HomePageTest extends BaseClass {
 				softAssert.assertAll();	
 	}
 	
-	@Test(priority=22)
+	@Test(priority=22,enabled=false)
 	public void getAutomation_AlertRules() {
 		automation = new Automation(driver);
 		softAssert = new SoftAssert();
@@ -791,7 +791,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 
-	@Test(priority=23)
+	@Test(priority=23,enabled=false)
 	public void Settings() {
 		settings = new Settings(driver);
 		softAssert = new SoftAssert();
@@ -811,7 +811,6 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertEquals(settings.getMinimumInactivityTimeOut(), prop.getProperty("SettingsgetMinimumInactivityTimeOut"));
 		softAssert.assertEquals(settings.getRaptorApplianceConnectionsButton(), true);
 		
-		
 		softAssert.assertEquals(settings.getEnableDemandReduction(), prop.getProperty("SettingsEnableDemandReduction"));
 		softAssert.assertEquals(settings.getEnablePriorityUpdate(), prop.getProperty("SettingsEnablePriorityUpdate"));
 		softAssert.assertEquals(settings.getEnableIUpdate(), prop.getProperty("SettingsEnableIUpdate"));
@@ -819,7 +818,6 @@ public class HomePageTest extends BaseClass {
 		//Security
 		action.click(driver, settings.getSettings());
 		action.click(driver, settings.getSecurity());
-		
 		
 		softAssert.assertEquals(settings.getActiveTwoFactorAuthenticationButton(), prop.getProperty("SettingsSecurityActiveTwoFactorAuthenticationButton"));
 		softAssert.assertEquals(settings.getMinimumLengthField(), prop.getProperty("SettingsSecuritygetMinimumLengthField"));
@@ -878,14 +876,12 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	
 	//5 need to implement for none and none
-	@Test(priority=24)
+	@Test(priority=24,enabled=false)
 	public void assetInventory() throws InterruptedException {
 
 		reporting = new Reporting(driver);
 		softAssert = new SoftAssert();
-		
 		
 		action.click(driver, homepage.getReportsIcon());
 		action.click(driver, reporting.getAssetInventoryIcon());
@@ -904,7 +900,6 @@ public class HomePageTest extends BaseClass {
 		String ActualTextDevicesTypeSelected = reporting.getAssetInventoryDeviceTypesSelectedText().getText();
 		softAssert.assertEquals(ActualTextDevicesTypeSelected, prop.getProperty("AssetInventoryDeviceTypesSelectedText"));
 		
-
 		action.dropdown(reporting.getAssetInventoryGroupsSelectedOptions(),prop.getProperty("ManageNewGroupReName"));
 		action.dropdown(reporting.getAssetInventoryDeviceTypeSelectorOptions(),prop.getProperty("AssetInventoryDeviceTypesSelected"));
 		action.click(driver, reporting.getAssetInventoryOkButton());
@@ -912,7 +907,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	// completed
-	@Test(priority=25)
+	@Test(priority=25,enabled=false)
 	public void reporting_DeviceUsage() throws ParseException {
 		reporting = new Reporting(driver);
 		softAssert = new SoftAssert();
@@ -963,7 +958,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	//completed
-	@Test(priority=26)
+	@Test(priority=26,enabled=false)
 	public void reporting_Licence_Summary() throws ParseException {
 		reporting = new Reporting(driver);
 		softAssert = new SoftAssert();
@@ -985,7 +980,7 @@ public class HomePageTest extends BaseClass {
 	}
 
 	//Completed
-	@Test(priority=27)
+	@Test(priority=27,enabled=false)
 	public void reporting_Policy_Summary() throws ParseException {
 		reporting = new Reporting(driver);
 		softAssert = new SoftAssert();
@@ -1009,7 +1004,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	// working need to add more dropdown content
-	@Test(priority=28)
+	@Test(priority=28,enabled=false)
 	public void reporting_DevicesVStime() {
 		reporting = new Reporting(driver);
 		softAssert = new SoftAssert();
@@ -1038,7 +1033,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	//Completed
-	@Test(priority=29)
+	@Test(priority=29,enabled=false)
 	public void reporting_DeviceTypebyPercentage() throws ParseException {
 
 		reporting = new Reporting(driver);
@@ -1078,15 +1073,12 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertAll();	
 	}
 	
-	
 	// Completed
-	@Test(priority=30)
+	@Test(priority=30,enabled=false)
 	public void reporting_Power_State_Report() throws ParseException {
-
 
 		reporting = new Reporting(driver);
 		softAssert = new SoftAssert();
-		
 		
 		action.click(driver, homepage.getReportsIcon());
 		softAssert.assertEquals(reporting.getPowerStateReport().getText(),prop.getProperty("ReportingPowerStateReportVerifyText") );
@@ -1097,7 +1089,6 @@ public class HomePageTest extends BaseClass {
 		
 		action.selectByVisibleText(prop.getProperty("BatteryHealthDateRange"), reporting.getDateRange());
 	
-		
 		action.selectByVisibleText(prop.getProperty("ManageNewGroupReName"), reporting.getGroupsSelected());
 		action.selectByVisibleText(prop.getProperty("ManageNewPolicyName"), reporting.getPolicySelector());
 		action.dropdown(reporting.getAssetInventoryDeviceTypeSelectorOptions(),prop.getProperty("AssetInventoryDeviceTypesSelected"));
@@ -1111,8 +1102,6 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, homepage.getReportsIcon());
 		softAssert.assertEquals(reporting.getPowerStateReport().getText(),prop.getProperty("ReportingPowerStateReportVerifyText") );
 		action.click(driver,reporting.getPowerStateReport() );
-		
-		
 		
 		action.type(reporting.getStartDate(), prop.getProperty("BatteryHealthStartDate"));
 		action.type(reporting.getEndDate(), prop.getProperty("BatteryHealthEndDate"));
@@ -1139,19 +1128,15 @@ public class HomePageTest extends BaseClass {
 		softAssert.assertEquals(reporting.getStartDateVerifyAtExport().getText(),action.currentDateMinusSeven(31) );
 		softAssert.assertEquals(reporting.getLicenseEnddate(), action.currentDate());
 		
-		
 		softAssert.assertAll();	
-		
-
 	}
 	
 	//(priority=31)
-	@Test(dependsOnMethods= {"validUserLogin"})
+	@Test(dependsOnMethods= {"validUserLogin"},enabled=false)
 	public void logOutFunctionality() {
 		homepage = new HomePage(driver);
 		indexpage = new IndexPage(driver);
 		softAssert = new SoftAssert();
-		
 		
 		action.click(driver, homepage.getlogout());
 		softAssert.assertEquals(indexpage.getLoginDialougeTitle().getText(), prop.getProperty("LoginDialougeTitle"));
@@ -1175,16 +1160,9 @@ public class HomePageTest extends BaseClass {
 		action.click(driver, indexpage.getLogin());
 		
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ErorMessege"));
-		
-		
-		
-		
+
 		softAssert.assertAll();
 	}
-	
-	
-	
-	
 }
 
 

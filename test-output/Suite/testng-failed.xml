@@ -4,24 +4,15 @@
   <listeners>
     <listener class-name="com.wakesmart.utility.Listeners"/>
   </listeners>
-  <test thread-count="5" name="WakeSmart(failed)">
+  <test thread-count="5" parallel="classes" name="WakeSmart(failed)">
     <classes>
-      <class name="com.wakesmart.testcases.LoginPageTest">
+      <class name="com.wakesmart.testcases.WSLoginPageTest">
         <methods>
-          <include name="inValidUserName_InvalidPasswordLogin"/>
-          <include name="invalidUserName_ValidPasswordLogin"/>
-          <include name="tearDown"/>
-          <include name="empty_Credential_Login"/>
-          <include name="validUserName_InvalidPasswordLogin"/>
-          <include name="userLogout"/>
-          <include name="colorOfLoginButton"/>
-          <include name="validUserLogin"/>
-          <include name="getTitle"/>
-          <include name="colorOfForm"/>
-          <include name="browserLaunch"/>
           <include name="passwordVisibilityOnDOM"/>
+          <include name="tearDown"/>
+          <include name="browserLaunch"/>
         </methods>
-      </class> <!-- com.wakesmart.testcases.LoginPageTest -->
+      </class> <!-- com.wakesmart.testcases.WSLoginPageTest -->
     </classes>
   </test> <!-- WakeSmart(failed) -->
 </suite> <!-- Failed suite [Suite] -->

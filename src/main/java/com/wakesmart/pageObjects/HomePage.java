@@ -14,11 +14,17 @@ public class HomePage extends BaseClass {
 
 	By ScreenTitle = By.xpath("//div[@class='screentitle']");
 	By userIcon = By.xpath("//input[@id='userstuff']");
-	By logout = By.xpath("//input[@id='loginout']");
+	By AccountSettingsIcon = By.xpath("//span[@class='MuiChip-label MuiChip-labelMedium css-14vsv3w']");
+	By logout = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body2 css-aghghv'])[2]");
 	By AboutIcon = By.xpath("//input[@id='aboutit']");
 	By ReportsIcon = By.xpath("//input[@id='reports']");
-	By getuserIconUserID = By.cssSelector("form[id='aboutbtn'] label");
+	By getuserIconUserID = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1auv73w'])[1]");
 
+	public WebElement getAccountSettingsIcon() {
+		return driver.findElement(AccountSettingsIcon);
+	}
+	
+	
 	public WebElement getScreenTitle() {
 		return driver.findElement(ScreenTitle);
 	}
