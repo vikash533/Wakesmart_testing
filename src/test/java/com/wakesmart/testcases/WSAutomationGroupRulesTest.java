@@ -34,9 +34,7 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 	
 	@AfterClass(enabled = true)
 	public void tearDown() {
-		if (driver != null) {
 			driver.quit();
-		}
 	}
 	
 	

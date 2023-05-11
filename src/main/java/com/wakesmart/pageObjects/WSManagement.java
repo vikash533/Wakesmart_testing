@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -357,5 +358,163 @@ public class WSManagement extends BaseClass{
 		return driver.findElement(ManagementTab);
 	}
 
+	
+	
+	//Groups
+	
+	By Groups = By.xpath("//div[@class='MuiList-root css-1xidfkz']//a[2]");
+	By AddGroupButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-9ppe9d'])//button");
+	By IsParentCheckBox = By.xpath("(//div[@class='MuiBox-root css-0'])/label/span[1]");
+	By GroupCreatedNameVerify = By.xpath("(//div[@class='MuiBox-root css-1yuhvjn'])/ul/li/div/div[2]/p");
+	By GroupEditButton = By.xpath("(//div[@class='MuiBox-root css-19hvn7'])/button[2]");
+	By ParentGroupDropDown = By.xpath("(//div[@class='MuiFormControl-root css-6oszqx'])/div/div");
+	By ParentGroupDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li");
+	By ArrowDownInTable= By.xpath("(//div[@class='tree-node CustomNode_root__6RKGp'])[1]/div[1]/span");
+	By SubGroupNameVerify = By.xpath("(//div[@class='MuiBox-root css-1yuhvjn'])//ul/li/div/div[2]/p");
+	
+	public List<WebElement> getSubGroupNameVerify() {
+		return driver.findElements(SubGroupNameVerify);
+	}
+	
+	public WebElement getArrowDownInTable() {
+		return driver.findElement(ArrowDownInTable);
+	}
+
+	public List<WebElement> getParentGroupDropDownList() {
+		return driver.findElements(ParentGroupDropDownList);
+	}
+	
+	public WebElement getParentGroupDropDown() {
+		return driver.findElement(ParentGroupDropDown);
+	}
+	
+	public WebElement getGroupEditButton() {
+		return driver.findElement(GroupEditButton);
+	}
+	
+	public List<WebElement> getGroupCreatedNameVerify() {
+		return driver.findElements(GroupCreatedNameVerify);
+	}
+	
+	
+	public WebElement getIsParentCheckBox() {
+		return driver.findElement(IsParentCheckBox);
+	}
+	
+	public WebElement getAddGroupButton() {
+		return driver.findElement(AddGroupButton);
+	}
+	
+	public WebElement getGroups() {
+		return driver.findElement(Groups);
+	}
+	
+//	public boolean nameVerifyFromTableAndMouseHover(WebDriver driver, List<WebElement> ele, WebElement element, String str) {
+//
+//		Actions act = new Actions(driver);
+//		String tablename = "";
+//		boolean result = false;
+//		
+//		for (WebElement option : ele) {
+//
+//			if (option.getText().equalsIgnoreCase(str)) {
+//				tablename = option.getText();
+//				act.moveToElement(option).build().perform();
+//				if(getGroupEditButton().isDisplayed()) {
+//					getGroupEditButton().click();
+//					result = true;
+//				}
+//				break;
+//			}
+//		}
+//		return result;
+//	}
+	
+	public void moveEle(WebDriver driver , WebElement elem) {
+
+		// Use the JavascriptExecutor to trigger the onmouseover event
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String script = "var mouseEvent = document.createEvent('MouseEvents');" +
+		                "mouseEvent.initEvent('mouseover', true, true);" +
+		                "arguments[0].dispatchEvent(mouseEvent);";
+		js.executeScript(script, elem);
+
+	}
+	
+	
+	public boolean nameVerifyFromTableAndMouseHover(WebDriver driver, String str) {
+		Actions act = new Actions(driver);
+		boolean result = false;
+		try {
+			WebElement option = getGroupCreatedNameVerify().stream().filter(e -> e.getText().equalsIgnoreCase(str)).findFirst().orElse(null);
+			if (option != null) {
+				//act.moveToElement(option).perform();
+				moveEle(driver,option);
+				if (getGroupEditButton().isDisplayed()) {
+					getGroupEditButton().click();
+					result = true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	
+	
+	public boolean nameVerifyFromTableAndMouseHoverAfterRename(WebDriver driver, 
+			String str) {
+		Actions act = new Actions(driver);
+		boolean result = false;
+		try {
+			
+			for (WebElement option : getSubGroupNameVerify()) {
+				//
+							if (option.getText().equalsIgnoreCase(str)) {
+								act.moveToElement(option).build().perform();
+								if(getGroupEditButton().isDisplayed()) {
+								getGroupEditButton().click();
+									result = true;
+								}
+								break;
+							}
+						}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+			
+			/*
+			
+			WebElement option = getSubGroupNameVerify().stream().filter(e -> e.getText().equalsIgnoreCase(str)).findFirst().orElse(null);
+			if (option != null) {
+				//act.moveToElement(option).perform();
+				moveEle(driver,option);
+				if (getGroupEditButton().isDisplayed()) {
+					getGroupEditButton().click();
+					result = true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+		*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

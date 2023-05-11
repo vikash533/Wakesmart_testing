@@ -14,7 +14,6 @@
 			<class name="com.wakesmart.testcases.WSAutomationPolicyRules" />
 			<class name="com.wakesmart.testcases.WSAutomationAlertRulesTest" />
 			<class name="com.wakesmart.testcases.WSManagementPoliciesTest" />
-			shreyas
 		</classes>
 	</test>
 </suite>

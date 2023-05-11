@@ -37,9 +37,8 @@ public class WSLoginPageTest extends BaseClass {
 
 	@AfterClass
 	public void tearDown() {
-		if(driver!=null) {
 			driver.quit();
-		}
+		
 	}
 
 	//Completed

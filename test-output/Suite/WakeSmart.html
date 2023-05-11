@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>15/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed May 03 18:46:19 IST 2023</td>
+<td>Started on:</td><td>Fri May 05 14:40:03 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>81 seconds (81156 ms)</td>
+<tr><td>Total time:</td><td>127 seconds (127408 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,203 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.wakesmart.testcases.WSHomePageTest.tearDown()'><b>tearDown</b><br>Test class: com.wakesmart.testcases.WSHomePageTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [04c29696aa29933f24b725b035303306, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: msedge, browserVersion: 112.0.1722.68, ms:edgeOptions: {debuggerAddress: localhost:57715}, msedge: {msedgedriverVersion: 112.0.1722.68 (82d34b2459d3..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57715/devtoo..., se:cdpVersion: 112.0.1722.68, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 04c29696aa29933f24b725b035303306
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:148)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:598)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:445)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:279)
+	at com.wakesmart.testcases.WSHomePageTest.tearDown(WSHomePageTest.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+	at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:222)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.concurrent.ExecutionException: org.openqa.selenium.TimeoutException: Process timed out after waiting for 20000 ms.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: unknown
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:144)
+	... 19 more
+Caused by: org.openqa.selenium.TimeoutException: Process timed out after waiting for 20000 ms.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.os.OsProcess.waitFor(OsProcess.java:181)
+	at org.openqa.selenium.os.CommandLine.waitFor(CommandLine.java:119)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$2(DriverCommandExecutor.java:138)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	... 3 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1157204810", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1157204810'><pre>org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [04c29696aa29933f24b725b035303306, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: msedge, browserVersion: 112.0.1722.68, ms:edgeOptions: {debuggerAddress: localhost:57715}, msedge: {msedgedriverVersion: 112.0.1722.68 (82d34b2459d3..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57715/devtoo..., se:cdpVersion: 112.0.1722.68, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 04c29696aa29933f24b725b035303306
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:148)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:598)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:445)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:279)
+	at com.wakesmart.testcases.WSHomePageTest.tearDown(WSHomePageTest.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+	at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:222)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.concurrent.ExecutionException: org.openqa.selenium.TimeoutException: Process timed out after waiting for 20000 ms.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: unknown
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:144)
+	... 19 more
+Caused by: org.openqa.selenium.TimeoutException: Process timed out after waiting for 20000 ms.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.os.OsProcess.waitFor(OsProcess.java:181)
+	at org.openqa.selenium.os.CommandLine.waitFor(CommandLine.java:119)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$2(DriverCommandExecutor.java:138)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	... 3 more
+</pre></div></td>
+<td>23</td>
+<td>com.wakesmart.testcases.WSHomePageTest@1c481ff2</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.WSAutomationAlertRulesTest.tearDown()'><b>tearDown</b><br>Test class: com.wakesmart.testcases.WSAutomationAlertRulesTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [b2f9e54ad2d511f4862afca850b6c71b, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: msedge, browserVersion: 112.0.1722.68, ms:edgeOptions: {debuggerAddress: localhost:57694}, msedge: {msedgedriverVersion: 112.0.1722.68 (82d34b2459d3..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57694/devtoo..., se:cdpVersion: 112.0.1722.68, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b2f9e54ad2d511f4862afca850b6c71b
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:148)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:598)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:445)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:279)
+	at com.wakesmart.testcases.WSAutomationAlertRulesTest.tearDown(WSAutomationAlertRulesTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+	at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:222)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.concurrent.ExecutionException: org.openqa.selenium.TimeoutException: Process timed out after waiting for 20000 ms.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: unknown
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:144)
+	... 19 more
+Caused by: org.openqa.selenium.TimeoutException: Process timed out after waiting for 20000 ms.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.os.OsProcess.waitFor(OsProcess.java:181)
+	at org.openqa.selenium.os.CommandLine.waitFor(CommandLine.java:119)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$2(DriverCommandExecutor.java:138)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	... 3 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1183249139", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1183249139'><pre>org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [b2f9e54ad2d511f4862afca850b6c71b, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: msedge, browserVersion: 112.0.1722.68, ms:edgeOptions: {debuggerAddress: localhost:57694}, msedge: {msedgedriverVersion: 112.0.1722.68 (82d34b2459d3..., userDataDir: C:\Users\SHREYA~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57694/devtoo..., se:cdpVersion: 112.0.1722.68, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b2f9e54ad2d511f4862afca850b6c71b
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:148)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:598)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:445)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:279)
+	at com.wakesmart.testcases.WSAutomationAlertRulesTest.tearDown(WSAutomationAlertRulesTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+	at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:222)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.concurrent.ExecutionException: org.openqa.selenium.TimeoutException: Process timed out after waiting for 20000 ms.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: unknown
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:144)
+	... 19 more
+Caused by: org.openqa.selenium.TimeoutException: Process timed out after waiting for 20000 ms.
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.os.OsProcess.waitFor(OsProcess.java:181)
+	at org.openqa.selenium.os.CommandLine.waitFor(CommandLine.java:119)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$2(DriverCommandExecutor.java:138)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	... 3 more
+</pre></div></td>
+<td>22</td>
+<td>com.wakesmart.testcases.WSAutomationAlertRulesTest@676cf48</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-failed'>
 <tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -81,7 +278,7 @@ function toggleAllBoxes() {
 	Password is visible on the DOM= did not expect [invalidPW] but found [invalidPW]
 	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
 	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-	at com.wakesmart.testcases.WSLoginPageTest.passwordVisibilityOnDOM(WSLoginPageTest.java:148)
+	at com.wakesmart.testcases.WSLoginPageTest.passwordVisibilityOnDOM(WSLoginPageTest.java:147)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -97,12 +294,12 @@ function toggleAllBoxes() {
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2090229060", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2090229060'><pre>java.lang.AssertionError: The following asserts failed:
+</pre></div><a href='#' onClick='toggleBox("stack-trace1232264078", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1232264078'><pre>java.lang.AssertionError: The following asserts failed:
 	Password is visible on the DOM= did not expect [invalidPW] but found [invalidPW]
 	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
 	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-	at com.wakesmart.testcases.WSLoginPageTest.passwordVisibilityOnDOM(WSLoginPageTest.java:148)
+	at com.wakesmart.testcases.WSLoginPageTest.passwordVisibilityOnDOM(WSLoginPageTest.java:147)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -120,7 +317,7 @@ function toggleAllBoxes() {
 	at java.base/java.lang.Thread.run(Thread.java:833)
 </pre></div></td>
 <td>0</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -131,80 +328,80 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='com.wakesmart.testcases.WSLoginPageTest.invalidUserName_ValidPasswordLogin()'><b>invalidUserName_ValidPasswordLogin</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
+<td></td>
+<td>6</td>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
+<tr>
 <td title='com.wakesmart.testcases.WSLoginPageTest.validUserLogin()'><b>validUserLogin</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
 <td></td>
 <td>6</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
 <tr>
-<td title='com.wakesmart.testcases.WSAutomationAlertRulesTest.newAutomationAlertRules()'><b>newAutomationAlertRules</b><br>Test class: com.wakesmart.testcases.WSAutomationAlertRulesTest</td>
+<td title='com.wakesmart.testcases.WSLoginPageTest.colorOfLoginButton()'><b>colorOfLoginButton</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
 <td></td>
-<td>14</td>
-<td>com.wakesmart.testcases.WSAutomationAlertRulesTest@1b955cac</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.WSLoginPageTest.getTitle()'><b>getTitle</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
-<td></td>
-<td>1</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.WSManagementPoliciesTest.managementPolicies()'><b>managementPolicies</b><br>Test class: com.wakesmart.testcases.WSManagementPoliciesTest</td>
-<td></td>
-<td>53</td>
-<td>com.wakesmart.testcases.WSManagementPoliciesTest@676cf48</td></tr>
+<td>8</td>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
 <tr>
 <td title='com.wakesmart.testcases.WSLoginPageTest.userLogout()'><b>userLogout</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
 <td></td>
 <td>2</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
 <tr>
-<td title='com.wakesmart.testcases.WSHomePageTest.HomePageValidation()'><b>HomePageValidation</b><br>Test class: com.wakesmart.testcases.WSHomePageTest</td>
-<td></td>
-<td>23</td>
-<td>com.wakesmart.testcases.WSHomePageTest@740d2e78</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.WSLoginPageTest.URLVerification()'><b>URLVerification</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
+<td title='com.wakesmart.testcases.WSLoginPageTest.getTitle()'><b>getTitle</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
 <td></td>
 <td>0</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
 <tr>
-<td title='com.wakesmart.testcases.WSLoginPageTest.colorOfLoginButton()'><b>colorOfLoginButton</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
+<td title='com.wakesmart.testcases.WSManagementPoliciesTest.managementPolicies()'><b>managementPolicies</b><br>Test class: com.wakesmart.testcases.WSManagementPoliciesTest</td>
+<td></td>
+<td>57</td>
+<td>com.wakesmart.testcases.WSManagementPoliciesTest@5a1de7fb</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.WSLoginPageTest.colorOfForm()'><b>colorOfForm</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
 <td></td>
 <td>0</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.WSLoginPageTest.invalidUserName_ValidPasswordLogin()'><b>invalidUserName_ValidPasswordLogin</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
-<td></td>
-<td>14</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
 <tr>
 <td title='com.wakesmart.testcases.WSAutomationPolicyRules.newAutomationPolicyRules()'><b>newAutomationPolicyRules</b><br>Test class: com.wakesmart.testcases.WSAutomationPolicyRules</td>
 <td></td>
-<td>41</td>
-<td>com.wakesmart.testcases.WSAutomationPolicyRules@72437d8d</td></tr>
+<td>40</td>
+<td>com.wakesmart.testcases.WSAutomationPolicyRules@1b955cac</td></tr>
 <tr>
 <td title='com.wakesmart.testcases.WSLoginPageTest.empty_Credential_Login()'><b>empty_Credential_Login</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
 <td></td>
 <td>1</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
 <tr>
-<td title='com.wakesmart.testcases.WSLoginPageTest.inValidUserName_InvalidPasswordLogin()'><b>inValidUserName_InvalidPasswordLogin</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
+<td title='com.wakesmart.testcases.WSAutomationAlertRulesTest.newAutomationAlertRules()'><b>newAutomationAlertRules</b><br>Test class: com.wakesmart.testcases.WSAutomationAlertRulesTest</td>
 <td></td>
-<td>6</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.WSAutomationGroupRulesTest.newAutomationGroupRules()'><b>newAutomationGroupRules</b><br>Test class: com.wakesmart.testcases.WSAutomationGroupRulesTest</td>
-<td></td>
-<td>43</td>
-<td>com.wakesmart.testcases.WSAutomationGroupRulesTest@1c481ff2</td></tr>
-<tr>
-<td title='com.wakesmart.testcases.WSLoginPageTest.colorOfForm()'><b>colorOfForm</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
-<td></td>
-<td>1</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
+<td>15</td>
+<td>com.wakesmart.testcases.WSAutomationAlertRulesTest@676cf48</td></tr>
 <tr>
 <td title='com.wakesmart.testcases.WSLoginPageTest.validUserName_InvalidPasswordLogin()'><b>validUserName_InvalidPasswordLogin</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
 <td></td>
-<td>7</td>
-<td>com.wakesmart.testcases.WSLoginPageTest@2766ca9d</td></tr>
+<td>8</td>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.WSAutomationGroupRulesTest.newAutomationGroupRules()'><b>newAutomationGroupRules</b><br>Test class: com.wakesmart.testcases.WSAutomationGroupRulesTest</td>
+<td></td>
+<td>44</td>
+<td>com.wakesmart.testcases.WSAutomationGroupRulesTest@72437d8d</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.WSLoginPageTest.inValidUserName_InvalidPasswordLogin()'><b>inValidUserName_InvalidPasswordLogin</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
+<td></td>
+<td>5</td>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.WSLoginPageTest.URLVerification()'><b>URLVerification</b><br>Test class: com.wakesmart.testcases.WSLoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.wakesmart.testcases.WSLoginPageTest@5460cf3a</td></tr>
+<tr>
+<td title='com.wakesmart.testcases.WSHomePageTest.HomePageValidation()'><b>HomePageValidation</b><br>Test class: com.wakesmart.testcases.WSHomePageTest</td>
+<td></td>
+<td>18</td>
+<td>com.wakesmart.testcases.WSHomePageTest@1c481ff2</td></tr>
 </table><p>
 </body>
 </html>

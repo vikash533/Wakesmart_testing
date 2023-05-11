@@ -877,15 +877,20 @@ public class Action extends BaseClass {
 	}
 
 	public void fluentWait(WebDriver driver, WebElement element) {
-		Wait<WebDriver> wait = null;
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(1)).ignoring(Exception.class);
 		try {
-			wait = new FluentWait<WebDriver>((WebDriver) driver).withTimeout(Duration.ofSeconds(20))
-					.pollingEvery(Duration.ofSeconds(1)).ignoring(Exception.class);
+
 			wait.until(ExpectedConditions.visibilityOf(element));
-			// element.click();
+
 		} catch (Exception e) {
+			wait.until(ExpectedConditions.visibilityOf(element));
+			e.printStackTrace();
 		}
+
 	}
+	
+	
 
 	public void implicitWait(WebDriver driver, int timeOut) {
 		driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);

@@ -8,46 +8,11 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">WakeSmart</a></td><td class="num">15</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">81,156</td><td></td><td></td></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">23,980</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">WakeSmart &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.wakesmart.testcases.WSLoginPageTest</td><td><a href="#m0">passwordVisibilityOnDOM</a></td><td rowspan="1">1683119837614</td><td rowspan="1">541</td></tr><tr><th colspan="4">WakeSmart &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.wakesmart.testcases.WSAutomationAlertRulesTest</td><td><a href="#m1">newAutomationAlertRules</a></td><td rowspan="1">1683119805663</td><td rowspan="1">14134</td></tr><tr class="passedodd"><td rowspan="1">com.wakesmart.testcases.WSAutomationGroupRulesTest</td><td><a href="#m2">newAutomationGroupRules</a></td><td rowspan="1">1683119803713</td><td rowspan="1">43013</td></tr><tr class="passedeven"><td rowspan="1">com.wakesmart.testcases.WSAutomationPolicyRules</td><td><a href="#m3">newAutomationPolicyRules</a></td><td rowspan="1">1683119801476</td><td rowspan="1">41543</td></tr><tr class="passedodd"><td rowspan="1">com.wakesmart.testcases.WSHomePageTest</td><td><a href="#m4">HomePageValidation</a></td><td rowspan="1">1683119805240</td><td rowspan="1">23194</td></tr><tr class="passedeven"><td rowspan="10">com.wakesmart.testcases.WSLoginPageTest</td><td><a href="#m5">URLVerification</a></td><td rowspan="1">1683119845258</td><td rowspan="1">42</td></tr><tr class="passedeven"><td><a href="#m6">colorOfForm</a></td><td rowspan="1">1683119805780</td><td rowspan="1">1559</td></tr><tr class="passedeven"><td><a href="#m7">colorOfLoginButton</a></td><td rowspan="1">1683119807344</td><td rowspan="1">706</td></tr><tr class="passedeven"><td><a href="#m8">empty_Credential_Login</a></td><td rowspan="1">1683119835791</td><td rowspan="1">1821</td></tr><tr class="passedeven"><td><a href="#m9">getTitle</a></td><td rowspan="1">1683119804458</td><td rowspan="1">1306</td></tr><tr class="passedeven"><td><a href="#m10">inValidUserName_InvalidPasswordLogin</a></td><td rowspan="1">1683119829265</td><td rowspan="1">6523</td></tr><tr class="passedeven"><td><a href="#m11">invalidUserName_ValidPasswordLogin</a></td><td rowspan="1">1683119808059</td><td rowspan="1">14075</td></tr><tr class="passedeven"><td><a href="#m12">userLogout</a></td><td rowspan="1">1683119845308</td><td rowspan="1">2710</td></tr><tr class="passedeven"><td><a href="#m13">validUserLogin</a></td><td rowspan="1">1683119838712</td><td rowspan="1">6539</td></tr><tr class="passedeven"><td><a href="#m14">validUserName_InvalidPasswordLogin</a></td><td rowspan="1">1683119822142</td><td rowspan="1">7121</td></tr><tr class="passedodd"><td rowspan="1">com.wakesmart.testcases.WSManagementPoliciesTest</td><td><a href="#m15">managementPolicies</a></td><td rowspan="1">1683119806465</td><td rowspan="1">53818</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.wakesmart.testcases.WSManagementGroupsTest</td><td><a href="#m0">managementGroups</a></td><td rowspan="1">1683530268546</td><td rowspan="1">14804</td></tr></tbody>
 </table>
-<h2>WakeSmart</h2><h3 id="m0">com.wakesmart.testcases.WSLoginPageTest#passwordVisibilityOnDOM</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
-	Password is visible on the DOM= did not expect [invalidPW] but found [invalidPW]
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-	at com.wakesmart.testcases.WSLoginPageTest.passwordVisibilityOnDOM(WSLoginPageTest.java:148)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.wakesmart.testcases.WSAutomationAlertRulesTest#newAutomationAlertRules</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.wakesmart.testcases.WSAutomationGroupRulesTest#newAutomationGroupRules</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.wakesmart.testcases.WSAutomationPolicyRules#newAutomationPolicyRules</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.wakesmart.testcases.WSHomePageTest#HomePageValidation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.wakesmart.testcases.WSLoginPageTest#URLVerification</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">com.wakesmart.testcases.WSLoginPageTest#colorOfForm</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">com.wakesmart.testcases.WSLoginPageTest#colorOfLoginButton</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">com.wakesmart.testcases.WSLoginPageTest#empty_Credential_Login</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">com.wakesmart.testcases.WSLoginPageTest#getTitle</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">com.wakesmart.testcases.WSLoginPageTest#inValidUserName_InvalidPasswordLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m11">com.wakesmart.testcases.WSLoginPageTest#invalidUserName_ValidPasswordLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m12">com.wakesmart.testcases.WSLoginPageTest#userLogout</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m13">com.wakesmart.testcases.WSLoginPageTest#validUserLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m14">com.wakesmart.testcases.WSLoginPageTest#validUserName_InvalidPasswordLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m15">com.wakesmart.testcases.WSManagementPoliciesTest#managementPolicies</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">com.wakesmart.testcases.WSManagementGroupsTest#managementGroups</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

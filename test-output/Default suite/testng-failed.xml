@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.wakesmart.testcases.WSManagementPoliciesTest">
+      <class name="com.wakesmart.testcases.WSManagementGroupsTest">
         <methods>
           <include name="browserLaunch"/>
+          <include name="managementGroups"/>
           <include name="tearDown"/>
-          <include name="managementPolicies"/>
         </methods>
-      </class> <!-- com.wakesmart.testcases.WSManagementPoliciesTest -->
+      </class> <!-- com.wakesmart.testcases.WSManagementGroupsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

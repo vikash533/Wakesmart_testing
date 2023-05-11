@@ -12,7 +12,6 @@ import org.testng.asserts.SoftAssert;
 import com.wakesmart.action.Action;
 import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
-import com.wakesmart.pageObjects.Manage;
 import com.wakesmart.pageObjects.WSManagement;
 
 public class WSManagementPoliciesTest extends BaseClass{
@@ -35,11 +34,9 @@ public class WSManagementPoliciesTest extends BaseClass{
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass(enabled=false)
+	@AfterClass(enabled=true)
 	public void tearDown() {
-		if (driver != null) {
 	        driver.quit();
-	    }
 	}
 	
 	@Test(priority=1)

@@ -34,9 +34,7 @@ public class WSHomePageTest extends BaseClass {
 	
 	@AfterClass(enabled=true)
 	public void tearDown() {
-		if(driver!=null) {
 			driver.quit();
-		}
 	}
 	
 	@Test(priority=1)

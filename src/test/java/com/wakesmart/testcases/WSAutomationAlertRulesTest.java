@@ -33,12 +33,10 @@ public class WSAutomationAlertRulesTest extends BaseClass{
 	
 	@AfterClass(enabled = true)
 	public void tearDown() {
-		if (driver != null) {
 			driver.quit();
-		}
 	}
 	
-	@Test(priority=1)
+	@Test
 	public void newAutomationAlertRules() throws IOException, InterruptedException {
 		automation= new WSAutomationPage(driver);
 		indexpage = new IndexPage(driver);
