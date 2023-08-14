@@ -369,8 +369,8 @@ public class WSManagement extends BaseClass{
 	By IsParentCheckBox = By.xpath("(//div[@class='MuiBox-root css-0'])/label/span[1]");
 	By GroupCreatedNameVerify = By.xpath("//li[@role='listitem']/ul/li/div/div[2]/p");
 	By GroupEditButton = By.xpath("(//div[@class='MuiBox-root css-19hvn7'])/button[2]");
-	By ParentGroupDropDown = By.xpath("(//div[@class='MuiFormControl-root css-6oszqx'])/div/div");
-	By ParentGroupDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li");
+	By ParentGroupDropDown = By.xpath("(//div[@class='MuiFormControl-root css-1cr99xm-MuiFormControl-root'])/div/div");
+	By ParentGroupDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list'])/li");
 	By ArrowDownInTable= By.xpath("(//div[@class='tree-node CustomNode_root__6RKGp'])[1]/div[1]/span");
 	By SubGroupNameVerify = By.xpath("(//div[@class='MuiBox-root css-1yuhvjn'])//ul/li/div/div[2]/p");
 	

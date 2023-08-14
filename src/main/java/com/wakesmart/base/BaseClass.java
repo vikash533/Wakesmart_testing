@@ -46,8 +46,6 @@ public class BaseClass{
 			driver= new EdgeDriver();
 		}
 		
-
-
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.manage().window().maximize();
 		return driver;

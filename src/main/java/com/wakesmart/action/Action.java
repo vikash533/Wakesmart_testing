@@ -31,8 +31,6 @@ public class Action extends BaseClass {
 
 	public Properties prop;
 	
-	
-	
 	public void getSelectOptionFromDropdown(List<WebElement> ele , String AttributrValue) throws InterruptedException {
 		
 		try {

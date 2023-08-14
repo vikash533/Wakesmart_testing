@@ -1,13 +1,12 @@
 package com.wakesmart.testcases;
 
 import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.wakesmart.action.Action;
 import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
@@ -74,31 +73,23 @@ public class WSManagementGroupsTest extends BaseClass {
 			result = management.nameVerifyFromTableAndMouseHover(driver, groupName);
 		}
 		
-		softAssert.assertEquals(result,true);
+		Assert.assertEquals(result,true);
 		
-//		boolean editGroup=false;
-//		
-//		if(result==true) {
-//				action.type(management.getPolicyName(), prop.getProperty("GroupsManagementGroupReName"));
-//				management.getIsParentCheckBox().click();
-//				action.click(driver, management.getParentGroupDropDown());
-//				action.getSelectOptionFromDropdown(management.getParentGroupDropDownList(), prop.getProperty("GroupsManagementDefaultGroupTop"));
-//				action.click(driver, management.getAddNewPolicySubmitButton());
-//				action.fluentWait(driver, indexpage.getErrorMsg());
-//				softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("GroupsManagementGroupUpdatedSuccessMessage"));
-//				action.click(driver, indexpage.getPopupCloseIcon());
-//				editGroup=true;
-//		}
-//		
-//		boolean resultOfTop = false;
-//		if(editGroup==true) {
-//			action.click(driver, management.getArrowDownInTable());
-//			
-//			resultOfTop =management.nameVerifyFromTableAndMouseHoverAfterRename(driver, prop.getProperty("GroupsManagementGroupReName"));
-//			}
-//		
-//		softAssert.assertEquals(resultOfTop,true);
-//		
+		
+		action.type(management.getPolicyName(), prop.getProperty("GroupsManagementGroupReName"));
+		management.getIsParentCheckBox().click();
+		action.click(driver, management.getParentGroupDropDown());
+		action.getSelectOptionFromDropdown(management.getParentGroupDropDownList(), prop.getProperty("GroupsManagementDefaultGroupTop"));
+		action.click(driver, management.getAddNewPolicySubmitButton());
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("GroupsManagementGroupUpdatedSuccessMessage"));
+		action.click(driver, indexpage.getPopupCloseIcon());
+				
+		action.click(driver, management.getArrowDownInTable());
+		
+		boolean	resultOfTop =management.nameVerifyFromTableAndMouseHoverAfterRename(driver, prop.getProperty("GroupsManagementGroupReName"));
+		
+		softAssert.assertEquals(resultOfTop,true);
 		
 		softAssert.assertAll();
 	}
