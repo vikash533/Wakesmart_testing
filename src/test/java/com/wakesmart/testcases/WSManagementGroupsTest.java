@@ -103,11 +103,6 @@ public class WSManagementGroupsTest extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	@Test
-	public void test() {
-		System.out.println(prop.getProperty("GroupsManagementGroupName")+ " - "+ prop.getProperty("GroupsManagementGroupDescription"));
-	}
-	
 	
 	
 	
