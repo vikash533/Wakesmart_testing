@@ -13,7 +13,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass{
 
@@ -33,20 +32,17 @@ public class BaseClass{
 		if (browserName.equalsIgnoreCase("chrome")) {
 			//ChromeOptions chromeOptions = new ChromeOptions();
 			
-			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		}
 
 		else if (browserName.equalsIgnoreCase("firefox")) {
 			
-			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			
 		}
 		
 		else if (browserName.equalsIgnoreCase("edge")) {
 			
-			WebDriverManager.edgedriver().setup();
 			driver= new EdgeDriver();
 		}
 		
