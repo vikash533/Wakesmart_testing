@@ -14,6 +14,9 @@ import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 
+// Updated as per the new UI
+
+
 public class WSManagementPoliciesTest extends BaseClass{
 
 	public WebDriver driver;
@@ -21,8 +24,6 @@ public class WSManagementPoliciesTest extends BaseClass{
 	private Action action;
 	private SoftAssert softAssert;
 	private WSManagement management;
-	
-	
 	
 	@BeforeClass
 	public void browserLaunch()  {
@@ -34,7 +35,7 @@ public class WSManagementPoliciesTest extends BaseClass{
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass(enabled=true)
+	@AfterClass(enabled=false)
 	public void tearDown() {
 	        driver.quit();
 	}
@@ -124,7 +125,6 @@ public class WSManagementPoliciesTest extends BaseClass{
 		action.type(management.getEventStartDelayTime(), prop.getProperty("PoliciesScheduledEventStartDelayTime"));
 		action.type(management.getEventStartMessege(), prop.getProperty("PoliciesScheduledEventStartMessege"));
 		action.click(driver, management.getEventStartSaveButton());
-		
 		softAssert.assertEquals(management.getScheduledEventNameTextVerify(), prop.getProperty("PoliciesManagementScheduledEventSelector"));
 		softAssert.assertEquals(management.getScheduledEventdaysTextVerify(), prop.getProperty("PoliciesManagementNewSchemeDayVerifyText"));
 		softAssert.assertEquals(management.getScheduledEventStartTextVerify(), prop.getProperty("PoliciesManagementPoliciesNewSchemeStartTimeVerifyText"));

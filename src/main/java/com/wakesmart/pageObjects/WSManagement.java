@@ -32,62 +32,63 @@ public class WSManagement extends BaseClass{
 	
 	
 	
-	By ManagementTab = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-m92ebk'])[1]");
+	By ManagementTab = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-1oip95y-MuiButtonBase-root-MuiListItemButton-root'])[1]");
 	
 	//Policies
-	By Policies = By.xpath("(//div[@class='MuiList-root css-1xidfkz'])/a[3]/div[2]");
-	By PolicyManagement = By.xpath("(//div[@class='MuiCardHeader-root css-fw4u9m'])//div/span");
-	By PolicyManagementTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-item css-g8a0ev'])//div/p");
-	By PoliciesInnerTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-15j76c0'])//table/thead/tr/th");
-	By AddPolicyBtn = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8'])//button");
-	By PolicyName = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-feqhe6'])[1]/div/input");
-	By PolicyDescription = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-feqhe6'])[2]/div/input");
+	By Policies = By.xpath("(//div[@class='MuiList-root css-uppwh0-MuiList-root'])/a[3]/div[2]");
+	By PolicyManagement = By.xpath("(//div[@class='MuiCardHeader-root css-1nvdc5e-MuiCardHeader-root'])//div/span");
+	By PolicyManagementTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-item css-4c1867-MuiGrid-root'])//div/p");
+	By PoliciesInnerTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-1idn90j-MuiGrid-root'])//table/thead/tr/th");
+	By AddPolicyBtn = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root'])//button");
+	By PolicyName = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root'])[1]/div/input");
+	By PolicyDescription = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root'])[2]/div/input");
 	By AddSchemeButton = By.xpath("(//div[@class='MuiBox-root css-blgins'])/div/div[2]/button");
-	
+	//pending
 	By AddNewSchemeHeaderText = By.xpath("(//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1pwda69'])[2]/h2");
 	By PoliciesSchemeName = By.xpath("(//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1pwda69'])[2]/h2");
 	By SchemeName = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1s50f5r'])[1]/div/div/input");
 	
-	By NewSchemeName = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1nj3ori'])[3]/input");
-	By NewSchemeDescription = By.xpath("(//div[@class='MuiDialogContent-root css-1ws0q2s'])/div[1]/div/div[2]/div/div/input");
+	By NewSchemeName = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1lf2b4f-MuiInputBase-root-MuiOutlinedInput-root'])[3]/input");
+	By NewSchemeDescription = By.xpath("(//div[@class='MuiDialogContent-root css-3fsl0h-MuiDialogContent-root'])/div[1]/div/div[2]/div/div/input");
 	By WeekDaysCheckBox = By.xpath("(//div[@class='MuiBox-root css-1yuhvjn'])/div/label/span[1]");
 	By NewSchemeStartTime = By.xpath("(//div[@class='MuiBox-root css-1qm1lh'])/div/div[1]/input");
+	
 	By NewSchemeEndTime = By.xpath("(//div[@class='MuiBox-root css-1qm1lh'])/div/div[2]/input");
 	By displayInactivityTimeout = By.xpath("//input[@name='displayInactivityTimeoutAC']");
-	By DisplayInactivityDropdown = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']//li");
-	By USBSleepONAC = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])//li");
-	By CPUMax = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu'])[4]/div[6]/div/div/input");
-	By DiskMax = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu'])[4]/div[7]/div/div/input");
-	By NetworkMax =By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu'])[4]/div[8]/div/div/input");
-	By ScreenDim = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu'])[4]/div[9]/div/div/input");
-	By Brightness = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu'])[4]/div[10]/div/div/input");
-	By AddNewSchemeSaveButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc'])[2]/button[2]");
-	By NewSchemeEndTimeVerifyText = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[2]/td[4]");
-	By DefaultSchemeEndTimeVerifyText = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[1]/td[4]");
-	By NewSchemeStartTimeVerifyText = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[2]/td[3]");
-	By DefaultSchemeStartTimeVerifyText = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[1]/td[3]");
-	By NewSchemeDaysVerifyText = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[2]/td[2]");
-	By DefaultSchemeDaysVerifyText = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[1]/td[2]");
-	By NewSchemeNameVerifyText = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[2]/td[1]");
-	By NewDefaultSchemeNameVerifyText = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[1]/td[1]");
-	By EventSelectorDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])//li");
-	By ScduledEventAddButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8'])[3]/button");
-	By ScheduledDays = By.xpath("(//div[@class='MuiDialogContent-root css-1ws0q2s'])/div[1]/div/label/span[1]");
+	By DisplayInactivityDropdown = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list']//li");
+	By USBSleepONAC = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list'])//li");
+	By CPUMax = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-a5rdam-MuiGrid-root'])[4]/div[6]/div/div/input");
+	By DiskMax = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-a5rdam-MuiGrid-root'])[4]/div[7]/div/div/input");
+	By NetworkMax =By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-a5rdam-MuiGrid-root'])[4]/div[8]/div/div/input");
+	By ScreenDim = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-a5rdam-MuiGrid-root'])[4]/div[9]/div/div/input");
+	By Brightness = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-a5rdam-MuiGrid-root'])[4]/div[10]/div/div/input");
+	By AddNewSchemeSaveButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root'])[2]/button[2]");
+	By NewSchemeEndTimeVerifyText = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[2]/td[4]");
+	By DefaultSchemeEndTimeVerifyText = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[1]/td[4]");
+	By NewSchemeStartTimeVerifyText = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[2]/td[3]");
+	By DefaultSchemeStartTimeVerifyText = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[1]/td[3]");
+	By NewSchemeDaysVerifyText = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[2]/td[2]");
+	By DefaultSchemeDaysVerifyText = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[1]/td[2]");
+	By NewSchemeNameVerifyText = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[2]/td[1]");
+	By NewDefaultSchemeNameVerifyText = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[1]/td[1]");
+	By EventSelectorDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list'])//li");
+	By ScduledEventAddButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root'])[3]/button");
+	By ScheduledDays = By.xpath("(//div[@class='MuiDialogContent-root css-3fsl0h-MuiDialogContent-root'])/div[1]/div/label/span[1]");
 	By EventSelector = By.xpath("(//div[@class='MuiBox-root css-1qm1lh'])/div/div[1]/div/div/div");
-	By EventStartTime = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1s50f5r'])[2]/input");
-	By EventStartPreWarningTime = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-ggczlc'])[1]/input");
-	By EventStartDelayTime = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1s50f5r'])[4]/div/div/input");
-	By EventStartSaveButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc'])[2]/button[2]");
-	By EventStartMessege = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1nj3ori'])[3]/input");
-	By ScheduledEventNameTextVerify = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])[2]//tbody/tr/td[1]");
-	By ScheduledEventdaysTextVerify = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])[2]//tbody/tr/td[2]");
-	By ScheduledEventStartTextVerify = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])[2]//tbody/tr/td[3]");
-	By ScheduledEventCancelButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc'])[2]/button[1]");
-	By DefaultPolicyDeleteButton = By.xpath("(//table[@class='MuiTable-root css-h2vfmc'])//tbody/tr[1]/td[5]/div/button[2]");
+	By EventStartTime = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root'])[2]/input");
+	By EventStartPreWarningTime = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-168lbrh-MuiInputBase-root-MuiOutlinedInput-root'])[1]/input");
+	By EventStartDelayTime = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root'])[4]/div/div/input");
+	By EventStartSaveButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root'])[2]/button[2]");
+	By EventStartMessege = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1lf2b4f-MuiInputBase-root-MuiOutlinedInput-root'])[3]/input");
+	By ScheduledEventNameTextVerify = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])[2]//tbody/tr/td[1]");
+	By ScheduledEventdaysTextVerify = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])[2]//tbody/tr/td[2]");
+	By ScheduledEventStartTextVerify = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])[2]//tbody/tr/td[3]");
+	By ScheduledEventCancelButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root'])[2]/button[1]");
+	By DefaultPolicyDeleteButton = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[1]/td[5]/div/button[2]");
 	By WarningMessegePopupOnDeleteDefaultScheme = By.xpath("(//div[@class='Toastify__toast-container Toastify__toast-container--top-right'])/div/div/div[2]");
-	By AddNewPolicySubmitButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc'])/button[2]");
-	By PolicyNameVerify = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-15j76c0'])/table/tbody/tr/td[1]");
-	By PolicyDescriptionVerify = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-15j76c0'])/table/tbody/tr/td[2]");
+	By AddNewPolicySubmitButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root'])/button[2]");
+	By PolicyNameVerify = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-1idn90j-MuiGrid-root'])/table/tbody/tr/td[1]");
+	By PolicyDescriptionVerify = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-1idn90j-MuiGrid-root'])/table/tbody/tr/td[2]");
 	
 	
 	public List<WebElement> getPolicyDescriptionVerify() {
@@ -329,10 +330,11 @@ public class WSManagement extends BaseClass{
 	}
 	
 	public List<String> getPoliciesTableHeaderDataToVerify(Properties prop) {
-		List<String> textVerify = new ArrayList<>(3);
+		List<String> textVerify = new ArrayList<>();
 		
 		textVerify.add(prop.getProperty("PoliciesManagementPolicyNameTableHeaderText"));
 		textVerify.add(prop.getProperty("PoliciesManagementDescriptionTableHeaderText"));
+		textVerify.add(prop.getProperty("PoliciesManagementLockedTableHeaderText"));
 		textVerify.add(prop.getProperty("PoliciesManagementOptionsTableHeaderText"));
 
 	return textVerify;
@@ -362,10 +364,10 @@ public class WSManagement extends BaseClass{
 	
 	//Groups
 	
-	By Groups = By.xpath("//div[@class='MuiList-root css-1xidfkz']//a[2]");
-	By AddGroupButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-9ppe9d'])//button");
+	By Groups = By.xpath("//div[@class='MuiList-root css-uppwh0-MuiList-root']//a[2]");
+	By AddGroupButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-auylq4-MuiGrid-root'])//button");
 	By IsParentCheckBox = By.xpath("(//div[@class='MuiBox-root css-0'])/label/span[1]");
-	By GroupCreatedNameVerify = By.xpath("(//div[@class='MuiBox-root css-1yuhvjn'])/ul/li/div/div[2]/p");
+	By GroupCreatedNameVerify = By.xpath("//li[@role='listitem']/ul/li/div/div[2]/p");
 	By GroupEditButton = By.xpath("(//div[@class='MuiBox-root css-19hvn7'])/button[2]");
 	By ParentGroupDropDown = By.xpath("(//div[@class='MuiFormControl-root css-6oszqx'])/div/div");
 	By ParentGroupDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li");
@@ -443,7 +445,6 @@ public class WSManagement extends BaseClass{
 	
 	
 	public boolean nameVerifyFromTableAndMouseHover(WebDriver driver, String str) {
-		Actions act = new Actions(driver);
 		boolean result = false;
 		try {
 			WebElement option = getGroupCreatedNameVerify().stream().filter(e -> e.getText().equalsIgnoreCase(str)).findFirst().orElse(null);

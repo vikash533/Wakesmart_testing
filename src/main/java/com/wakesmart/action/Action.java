@@ -56,20 +56,6 @@ public class Action extends BaseClass {
 			
 		}
 	}
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	// PDF CSv verify
 	public List<String> verifyDropdown(List<WebElement> dropdown) {

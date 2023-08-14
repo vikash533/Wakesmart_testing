@@ -7,17 +7,20 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
 import com.wakesmart.action.Action;
 import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSAutomationPage;
 
+
+//Completed updated as per the new UI
 public class WSAutomationPolicyRules extends BaseClass{
 
 	public WebDriver driver;
 	private IndexPage indexpage;
 	private Action action;
-	private SoftAssert softAssert;
+	public SoftAssert softAssert;
 	private WSAutomationPage automation;
 	private String orderNum = "";
 	
@@ -47,7 +50,8 @@ public class WSAutomationPolicyRules extends BaseClass{
 
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
 		
-		action.JSClick(driver, automation.getAutomationTab());
+		
+		action.click(driver, automation.getAutomationTab());
 		softAssert.assertEquals(automation.getAutomationTextInnerTab(), prop.getProperty("AutomationTabInnerText"),"Mismatch in automation Jims LLC");
 		softAssert.assertEquals(automation.getAutomationTableHeader(), automation.getgetAutomationTableHeaderDataToVerify(prop)," Mismatch automation table header text");
 		
@@ -55,10 +59,8 @@ public class WSAutomationPolicyRules extends BaseClass{
 		
 		softAssert.assertEquals(automation.getGroupsRulesTableHeaderText(), automation.getPolicyRulesTableHeaderTextVerify(prop)," Mismatch automation policy rules table header text");
 		
+		Thread.sleep(1000);
 		action.click(driver, automation.getAddRuleButton());
-		
-		action.fluentWait(driver, automation.getAddNewRuleText());
-		
 		softAssert.assertEquals(automation.getAddNewRuleText().getText(), prop.getProperty("GroupAddNewpolicyText"));
 		
 		orderNum = automation.getOrderDropdown();
@@ -67,10 +69,13 @@ public class WSAutomationPolicyRules extends BaseClass{
 		action.type(automation.getGroupRuleDescription(), prop.getProperty("NewPolicyDescription"));
 		action.click(driver, automation.getGroupSelectDropdown());
 		automation.getSelectGroupDowndown(prop.getProperty("PolicySelectedForPolicyRules"));
+		
 		automation.KeyBoardAction();
 		automation.getSelectAttributeDowndown(prop.getProperty("AttributeSelectedForGroupPolicy"));
 		automation.getOperatorDropdown().click();
+		
 		automation.getOperatorDropdownValue(prop.getProperty("OperatorSelectedForGroupPolicy"));
+		
 		action.type(automation.getOpeartorValue(), prop.getProperty("UserNameForGroupRules"));
 		automation.getAddClauseButton();
 		
@@ -78,15 +83,21 @@ public class WSAutomationPolicyRules extends BaseClass{
 		automation.getSelectAttributeDowndown(prop.getProperty("AttributeSelectedForGroupPolicySecond"));
 		automation.getOperatorDropdownSecond();
 		automation.getOperatorDropdownValue(prop.getProperty("OperatorSelectedForGroupPolicy"));
+		
 		action.type(automation.getGroupValueSecond(), prop.getProperty("ManufacturerValueSecond"));
+		
 		action.click(driver, automation.getAndORDropdown());
 		automation.getAndOrList(prop.getProperty("GroupNewRuleAndOr"));
+		automation.getAddClauseButton();
+		automation.getDeleteClauseButton().click();
+		
 		action.JSClick(driver, automation.getSubmitBtn());
+		
 		action.fluentWait(driver, automation.getAlertConfirmationMessage());
 		softAssert.assertEquals(automation.getAlertConfirmationMessage().getText(), prop.getProperty("CreatedMessageOnPopUp"));
 		action.click(driver, indexpage.getPopupCloseIcon());
-		automation.getCraetedPolicyRuleVerify(orderNum, softAssert, prop);
-		
+		automation.getCraetedPolicyRuleVerify(orderNum,  prop, softAssert);
+		// pending
 		automation.getEditGroupRules(orderNum);
 		action.click(driver, automation.getEnabledCheckBox());
 		action.JSClick(driver, automation.getSubmitBtn());
@@ -97,9 +108,6 @@ public class WSAutomationPolicyRules extends BaseClass{
 		
 		automation.getCraetedPolicyRuleVerifyAfterMod(orderNum, softAssert, prop);
 		
-		
 		softAssert.assertAll();
 	}
-
-	
 }

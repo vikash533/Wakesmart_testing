@@ -12,6 +12,7 @@ import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSAutomationPage;
 
+//Updated as per the new UI by shreyas kumar
 public class WSAutomationGroupRulesTest extends BaseClass {
 	
 	public WebDriver driver;
@@ -19,7 +20,6 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 	private Action action;
 	private SoftAssert softAssert;
 	private WSAutomationPage automation;
-	
 	private String orderNum = "";
 	
 	@BeforeClass
@@ -52,7 +52,7 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 		softAssert.assertEquals(automation.getAutomationTableHeader(), automation.getgetAutomationTableHeaderDataToVerify(prop)," Mismatch automation table header text");
 
 		softAssert.assertEquals(automation.getGroupsRulesTableHeaderText(), automation.getGroupRulesTableHeaderTextVerify(prop)," Mismatch automation group rules table header text");
-		
+		Thread.sleep(1000);
 		action.click(driver, automation.getAddRuleButton());
 		
 		action.fluentWait(driver, automation.getAddNewRuleText());

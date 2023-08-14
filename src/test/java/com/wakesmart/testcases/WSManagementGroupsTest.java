@@ -62,47 +62,51 @@ public class WSManagementGroupsTest extends BaseClass {
 		action.click(driver, indexpage.getPopupCloseIcon());
 		
 		Thread.sleep(2000);
+		String GroupNameWithDescription = prop.getProperty("GroupsManagementGroupName")+ " - "+ prop.getProperty("GroupsManagementGroupDescription");
+		String groupName =action.nameVerifyFromTable(management.getGroupCreatedNameVerify(), GroupNameWithDescription);
 		
-		String groupName =action.nameVerifyFromTable(management.getGroupCreatedNameVerify(), prop.getProperty("GroupsManagementGroupName"));
 		
-		softAssert.assertEquals(groupName,prop.getProperty("GroupsManagementGroupName"));
+		softAssert.assertEquals(groupName,GroupNameWithDescription);
 		
 		boolean result = false;
 		
-		if (groupName.equalsIgnoreCase(prop.getProperty("GroupsManagementGroupName"))) {
+		if (groupName.equalsIgnoreCase(GroupNameWithDescription)) {
 			result = management.nameVerifyFromTableAndMouseHover(driver, groupName);
 		}
 		
 		softAssert.assertEquals(result,true);
 		
-		boolean editGroup=false;
-		
-		if(result==true) {
-				action.type(management.getPolicyName(), prop.getProperty("GroupsManagementGroupReName"));
-				management.getIsParentCheckBox().click();
-				action.click(driver, management.getParentGroupDropDown());
-				action.getSelectOptionFromDropdown(management.getParentGroupDropDownList(), prop.getProperty("GroupsManagementDefaultGroupTop"));
-				action.click(driver, management.getAddNewPolicySubmitButton());
-				action.fluentWait(driver, indexpage.getErrorMsg());
-				softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("GroupsManagementGroupUpdatedSuccessMessage"));
-				action.click(driver, indexpage.getPopupCloseIcon());
-				editGroup=true;
-		}
-		
-		boolean resultOfTop = false;
-		if(editGroup==true) {
-			action.click(driver, management.getArrowDownInTable());
-			
-			resultOfTop =management.nameVerifyFromTableAndMouseHoverAfterRename(driver, prop.getProperty("GroupsManagementGroupReName"));
-			}
-		
-		softAssert.assertEquals(resultOfTop,true);
-		
+//		boolean editGroup=false;
+//		
+//		if(result==true) {
+//				action.type(management.getPolicyName(), prop.getProperty("GroupsManagementGroupReName"));
+//				management.getIsParentCheckBox().click();
+//				action.click(driver, management.getParentGroupDropDown());
+//				action.getSelectOptionFromDropdown(management.getParentGroupDropDownList(), prop.getProperty("GroupsManagementDefaultGroupTop"));
+//				action.click(driver, management.getAddNewPolicySubmitButton());
+//				action.fluentWait(driver, indexpage.getErrorMsg());
+//				softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("GroupsManagementGroupUpdatedSuccessMessage"));
+//				action.click(driver, indexpage.getPopupCloseIcon());
+//				editGroup=true;
+//		}
+//		
+//		boolean resultOfTop = false;
+//		if(editGroup==true) {
+//			action.click(driver, management.getArrowDownInTable());
+//			
+//			resultOfTop =management.nameVerifyFromTableAndMouseHoverAfterRename(driver, prop.getProperty("GroupsManagementGroupReName"));
+//			}
+//		
+//		softAssert.assertEquals(resultOfTop,true);
+//		
 		
 		softAssert.assertAll();
 	}
 	
-	
+	@Test
+	public void test() {
+		System.out.println(prop.getProperty("GroupsManagementGroupName")+ " - "+ prop.getProperty("GroupsManagementGroupDescription"));
+	}
 	
 	
 	

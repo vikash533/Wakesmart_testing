@@ -1,1 +1,10 @@
 /target/
+test-output/
+reports/
+logs/
+HTMLreports/
+.metadata/
+.settings/
+.project
+.classpath
+bin/

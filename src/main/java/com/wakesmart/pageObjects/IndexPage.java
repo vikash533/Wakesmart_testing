@@ -27,8 +27,8 @@ public class IndexPage extends BaseClass {
 	By ErrorMsg = By.xpath("//div[@class='Toastify__toast-body']/div[2]");
 	By PasswordWarningMessege = By.xpath("//p[@id=':r1:-helper-text']");
 	By passwordVisibiltyOnDom = By.xpath("//input[@id='userPwd']");
-	By LoginFormColor = By.xpath("//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-f1q1q1']");
-	By LoginDialougeTitle = By.xpath("//h2[@class='MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-14zc97g']");
+	By LoginFormColor = By.xpath("//div[@class='MuiBox-root css-1arlb8v']");
+	By LoginDialougeTitle = By.xpath("//h2[@class='MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-ei33y-MuiTypography-root']");
 	By ForgotPassword = By.xpath("//label[@id='forgotline']");
 	By EmailIDForReset = By.xpath("//input[@id='olduserPwd']");
 	By PopupCloseIcon = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");
