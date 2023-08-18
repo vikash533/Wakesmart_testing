@@ -12,6 +12,8 @@ import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 
+
+// Need to update the as per the new changes
 public class WSManagementGroupsTest extends BaseClass {
 
 	public WebDriver driver;
@@ -30,7 +32,7 @@ public class WSManagementGroupsTest extends BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass(enabled=false)
+	@AfterClass(enabled=true)
 	public void tearDown() {
 	        driver.quit();
 	}
@@ -52,7 +54,7 @@ public class WSManagementGroupsTest extends BaseClass {
 		action.JSClick(driver, management.getAddGroupButton());
 		action.type(management.getPolicyName(), prop.getProperty("GroupsManagementGroupName"));
 		action.type(management.getPolicyDescription(), prop.getProperty("GroupsManagementGroupDescription"));
-		action.JSClick(driver, management.getIsParentCheckBox());
+//		action.JSClick(driver, management.getIsParentCheckBox());
 		action.click(driver, management.getAddNewPolicySubmitButton());
 		
 		action.fluentWait(driver, indexpage.getErrorMsg());
@@ -74,7 +76,6 @@ public class WSManagementGroupsTest extends BaseClass {
 		}
 		
 		Assert.assertEquals(result,true);
-		
 		
 		action.type(management.getPolicyName(), prop.getProperty("GroupsManagementGroupReName"));
 		management.getIsParentCheckBox().click();

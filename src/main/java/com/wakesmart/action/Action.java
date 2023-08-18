@@ -861,7 +861,7 @@ public class Action extends BaseClass {
 	}
 
 	public void fluentWait(WebDriver driver, WebElement element) {
-		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20))
 				.pollingEvery(Duration.ofSeconds(1)).ignoring(Exception.class);
 		try {
 

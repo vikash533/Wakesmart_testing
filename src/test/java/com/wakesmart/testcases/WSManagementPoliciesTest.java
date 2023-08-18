@@ -35,7 +35,7 @@ public class WSManagementPoliciesTest extends BaseClass{
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass(enabled=false)
+	@AfterClass(enabled=true)
 	public void tearDown() {
 	        driver.quit();
 	}
