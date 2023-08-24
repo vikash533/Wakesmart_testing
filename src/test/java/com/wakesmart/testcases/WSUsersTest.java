@@ -14,6 +14,10 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 import com.wakesmart.pageObjects.WSUsers;
 
+/*
+Updated for the new UI by shreyas kumar
+ 										*/
+
 public class WSUsersTest extends BaseClass {
 
 	public WebDriver driver;
@@ -53,16 +57,13 @@ public class WSUsersTest extends BaseClass {
 		action.JSClick(driver, users.getManagementUsers());
 		
 		softAssert.assertEquals(users.getUsersTableHeaderTextVerify(), users.getUsersTableHeaderDataToVerify(prop)," Mismatch management users table header text");
-		
-		
-		
 		softAssert.assertAll();
 	}
 	
 	// With all details
 	@Test(priority = 2, dependsOnMethods= {"managementUsersTableNameVerify"})
-	public void UsersWithAllInputs() {
-		
+	public void UsersWithAllInputs() throws InterruptedException {
+		Thread.sleep(2000);
 		action.fluentWait(driver, users.getAddButtonUser());
 		action.JSClick(driver, users.getAddButtonUser());
 		action.type(users.getUserName(), prop.getProperty("ManagementUserName"));
@@ -79,7 +80,7 @@ public class WSUsersTest extends BaseClass {
 	//without any details
 	@Test(priority = 1, dependsOnMethods= {"managementUsersTableNameVerify"})
 	public void UsersWithoutAnyInputs() throws InterruptedException {
-		
+		Thread.sleep(2000);
 		action.fluentWait(driver, users.getAddButtonUser());
 		action.click(driver, users.getAddButtonUser());
 		action.click(driver, users.getAddNewUserSubmitButton());
@@ -91,7 +92,7 @@ public class WSUsersTest extends BaseClass {
 	
 	@Test(priority = 3, dependsOnMethods= {"managementUsersTableNameVerify"})
 	public void UsersWithUserNameAndNoEmail() throws InterruptedException {
-		
+		Thread.sleep(2000);
 		action.fluentWait(driver, users.getAddButtonUser());
 		action.click(driver, users.getAddButtonUser());
 		action.type(users.getUserName(), prop.getProperty("ManagementUserName"));
@@ -104,13 +105,21 @@ public class WSUsersTest extends BaseClass {
 	}
 	
 	
-	
-	
-	
-	//with username and without mail id
-	// USERNAME WITRH invalid format
-	// Confirm email is required feild
-	// WITh diffrent mail id 
+	@Test(priority = 4, dependsOnMethods= {"managementUsersTableNameVerify"})
+	public void UsersWithUserNameAndInvalidEmail() throws InterruptedException {
+		Thread.sleep(2000);
+		action.fluentWait(driver, users.getAddButtonUser());
+		action.JSClick(driver, users.getAddButtonUser());
+		action.type(users.getUserName(), prop.getProperty("ManagementUserName"));
+		action.type(users.getEmail(), prop.getProperty("ManagementUserInvalidEmail"));
+		action.type(users.getConfirmEmail(), prop.getProperty("ManagementUserInvalidEmail"));
+		action.click(driver, users.getAddNewUserSubmitButton());
+		Thread.sleep(2000);
+		action.fluentWait(driver, users.getAlertCloseButton());
+		softAssert.assertEquals(users.getAlertMessage(),  prop.getProperty("ManagementUserNameWithInvalidMailID"));
+		action.click(driver, users.getAlertCloseButton());
+		softAssert.assertAll();
+	}
 	
 	
 	

@@ -14,7 +14,9 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSAutomationPage;
 
 
-//Completed updated as per the new UI
+/*
+Updated for the new UI by shreyas kumar
+ 										*/
 public class WSAutomationPolicyRules extends BaseClass{
 
 	public WebDriver driver;

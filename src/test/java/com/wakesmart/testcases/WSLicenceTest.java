@@ -11,54 +11,63 @@ import org.testng.asserts.SoftAssert;
 import com.wakesmart.action.Action;
 import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
-import com.wakesmart.pageObjects.WSAutomationPage;
+import com.wakesmart.pageObjects.WSLicence;
+import com.wakesmart.pageObjects.WSManagement;
 
 /*
 Updated for the new UI by shreyas kumar
  										*/
 
-public class WSAutomationAlertRulesTest extends BaseClass{
-
+public class WSLicenceTest extends BaseClass{
 	public WebDriver driver;
 	private IndexPage indexpage;
 	private Action action;
 	private SoftAssert softAssert;
-	private WSAutomationPage automation;
-	
+	private WSManagement management;
+	private WSLicence licence;
+
 	@BeforeClass
 	public void browserLaunch() {
 		try {
 			driver = launchBrowser();
-			driver.get(prop.getProperty("url"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		driver.get(prop.getProperty("url"));
 	}
-	
+
 	@AfterClass(enabled = true)
 	public void tearDown() {
-			driver.quit();
+		driver.quit();
 	}
 	
-	@Test
-	public void newAutomationAlertRules() throws IOException, InterruptedException {
-		automation= new WSAutomationPage(driver);
+	@Test(priority = 0)
+	public void managementLicences() throws IOException, InterruptedException {
 		indexpage = new IndexPage(driver);
-		action= new Action();
+		action = new Action();
 		softAssert = new SoftAssert();
+		management = new WSManagement(driver);
+		licence = new WSLicence(driver);
 
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		action.JSClick(driver, management.getManagementTab());
+		action.JSClick(driver, licence.getLicence);
 		
-		action.JSClick(driver, automation.getAutomationTab());
-		softAssert.assertEquals(automation.getAutomationTextInnerTab(), prop.getProperty("AutomationTabInnerText"),"Mismatch in automation Jims LLC");
-		softAssert.assertEquals(automation.getAutomationTableHeader(), automation.getgetAutomationTableHeaderDataToVerify(prop)," Mismatch automation table header text");
+		softAssert.assertEquals(licence.getLicenceManagement.getText(),prop.getProperty("ManagementLicencesPageHeaderText"));
+		softAssert.assertEquals(licence.getTableHeaderText.getText(),prop.getProperty("AutomationtabOwnerText"));
+		softAssert.assertEquals(licence.tableTextVerify(),licence.tableTextVerifyFromLocal(prop));
 		
-		action.JSClick(driver, automation.getAlertRules());
+		//Verify the count of the Licences
+		licence.verifyCount();
 		
-		softAssert.assertEquals(automation.getAlertRulesContent(),prop.getProperty("AlertRulesContent")," Mismatch alert policy rules content");
-	
+		
+		
+		
+		
+		
 		softAssert.assertAll();
 	}
 	
 	
+
 }

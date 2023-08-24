@@ -14,6 +14,9 @@
 			<class name="com.wakesmart.testcases.WSAutomationGroupRulesTest" />
 			<class name="com.wakesmart.testcases.WSAutomationAlertRulesTest" />
 			<class name="com.wakesmart.testcases.WSManagementPoliciesTest" />
+			<class name="com.wakesmart.testcases.WSManagementGroupsTest" />
+			<class name="com.wakesmart.testcases.WSUsersTest" />
+			<class name="com.wakesmart.testcases.WSLicenceTest" />
 		</classes>
 	</test>
 </suite>

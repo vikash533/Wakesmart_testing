@@ -11,7 +11,9 @@ import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.WSHomePage;
 import com.wakesmart.pageObjects.IndexPage;
 
-// Updated as per the new requirements by shreyas kumar
+/*
+Updated for the new UI by shreyas kumar
+ 										*/
 
 public class WSHomePageTest extends BaseClass {
 	

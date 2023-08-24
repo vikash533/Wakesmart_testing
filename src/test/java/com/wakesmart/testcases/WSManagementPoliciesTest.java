@@ -14,7 +14,9 @@ import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 
-// Updated as per the new UI
+/*
+Updated for the new UI by shreyas kumar
+ 										*/
 
 
 public class WSManagementPoliciesTest extends BaseClass{

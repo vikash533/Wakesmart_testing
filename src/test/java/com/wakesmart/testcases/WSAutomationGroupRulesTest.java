@@ -12,7 +12,9 @@ import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSAutomationPage;
 
-//Updated as per the new UI by shreyas kumar
+/*
+Updated for the new UI by shreyas kumar
+ 										*/
 public class WSAutomationGroupRulesTest extends BaseClass {
 	
 	public WebDriver driver;
