@@ -16,6 +16,8 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 import com.wakesmart.pageObjects.WSManagementDevices;
 
+// Not completed
+
 public class WSManagementDevicesTest extends BaseClass {
 	public WebDriver driver;
 	private IndexPage indexpage;
