@@ -17,6 +17,7 @@
 			<class name="com.wakesmart.testcases.WSManagementGroupsTest" />
 			<class name="com.wakesmart.testcases.WSUsersTest" />
 			<class name="com.wakesmart.testcases.WSLicenceTest" />
+			<class name="com.wakesmart.testcases.WSSettingsGeneralTest" />
 		</classes>
 	</test>
 </suite>

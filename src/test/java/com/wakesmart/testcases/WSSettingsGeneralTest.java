@@ -12,7 +12,7 @@ import com.wakesmart.action.Action;
 import com.wakesmart.base.BaseClass;
 import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSSettingsGeneral;
-//progress
+//completed as per the new UI
 
 public class WSSettingsGeneralTest extends BaseClass{
 	
