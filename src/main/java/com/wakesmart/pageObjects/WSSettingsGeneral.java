@@ -234,11 +234,25 @@ public class WSSettingsGeneral {
 	}
 	
 	
+	// Always Show Unlicensed Devices
+	
+	By AlwaysShowUnlicensedDevicesToggleDisabled = By.xpath("//span[@class='MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorSuccess PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorSuccess css-2ylotk-MuiButtonBase-root-MuiSwitch-switchBase']");
+	By AlwaysShowUnlicensedDevicesToggleEnabled = By.xpath("//span[@class='MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorSuccess Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorSuccess Mui-checked Mui-checked css-2ylotk-MuiButtonBase-root-MuiSwitch-switchBase']");
+	
+	public WebElement getAlwaysShowUnlicensedDevicesToggleDisabled() {
+		return  driver.findElement(AlwaysShowUnlicensedDevicesToggleDisabled);
+	}
 	
 	
+	public WebElement getAlwaysShowUnlicensedDevicesToggleEnabled() {
+		return  driver.findElement(AlwaysShowUnlicensedDevicesToggleEnabled);
+	}
 	
+	By AlwaysShowUnlincedButton = By.xpath("//span[@class='MuiSwitch-thumb css-jsexje-MuiSwitch-thumb']");
 	
-	
+	public WebElement getAlwaysShowUnlincedButton() {
+		return driver.findElement(AlwaysShowUnlincedButton);
+	}
 	
 	
 	
