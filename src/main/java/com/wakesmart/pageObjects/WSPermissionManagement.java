@@ -3,6 +3,8 @@ package com.wakesmart.pageObjects;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,7 +36,7 @@ public WebDriver driver;
 	 public WebElement getAddNewPermissionGroupPopupText;
 	 
 	 @FindBy(xpath = "//tr[@class='MuiTableRow-root MuiTableRow-head css-1uwa9re-MuiTableRow-root']/th")
-	 public List<WebElement> getPermissionTableColumnText;
+	 private List<WebElement> getPermissionTableColumnText;
 	 
 	 public List<String> tableTextVerify() {
 		 List<String> name = new ArrayList<>();
@@ -55,5 +57,52 @@ public WebDriver driver;
 		 name.add(prop.getProperty("ManagementPermissonOptionsText"));
 		 return name;
 	 }
+	 
+	 
+	 
+	 @FindBy(xpath = "(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[1]")
+	 public WebElement getGroupName;
+	 
+	 @FindBy(xpath = "(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[2]")
+	 public WebElement getGroupDescription;
+	 
+	 @FindBy(xpath = "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-dhr2da-MuiTypography-root']")
+	 private List<WebElement> getAdminRolesTextDisabled;
+	 
+	 @FindBy(xpath = "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-dhr2da-MuiTypography-root']")
+	 private List<WebElement> getAdminRolesTextEnabled;
+	 
+	 
+	 public List<String> adminRolesTextVerify() {
+		    List<String> adminRoles = Stream.concat(
+		            getAdminRolesTextDisabled.stream().map(WebElement::getText),
+		            getAdminRolesTextEnabled.stream().map(WebElement::getText)
+		    ).collect(Collectors.toList());
+		    return adminRoles;
+		}
+	 
+	 public List<String> adminRolesTextVerifyData(Properties prop) {
+		 List<String> name = new ArrayList<>();
+		 name.add(prop.getProperty("ManagementPermissonRootAdmin"));
+		 name.add(prop.getProperty("ManagementPermissonServerAdmin"));
+		 name.add(prop.getProperty("ManagementPermissonOrgAdmin"));
+		 name.add(prop.getProperty("ManagementPermissonUserAdmin"));
+		 name.add(prop.getProperty("ManagementPermissonGroupAdmin"));
+		 return name;
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 	 
 }
