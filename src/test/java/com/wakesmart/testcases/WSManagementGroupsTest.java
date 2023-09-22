@@ -46,7 +46,7 @@ public class WSManagementGroupsTest extends BaseClass {
 		softAssert = new SoftAssert();
 		management = new WSManagement(driver);
 
-		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		
 		action.JSClick(driver, management.getManagementTab());
 		action.JSClick(driver, management.getGroups());

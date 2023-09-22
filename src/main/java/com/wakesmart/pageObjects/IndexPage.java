@@ -1,8 +1,13 @@
 package com.wakesmart.pageObjects;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import com.wakesmart.action.Action;
@@ -14,12 +19,17 @@ Completely used and Updated for new UI
 
 public class IndexPage extends BaseClass {
 	
+	private WSOrganization organization;
 	Action action = new Action();
-
+	SoftAssert softAssert;
+	private Properties prop;
+	
+	
 	// Constructor
-	public IndexPage(WebDriver driver) {
-		this.driver = driver;
-	}
+		public IndexPage(WebDriver driver) {
+			this.driver = driver;
+			organization = new WSOrganization(this.driver);
+		}
 
 	By UserName = By.xpath("//input[@id=':r0:']");
 	By PassWord = By.xpath("//input[@type='password']");
@@ -32,7 +42,23 @@ public class IndexPage extends BaseClass {
 	By ForgotPassword = By.xpath("//label[@id='forgotline']");
 	By EmailIDForReset = By.xpath("//input[@id='olduserPwd']");
 	By PopupCloseIcon = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");
+	By OrganizationManagementHeaderText = By.xpath("//div[@class='MuiCardHeader-content css-1qbkelo-MuiCardHeader-content']/span");
+	By OrganizationTableHeader = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1rf1nql-MuiGrid-root']/p");
 
+	
+	
+	
+	public WebElement getOrganizationManagementHeaderText() {
+		return driver.findElement(OrganizationManagementHeaderText);
+	}
+	
+	public WebElement getOrganizationTableHeader() {
+		return driver.findElement(OrganizationTableHeader);
+	}
+	
+	
+	
+	
 	public WebElement getPopupCloseIcon() {
 		return driver.findElement(PopupCloseIcon);
 	}
@@ -83,17 +109,60 @@ public class IndexPage extends BaseClass {
 	
 	
 	
-	public void validUserLogin(String username,String password , String welcomeMessage) {
-		SoftAssert softAssert = new SoftAssert();
+	public void validUserLogin(String username,String password , String welcomeMessage, Properties prop) {
+		 softAssert = new SoftAssert();
+		 this.prop = prop;
 		getUserName().sendKeys(username);
 		getPassWord().sendKeys(password);
 		getLogin().click();
 		action.fluentWait(driver, getErrorMsg());
 		
 		softAssert.assertEquals(getErrorMsg().getText(),  welcomeMessage);
-		softAssert.assertAll();
 		action.click(driver, getPopupCloseIcon());
+		
+		//enable this 4 lines if new Dashboard is added 
+		softAssert.assertEquals(getOrganizationManagementHeaderText().getText(),  prop.getProperty("ManagementOrganizationsPageHeaderText"));
+		softAssert.assertEquals(getOrganizationTableHeader().getText(), prop.getProperty("OrganizationName") );
+		softAssert.assertEquals(organization.tableTextVerify(),organization.tableTextVerifyFromLocal(prop));
+		selectOrganization(prop.getProperty("AutomationtabOwnerText"));
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		softAssert.assertAll();
 	}
+	
+	By OrganizationName = By.xpath("//tr[@class='MuiTableRow-root css-1uwa9re-MuiTableRow-root']/td[1]");
+	By popUpConfirmation = By.xpath("//div[@class='MuiBox-root css-1sdcacc']/p");
+	By manageOrganizationYesButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root']/button[2]");
+	
+	public WebElement OptionsToSelect(int index) {
+		return driver.findElement(By.xpath("(//tr[@class='MuiTableRow-root css-1uwa9re-MuiTableRow-root'])["+index+"]/td[7]/div/button[1]"));
+	}
+	
+	 public void selectOrganization(String organizationName) {
+		 int count = 1 ;
+		 boolean flag = false;
+		 List<WebElement> elements = driver.findElements(OrganizationName);
+		 
+		 for(WebElement ele : elements) {
+			 if(organizationName.equalsIgnoreCase(ele.getText())) {
+				 OptionsToSelect(count).click();
+				 flag = true;
+				 break;
+			 }
+			 count++;
+		 }
+		 
+		 Assert.assertTrue(flag,"No Organization found with the given Name");
+		 
+		 softAssert.assertEquals(driver.findElement(popUpConfirmation).getText(), prop.getProperty("ManagementOrganizationPopUpConfirmationText"));
+		 driver.findElement(manageOrganizationYesButton).click();
+	 }
+	
+	
 	
 	
 	

@@ -44,7 +44,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		softAssert = new SoftAssert();
 		general = new WSSettingsGeneral(driver);
 		
-		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		action.JSClick(driver, general.getGeneral);
 		
 		softAssert.assertEquals(general.getGeneralSettingsText.getText(), prop.getProperty("SettingsGeneralPageText"));

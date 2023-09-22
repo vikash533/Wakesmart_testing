@@ -49,7 +49,7 @@ public class WSLicenceTest extends BaseClass{
 		management = new WSManagement(driver);
 		licence = new WSLicence(driver);
 
-		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		action.JSClick(driver, management.getManagementTab());
 		action.JSClick(driver, licence.getLicence);
 		

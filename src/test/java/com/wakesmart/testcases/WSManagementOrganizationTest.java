@@ -47,7 +47,7 @@ public class WSManagementOrganizationTest extends BaseClass{
 		management = new WSManagement(driver);
 		organization = new WSOrganization(driver);
 
-		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		action.JSClick(driver, management.getManagementTab());
 		action.JSClick(driver, organization.getOrganizations);
 			

@@ -51,7 +51,7 @@ public class WSUsersTest extends BaseClass {
 		users = new WSUsers(driver);
 
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),
-				prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+				prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 
 		action.JSClick(driver, management.getManagementTab());
 		action.JSClick(driver, users.getManagementUsers());

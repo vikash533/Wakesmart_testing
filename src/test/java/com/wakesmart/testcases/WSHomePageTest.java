@@ -45,7 +45,7 @@ public class WSHomePageTest extends BaseClass {
 		action = new Action();
 		indexpage = new IndexPage(driver);
 		
-		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		
 		action.click(driver, homepage.getMenuButton());
 		Thread.sleep(3000);

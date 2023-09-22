@@ -49,7 +49,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		management = new WSManagement(driver);
 		devices = new WSManagementDevices(driver);
 
-		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		action.JSClick(driver, management.getManagementTab());
 		action.JSClick(driver, devices.getManagementDevices());
 //		softAssert.assertEquals(devices.getDevicesPageText().getText(),prop.getProperty("ManagementDevicesPageHeaderText"));

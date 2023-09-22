@@ -6,6 +6,7 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -92,16 +93,37 @@ public WebDriver driver;
 	 }
 	 
 	 
+	 By orgAdminCheckBox = By.xpath("(//span[@class='MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary css-dt6pu2-MuiButtonBase-root-MuiCheckbox-root'])[1]");
+	 By chooseUsersDropdown = By.xpath("//div[@id='demo-multiple-checkbox']");
+	 By editGroupPermission = By.xpath("//div[@class='MuiBox-root css-1yuhvjn']/button");
+	 
+	 public WebElement getorgAdminCheckBox() {
+		 return driver.findElement(orgAdminCheckBox);
+	 }
+	 
+	 public WebElement getchooseUsersDropdown() {
+		 return driver.findElement(chooseUsersDropdown);
+	 }
+	 
+	 public WebElement geteditGroupPermission() {
+		 return driver.findElement(editGroupPermission);
+	 }
+	 
+	 By chooseUsersFromDropdown = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list']/li/div/span");
 	 
 	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+	 public boolean geteditGroupPermission(String user) {
+		 boolean flag = false;
+		 List<WebElement> list = driver.findElements(chooseUsersFromDropdown);
+		 for(WebElement ele : list  ) {
+			 if(ele.getText().equalsIgnoreCase(user)) {
+				 ele.click();
+				 flag = true;
+				 break;
+			 }
+		 }
+		 return flag;
+	 }
 	 
 	 
 	 

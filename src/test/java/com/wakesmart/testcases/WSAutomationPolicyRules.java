@@ -50,7 +50,7 @@ public class WSAutomationPolicyRules extends BaseClass{
 		action= new Action();
 		softAssert = new SoftAssert();
 
-		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		
 		
 		action.click(driver, automation.getAutomationTab());

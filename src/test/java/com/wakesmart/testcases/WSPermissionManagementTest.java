@@ -14,7 +14,7 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 import com.wakesmart.pageObjects.WSPermissionManagement;
 
-//Not completed
+//In progress  ---- Pending
 
 public class WSPermissionManagementTest  extends BaseClass{
 
@@ -40,7 +40,7 @@ public class WSPermissionManagementTest  extends BaseClass{
 	        driver.quit();
 	}
 	
-	@Test(priority=1)
+	@Test(priority=1 ,groups= {"smoke"})
 	public void managementPermissions() throws IOException, InterruptedException {
 		indexpage = new IndexPage(driver);
 		action= new Action();
@@ -48,7 +48,8 @@ public class WSPermissionManagementTest  extends BaseClass{
 		management = new WSManagement(driver);
 		permission = new WSPermissionManagement(driver);
 		
-		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
+	
 		action.JSClick(driver, management.getManagementTab());
 		action.JSClick(driver, permission.getPermission);
 		
@@ -59,10 +60,37 @@ public class WSPermissionManagementTest  extends BaseClass{
 		action.JSClick(driver, permission.getNewPermissionGroupButton);
 		softAssert.assertEquals(permission.getAddNewPermissionGroupPopupText.getText(),prop.getProperty("ManagementAddNewPermissionGroupPopupText"));
 		
+		action.type(permission.getGroupName, prop.getProperty("ManagementPermissonGroupName"));
+		action.type(permission.getGroupDescription, prop.getProperty("ManagementPermissonGroupDescrption"));
+		
+		
+		//Verify the text of admin roles
+		softAssert.assertEquals(permission.adminRolesTextVerify(),permission.adminRolesTextVerifyData(prop));
+		
+		action.click(driver, permission.getorgAdminCheckBox());
+		action.click(driver, permission.getchooseUsersDropdown());
+		
+		
+		
 		
 		softAssert.assertAll();
 		
 		
 		
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
