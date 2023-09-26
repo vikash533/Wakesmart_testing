@@ -6,7 +6,7 @@
 		<listener class-name="com.wakesmart.utility.Listeners"></listener>
 	</listeners>
 
-	<test name="WakeSmart" verbose="3" parallel="classes" thread-count="9">
+	<test name="WakeSmart" verbose="3" parallel="classes" thread-count="1">
 		<classes>
 			<class name="com.wakesmart.testcases.WSLoginPageTest" />
 			<class name="com.wakesmart.testcases.WSHomePageTest" />
@@ -18,6 +18,7 @@
 			<class name="com.wakesmart.testcases.WSUsersTest" />
 			<class name="com.wakesmart.testcases.WSLicenceTest" />
 			<class name="com.wakesmart.testcases.WSSettingsGeneralTest" />
+			<class name="com.wakesmart.testcases.WSManagementOrganizationTest" />
 		</classes>
 	</test>
 </suite>

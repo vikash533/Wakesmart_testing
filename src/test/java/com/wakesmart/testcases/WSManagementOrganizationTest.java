@@ -14,7 +14,7 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 import com.wakesmart.pageObjects.WSOrganization;
 
-//Not completed
+//Completed as per the new UI
 
 public class WSManagementOrganizationTest extends BaseClass{
 	public WebDriver driver;

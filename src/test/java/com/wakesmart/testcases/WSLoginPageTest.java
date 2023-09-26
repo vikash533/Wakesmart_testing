@@ -165,7 +165,7 @@ public class WSLoginPageTest extends BaseClass {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		action.JSClick(driver, homepage.getAccountSettingsIcon());
+		action.click(driver, homepage.getAccountSettingsIcon());
 		action.fluentWait(driver, homepage.getlogout());
 		action.click(driver, homepage.getlogout());
 		action.fluentWait(driver, indexpage.getLoginDialougeTitle());

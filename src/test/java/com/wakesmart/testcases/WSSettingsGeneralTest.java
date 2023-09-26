@@ -124,7 +124,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		//Multiple popups coming need to check with the requirement
 //		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("UpdationPopupConfirmation"));
 		
-		
+		Thread.sleep(7000);
 		
 		//verfy the updated  value
 		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
@@ -181,7 +181,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		//Multiple popups coming need to check with the requirement
 //		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("UpdationPopupConfirmation"));
 		
-		Thread.sleep(2000);
+		Thread.sleep(7000);
 		
 		//verfy the updated  value
 		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
