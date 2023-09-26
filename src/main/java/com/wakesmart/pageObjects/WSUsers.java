@@ -1,6 +1,7 @@
 package com.wakesmart.pageObjects;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -16,6 +17,7 @@ public class WSUsers {
 	}
 	
 	
+	By addNewUserText = By.xpath("//h2[@class='MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-1shib43-MuiTypography-root-MuiDialogTitle-root']");
 	By ManagementUsers = By.xpath("//div[@class='MuiList-root css-uppwh0-MuiList-root']//a[6]");
 	By UserManagementText = By.xpath("//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1y85m9j-MuiTypography-root']");
 	By AddButtonUser = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root']/button");
@@ -28,7 +30,47 @@ public class WSUsers {
 	By AddNewUserCancelButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root']/button[1]");
 	By AlertMessage = By.xpath("//div[@role='alert']/div[2]");
 	By AlertCloseButton = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");
+	By selectTheUserGroup = By.id("mui-component-select-userGroupId");
+	By selectTheUserGroupDropdownText = By.xpath("(//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-tgamcn-MuiButtonBase-root-MuiMenuItem-root'])");
+	By selectTheUserGropCheckBoxes = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list'])/li/span[1]");
 	
+	public WebElement getselectTheUserGropCheckBoxes() {
+		return driver.findElements(selectTheUserGropCheckBoxes).get(0);
+	}
+	
+	public WebElement getaddNewUserText() {
+		return driver.findElement(addNewUserText);
+	}
+	
+	
+	public List<String> getselectTheUserGroupDropdownText() throws InterruptedException {
+		List<WebElement> list = driver.findElements(selectTheUserGroupDropdownText);
+		
+		List<String> textVerify = new ArrayList<>();
+		for (WebElement element : list) {
+			System.out.println(element.getAttribute("data-value"));
+				textVerify.add(element.getAttribute("data-value"));
+		}
+		return textVerify;
+	}
+	
+	
+	public List<String> getselectTheUserGroupDropdownTextVerify(Properties prop) {
+		 List<String> list = Arrays.asList(prop.getProperty("ManagementUserOrganizationAdministration"),
+				prop.getProperty("ManagementUserOrganizationReportingUsers"),
+				prop.getProperty("ManagementUserOrganizationRemoteWake"),
+				prop.getProperty("ManagementUserOrganizationTestAdminGroup"),
+				prop.getProperty("ManagementUserOrganizationtestnewgroup"));
+		 return list;
+	}
+	
+	
+	
+	
+	
+	public WebElement getselectTheUserGroup() {
+		return driver.findElement(selectTheUserGroup);
+	}
 	
 	public WebElement getAddNewUserCancelButton() {
 		return driver.findElement(AddNewUserCancelButton);

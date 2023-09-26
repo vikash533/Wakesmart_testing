@@ -30,7 +30,7 @@ public WebDriver driver;
 	 @FindBy(xpath = "//p[@class='MuiTypography-root MuiTypography-body1 css-1rr20st-MuiTypography-root']")
 	 public WebElement getPermissionTableHeaderText;
 	 
-	 @FindBy(xpath = "//button[normalize-space()='New Permission Group']")
+	 @FindBy(xpath = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-auylq4-MuiGrid-root'])/button")
 	 public WebElement getNewPermissionGroupButton;
 	 
 	 @FindBy(xpath = "//h2[@class='MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-1shib43-MuiTypography-root-MuiDialogTitle-root']")

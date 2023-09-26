@@ -57,7 +57,7 @@ public class WSPermissionManagementTest  extends BaseClass{
 		softAssert.assertEquals(permission.getPermissionTableHeaderText.getText(),prop.getProperty("AutomationtabOwnerText"));
 		softAssert.assertEquals(permission.tableTextVerify(),permission.tableTextVerifyFromLocal(prop));
 		
-		action.JSClick(driver, permission.getNewPermissionGroupButton);
+		action.click(driver, permission.getNewPermissionGroupButton);
 		softAssert.assertEquals(permission.getAddNewPermissionGroupPopupText.getText(),prop.getProperty("ManagementAddNewPermissionGroupPopupText"));
 		
 		action.type(permission.getGroupName, prop.getProperty("ManagementPermissonGroupName"));
@@ -70,7 +70,7 @@ public class WSPermissionManagementTest  extends BaseClass{
 		action.click(driver, permission.getorgAdminCheckBox());
 		action.click(driver, permission.getchooseUsersDropdown());
 		
-		
+		// pending
 		
 		
 		softAssert.assertAll();

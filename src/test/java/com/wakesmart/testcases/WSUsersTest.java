@@ -17,7 +17,6 @@ import com.wakesmart.pageObjects.WSUsers;
 /*
 Updated for the new UI by shreyas kumar
  										*/
-
 public class WSUsersTest extends BaseClass {
 
 	public WebDriver driver;
@@ -69,11 +68,23 @@ public class WSUsersTest extends BaseClass {
 		action.type(users.getUserName(), prop.getProperty("ManagementUserName"));
 		action.type(users.getEmail(), prop.getProperty("ManagementUserEmail"));
 		action.type(users.getConfirmEmail(), prop.getProperty("ManagementUserEmail"));
+		
+		action.click(driver, users.getselectTheUserGroup());
+		action.click(driver, users.getselectTheUserGropCheckBoxes());
+		
+		//Need to cehck possible ways for this verify
+//		softAssert.assertEquals(users.getselectTheUserGroupDropdownText(), users.getselectTheUserGroupDropdownTextVerify(prop)," Mismatch dropdown values");
+		
+		
+		action.click(driver, users.getaddNewUserText());
+		
+		Thread.sleep(2000);
+		
 		action.click(driver, users.getAddNewUserSubmitButton());
 		action.fluentWait(driver, users.getAlertCloseButton());
-		softAssert.assertEquals(users.getAlertMessage(),  prop.getProperty("ManagementUserWithAllInputs"));
+		softAssert.assertEquals(users.getAlertMessage(),  prop.getProperty("CreatedMessageOnPopUp"));
 		action.click(driver, users.getAlertCloseButton());
-		action.click(driver, users.getAddNewUserCancelButton());
+//		action.click(driver, users.getAddNewUserCancelButton());
 		softAssert.assertAll();
 	}
 	
@@ -96,6 +107,9 @@ public class WSUsersTest extends BaseClass {
 		action.fluentWait(driver, users.getAddButtonUser());
 		action.click(driver, users.getAddButtonUser());
 		action.type(users.getUserName(), prop.getProperty("ManagementUserName"));
+		
+		
+		
 		action.click(driver, users.getAddNewUserSubmitButton());
 		Thread.sleep(2000);
 		action.fluentWait(driver, users.getAlertCloseButton());
@@ -120,10 +134,4 @@ public class WSUsersTest extends BaseClass {
 		action.click(driver, users.getAlertCloseButton());
 		softAssert.assertAll();
 	}
-	
-	
-	
-	
-	
-	
 }
