@@ -56,9 +56,6 @@ public class IndexPage extends BaseClass {
 		return driver.findElement(OrganizationTableHeader);
 	}
 	
-	
-	
-	
 	public WebElement getPopupCloseIcon() {
 		return driver.findElement(PopupCloseIcon);
 	}
@@ -106,8 +103,6 @@ public class IndexPage extends BaseClass {
 	public WebElement getLoginFormColor() {
 		return driver.findElement(LoginFormColor);
 	}
-	
-	
 	
 	public void validUserLogin(String username,String password , String welcomeMessage, Properties prop) {
 		 softAssert = new SoftAssert();
@@ -161,12 +156,4 @@ public class IndexPage extends BaseClass {
 		 softAssert.assertEquals(driver.findElement(popUpConfirmation).getText(), prop.getProperty("ManagementOrganizationPopUpConfirmationText"));
 		 driver.findElement(manageOrganizationYesButton).click();
 	 }
-	
-	
-	
-	
-	
-	
-
-
 }

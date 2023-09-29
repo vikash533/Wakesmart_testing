@@ -2,9 +2,7 @@ package com.wakesmart.testcases;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -41,7 +39,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		driver.quit();
 	}
 
-	@Test(priority = 0)
+	@Test(priority = 0,groups = "test")
 	public void managementDevices() throws IOException, InterruptedException {
 		indexpage = new IndexPage(driver);
 		action = new Action();
@@ -52,27 +50,51 @@ public class WSManagementDevicesTest extends BaseClass {
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		action.JSClick(driver, management.getManagementTab());
 		action.JSClick(driver, devices.getManagementDevices());
+		
+		//Need to enable it after bug fixes
 //		softAssert.assertEquals(devices.getDevicesPageText().getText(),prop.getProperty("ManagementDevicesPageHeaderText"));
-//		softAssert.assertEquals(devices.getManagedSystemsText.getText(),prop.getProperty("ManagementManagedSystemsText"));
-		Thread.sleep(10000);
-		for(WebElement ele : driver.findElements(By.xpath("//div[@class='ag-header-viewport ']//div/div/div/div[3]/div/div/span"))) {
-			System.out.println(ele.getText());
-		}
-		Thread.sleep(5000);
+		softAssert.assertEquals(devices.getManagedSystemsText.getText(),prop.getProperty("ManagementManagedSystemsText"));
+				
+		action.fluentWait(driver, devices.getmanagedSystemsGroupSelectionForWait("Wake smart UI automation"));
+		devices.getmanagedSystemsGroupSelection("Wake smart UI automation");
+		
 		action.JSClick(driver, devices.getShowAndHideColumnsButton);
-		devices.uncheckCheckbox();
-		action.JSClick(driver, devices.getEditDeviceOrderColumnsSaveButton);
-		action.fluentWait(driver, devices.getPopUpMessage);
-		softAssert.assertEquals(devices.getPopUpMessage.getText(),prop.getProperty("UpdationPopupConfirmation"));
+		Thread.sleep(5000);
+		devices.uncheckAllCheckboxes();
+		action.click(driver, devices.getSubmitButton);
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("UpdationPopupConfirmation"));
+		action.click(driver, indexpage.getPopupCloseIcon());
+		devices.gettableHeaderTextVerify();
+		
+		action.JSClick(driver, devices.getShowAndHideColumnsButton);
+		devices.checkAllCheckboxes();
+		action.click(driver, devices.getSubmitButton);
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("UpdationPopupConfirmation"));
+		action.click(driver, indexpage.getPopupCloseIcon());
 		
 		
-	////div[@class='ag-header-viewport ']//div/div/div/div[3]/div/div/span
-		////div[@class='ag-cell-label-container']//div/span
 		
 		
-		for(WebElement ele : driver.findElements(By.xpath("//div[@class='ag-header-viewport ']//div/div/div/div[3]/div/div/span"))) {
-			System.out.println(ele.getText());
-		}
+		
+//		Thread.sleep(10000);
+//		
+//		Thread.sleep(5000);
+//		action.JSClick(driver, devices.getShowAndHideColumnsButton);
+//		devices.uncheckCheckbox();
+//		action.JSClick(driver, devices.getEditDeviceOrderColumnsSaveButton);
+//		action.fluentWait(driver, devices.getPopUpMessage);
+//		softAssert.assertEquals(devices.getPopUpMessage.getText(),prop.getProperty("UpdationPopupConfirmation"));
+//		
+//		
+//	////div[@class='ag-header-viewport ']//div/div/div/div[3]/div/div/span
+//		////div[@class='ag-cell-label-container']//div/span
+//		
+//		
+//		for(WebElement ele : driver.findElements(By.xpath("//div[@class='ag-header-viewport ']//div/div/div/div[3]/div/div/span"))) {
+//			System.out.println(ele.getText());
+//		}
 		
 		
 		
@@ -92,4 +114,8 @@ public class WSManagementDevicesTest extends BaseClass {
 		
 		softAssert.assertAll();
 	}
+	
+	
+	
+	
 }

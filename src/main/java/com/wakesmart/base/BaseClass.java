@@ -64,11 +64,5 @@ public class BaseClass{
 		return destinationFile;
 		
 	}
-	
-	
 
-	private File newFile(String destinationFile) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
