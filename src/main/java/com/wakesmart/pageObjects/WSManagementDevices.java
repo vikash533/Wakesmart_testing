@@ -1,11 +1,15 @@
 package com.wakesmart.pageObjects;
 
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -113,9 +117,102 @@ public WebDriver driver;
 			}
 		}
 	}
-}
+//	
+//	By TableHeader = By.xpath("//div[@role='row']/div[2]");
+//	
+//	public boolean getTableHeader() {
+//		return driver.findElement(TableHeader).isDisplayed();
+//	}
+//	
 	
-
+	 By DevicesList = By.xpath("(//div[@class='MuiDataGrid-virtualScroller css-axafay-MuiDataGrid-virtualScroller'])/div/div/div/div[2]/div");
 	
+	 @FindBy(xpath = "//button[@title='Go to next page']")
+	 public WebElement GoToNextPage;
+	 
+	 
+	 
+	 
+	
+		public boolean getDevicesList(String deviceName) {
+			Actions act = new Actions(driver);
+			boolean result = false;
+			for (WebElement ele : driver.findElements(DevicesList)) {
+				if (ele.getText().equalsIgnoreCase(deviceName)) {
+					ele.click();
+					act.contextClick(ele).perform();
+					result = true;
+					break;
+				}
+			}
+			
+			if(!result) {
+				while(!result) {
+					GoToNextPage.click();
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					for (WebElement ele : driver.findElements(DevicesList)) {
+						if (ele.getText().equalsIgnoreCase(deviceName)) {
+							ele.click();
+							act.contextClick(ele).perform();
+							result = true;
+							break;
+						}
+					}
+				}
+			}
+			return result;
+		}
+		
+		
+		
+		By RightClickOptionVerify = By.xpath("//ul[@role='menu']/li");
+		
+		public void getRightClickOptionVerify() {
+			List<WebElement> list = driver.findElements(RightClickOptionVerify);
+			
+			List<String> nameList = list.stream().map(WebElement::getText).collect(Collectors.toList());
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 	
 
