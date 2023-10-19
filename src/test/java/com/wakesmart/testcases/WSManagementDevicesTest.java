@@ -39,6 +39,13 @@ public class WSManagementDevicesTest extends BaseClass {
 	public void tearDown() {
 		driver.quit();
 	}
+	
+	
+	
+	
+	
+	
+	
 
 	@Test(priority = 0,groups = "test")
 	public void managementDevices() throws IOException, InterruptedException {
@@ -85,28 +92,39 @@ public class WSManagementDevicesTest extends BaseClass {
 		devices.getmanagedSystemsGroupSelection(prop.getProperty("GroupsManagementDefaultGroupTopWithOrg"));
 		
 		
+		devices.getDevicesListSelect(prop.getProperty("GroupManagementDeviceName"));
+		
+		Thread.sleep(2000);
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("ManagementDevicesToasterText"));
+		
 		boolean devicePresent = devices.getDevicesList(prop.getProperty("GroupManagementDeviceName"));
 		
+	
 		Assert.assertEquals(devicePresent, true);
+
+		softAssert.assertEquals(devices.getRightClickOptionVerify(), devices.getRightClickOptionVerifyText(),"Mis match in the options of device right click");
 		
 		
 		
+		Assert.assertTrue(devices.selectOption("Send Message"));
 		
 		
+		softAssert.assertEquals(devices.getSendMesageToDevices().getText(),  prop.getProperty("ManagementDevicesSendMessagePopUPText"));
 		
 		
+		action.type(devices.getSendMessageInputField(), prop.getProperty("ManagementDevicesSendMessageInputFieild"));
+		action.click(driver, devices.getSaveButton());
 		
-		
-		
-		
-		
-		
-		
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ManagementDevicesSendMessageConfirmationPopup"));
+		action.click(driver, indexpage.getPopupCloseIcon());
 		
 		
 		
 		softAssert.assertAll();
 	}
+	
+	
+	
 	
 	
 	

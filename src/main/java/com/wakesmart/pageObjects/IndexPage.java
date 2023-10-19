@@ -42,8 +42,8 @@ public class IndexPage extends BaseClass {
 	By ForgotPassword = By.xpath("//label[@id='forgotline']");
 	By EmailIDForReset = By.xpath("//input[@id='olduserPwd']");
 	By PopupCloseIcon = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");
-	By OrganizationManagementHeaderText = By.xpath("//div[@class='MuiCardHeader-content css-1qbkelo-MuiCardHeader-content']/span");
-	By OrganizationTableHeader = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1rf1nql-MuiGrid-root']/p");
+	By OrganizationManagementHeaderText = By.xpath("//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-en0w5h']");
+	By OrganizationTableHeader = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-lmldiz']/p");
 
 	
 	
@@ -117,7 +117,7 @@ public class IndexPage extends BaseClass {
 		
 		//enable this 4 lines if new Dashboard is added 
 		softAssert.assertEquals(getOrganizationManagementHeaderText().getText(),  prop.getProperty("ManagementOrganizationsPageHeaderText"));
-		softAssert.assertEquals(getOrganizationTableHeader().getText(), prop.getProperty("OrganizationName") );
+		softAssert.assertEquals(getOrganizationTableHeader().getText(), prop.getProperty("OrganizationName"));
 		softAssert.assertEquals(organization.tableTextVerify(),organization.tableTextVerifyFromLocal(prop));
 		selectOrganization(prop.getProperty("AutomationtabOwnerText"));
 		try {
@@ -129,12 +129,12 @@ public class IndexPage extends BaseClass {
 		softAssert.assertAll();
 	}
 	
-	By OrganizationName = By.xpath("//tr[@class='MuiTableRow-root css-1uwa9re-MuiTableRow-root']/td[1]");
+	By OrganizationName = By.xpath("//tr[@class='MuiTableRow-root css-1b8dwk7']/td[1]");
 	By popUpConfirmation = By.xpath("//div[@class='MuiBox-root css-1sdcacc']/p");
-	By manageOrganizationYesButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root']/button[2]");
+	By manageOrganizationYesButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc']/button[2]");
 	
 	public WebElement OptionsToSelect(int index) {
-		return driver.findElement(By.xpath("(//tr[@class='MuiTableRow-root css-1uwa9re-MuiTableRow-root'])["+index+"]/td[7]/div/button[1]"));
+		return driver.findElement(By.xpath("(//tr[@class='MuiTableRow-root css-1b8dwk7'])["+index+"]/td[7]/div/button[1]"));
 	}
 	
 	 public void selectOrganization(String organizationName) {

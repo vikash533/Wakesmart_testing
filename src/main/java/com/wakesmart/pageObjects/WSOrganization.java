@@ -28,7 +28,7 @@ public WebDriver driver;
 	 @FindBy(xpath = "//p[@class='MuiTypography-root MuiTypography-body1 css-1g3ji31-MuiTypography-root']")
 	 public WebElement getOrganizationsTableHeaderText;
 	 
-	 @FindBy(xpath = "//tr[@class='MuiTableRow-root MuiTableRow-head css-1uwa9re-MuiTableRow-root']//th")
+	 @FindBy(xpath = "//tr[@class='MuiTableRow-root MuiTableRow-head css-1b8dwk7']//th")
 	 public List<WebElement> getTableHeaderTextVerify;
 	 
 	 

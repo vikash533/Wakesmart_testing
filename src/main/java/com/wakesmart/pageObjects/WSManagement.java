@@ -32,7 +32,7 @@ public class WSManagement extends BaseClass{
 	
 	
 	
-	By ManagementTab = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-1oip95y-MuiButtonBase-root-MuiListItemButton-root'])[1]");
+	By ManagementTab = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-m92ebk'])[1]");
 	
 	//Policies
 	By Policies = By.xpath("(//div[@class='MuiList-root css-uppwh0-MuiList-root'])/a[3]/div[2]");
