@@ -55,7 +55,6 @@ public class Action extends BaseClass {
 		}
 	}
 
-	// PDF CSv verify
 	public List<String> verifyDropdown(List<WebElement> dropdown) {
 		
 		List<String> lstString = new ArrayList<>();
@@ -85,29 +84,6 @@ public class Action extends BaseClass {
 		return sb.toString();
 	}
 
-//	// Soft assertion for string
-//	public void softAssertion(String actual, String expected) {
-//		try {
-//			SoftAssert softAssert = new SoftAssert();
-//			softAssert.assertEquals(actual, expected);
-//			softAssert.assertAll();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	// soft assertion for integer
-//	public void softAssertionInt(Integer actual, Integer expected) {
-//		try {
-//			SoftAssert softAssert = new SoftAssert();
-//			softAssert.assertEquals(actual, expected);
-//			softAssert.assertAll();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-
-	// dropdown select
 	public void dropdown(WebElement ele, String str) {
 
 		Select sel = new Select(ele);
@@ -122,7 +98,6 @@ public class Action extends BaseClass {
 		}
 	}
 
-	// verify name from a table
 	public String nameVerifyFromTable(List<WebElement> ele, String str) {
 
 		String tablename = "";
@@ -136,7 +111,6 @@ public class Action extends BaseClass {
 		return tablename;
 	}
 	
-	
 	public void ClickOnGroup(List<WebElement> ele, String str) {
 
 		for (WebElement option : ele) {
@@ -148,9 +122,6 @@ public class Action extends BaseClass {
 		}
 	}
 	
-	
-	
-
 	public void nameVerifyFromTableAndClick(List<WebElement> ele, String str) {
 
 		for (WebElement option : ele) {
@@ -162,7 +133,6 @@ public class Action extends BaseClass {
 		}
 	}
 
-	// date month converter
 	public String dateFormat(String MDY) throws ParseException {
 		SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/yyyy");
 		SimpleDateFormat format2 = new SimpleDateFormat("MMM dd, yyyy");
@@ -171,7 +141,6 @@ public class Action extends BaseClass {
 		return format2.format(date);
 	}
 
-	// to print the current date
 	public String currentDate() throws ParseException {
 
 		Date date = new Date();
@@ -180,7 +149,6 @@ public class Action extends BaseClass {
 		return str;
 	}
 
-	// print previous date from current date
 	public String currentDateMinusone() throws ParseException {
 
 		Date currentDate = new Date();
@@ -190,7 +158,6 @@ public class Action extends BaseClass {
 		return str;
 	}
 
-	// 7 days before
 	public String currentDateMinusSeven(int Days) throws ParseException {
 
 		Date currentDate = new Date();
@@ -209,7 +176,6 @@ public class Action extends BaseClass {
 		return str;
 	}
 
-	// color verify of the element
 	public String colorVerify(WebElement ele, String value) {
 
 		String color = ele.getCssValue(value);
@@ -226,7 +192,6 @@ public class Action extends BaseClass {
 		return actualColor;
 	}
 
-	// month and year select
 	public void dateSelector(WebElement YearList, List<WebElement> monthList, String year, String month) {
 		Select s = new Select(YearList);
 		s.selectByVisibleText(year);
@@ -236,7 +201,6 @@ public class Action extends BaseClass {
 		selectmonth.selectByVisibleText(month);
 	}
 
-	// Window handle control
 	public void getWindowHandles(WebDriver driver) {
 
 		Set<String> windows = driver.getWindowHandles();
@@ -247,13 +211,11 @@ public class Action extends BaseClass {
 		driver.switchTo().window(childWindow);
 	}
 
-	// pass
 	public void scrollByVisibilityOfElement(WebDriver driver, WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ele);
 	}
 
-	// pass
 	public void click(WebDriver driver, WebElement ele) {
 		Actions act = new Actions(driver);
 		act.moveToElement(ele).click().build().perform();
@@ -264,7 +226,6 @@ public class Action extends BaseClass {
 		act.sendKeys(KeysToSend).perform();
 	}
 
-	// pass
 	public boolean isDisplayed(WebDriver driver, WebElement ele) {
 		boolean flag = false;
 		flag = findElement(driver, ele);
@@ -280,7 +241,6 @@ public class Action extends BaseClass {
 		return flag;
 	}
 
-	// under testing
 	public void leftKeyType(WebDriver driver, WebElement ele, String text) throws InterruptedException {
 		ele.click();
 		Actions act = new Actions(driver);
@@ -291,7 +251,6 @@ public class Action extends BaseClass {
 		ele.sendKeys(text);
 	}
 
-	// pass
 	public void type(WebElement ele, String text) {
 			
 		ele.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
@@ -300,14 +259,12 @@ public class Action extends BaseClass {
 	
 	}
 
-	// pass
 	public boolean findElement(WebDriver driver, WebElement ele) {
 		boolean flag = false;
 		try {
 			ele.isDisplayed();
 			flag = true;
 		} catch (Exception e) {
-			// System.out.println("Location not found: "+locatorName);
 			flag = false;
 		} finally {
 			if (flag) {
@@ -364,7 +321,6 @@ public class Action extends BaseClass {
 				System.out.println("Select value from the DropDown");
 			} else {
 				System.out.println("Not Selected value from the DropDown");
-				// throw new ElementNotFoundException("", "", "")
 			}
 		}
 	}
@@ -452,11 +408,9 @@ public class Action extends BaseClass {
 	public boolean JSClick(WebDriver driver, WebElement ele) {
 		boolean flag = false;
 		try {
-			// WebElement element = driver.findElement(locator);
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			
 			executor.executeScript("arguments[0].click();", ele);
-			// driver.executeAsyncScript("arguments[0].click();", element);
 
 			flag = true;
 
@@ -475,15 +429,6 @@ public class Action extends BaseClass {
 		return flag;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public boolean switchToFrameByIndex(WebDriver driver, int index) {
 		boolean flag = false;
 		try {
@@ -550,13 +495,7 @@ public class Action extends BaseClass {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
-		} finally {
-			if (flag) {
-				// SuccessReport("SelectFrame ","Frame with Name is selected");
-			} else if (!flag) {
-				// failureReport("SelectFrame ","The Frame is not selected");
-			}
-		}
+		} 
 	}
 
 	public void mouseHoverElement(WebDriver driver, WebElement element) {
@@ -874,8 +813,6 @@ public class Action extends BaseClass {
 
 	}
 	
-	
-
 	public void implicitWait(WebDriver driver, int timeOut) {
 		driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
 
@@ -884,21 +821,6 @@ public class Action extends BaseClass {
 	public void explicitWait(WebDriver driver, WebElement element, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.visibilityOf(element));
-
-	}
-
-	public void pageLoadTimeOut(WebDriver driver, int timeOut) {
-
-	}
-
-	public String screenShot(WebDriver driver, String filename) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getCurrentTime() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

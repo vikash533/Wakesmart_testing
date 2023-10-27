@@ -181,5 +181,6 @@ public class WSLoginPageTest extends BaseClass {
 
 		softAssert.assertEquals(actualColor,  prop.getProperty("loginButtonHEXvalue"));
 		softAssert.assertAll();
+		
 	}
 }

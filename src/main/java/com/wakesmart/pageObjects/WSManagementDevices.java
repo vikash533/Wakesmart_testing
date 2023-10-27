@@ -253,13 +253,64 @@ public WebDriver driver;
 		
 		
 		
+		//Select group
+		@FindBy(xpath = "(//h2[normalize-space()='Group Selected Device'])[1]")
+		public WebElement groupSelectedDeviceHeaderText;
+		
+		@FindBy(xpath = "(//div[@aria-haspopup='listbox' and  @role='button'])[2]")
+		public WebElement groupSelectDropdownClick;
+		
+		@FindBy(xpath = "//ul[@role='listbox']/li")
+		public List<WebElement> groupSelectDropdownOptionsToSelect;
+		
+		
+		public boolean groupSelectForDevice(String groupNeedToSelect) {
+			groupSelectDropdownClick.click();
+			boolean flag = false;
+			
+			for(WebElement ele : groupSelectDropdownOptionsToSelect ) {
+				if(ele.getText().equalsIgnoreCase(groupNeedToSelect)) {
+					ele.click();
+					flag= true;
+					break;
+				}
+			}
+			return flag;
+		}
 		
 		
 		
 		
 		
-		
-		
+		public boolean getDevicesListVerify(String deviceName) {
+			Actions act = new Actions(driver);
+			boolean result = false;
+			
+			for (WebElement ele : driver.findElements(DevicesList)) {
+				if (ele.getText().equalsIgnoreCase(deviceName)) {
+					result = true;
+					break;
+				}
+			}
+			
+			if(!result) {
+				while(!result) {
+					GoToNextPage.click();
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					for (WebElement ele : driver.findElements(DevicesList)) {
+						if (ele.getText().equalsIgnoreCase(deviceName)) {
+							result = true;
+							break;
+						}
+					}
+				}
+			}
+			return result;
+		}
 		
 		
 		
