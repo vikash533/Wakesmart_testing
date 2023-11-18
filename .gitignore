@@ -5,6 +5,5 @@ logs/
 HTMLreports/
 .metadata/
 .settings/
-.project
 .classpath
 bin/
