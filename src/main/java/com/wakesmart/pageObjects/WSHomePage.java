@@ -12,10 +12,10 @@ public class WSHomePage extends BaseClass{
 		this.driver = driver;
 	}
 	
-	By AccountSettingsIcon = By.xpath("(//div[@class='MuiAvatar-root MuiAvatar-circular MuiChip-icon MuiChip-iconMedium MuiChip-iconColorPrimary css-18l8ecj-MuiAvatar-root'])");
-	By logout = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-bqgr6y-MuiButtonBase-root-MuiListItemButton-root'])[2]");
-	By MenuButton = By.xpath("//div[@class='MuiAvatar-root MuiAvatar-rounded MuiAvatar-colorDefault css-1rwwuin-MuiAvatar-root']");
-	By GeneralMenu = By.xpath("(//span[@class='MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom css-1e5ro1l-MuiTypography-root'])[1]");
+	By AccountSettingsIcon = By.xpath("(//div[@class='MuiAvatar-root MuiAvatar-circular MuiChip-icon MuiChip-iconMedium MuiChip-iconColorPrimary css-pm64by'])");
+	By logout = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-cqhtya'])[2]");
+	By MenuButton = By.xpath("//div[@class='MuiAvatar-root MuiAvatar-rounded MuiAvatar-colorDefault css-1sha7oh']");
+	By GeneralMenu = By.xpath("(//span[@class='MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom css-lb3gvf'])[1]");
 	
 	
 	

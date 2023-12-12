@@ -13,7 +13,7 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSAutomationPage;
 
 /*
-Updated for the new UI by shreyas kumar
+Updated for the new UI on 10/12/2023
  										*/
 public class WSAutomationGroupRulesTest extends BaseClass {
 	
@@ -34,7 +34,7 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 		}
 	}
 	
-	@AfterClass(enabled = true)
+	@AfterClass(enabled = false)
 	public void tearDown() {
 			driver.quit();
 	}
@@ -55,7 +55,7 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 
 		softAssert.assertEquals(automation.getGroupsRulesTableHeaderText(), automation.getGroupRulesTableHeaderTextVerify(prop)," Mismatch automation group rules table header text");
 		Thread.sleep(1000);
-		action.click(driver, automation.getAddRuleButton());
+		action.JSClick(driver, automation.getAddRuleButton());
 		
 		action.fluentWait(driver, automation.getAddNewRuleText());
 		softAssert.assertEquals(automation.getAddNewRuleText().getText(), prop.getProperty("GroupAddNewpolicyText"));

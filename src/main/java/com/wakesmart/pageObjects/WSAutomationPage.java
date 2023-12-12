@@ -21,34 +21,34 @@ public class WSAutomationPage extends BaseClass{
 		this.driver = driver;
 	}
 	
-	By AutomationTab = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiList-subheader css-p64g7a-MuiList-root'])/a[2]");
-	By AutomationTextInnerTab = By.xpath("//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1y85m9j-MuiTypography-root']");
+	By AutomationTab = By.xpath("//p[normalize-space()='Automation']");
+	By AutomationTextInnerTab = By.xpath("//span[normalize-space()='Automation']");
 	By AutomationOwnerInfo = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1ilqee0']");
-	By GroupRulesTableHeader = By.xpath("(//tr[@class='MuiTableRow-root MuiTableRow-head css-1uwa9re-MuiTableRow-root'])/th");
-	By AutomationTableHeader = By.xpath("(//div[@class='MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer'])//button");
-	By AddRuleButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root'])/button");
-	By AddNewRuleText = By.xpath("(//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1djogo5-MuiPaper-root-MuiDialog-paper'])//h2");
-	By GroupRuleName = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1lf2b4f-MuiInputBase-root-MuiOutlinedInput-root'])[1]/input");
-	By GroupRuleDescription = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[2]");
-	By GroupSelectDropdown = By.xpath("(//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-5c13vx-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input'])[1]");
-	By SelectGroupDowndown = By.xpath("//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-tgamcn-MuiButtonBase-root-MuiMenuItem-root']");
-	By AttributeValue = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list']//li");
+	By GroupRulesTableHeader = By.xpath("(//tr[@class='MuiTableRow-root MuiTableRow-head css-1b8dwk7'])/th");
+	By AutomationTableHeader = By.xpath("(//div[@class='MuiTabs-flexContainer css-k008qs'])//button");
+	By AddRuleButton = By.xpath("//button[normalize-space()='Add Rule']");
+	By AddNewRuleText = By.xpath("(//h2[normalize-space()='Add New Rule'])[1]");
+	By GroupRuleName = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1nj3ori'])[1]/input");
+	By GroupRuleDescription = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[2]");
+	By GroupSelectDropdown = By.xpath("(//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-i9cdv9'])[1]");
+	By SelectGroupDowndown = By.xpath("//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-1e9knfh']");
+	By AttributeValue = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']//li");
 	By OperatorDropdown = By.xpath("//div[@id='mui-component-select-operator']");
-	By OperatorDropdownValue = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list'])//li");
-	By OpeartorValue = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[3]");
+	By OperatorDropdownValue = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])//li");
+	By OpeartorValue = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[3]");
 	By AddClauseButton = By.xpath("//button[normalize-space()='Add Clause']");
-	By AttributeSecond = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root'])[6]/div");
-	By OperatorDropdownSecond = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root'])[7]/div");
-	By GroupValueSecond = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[4]");
-	By AndORDropdown = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root'])[3]/div");
-	By AndOrList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list'])/li");
-	By SubmitBtn = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root'])//button[3]");
+	By AttributeSecond = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8'])[6]/div");
+	By OperatorDropdownSecond = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8'])[7]/div");
+	By GroupValueSecond = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[4]");
+	By AndORDropdown = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-1doag2i'])[3]/div");
+	By AndOrList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li");
+	By SubmitBtn = By.xpath("//button[normalize-space()='Submit']");
 	
 			//(//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1y0jp63'])[2]
 	By AlertConfirmationMessage = By.xpath("(//div[@class='Toastify__toast-body'])/div[2]");
-	By OrderDropdown = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root'])[2]//input");
+	By OrderDropdown = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8'])[2]//input");
 	By EnabledCheckBox = By.xpath("(//input[@type='checkbox'])[1]");
-	By DeleteClauseButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-a5rdam-MuiGrid-root'])[2]/div[13]/button");
+	By DeleteClauseButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu'])[2]/div[13]/button");
 	
 	
 	//Policy rules
@@ -70,12 +70,12 @@ public class WSAutomationPage extends BaseClass{
 	
 	public void getCraetedRuleVerifyAfterEnabled(String OrderNum, SoftAssert asserts, Properties prop) {
 		
-		String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
-		String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
-		String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
-		String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
-		String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
-		String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
+		String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
+		String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
+		String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
+		String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
+		String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
+		String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
 		
 		asserts.assertEquals(RuleName, prop.getProperty("GroupRuleName"),"Mismatch in the Group Rule name");
 		asserts.assertEquals(RuleDescription, prop.getProperty("GroupRuleDescription"),"Mismatch in the Group Rule name");
@@ -101,12 +101,12 @@ public class WSAutomationPage extends BaseClass{
 	
 	public void getCraetedRuleVerify(String OrderNum, SoftAssert asserts, Properties prop) {
 		
-		String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
-		String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
-		String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
-		String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
-		String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
-		String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[1]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
+		String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
+		String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
+		String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
+		String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
+		String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
+		String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
 		
 		asserts.assertEquals(RuleName, prop.getProperty("GroupRuleName"),"Mismatch in the Group Rule name");
 		asserts.assertEquals(RuleDescription, prop.getProperty("GroupRuleDescription"),"Mismatch in the Group Rule name");

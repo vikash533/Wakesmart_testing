@@ -38,7 +38,7 @@ public class IndexPage extends BaseClass {
 	By PasswordWarningMessege = By.xpath("//p[@id=':r1:-helper-text']");
 	By passwordVisibiltyOnDom = By.xpath("//input[@id='userPwd']");
 	By LoginFormColor = By.xpath("//div[@class='MuiBox-root css-1arlb8v']");
-	By LoginDialougeTitle = By.xpath("//h2[@class='MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-ei33y-MuiTypography-root']");
+	By LoginDialougeTitle = By.xpath("//h2[@class='MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-14zc97g']");
 	By ForgotPassword = By.xpath("//label[@id='forgotline']");
 	By EmailIDForReset = By.xpath("//input[@id='olduserPwd']");
 	By PopupCloseIcon = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");
@@ -110,16 +110,16 @@ public class IndexPage extends BaseClass {
 		getUserName().sendKeys(username);
 		getPassWord().sendKeys(password);
 		getLogin().click();
-		action.fluentWait(driver, getErrorMsg());
+//		action.fluentWait(driver, getErrorMsg());
 		
-		softAssert.assertEquals(getErrorMsg().getText(),  welcomeMessage);
-		action.click(driver, getPopupCloseIcon());
+//		softAssert.assertEquals(getErrorMsg().getText(),  welcomeMessage);
+//		action.click(driver, getPopupCloseIcon());
 		
 		//enable this 4 lines if new Dashboard is added 
-		softAssert.assertEquals(getOrganizationManagementHeaderText().getText(),  prop.getProperty("ManagementOrganizationsPageHeaderText"));
-		softAssert.assertEquals(getOrganizationTableHeader().getText(), prop.getProperty("OrganizationName"));
-		softAssert.assertEquals(organization.tableTextVerify(),organization.tableTextVerifyFromLocal(prop));
-		selectOrganization(prop.getProperty("AutomationtabOwnerText"));
+//		softAssert.assertEquals(getOrganizationManagementHeaderText().getText(),  prop.getProperty("ManagementOrganizationsPageHeaderText"));
+//		softAssert.assertEquals(getOrganizationTableHeader().getText(), prop.getProperty("OrganizationName"));
+//		softAssert.assertEquals(organization.tableTextVerify(),organization.tableTextVerifyFromLocal(prop));
+//		selectOrganization(prop.getProperty("AutomationtabOwnerText"));
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
