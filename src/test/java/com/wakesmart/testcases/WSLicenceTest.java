@@ -14,11 +14,14 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSLicence;
 import com.wakesmart.pageObjects.WSManagement;
 
+import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
+
 /*
-Updated for the new UI by shreyas kumar
+Updated as per the new UI **06**
  										*/
 
 public class WSLicenceTest extends BaseClass{
+	
 	public WebDriver driver;
 	private IndexPage indexpage;
 	private Action action;

@@ -13,7 +13,7 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSAutomationPage;
 
 /*
-Updated for the new UI on 10/12/2023
+Updated as per the new UI **03**
  										*/
 public class WSAutomationGroupRulesTest extends BaseClass {
 	
@@ -34,7 +34,7 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 		}
 	}
 	
-	@AfterClass(enabled = false)
+	@AfterClass(enabled = true)
 	public void tearDown() {
 			driver.quit();
 	}

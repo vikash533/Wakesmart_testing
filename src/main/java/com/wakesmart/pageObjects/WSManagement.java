@@ -36,12 +36,12 @@ public class WSManagement extends BaseClass{
 	
 	//Policies
 	By Policies = By.xpath("(//div[@class='MuiList-root css-uppwh0-MuiList-root'])/a[3]/div[2]");
-	By PolicyManagement = By.xpath("(//div[@class='MuiCardHeader-root css-1nvdc5e-MuiCardHeader-root'])//div/span");
-	By PolicyManagementTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-item css-4c1867-MuiGrid-root'])//div/p");
+	By PolicyManagement = By.xpath("(//div[@class='MuiCardHeader-root css-fw4u9m'])//div/span");
+	By PolicyManagementTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-item css-g8a0ev'])//div/p");
 	By PoliciesInnerTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-1idn90j-MuiGrid-root'])//table/thead/tr/th");
 	By AddPolicyBtn = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root'])//button");
-	By PolicyName = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root'])[1]/div/input");
-	By PolicyDescription = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root'])[2]/div/input");
+	By PolicyName = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-feqhe6'])[1]/div/input");
+	By PolicyDescription = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-feqhe6'])[2]/div/input");
 	By AddSchemeButton = By.xpath("(//div[@class='MuiBox-root css-blgins'])/div/div[2]/button");
 	//pending
 	By AddNewSchemeHeaderText = By.xpath("(//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1pwda69'])[2]/h2");
@@ -86,7 +86,7 @@ public class WSManagement extends BaseClass{
 	By ScheduledEventCancelButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root'])[2]/button[1]");
 	By DefaultPolicyDeleteButton = By.xpath("(//table[@class='MuiTable-root css-1upwpwx-MuiTable-root'])//tbody/tr[1]/td[5]/div/button[2]");
 	By WarningMessegePopupOnDeleteDefaultScheme = By.xpath("(//div[@class='Toastify__toast-container Toastify__toast-container--top-right'])/div/div/div[2]");
-	By AddNewPolicySubmitButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root'])/button[2]");
+	By AddNewPolicySubmitButton = By.xpath("(//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc'])/button[2]");
 	By PolicyNameVerify = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-1idn90j-MuiGrid-root'])/table/tbody/tr/td[1]");
 	By PolicyDescriptionVerify = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-1idn90j-MuiGrid-root'])/table/tbody/tr/td[2]");
 	
@@ -364,13 +364,13 @@ public class WSManagement extends BaseClass{
 	
 	//Groups
 	
-	By Groups = By.xpath("//div[@class='MuiList-root css-uppwh0-MuiList-root']//a[2]");
-	By AddGroupButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-auylq4-MuiGrid-root'])//button");
+	By Groups = By.xpath("//div[@class='MuiList-root css-1xidfkz']//a[2]");
+	By AddGroupButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-9ppe9d'])//button");
 	By IsParentCheckBox = By.xpath("(//div[@class='MuiBox-root css-0'])/label/span[1]");
 	By GroupCreatedNameVerify = By.xpath("//li[@role='listitem']/ul/li/div/div[2]/p");
 	By GroupEditButton = By.xpath("(//div[@class='MuiBox-root css-19hvn7'])/button[2]");
-	By ParentGroupDropDown = By.xpath("(//div[@class='MuiFormControl-root css-1cr99xm-MuiFormControl-root'])/div/div");
-	By ParentGroupDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list'])/li");
+	By ParentGroupDropDown = By.xpath("(//div[@class='MuiFormControl-root css-6oszqx'])/div/div");
+	By ParentGroupDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li");
 	By ArrowDownInTable= By.xpath("(//div[@class='tree-node CustomNode_root__6RKGp'])[1]/div[1]/span");
 	By SubGroupNameVerify = By.xpath("(//div[@class='MuiBox-root css-1yuhvjn'])//ul/li/div/div[2]/p");
 	

@@ -14,6 +14,9 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 import com.wakesmart.pageObjects.WSPermissionManagement;
 
+/*
+Updated as per the new UI **08**
+ 										*/
 //In progress  ---- Pending Page is loading Data as on 26/09/2023
 
 public class WSPermissionManagementTest  extends BaseClass{

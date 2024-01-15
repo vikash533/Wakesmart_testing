@@ -12,7 +12,7 @@ import com.wakesmart.pageObjects.WSHomePage;
 import com.wakesmart.pageObjects.IndexPage;
 
 /*
-Updated for the new UI by shreyas kumar
+Updated as per the new UI **01**
  										*/
 public class WSLoginPageTest extends BaseClass {
 	
@@ -38,7 +38,7 @@ public class WSLoginPageTest extends BaseClass {
 	@AfterClass
 	public void tearDown() {
 		if (driver != null) {
-//			driver.quit();
+			driver.quit();
 		}
 	}
 

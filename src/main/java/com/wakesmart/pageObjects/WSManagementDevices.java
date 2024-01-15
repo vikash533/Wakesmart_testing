@@ -129,7 +129,7 @@ public WebDriver driver;
 //	}
 //	
 	
-	 By DevicesList = By.xpath("(//div[@role='presentation'])/div/div/div/div[2]/div");
+	 By DevicesList = By.xpath("(//div[@role='presentation'])/div/div/div/div[3]/div");
 	
 	 @FindBy(xpath = "//button[@title='Go to next page']")
 	 public WebElement GoToNextPage;
@@ -167,6 +167,7 @@ public WebDriver driver;
 			}
 			return result;
 		}
+		
 		
 		
 		
@@ -264,12 +265,14 @@ public WebDriver driver;
 		public List<WebElement> groupSelectDropdownOptionsToSelect;
 		
 		
-		public boolean groupSelectForDevice(String groupNeedToSelect) {
+		public boolean groupSelectForDevice(String groupNeedToSelect) throws InterruptedException {
+			Thread.sleep(2000);
 			groupSelectDropdownClick.click();
 			boolean flag = false;
 			
 			for(WebElement ele : groupSelectDropdownOptionsToSelect ) {
 				if(ele.getText().equalsIgnoreCase(groupNeedToSelect)) {
+					Thread.sleep(2000);
 					ele.click();
 					flag= true;
 					break;

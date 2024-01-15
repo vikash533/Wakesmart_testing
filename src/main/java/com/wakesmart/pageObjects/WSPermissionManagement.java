@@ -21,22 +21,22 @@ public WebDriver driver;
 	}
 	
 	
-	 @FindBy(xpath = "//div[@class='MuiList-root css-uppwh0-MuiList-root']//a[7]")
+	 @FindBy(xpath = "//div[@class='MuiList-root css-1xidfkz']//a[7]")
 	 public WebElement getPermission;
 	 
-	 @FindBy(xpath = "//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1y85m9j-MuiTypography-root']")
+	 @FindBy(xpath = "//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-en0w5h']")
 	 public WebElement getPermissionPageText;
 	 
-	 @FindBy(xpath = "//p[@class='MuiTypography-root MuiTypography-body1 css-1rr20st-MuiTypography-root']")
+	 @FindBy(xpath = "//p[@class='MuiTypography-root MuiTypography-body1 css-1ilqee0']")
 	 public WebElement getPermissionTableHeaderText;
 	 
-	 @FindBy(xpath = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-auylq4-MuiGrid-root'])/button")
+	 @FindBy(xpath = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-9ppe9d'])/button")
 	 public WebElement getNewPermissionGroupButton;
 	 
-	 @FindBy(xpath = "//h2[@class='MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-1shib43-MuiTypography-root-MuiDialogTitle-root']")
+	 @FindBy(xpath = "//h2[@class='MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-1rnijnh']")
 	 public WebElement getAddNewPermissionGroupPopupText;
 	 
-	 @FindBy(xpath = "//tr[@class='MuiTableRow-root MuiTableRow-head css-1uwa9re-MuiTableRow-root']/th")
+	 @FindBy(xpath = "//tr[@class='MuiTableRow-root MuiTableRow-head css-1b8dwk7']/th")
 	 private List<WebElement> getPermissionTableColumnText;
 	 
 	 public List<String> tableTextVerify() {
@@ -61,16 +61,16 @@ public WebDriver driver;
 	 
 	 
 	 
-	 @FindBy(xpath = "(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[1]")
+	 @FindBy(xpath = "(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[1]")
 	 public WebElement getGroupName;
 	 
-	 @FindBy(xpath = "(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[2]")
+	 @FindBy(xpath = "(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[2]")
 	 public WebElement getGroupDescription;
 	 
-	 @FindBy(xpath = "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-dhr2da-MuiTypography-root']")
+	 @FindBy(xpath = "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label Mui-disabled css-1auv73w']")
 	 private List<WebElement> getAdminRolesTextDisabled;
 	 
-	 @FindBy(xpath = "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-dhr2da-MuiTypography-root']")
+	 @FindBy(xpath = "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1auv73w']")
 	 private List<WebElement> getAdminRolesTextEnabled;
 	 
 	 
@@ -93,7 +93,7 @@ public WebDriver driver;
 	 }
 	 
 	 
-	 By orgAdminCheckBox = By.xpath("(//span[@class='MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary css-dt6pu2-MuiButtonBase-root-MuiCheckbox-root'])[1]");
+	 By orgAdminCheckBox = By.xpath("(//span[@class='MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary css-1vb6jjw'])[1]");
 	 By chooseUsersDropdown = By.xpath("//div[@id='demo-multiple-checkbox']");
 	 By editGroupPermission = By.xpath("//div[@class='MuiBox-root css-1yuhvjn']/button");
 	 

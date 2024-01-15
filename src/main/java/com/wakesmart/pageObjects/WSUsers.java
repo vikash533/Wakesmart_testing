@@ -17,22 +17,22 @@ public class WSUsers {
 	}
 	
 	
-	By addNewUserText = By.xpath("//h2[@class='MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-1shib43-MuiTypography-root-MuiDialogTitle-root']");
-	By ManagementUsers = By.xpath("//div[@class='MuiList-root css-uppwh0-MuiList-root']//a[6]");
+	By addNewUserText = By.xpath("//h2[@class='MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-1rnijnh']");
+	By ManagementUsers = By.xpath("//div[@class='MuiList-root css-1xidfkz']//a[6]");
 	By UserManagementText = By.xpath("//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1y85m9j-MuiTypography-root']");
-	By AddButtonUser = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root']/button");
-	By UserTableHeaderText = By.xpath("//tr[@class='MuiTableRow-root MuiTableRow-head css-1uwa9re-MuiTableRow-root']/th");
+	By AddButtonUser = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8']/button");
+	By UserTableHeaderText = By.xpath("//tr[@class='MuiTableRow-root MuiTableRow-head css-1b8dwk7']/th");
 	By AddUserButton = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root']/button");
-	By UserName = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[1]");
-	By Email = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[2]");
-	By ConfirmEmail = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1lmjksc-MuiInputBase-input-MuiOutlinedInput-input'])[3]");
-	By AddNewUserSubmitButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root']/button[2]");
+	By UserName = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[1]");
+	By Email = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[2]");
+	By ConfirmEmail = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[3]");
+	By AddNewUserSubmitButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc']/button[2]");
 	By AddNewUserCancelButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root']/button[1]");
 	By AlertMessage = By.xpath("//div[@role='alert']/div[2]");
 	By AlertCloseButton = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");
 	By selectTheUserGroup = By.id("mui-component-select-userGroupId");
-	By selectTheUserGroupDropdownText = By.xpath("(//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-tgamcn-MuiButtonBase-root-MuiMenuItem-root'])");
-	By selectTheUserGropCheckBoxes = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list'])/li/span[1]");
+	By selectTheUserGroupDropdownText = By.xpath("(//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-1e9knfh'])");
+	By selectTheUserGropCheckBoxes = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li/span[1]");
 	
 	public WebElement getselectTheUserGropCheckBoxes() {
 		return driver.findElements(selectTheUserGropCheckBoxes).get(0);

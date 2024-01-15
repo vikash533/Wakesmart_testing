@@ -15,7 +15,7 @@ import com.wakesmart.pageObjects.WSAutomationPage;
 
 
 /*
-Updated for the new UI by shreyas kumar
+Updated as per the new UI **04**
  										*/
 public class WSAutomationPolicyRules extends BaseClass{
 
@@ -67,6 +67,7 @@ public class WSAutomationPolicyRules extends BaseClass{
 		
 		orderNum = automation.getOrderDropdown();
 		
+		System.out.println("Order Number "+ orderNum );
 		action.type(automation.getGroupRuleName(), prop.getProperty("NewPolicyName"));
 		action.type(automation.getGroupRuleDescription(), prop.getProperty("NewPolicyDescription"));
 		action.click(driver, automation.getGroupSelectDropdown());

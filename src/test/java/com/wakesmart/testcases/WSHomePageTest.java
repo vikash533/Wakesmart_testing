@@ -12,7 +12,7 @@ import com.wakesmart.pageObjects.WSHomePage;
 import com.wakesmart.pageObjects.IndexPage;
 
 /*
-Updated for the new UI by shreyas kumar
+Updated as per the new UI **02**
  										*/
 
 public class WSHomePageTest extends BaseClass {

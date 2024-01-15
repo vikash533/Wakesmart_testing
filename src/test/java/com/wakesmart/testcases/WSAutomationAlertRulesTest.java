@@ -14,7 +14,7 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSAutomationPage;
 
 /*
-Updated for the new UI by shreyas kumar
+Updated as per the new UI **05**
  										*/
 
 public class WSAutomationAlertRulesTest extends BaseClass{

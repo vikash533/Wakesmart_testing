@@ -15,7 +15,7 @@ import com.wakesmart.pageObjects.WSManagement;
 import com.wakesmart.pageObjects.WSUsers;
 
 /*
-Updated for the new UI by shreyas kumar
+Updated as per the new UI **07**
  										*/
 public class WSUsersTest extends BaseClass {
 
@@ -74,7 +74,6 @@ public class WSUsersTest extends BaseClass {
 		
 		//Need to cehck possible ways for this verify
 //		softAssert.assertEquals(users.getselectTheUserGroupDropdownText(), users.getselectTheUserGroupDropdownTextVerify(prop)," Mismatch dropdown values");
-		
 		
 		action.click(driver, users.getaddNewUserText());
 		

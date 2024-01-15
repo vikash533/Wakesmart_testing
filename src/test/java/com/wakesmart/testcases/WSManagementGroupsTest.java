@@ -14,7 +14,7 @@ import com.wakesmart.pageObjects.WSManagement;
 
 
 /*
-Updated for the new UI by shreyas kumar
+Updated as per the new UI **10**
  										*/
 public class WSManagementGroupsTest extends BaseClass {
 

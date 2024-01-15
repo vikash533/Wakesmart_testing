@@ -52,9 +52,9 @@ public class WSAutomationPage extends BaseClass{
 	
 	
 	//Policy rules
-	By PolicyRules = By.xpath("(//div[@class='MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer'])//button[2]");
-	By AlertRules = By.xpath("(//div[@class='MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer'])//button[3]");
-	By AlertRulesContent = By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[3]/p");
+	By PolicyRules = By.xpath("(//div[@class='MuiTabs-flexContainer css-k008qs'])//button[2]");
+	By AlertRules = By.xpath("(//div[@class='MuiTabs-flexContainer css-k008qs'])//button[3]");
+	By AlertRulesContent = By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[3]/p");
 	
 	public String getAlertRulesContent() {
 		return driver.findElement(AlertRulesContent).getText();
@@ -121,12 +121,12 @@ public class WSAutomationPage extends BaseClass{
 	
 public void getCraetedPolicyRuleVerify(String OrderNum, Properties prop, SoftAssert asserts) {
 		
-		String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
-		String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
-		String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
-		String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
-		String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
-		String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
+		String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
+		String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
+		String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
+		String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
+		String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
+		String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
 		
 		asserts.assertEquals(RuleName, prop.getProperty("NewPolicyName"),"Mismatch in the Group Rule name");
 		asserts.assertEquals(RuleDescription, prop.getProperty("NewPolicyDescription"),"Mismatch in the Group Rule name");
@@ -141,12 +141,12 @@ public void getCraetedPolicyRuleVerify(String OrderNum, Properties prop, SoftAss
 
 public void getCraetedPolicyRuleVerifyAfterMod(String OrderNum, SoftAssert asserts, Properties prop) {
 	
-	String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
-	String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
-	String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
-	String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
-	String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
-	String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-13xfq8m-MuiTabPanel-root'])[2]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
+	String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
+	String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
+	String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
+	String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
+	String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
+	String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
 	
 	asserts.assertEquals(RuleName, prop.getProperty("NewPolicyName"),"Mismatch in the Group Rule name");
 	asserts.assertEquals(RuleDescription, prop.getProperty("NewPolicyDescription"),"Mismatch in the Group Rule name");

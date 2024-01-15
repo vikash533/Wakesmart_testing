@@ -16,6 +16,8 @@ import com.wakesmart.pageObjects.WSOrganization;
 
 //Completed as per the new UI
 
+//Deleted on the new UI
+
 public class WSManagementOrganizationTest extends BaseClass{
 	public WebDriver driver;
 	private IndexPage indexpage;
@@ -39,7 +41,7 @@ public class WSManagementOrganizationTest extends BaseClass{
 		driver.quit();
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void managementOrganization() {
 		indexpage = new IndexPage(driver);
 		action = new Action();

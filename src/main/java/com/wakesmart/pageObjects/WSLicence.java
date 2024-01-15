@@ -20,22 +20,22 @@ public WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	 @FindBy(xpath = "//div[@class='MuiList-root css-uppwh0-MuiList-root']//a[4]")
+	 @FindBy(xpath = "//div[@class='MuiList-root css-1xidfkz']//a[4]")
 	 public WebElement getLicence;
 	 
-	 @FindBy(xpath = "//div[@class='MuiCardHeader-content css-1qbkelo-MuiCardHeader-content']/span")
+	 @FindBy(xpath = "//div[@class='MuiCardHeader-content css-11qjisw']/span")
 	 public WebElement getLicenceManagement;
 	 
-	 @FindBy(xpath = "//p[@class='MuiTypography-root MuiTypography-body1 css-1g3ji31-MuiTypography-root']")
+	 @FindBy(xpath = "//p[@class='MuiTypography-root MuiTypography-body1 css-hrpkyi']")
 	 public WebElement getTableHeaderText;
 	 
-	 @FindBy(xpath = "//thead[@class='MuiTableHead-root css-15wwp11-MuiTableHead-root']/tr/th")
+	 @FindBy(xpath = "//thead[@class='MuiTableHead-root css-1wbz3t9']/tr/th")
 	 public List<WebElement> getTableHeaderTextVerify;
 	 
 	 //Total	 
-	 By RowsTotal = By.xpath("//tbody[@class='MuiTableBody-root css-apqrd9-MuiTableBody-root']//tr/td[3]");
-	 By RowsUsed = By.xpath("//tbody[@class='MuiTableBody-root css-apqrd9-MuiTableBody-root']//tr/td[4]");
-	 By RowsRemaining= By.xpath("//tbody[@class='MuiTableBody-root css-apqrd9-MuiTableBody-root']//tr/td[5]");
+	 By RowsTotal = By.xpath("//tbody[@class='MuiTableBody-root css-1xnox0e']//tr/td[3]");
+	 By RowsUsed = By.xpath("//tbody[@class='MuiTableBody-root css-1xnox0e']//tr/td[4]");
+	 By RowsRemaining= By.xpath("//tbody[@class='MuiTableBody-root css-1xnox0e']//tr/td[5]");
 	 
 	 
 	 public List<Integer> getRowsTotal() {
