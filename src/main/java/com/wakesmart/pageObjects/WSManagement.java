@@ -32,11 +32,11 @@ public class WSManagement extends BaseClass{
 	
 	
 	
-	By ManagementTab = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-m92ebk'])[1]");
+	By ManagementTab = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-7o97fy'])[1]");
 	
 	//Policies
-	By Policies = By.xpath("(//div[@class='MuiList-root css-uppwh0-MuiList-root'])/a[3]/div[2]");
-	By PolicyManagement = By.xpath("(//div[@class='MuiCardHeader-root css-fw4u9m'])//div/span");
+	By Policies = By.xpath("//div[@class='MuiList-root css-1xidfkz']//a[3]");
+	By PolicyManagement = By.xpath("//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-en0w5h']");
 	By PolicyManagementTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-item css-g8a0ev'])//div/p");
 	By PoliciesInnerTableHeaderText = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-1idn90j-MuiGrid-root'])//table/thead/tr/th");
 	By AddPolicyBtn = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root'])//button");
