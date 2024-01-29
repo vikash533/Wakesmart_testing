@@ -59,12 +59,10 @@ public class WSManagementPoliciesTest extends BaseClass{
 		action.JSClick(driver, management.getAddPolicyBtn());
 		action.type(management.getPolicyName(), prop.getProperty("PoliciesManagementPolicyName"));
 		action.type(management.getPolicyDescription(), prop.getProperty("PoliciesManagementPolicyDescription"));
-		
-		
 		action.click(driver, management.getDefaultPolicyDeleteButton());
 		action.fluentWait(driver, management.getWarningMessegePopupOnDeleteDefaultScheme());
 		softAssert.assertEquals(management.getWarningMessegePopupOnDeleteDefaultScheme().getText(), prop.getProperty("PoliciesManagementPoliciesWarningMessegePopupOnDeleteDefaultScheme"));
-		
+		action.fluentWait(driver, management.getAddSchemeButton());
 		action.JSClick(driver, management.getAddSchemeButton());
 		
 		action.type(management.getNewSchemeName(), prop.getProperty("PoliciesManagementNewSchemeName"));
@@ -141,10 +139,10 @@ public class WSManagementPoliciesTest extends BaseClass{
 		
 		String rulesCreated = action.nameVerifyFromTable(management.getPolicyNameVerify(), prop.getProperty("PoliciesManagementPolicyName"));
 		String rulesCreatedDescription = action.nameVerifyFromTable(management.getPolicyDescriptionVerify(), prop.getProperty("PoliciesManagementPolicyDescription"));
-		
+		System.out.println(rulesCreated);
+		System.out.println(rulesCreatedDescription);
 		softAssert.assertEquals(rulesCreated, prop.getProperty("PoliciesManagementPolicyName"));
 		softAssert.assertEquals(rulesCreatedDescription, prop.getProperty("PoliciesManagementPolicyDescription"));
-		
 		softAssert.assertAll();
 	}
 	
