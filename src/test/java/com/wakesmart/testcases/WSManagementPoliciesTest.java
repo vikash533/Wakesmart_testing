@@ -15,7 +15,8 @@ import com.wakesmart.pageObjects.IndexPage;
 import com.wakesmart.pageObjects.WSManagement;
 
 /*
-Updated for the new UI by shreyas kumar
+Updated for the new UI by Vikash kumar 
+
  										*/
 
 
