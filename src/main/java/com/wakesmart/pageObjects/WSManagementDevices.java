@@ -62,7 +62,7 @@ public WebDriver driver;
 	
 	
 	//Managed systems - click on Wakesmart UI automation
-	By managedSystemsGroupSelection = By.xpath("//ul[@role='tree']/li/div/div[2]");
+	By managedSystemsGroupSelection = By.xpath("//ul[@role='tree']//li/div/div[2]");
 			
 			
 	public WebElement getmanagedSystemsGroupSelectionForWait(String groupName) {
