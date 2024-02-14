@@ -128,9 +128,11 @@ public class WSManagementDevicesTest extends BaseClass {
 
 		action.type(devices.getSendMessageInputField(), prop.getProperty("ManagementDevicesSendMessageInputFieild"));
 		action.click(driver, devices.getSaveButton());
-		Thread.sleep(1000);
+		Thread.sleep(1200);
+		action.explicitWait(driver, indexpage.getErrorMsg(), 20);
+		System.out.println("------------->"+indexpage.getErrorMsg().getText());
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(),prop.getProperty("ManagementDevicesSendMessageConfirmationPopup1"));
-//		action.click(driver, indexpage.getPopupCloseIcon());
+		action.click(driver, indexpage.getPopupCloseIcon());
 
 		softAssert.assertAll();
 	}
@@ -154,7 +156,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		action.JSClick(driver, devices.getSaveButton());
 
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(),prop.getProperty("ManagementDevicesSendMessageConfirmationPopup1"));
-		action.click(driver, indexpage.getPopupCloseIcon());
+//		action.click(driver, indexpage.getPopupCloseIcon());
 		
 		
 		softAssert.assertAll();

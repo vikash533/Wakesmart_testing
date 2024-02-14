@@ -47,27 +47,27 @@ public class WSSettingsGeneralTest extends BaseClass{
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		action.JSClick(driver, general.getGeneral);
 		
+		
 		softAssert.assertEquals(general.getGeneralSettingsText.getText(), prop.getProperty("SettingsGeneralPageText"));
 		softAssert.assertEquals(general.getSystemOptionsText.getText(), prop.getProperty("SettingsGeneralSystemOptionsText"));
 		softAssert.assertEquals(general.getGeneralSettingsBoxText.getText(), prop.getProperty("SettingsGeneralPageText"));
 		softAssert.assertEquals(general.getEnergyValuesText.getText(), prop.getProperty("SettingsGeneralEnergyValuesText"));
 		softAssert.assertEquals(general.getGreenhouseGasComparisonsText.getText(), prop.getProperty("SettingsGeneralGreenhouseGasComparisonsText"));
 		softAssert.assertEquals(general.getDashboardPanelSelectionText.getText(), prop.getProperty("SettingsGeneralDashboardPanelSelectionsText"));
-		
 		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
 		softAssert.assertEquals(general.getdataRetention().getAttribute("value"), prop.getProperty("SettingsGeneralDataRetention"));
 		softAssert.assertEquals(general.getcheckInterval().getAttribute("value"), prop.getProperty("SettingsGeneralCheckInInterval"));
 		softAssert.assertEquals(general.getunlicensedAfter().getAttribute("value"), prop.getProperty("SettingsGeneralUnlicenseAfterDays"));
 		softAssert.assertEquals(general.getshowUnlicensedFor().getAttribute("value"), prop.getProperty("SettingsGeneralShowUnlicensedForDays"));
-		
 		softAssert.assertEquals(general.getEnergyCost().getAttribute("value"), prop.getProperty("SettingsGeneralEnergyCost"));
 		softAssert.assertEquals(general.getCo2().getAttribute("value"), prop.getProperty("SettingsGeneralEnergyCO2"));
 		softAssert.assertEquals(general.getGreenPower().getAttribute("value"), prop.getProperty("SettingsGeneralGreenEnergy"));
 		
 		//Preferred Equivalent
-
+	
 		softAssert.assertEquals(general.getPreferedEquilent().getText(), prop.getProperty("SettingsGeneralBarrelsofOilConsumedinOneYear"));
 		general.getPreferedEquilent().click();
+
 		softAssert.assertEquals(general.PreferdEquilentDropdownOptions(), general.getPreferdEquilentDropdownOptionsVerify(prop));
 		
 		general.PreferdEquilentDropdownOptionsElements().get(0).click();

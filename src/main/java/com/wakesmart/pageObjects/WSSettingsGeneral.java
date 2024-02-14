@@ -18,25 +18,25 @@ public class WSSettingsGeneral {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "(//ul[@class='MuiList-root MuiList-padding MuiList-subheader css-p64g7a-MuiList-root'])[2]/a[1]")
+	@FindBy(xpath = "(//ul[@class='MuiList-root MuiList-padding MuiList-subheader css-19o40po'])[2]/a[1]")
 	public WebElement getGeneral;
 
-	@FindBy(xpath = "//div[@class='MuiCardHeader-content css-1qbkelo-MuiCardHeader-content']/span")
+	@FindBy(xpath = "//div[@class='MuiCardHeader-content css-11qjisw']/span")
 	public WebElement getGeneralSettingsText;
 
-	@FindBy(xpath = "//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1rf1nql-MuiGrid-root']/p")
+	@FindBy(xpath = "//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-lmldiz']/p")
 	public WebElement getSystemOptionsText;
 
-	@FindBy(xpath = "(//div[@class='MuiCardHeader-content css-1qbkelo-MuiCardHeader-content'])[2]")
+	@FindBy(xpath = "(//div[@class='MuiCardHeader-content css-11qjisw'])[2]")
 	public WebElement getGeneralSettingsBoxText;
 
-	@FindBy(xpath = "(//div[@class='MuiCardHeader-content css-1qbkelo-MuiCardHeader-content'])[3]")
+	@FindBy(xpath = "(//div[@class='MuiCardHeader-content css-11qjisw'])[3]")
 	public WebElement getEnergyValuesText;
 
-	@FindBy(xpath = "(//div[@class='MuiCardHeader-content css-1qbkelo-MuiCardHeader-content'])[4]")
+	@FindBy(xpath = "(//div[@class='MuiCardHeader-content css-11qjisw'])[4]")
 	public WebElement getGreenhouseGasComparisonsText;
 
-	@FindBy(xpath = "(//div[@class='MuiCardHeader-content css-1qbkelo-MuiCardHeader-content'])[5]")
+	@FindBy(xpath = "(//div[@class='MuiCardHeader-content css-11qjisw'])[6]")
 	public WebElement getDashboardPanelSelectionText;
 
 	By devicesToShow = By.xpath("//input[@name='showRows']");
@@ -88,11 +88,11 @@ public class WSSettingsGeneral {
 
 	// Green house gas comparisons
 	By PreferedEquilent = By.xpath("//div[@id='mui-component-select-equivalentId']");
-	By PreferdEquilentDropdownOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list']//li");
+	By PreferdEquilentDropdownOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']//li");
 	By PreferedAvoidance = By.xpath("//div[@id='mui-component-select-avoidanceId']");
-	By PreferedAvoidanceDropdownOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list']//li");
+	By PreferedAvoidanceDropdownOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']//li");
 	By PreferredSequestration = By.xpath("//div[@id='mui-component-select-sequesteredId']");
-	By PreferredSequestrationDropdownOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list']//li");
+	By PreferredSequestrationDropdownOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']//li");
 
 	public WebElement getPreferedEquilent() {
 		return driver.findElement(PreferedEquilent);
@@ -248,7 +248,7 @@ public class WSSettingsGeneral {
 		return  driver.findElement(AlwaysShowUnlicensedDevicesToggleEnabled);
 	}
 	
-	By AlwaysShowUnlincedButton = By.xpath("//span[@class='MuiSwitch-thumb css-jsexje-MuiSwitch-thumb']");
+	By AlwaysShowUnlincedButton = By.xpath("//span[@class='MuiSwitch-thumb css-19gndve']");
 	
 	public WebElement getAlwaysShowUnlincedButton() {
 		return driver.findElement(AlwaysShowUnlincedButton);

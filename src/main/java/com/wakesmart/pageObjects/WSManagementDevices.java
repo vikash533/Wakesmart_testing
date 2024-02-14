@@ -129,8 +129,8 @@ public WebDriver driver;
 //	}
 //	
 	
-	 By DevicesList = By.xpath("(//div[@role='presentation'])/div/div/div/div[3]/div");
-	
+//	 By DevicesList = By.xpath("(//div[@role='presentation'])/div/div/div/div[3]/div");
+	 By DevicesList = By.xpath("//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/child::div/child::div[2]");
 	 @FindBy(xpath = "//button[@title='Go to next page']")
 	 public WebElement GoToNextPage;
 	 
@@ -208,7 +208,7 @@ public WebDriver driver;
 		
 		public List<String> getRightClickOptionVerify() {
 			List<WebElement> list = driver.findElements(RightClickOptionVerify);
-			
+			System.out.println("Right click options are "+list);
 			return list.stream().map(WebElement::getText).collect(Collectors.toList());
 		}
 		
