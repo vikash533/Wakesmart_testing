@@ -5,6 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
+
 public class WSSettingsSecurity {
 	public WebDriver driver;
 	
@@ -12,7 +16,7 @@ public class WSSettingsSecurity {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath = "//a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected css-m92ebk']")
+	@FindBy(xpath = "(//ul[@class='MuiList-root MuiList-padding MuiList-subheader css-19o40po'])[2]/a[2]")
 	public WebElement getSecurity;
 	
 	@FindBy(xpath="//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-en0w5h']")
@@ -54,9 +58,21 @@ public class WSSettingsSecurity {
 	@FindBy(xpath="((//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye'])[1]//input)[9]")
 	public WebElement getRequireSpecialCharacter;
 	
-	@FindBy(xpath="((//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye'])[1]//input)[9]")
+	@FindBy(xpath="((//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye'])[1]//input)[10]")
 	public WebElement getSpecialCharacter;
 	
 	@FindBy(xpath="((//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye'])[2])//div/span")
 	public WebElement getEnableAutoUpgrade;
+	@FindBy(xpath="((//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye'])[2])//div/div[@class='MuiFormControl-root css-1426l2u']")
+	public WebElement getAutoUpgradeVersion;
+	@FindBy(xpath="//div[@class='MuiBox-root css-14mw2gw']//button[1]/span[@class='MuiTouchRipple-root css-w0pj6f']")
+	public WebElement getsaveButton;
+	
+	By AutoUpgradeVersionDropdown= By.xpath("MuiList-root MuiList-padding MuiMenu-list css-r8u8y9");
+	
+	public List<WebElement> getAutoUpgradeVersionDropdown() {
+		return driver.findElements(AutoUpgradeVersionDropdown);
+		
+	}
+	
 }
