@@ -38,7 +38,7 @@ public class WSLoginPageTest extends BaseClass {
 	@AfterClass
 	public void tearDown() {
 		if (driver != null) {
-			driver.quit();
+		driver.quit();
 		}
 	}
 
@@ -184,5 +184,35 @@ public class WSLoginPageTest extends BaseClass {
 		softAssert.assertEquals(actualColor,  prop.getProperty("loginButtonHEXvalue"));
 		softAssert.assertAll();
 		
+	}
+	
+	@Test(dependsOnMethods= {"validUserLogin"},priority = 12, groups= {"Smoke"},enabled=true)
+	public void userLoginAfterPasswordChange() throws InterruptedException {
+		softAssert = new SoftAssert();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		action.JSClick(driver, homepage.getAccountSettingsIcon());
+		action.JSClick(driver, homepage.getAccountSettings());
+		action.click(driver, homepage.getChangePasswordButton());
+		action.explicitWait(driver, homepage.getOldChangePassword(), 20);
+		action.type(homepage.getOldChangePassword(),prop.getProperty("ValidPassword"));
+		System.out.println(prop.getProperty("ChangedValidPassword"));
+		action.type(homepage.getNewPassword(), prop.getProperty("ChangedValidPassword"));
+		action.type(homepage.getConfirmPassword(), prop.getProperty("ChangedValidPassword"));
+		action.JSClick(driver, homepage.getClickSaveButton());
+		
+		
+	}
+	@Test(dependsOnMethods= {"userLoginAfterPasswordChange"},priority = 12, groups= {"Smoke"},enabled=true)
+	public void loginWithChangedPassword() {
+		softAssert = new SoftAssert();
+		
+		action.type(indexpage.getUserName(), prop.getProperty("ValidUserName"));
+		action.type(indexpage.getPassWord(), prop.getProperty("ChangedValidPassword"));
+		action.JSClick(driver, indexpage.getLogin());
 	}
 }

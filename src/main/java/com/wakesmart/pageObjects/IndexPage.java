@@ -40,12 +40,10 @@ public class IndexPage extends BaseClass {
 	By LoginFormColor = By.xpath("//div[@class='MuiBox-root css-1arlb8v']");
 	By LoginDialougeTitle = By.xpath("//h2[@class='MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-14zc97g']");
 	By ForgotPassword = By.xpath("//label[@id='forgotline']");
-	By EmailIDForReset = By.xpath("//input[@id='olduserPwd']");
+	By EmailIDForReset = By.xpath("//input[@id=':r1:']");
 	By PopupCloseIcon = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");
 	By OrganizationManagementHeaderText = By.xpath("//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-en0w5h']");
 	By OrganizationTableHeader = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-lmldiz']/p");
-
-	
 	
 	
 	public WebElement getOrganizationManagementHeaderText() {
@@ -71,6 +69,7 @@ public class IndexPage extends BaseClass {
 	public WebElement getForgotPassword() {
 		return driver.findElement(ForgotPassword);
 	}
+	
 
 	public WebElement getLoginDialougeTitle() {
 		return driver.findElement(LoginDialougeTitle);

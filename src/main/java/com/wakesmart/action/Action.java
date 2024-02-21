@@ -814,7 +814,7 @@ public class Action extends BaseClass {
 	}
 	
 	public void implicitWait(WebDriver driver, int timeOut) {
-		driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeOut));
 
 	}
 
@@ -822,5 +822,14 @@ public class Action extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
+
+	public  void moveToElementClickClearAndSendValue(WebDriver driver, WebElement element, String value) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().build().perform();
+
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].value = '';", element);
+        jsExecutor.executeScript("arguments[0].value = arguments[1];", element, value);
+    }
 
 }

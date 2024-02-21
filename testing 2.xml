@@ -6,7 +6,8 @@
 		<class name="com.wakesmart.testcases.WSLoginPageTest">
 			<methods>
 				<include name="validUserLogin"/>
-				<include name="userLogout"/>
+				<include name="userLoginAfterPasswordChange"/>
+				<include name="loginWithChangedPassword"/>
 			</methods>
 		</class>
 	</classes>
