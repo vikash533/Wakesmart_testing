@@ -91,7 +91,7 @@ public class WSForgotPassword extends BaseClass {
 	}
 	@Test(priority=4,dependsOnMethods = {"forgotFunctionality"})
 	public void validateInvalidFormatEmail() {
-		action.type(forgotpasswordpage.getForgotPasswordUsernameTextfield(), prop.getProperty("ValidForgotUsername"));
+//		action.type(forgotpasswordpage.getForgotPasswordUsernameTextfield(), prop.getProperty("ValidForgotUsername"));
 		action.type(forgotpasswordpage.getForgotPasswordEmailTextfield(), prop.getProperty("InValidForgotEmail"));
 		action.click(driver,forgotpasswordpage.getsbubmitButton() );
 		System.out.println(forgotpasswordpage.getErrorMsgInvalidEmail().getText());
