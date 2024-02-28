@@ -831,5 +831,43 @@ public class Action extends BaseClass {
         jsExecutor.executeScript("arguments[0].value = '';", element);
         jsExecutor.executeScript("arguments[0].value = arguments[1];", element, value);
     }
+	public String[] getMonthYear(String monthYearVal) {
+		return monthYearVal.split(" ");
+	}
 
+	 public void selectDateFromCalendar(WebDriver driver, WebElement monthYearElement, WebElement nextButton, List <WebElement> dayElements, String desiredDay, String desiredMonth, String desiredYear) throws InterruptedException  {
+	        String currentMonthYearValue = monthYearElement.getText();
+	        String[] currentMonthYear = getMonthYear(currentMonthYearValue);
+
+	        while (!(currentMonthYear[0].equalsIgnoreCase(desiredMonth) && currentMonthYear[1].equalsIgnoreCase(desiredYear))) {
+	            nextButton.click();
+	            currentMonthYearValue = monthYearElement.getText();
+	            currentMonthYear = getMonthYear(currentMonthYearValue);
+	        }
+	        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfAllElements(monthYearElement));
+	        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfAllElements(dayElements));
+	        System.out.println(dayElements.size());    
+	        for(WebElement day:dayElements) {
+	        	Thread.sleep(4000);
+	        String date = day.getText();
+	        System.out.println(date);
+	        	if(day.equals(desiredDay)) {
+	        		day.click();
+	        	}
+	        }
+	 }
+	 public void NavigationHelperBack(WebDriver driver) {
+		 driver.navigate().back();
+	 }
+	 public void navigateForward(WebDriver driver) {
+	        driver.navigate().forward();
+	    }
+	 public void refreshPage(WebDriver driver) {
+	        driver.navigate().refresh();
+	    }
+	 public String getElementvalueusingJS(WebDriver driver,WebElement element) {
+		 // Use JavaScript to get the text of the element
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        return (String) jsExecutor.executeScript("return arguments[0].innerText;", element);
+    }
 }
