@@ -61,8 +61,9 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 		softAssert.assertEquals(automation.getAddNewRuleText().getText(), prop.getProperty("GroupAddNewpolicyText"));
 		
 		orderNum = automation.getOrderDropdown();
-		
+		System.out.println(orderNum);
 		action.type(automation.getGroupRuleName(), prop.getProperty("GroupRuleName"));
+		
 		action.type(automation.getGroupRuleDescription(), prop.getProperty("GroupRuleDescription"));
 		action.click(driver, automation.getGroupSelectDropdown());
 

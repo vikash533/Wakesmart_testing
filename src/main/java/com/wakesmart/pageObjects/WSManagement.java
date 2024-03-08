@@ -49,8 +49,8 @@ public class WSManagement extends BaseClass{
 	By PoliciesSchemeName = By.xpath("(//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1pwda69'])[2]/h2");
 	By SchemeName = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1s50f5r'])[1]/div/div/input");
 	
-	By NewSchemeName = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[3]");
-	By NewSchemeDescription = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[4]");
+	By NewSchemeName = By.xpath("(//div[@class='MuiDialogContent-root css-1ws0q2s']//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1smm1i5'])[1]");
+	By NewSchemeDescription = By.xpath("(//div[@class='MuiDialogContent-root css-1ws0q2s']//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1smm1i5'])[2]");
 	By WeekDaysCheckBox = By.xpath("(//div[@class='MuiBox-root css-1yuhvjn'])/div/label/span[1]");
 	By NewSchemeStartTime = By.xpath("(//div[@class='MuiBox-root css-1qm1lh'])/div/div[1]/input");
 	
@@ -369,7 +369,7 @@ public class WSManagement extends BaseClass{
 	By AddGroupButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-sm-3 MuiGrid-grid-md-3 css-9ppe9d'])//button");
 	By IsParentCheckBox = By.xpath("(//div[@class='MuiBox-root css-0'])/label/span[1]");
 	By GroupCreatedNameVerify = By.xpath("//li[@role='listitem']/ul/li/div/div[2]/p");
-	By GroupEditButton = By.xpath("(//div[@class='MuiBox-root css-19hvn7'])/button[2]");
+	By GroupEditButton = By.xpath("(//div[@class='MuiBox-root css-1n30axn'])/button[2]");
 	By ParentGroupDropDown = By.xpath("(//div[@class='MuiFormControl-root css-6oszqx'])/div/div");
 	By ParentGroupDropDownList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li");
 	By ArrowDownInTable= By.xpath("(//div[@class='tree-node CustomNode_root__6RKGp'])[1]/div[1]/span");

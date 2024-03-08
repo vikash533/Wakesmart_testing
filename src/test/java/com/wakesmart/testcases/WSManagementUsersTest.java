@@ -17,7 +17,7 @@ import com.wakesmart.pageObjects.WSUsers;
 /*
 Updated as per the new UI **07**
  										*/
-public class WSUsersTest extends BaseClass {
+public class WSManagementUsersTest extends BaseClass {
 
 	public WebDriver driver;
 	private IndexPage indexpage;

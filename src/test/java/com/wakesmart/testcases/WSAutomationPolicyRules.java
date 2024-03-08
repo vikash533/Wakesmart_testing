@@ -104,8 +104,9 @@ public class WSAutomationPolicyRules extends BaseClass{
 		automation.getEditGroupRules(orderNum);
 		action.click(driver, automation.getEnabledCheckBox());
 		action.JSClick(driver, automation.getSubmitBtn());
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
 		action.fluentWait(driver, automation.getAlertConfirmationMessage());
+		System.out.println(automation.getAlertConfirmationMessage().getText());
 		softAssert.assertEquals(automation.getAlertConfirmationMessage().getText(), prop.getProperty("UpdationPopupConfirmation"));
 		action.click(driver, indexpage.getPopupCloseIcon());
 		

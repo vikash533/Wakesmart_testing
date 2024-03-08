@@ -38,7 +38,7 @@ public class WSPermissionManagementTest  extends BaseClass{
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass(enabled=false)
+	@AfterClass(enabled=true)
 	public void tearDown() {
 	        driver.quit();
 	}
@@ -72,10 +72,24 @@ public class WSPermissionManagementTest  extends BaseClass{
 		
 		action.click(driver, permission.getorgAdminCheckBox());
 		action.click(driver, permission.getchooseUsersDropdown());
-		
-		// pending
-		
-		
+		permission.getChoseUsers(prop.getProperty("ManagementAddNewPermissionGroup"));
+		action.click(driver, permission.getAddNewPermissionGroupPopupText());
+		action.JSClick(driver,permission.getEditGroupPermissionButton());
+		action.scrollByVisibilityOfElement(driver, permission.getEditGroupPermissionGroupName());
+		String editedGroupName = permission.getEditGroupPermissionGroupName().getText();
+		System.out.println("----->"+editedGroupName);
+		permission.clickEditGroupPermissionGroupNameCheckbox(driver);
+		action.JSClick(driver, permission.getEditGroupPermissionCancelButton());
+		action.JSClick(driver,permission.getEditGroupPermissionButton());
+		action.scrollByVisibilityOfElement(driver, permission.getEditGroupPermissionGroupName());
+		permission.clickEditGroupPermissionGroupNameCheckboxSingleTime(driver);
+		action.JSClick(driver, permission.getEditGroupPermissionSaveButton());
+		action.JSClick(driver, permission.getAddNewPermissionGroupSubmitButton());
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(),prop.getProperty("CreatedMessageOnPopUp"));
+		permission.PermissionGroupNameVerify(driver,prop.getProperty("ManagementPermissonGroupName"));
+		action.fluentWait(driver, indexpage.getErrorMsg());
+//		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ManagementPermissonGroupDeletePopup"));
 		softAssert.assertAll();
 		
 		

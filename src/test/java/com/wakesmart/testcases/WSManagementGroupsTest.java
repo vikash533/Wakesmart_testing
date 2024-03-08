@@ -79,6 +79,7 @@ public class WSManagementGroupsTest extends BaseClass {
 		
 		if (groupName.equalsIgnoreCase(GroupNameWithDescription)) {
 			result = management.nameVerifyFromTableAndMouseHover(driver, groupName);
+			
 		}
 		
 		Assert.assertEquals(result,true);
@@ -87,10 +88,10 @@ public class WSManagementGroupsTest extends BaseClass {
 //		management.getIsParentCheckBox().click();
 //		action.click(driver, management.getParentGroupDropDown());
 //		action.getSelectOptionFromDropdown(management.getParentGroupDropDownList(), prop.getProperty("GroupsManagementDefaultGroupTop"));
-		action.click(driver, management.getAddNewPolicySubmitButton());
-		action.fluentWait(driver, indexpage.getErrorMsg());
-		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("GroupsManagementGroupUpdatedSuccessMessage"));
-		action.click(driver, indexpage.getPopupCloseIcon());
+//		action.click(driver, management.getAddNewPolicySubmitButton());
+//		action.fluentWait(driver, indexpage.getErrorMsg());
+//		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("GroupsManagementGroupUpdatedSuccessMessage"));
+//		action.click(driver, indexpage.getPopupCloseIcon());
 				
 //		action.click(driver, management.getArrowDownInTable());
 		

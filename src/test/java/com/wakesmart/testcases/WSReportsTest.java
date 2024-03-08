@@ -51,7 +51,10 @@ public class WSReportsTest extends BaseClass {
 		
 		String BatteryHealth = action.getElementvalueusingJS(driver, report.getBatteryHealthIcon());
 		String AssetInventory = action.getElementvalueusingJS(driver, report.getAssetInventoryIcon());
-		String DeviceType = action.getElementvalueusingJS(driver, report.getDeviceTypeIcon());
+		action.scrollByVisibilityOfElement(driver, report.getAssetInventoryIcon());
+		action.fluentWait(driver, report.getDeviceTypeIcon());
+		String DeviceType = action.getElementValue(driver, report.getDeviceTypeIcon());
+		System.out.println("------->"+DeviceType);
 		String LicenseSummary = action.getElementvalueusingJS(driver, report.getLicenseSummaryIcon());
 		String PolicySummary = action.getElementvalueusingJS(driver, report.getPolicySummaryIcon());
 		String GroupSummary = action.getElementvalueusingJS(driver, report.getGroupSummaryIcon());

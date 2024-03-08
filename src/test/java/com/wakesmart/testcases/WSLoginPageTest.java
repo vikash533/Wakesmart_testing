@@ -207,10 +207,9 @@ public class WSLoginPageTest extends BaseClass {
 		
 		
 	}
-	@Test(dependsOnMethods= {"userLoginAfterPasswordChange"},priority = 12, groups= {"Smoke"},enabled=true)
+	@Test(dependsOnMethods= {"validUserLogin","userLoginAfterPasswordChange"},priority = 13, groups= {"Smoke"},enabled=true)
 	public void loginWithChangedPassword() {
 		softAssert = new SoftAssert();
-		
 		action.type(indexpage.getUserName(), prop.getProperty("ValidUserName"));
 		action.type(indexpage.getPassWord(), prop.getProperty("ChangedValidPassword"));
 		action.JSClick(driver, indexpage.getLogin());

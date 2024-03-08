@@ -161,7 +161,7 @@ public class WSReports extends BaseClass {
 	}
 	
 	
-	By DeviceTypeIcon = By.xpath("((//div[@class='MuiList-root css-1xidfkz']/a)[3]/div)[2]");
+	By DeviceTypeIcon = By.xpath("//div[@class='MuiList-root css-1xidfkz']/a[3]//p");
 	public WebElement getDeviceTypeIcon() {
 		return driver.findElement(DeviceTypeIcon);
 	}

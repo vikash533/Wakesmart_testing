@@ -870,4 +870,8 @@ public class Action extends BaseClass {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         return (String) jsExecutor.executeScript("return arguments[0].innerText;", element);
     }
+	 public String getElementValue(WebDriver driver,WebElement element) {
+		return element.getText();
+		 
+	 }
 }

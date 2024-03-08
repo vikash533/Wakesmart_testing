@@ -29,17 +29,17 @@ public class WSAutomationPage extends BaseClass{
 	By AddRuleButton = By.xpath("//button[normalize-space()='Add Rule']");
 	By AddNewRuleText = By.xpath("(//h2[normalize-space()='Add New Rule'])[1]");
 	By GroupRuleName = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1nj3ori'])[1]/input");
-	By GroupRuleDescription = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[2]");
-	By GroupSelectDropdown = By.xpath("(//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-i9cdv9'])[1]");
-	By SelectGroupDowndown = By.xpath("//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters css-1e9knfh']");
+	By GroupRuleDescription = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1smm1i5'])[2]");
+	By GroupSelectDropdown = By.xpath("(//div[@class='MuiFormControl-root css-1r2ur5m']//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-r72j9k'])[1]");
+	By SelectGroupDowndown = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']//li");
 	By AttributeValue = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']//li");
 	By OperatorDropdown = By.xpath("//div[@id='mui-component-select-operator']");
 	By OperatorDropdownValue = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])//li");
-	By OpeartorValue = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[3]");
+	By OpeartorValue = By.xpath("//input[@name='value']");
 	By AddClauseButton = By.xpath("//button[normalize-space()='Add Clause']");
 	By AttributeSecond = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8'])[6]/div");
 	By OperatorDropdownSecond = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8'])[7]/div");
-	By GroupValueSecond = By.xpath("(//input[@class='MuiInputBase-input MuiOutlinedInput-input css-1h6yp7j'])[4]");
+	By GroupValueSecond = By.xpath("(//input[@name='value'])[2]");
 	By AndORDropdown = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-1doag2i'])[3]/div");
 	By AndOrList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li");
 	By SubmitBtn = By.xpath("//button[normalize-space()='Submit']");
@@ -147,7 +147,11 @@ public void getCraetedPolicyRuleVerifyAfterMod(String OrderNum, SoftAssert asser
 	String RuleOrder = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[4]")).getText();
 	String RuleGroup = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[5]")).getText();
 	String RuleSummary = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[2]/table/tbody/tr["+OrderNum+"]/td[6]")).getText();
-	
+//	System.out.println("RuleName--->"+RuleName);
+//	System.out.println("RuleEnabled--->"+RuleEnabled);
+//	System.out.println("RuleOrder--->"+RuleOrder);
+//	System.out.println("RuleGroup---->"+RuleGroup);
+//	System.out.println("RuleSummary---->"+RuleSummary);
 	asserts.assertEquals(RuleName, prop.getProperty("NewPolicyName"),"Mismatch in the Group Rule name");
 	asserts.assertEquals(RuleDescription, prop.getProperty("NewPolicyDescription"),"Mismatch in the Group Rule name");
 	asserts.assertEquals(RuleEnabled, prop.getProperty("GroupRuleEnabledAfterYes"),"Mismatch in the Group Rule enabled");
