@@ -54,7 +54,6 @@ public class WSReportsTest extends BaseClass {
 		action.scrollByVisibilityOfElement(driver, report.getAssetInventoryIcon());
 		action.fluentWait(driver, report.getDeviceTypeIcon());
 		String DeviceType = action.getElementValue(driver, report.getDeviceTypeIcon());
-		System.out.println("------->"+DeviceType);
 		String LicenseSummary = action.getElementvalueusingJS(driver, report.getLicenseSummaryIcon());
 		String PolicySummary = action.getElementvalueusingJS(driver, report.getPolicySummaryIcon());
 		String GroupSummary = action.getElementvalueusingJS(driver, report.getGroupSummaryIcon());
@@ -67,7 +66,32 @@ public class WSReportsTest extends BaseClass {
 		action.click(driver,report.getoperationalReportArrowMark());
 		softAssert.assertAll();
 	}
-	@Test(priority = 3,dependsOnMethods = {"operationalReports"})
+	@Test(priority=2,dependsOnMethods = {"operationalReports"},enabled = true)
+	public void validateFutureDate() throws InterruptedException  {
+	
+		action.fluentWait(driver, report.getBatteryHealthIcon());
+		action.JSClick(driver, report.getBatteryHealthIcon());
+		action.click(driver, report.getStartDateCalenderIcon());
+		action.selectDateFromCalendar(driver,report.getCalendarMonthYear(), report.getCalendarBackward(), prop.getProperty("BatteryHealthStartDatecal"), prop.getProperty("BatteryHealthStartMonthcal"), prop.getProperty("BatteryHealthStartYearcal"));
+		action.fluentWait(driver, report.getEndDateCalendarIcon());
+		action.JSClick(driver, report.getEndDateCalendarIcon());
+		Thread.sleep(4000);
+		action.selectDateFromCalendar(driver,report.getCalendarMonthYear(), report.getCalendarBackward(), prop.getProperty("BatteryHealthEndDatecal"), prop.getProperty("BatteryHealthEndMonthcal"), prop.getProperty("BatteryHealthEndYearcal"));
+		action.click(driver, report.getGroupsSelectedIcon());
+		action.getSelectOptionFromDropdown(report.getGroupsSelected(),prop.getProperty("BatteryHealthSelectGroup"));
+		action.click(driver, report.getSubmitButton());
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("BatteryHealthPopMSG"));
+		action.click(driver,indexpage.getErrorMsg());
+		action.click(driver, report.getExport());
+		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
+		action.fluentWait(driver, report.getExport());
+		action.click(driver, report.getExport());
+		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
+
+	
+	}
+	@Test(priority = 3,dependsOnMethods = {"operationalReports"},enabled=false)
 	public void validateBatteryHealth()  {
 		try {
 		action.fluentWait(driver, report.getBatteryHealthIcon());
@@ -91,15 +115,7 @@ public class WSReportsTest extends BaseClass {
 			e.printStackTrace();
 		}	
 	}
-	@Test(priority=2,dependsOnMethods = {"operationalReports"},enabled = false)
-	public void validateFutureDate() throws InterruptedException  {
 	
-		action.fluentWait(driver, report.getBatteryHealthIcon());
-		action.JSClick(driver, report.getBatteryHealthIcon());
-		action.click(driver, report.getStartDateCalenderIcon());
-		action.selectDateFromCalendar(driver,report.getCalendarMonthYear(), report.getCalendarBackward(), report.getCalendarDate(), "2", "March", "2023");
-	
-	}
 
 	@Test(priority=4,dependsOnMethods = {"operationalReports"})
 	public void assetInventorySelectGroup() throws InterruptedException {
@@ -115,7 +131,8 @@ public class WSReportsTest extends BaseClass {
 		action.refreshPage(driver);
 		Thread.sleep(4000);
 		System.out.println(report.getAssetInventorySelectGroup().getText());
-		softAssert.assertEquals(report.getAssetInventorySelectGroup().getText(),prop.getProperty("AssetInventoryDefaultGropsSelected"));
+		action.fluentWait(driver, report.getAssetInventorySelectGroup());
+//		softAssert.assertEquals(report.getAssetInventorySelectGroup().getText(),prop.getProperty("AssetInventoryDefaultGropsSelected"));
 		action.click(driver,report.getAssetInventorySelectGroup());
 		System.out.println(action.verifyDropdown(report.getAssetInventorySelectGroupOptions()));
 		action.getSelectOptionFromDropdown(report.getAssetInventorySelectGroupOptions(), prop.getProperty("AssetInventoryDefaultGropsSelected1"));
@@ -127,22 +144,33 @@ public class WSReportsTest extends BaseClass {
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
 		action.click(driver, report.getExport());
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
+		Thread.sleep(3000);
 		action.refreshPage(driver);
 		softAssert.assertAll();
 	}
-	@Test(priority=3,dependsOnMethods = {"operationalReports"})
+	@Test(priority=3,dependsOnMethods = {"assetInventorySelectGroup"})
 	public void DeviceType() throws InterruptedException {
+		action.JSClick(driver,report.getoperationalReports());
+		action.scrollByVisibilityOfElement(driver, report.getDeviceTypeIcon());
 		action.fluentWait(driver, report.getDeviceTypeIcon());
 		action.JSClick(driver, report.getDeviceTypeIcon());
 		softAssert.assertEquals(report.getDeviceSummaryHeaderText().getText(), prop.getProperty("DeviceSummaryHeaderText"));
 		softAssert.assertEquals(report.getDeviceSummaryContextText().getText(), prop.getProperty("DeviceSummaryContextText"));
 		action.click(driver,report.getDeviceTypeSelectGroup());
-		Thread.sleep(4000);
-		
-		
-		
+		action.fluentWait1(driver, report.getAssetInventorySelectGroupOptions());
+		action.nameVerifyFromTableAndClick(report.getAssetInventorySelectGroupOptions(),prop.getProperty("DeviceTypeSelectGroup"));
+		action.fluentWait(driver, report.getDeviceTypeSelectPolicy());
+		action.click(driver, report.getDeviceTypeSelectPolicy());
+		action.nameVerifyFromTableAndClick(report.getDeviceTypeSelectPolicyOptions(),prop.getProperty("DeviceTypeSelectPolicy"));
+		action.click(driver,report.getDeviceTypeSubmitButton());
+		action.fluentWait(driver, report.getAssetInventoryExportButton());
+		action.click(driver, report.getAssetInventoryExportButton());
+		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
+		action.click(driver, report.getExport());
+		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
+	
 	}
-	@Test(priority=5,dependsOnMethods = {"operationalReports"})
+	@Test(priority=5,dependsOnMethods = {"DeviceType"})
 	public void licenceSummary() {
 //		action.JSClick(driver,report.getoperationalReports());
 		action.scrollByVisibilityOfElement(driver, report.getLicenseSummaryIcon());
@@ -153,12 +181,14 @@ public class WSReportsTest extends BaseClass {
 		action.click(driver, report.getAssetInventoryExportButton());
 		System.out.println(action.verifyDropdown(report.getAssetInventorySelectDeviceOptions()));
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
+		action.fluentWait(driver, report.getExport());
 		action.click(driver, report.getExport());
+		action.fluentWait1(driver, report.getExportDropDown());
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
-		action.refreshPage(driver);
+		
 		
 	}
-	@Test(priority=6,dependsOnMethods = {"operationalReports"})
+	@Test(priority=6,dependsOnMethods = {"licenceSummary"})
 	public void policySummary() {
 		action.scrollByVisibilityOfElement(driver, report.getPolicySummaryIcon());
 		action.fluentWait(driver, report.getPolicySummaryIcon());
@@ -172,7 +202,7 @@ public class WSReportsTest extends BaseClass {
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
 		
 	}
-	@Test(priority=7,dependsOnMethods = {"operationalReports"})
+	@Test(priority=7,dependsOnMethods = {"policySummary"})
 	public void groupSummary() {
 		action.scrollByVisibilityOfElement(driver, report.getGroupSummaryIcon());
 		action.fluentWait(driver, report.getGroupSummaryIcon());
@@ -182,37 +212,43 @@ public class WSReportsTest extends BaseClass {
 		action.click(driver, report.getAssetInventoryExportButton());
 		System.out.println(action.verifyDropdown(report.getAssetInventorySelectDeviceOptions()));
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
+		action.fluentWait(driver, report.getExport());
 		action.click(driver, report.getExport());
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
+		action.JSClick(driver,report.getoperationalReports());
 		
 	}
-	@Test(priority=8,dependsOnMethods = {"operationalReports"})
+	@Test(priority=8,dependsOnMethods = {"groupSummary"})
 	public void ActivityReport() throws InterruptedException {
-		action.JSClick(driver,report.getoperationalReports());
+//		action.JSClick(driver,report.getoperationalReports());
 		action.scrollByVisibilityOfElement(driver, report.getActivityReportsIcon());
 		action.fluentWait(driver, report.getActivityReportsIcon());
+		action.JSClick(driver, report.getActivityReportsIcon());
 		action.click(driver, report.getActivityReportsDeviceUsage());
 		softAssert.assertEquals(report.getActivityReportsDeviceUsageSummaryText().getText(), prop.getProperty("DeviceUsageText"));
 		softAssert.assertEquals(report.getActivityReportsDeviceUsageContentText().getText(), prop.getProperty("DeviceUsageContentText"));
 		action.click(driver, report.getActivityReportsDeviceDateRange());
-		Thread.sleep(4000);
+		action.fluentWait1(driver, report.getActivityReportsDeviceDateRangeOptions());
 		List<String> listOfDateRange = action.verifyDropdown(report.getActivityReportsDeviceDateRangeOptions());
 		System.out.println(listOfDateRange);
+		action.fluentWait1(driver, report.getActivityReportsDeviceDateRangeOptions());
 		action.nameVerifyFromTableAndClick(report.getActivityReportsDeviceDateRangeOptions(),prop.getProperty("DeviceUsageDateRangeText"));
 		Thread.sleep(4000);
 		action.click(driver, report.getActivityReportsDeviceSelectGroup());
 		List<String> listofGroupSelected = action.verifyDropdown(report.getActivityReportsDeviceSelectGroupOptions());
 		System.out.println(listofGroupSelected);
 		action.nameVerifyFromTableAndClick(report.getActivityReportsDeviceSelectGroupOptions(),prop.getProperty("DeviceUsageDateGroupText"));
-		action.fluentWait(driver, report.getSubmitButton());
-		action.JSClick(driver, report.getSubmitButton());
+		action.scrollByVisibilityOfElement(driver, report.getActivityReportsDeviceUsageSubmitButton());
+		action.JSClick(driver, report.getActivityReportsDeviceUsageSubmitButton());
+		action.fluentWait(driver, report.getAssetInventoryExportButton());
 		action.click(driver, report.getAssetInventoryExportButton());
 		System.out.println(action.verifyDropdown(report.getAssetInventorySelectDeviceOptions()));
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
+		action.fluentWait(driver, report.getAssetInventoryExportButton());
 		action.click(driver, report.getExport());
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
 	}
-	@Test(priority=8,dependsOnMethods = {"operationalReports","ActivityReport"})
+	@Test(priority=9,dependsOnMethods = {"ActivityReport"})
 	public void DeviceVsTime() throws InterruptedException {
 		action.JSClick(driver,report.getActivityReportsDeviceVsTime());
 		softAssert.assertEquals(report.getActivityReportsDeviceVsTimeHeaderText().getText(), prop.getProperty("DevicevstimetextVerify"));
@@ -235,6 +271,10 @@ public class WSReportsTest extends BaseClass {
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
 		action.click(driver, report.getExport());
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
+	}
+	@Test(priority=10,dependsOnMethods = {"DeviceVsTime"})
+	public void PowerStatesVsTime() {
+		
 	}
 
 

@@ -812,6 +812,19 @@ public class Action extends BaseClass {
 		}
 
 	}
+	public void fluentWait1(WebDriver driver, List<WebElement> element) {
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20))
+				.pollingEvery(Duration.ofSeconds(1)).ignoring(Exception.class);
+		try {
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(element));
+
+		} catch (Exception e) {
+			wait.until(ExpectedConditions.visibilityOfAllElements(element));
+			e.printStackTrace();
+		}
+
+	}
 	
 	public void implicitWait(WebDriver driver, int timeOut) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeOut));
@@ -835,9 +848,10 @@ public class Action extends BaseClass {
 		return monthYearVal.split(" ");
 	}
 
-	 public void selectDateFromCalendar(WebDriver driver, WebElement monthYearElement, WebElement nextButton, List <WebElement> dayElements, String desiredDay, String desiredMonth, String desiredYear) throws InterruptedException  {
+	 public void selectDateFromCalendar(WebDriver driver, WebElement monthYearElement, WebElement nextButton, String desiredDay, String desiredMonth, String desiredYear) throws InterruptedException  {
 	        String currentMonthYearValue = monthYearElement.getText();
 	        String[] currentMonthYear = getMonthYear(currentMonthYearValue);
+	        List<String> days = new ArrayList<String>();
 
 	        while (!(currentMonthYear[0].equalsIgnoreCase(desiredMonth) && currentMonthYear[1].equalsIgnoreCase(desiredYear))) {
 	            nextButton.click();
@@ -845,14 +859,14 @@ public class Action extends BaseClass {
 	            currentMonthYear = getMonthYear(currentMonthYearValue);
 	        }
 	        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfAllElements(monthYearElement));
-	        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfAllElements(dayElements));
-	        System.out.println(dayElements.size());    
-	        for(WebElement day:dayElements) {
-	        	Thread.sleep(4000);
-	        String date = day.getText();
-	        System.out.println(date);
-	        	if(day.equals(desiredDay)) {
+	        List<WebElement> daysElements = driver.findElements(By.xpath("//div[@class='PrivatePickersSlideTransition-root MuiDayPicker-slideTransition css-1cnkspq']/div/div/button"));
+//	        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfAllElements(dayElements));
+	        System.out.println(daysElements.size());    
+	        for(WebElement day:daysElements) {
+	        	days.add(day.getText());
+	        	if(days.contains(desiredDay)) {
 	        		day.click();
+	        		break;
 	        	}
 	        }
 	 }

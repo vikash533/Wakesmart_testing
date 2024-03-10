@@ -16,7 +16,6 @@ public class WSReports extends BaseClass {
 	}
 	
 	By HeaderTitle = By.xpath("//span[normalize-space()='Reports']");
-//	By operationalReports = By.xpath("//p[normalize-space()='Operational Reports']");
 	By operationalReports = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiList-subheader css-19o40po'])[3]/div[1]");
 	By operationalReportArrowMark = By.xpath("(//*[name()='svg'][@class='icon icon-tabler icon-tabler-chevron-down'])[2]");
 	By ActivityReports = By.xpath("//p[normalize-space()='Activity Reports']");
@@ -25,26 +24,25 @@ public class WSReports extends BaseClass {
 	
 	//Battery Health
 	By BatteryHealthIcon = By.xpath("(//div[@class='MuiList-root css-1xidfkz']/a/div[2])[1]");
-//	By BatteryHealthText = By.xpath("//label[normalize-space()='Battery Health']");
 	By BatteryHealthPopUpHeader = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-lmldiz']/p");
 	By StartDateText = By.xpath("//label[normalize-space()='Start Date']");
 	By EndDateText = By.xpath("//label[normalize-space()='End Date']");
-//	By DateRangeText = By.xpath("//label[normalize-space()='Date Range']");
+
 	By GroupSelectedText = By.xpath("//label[normalize-space()='Select Group']");
 	By StartDateCalenderIcon = By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-feqhe6']/div/div/button)[1]");
 	By StartDate = By.xpath("//input[@id=':r0:']");
 	By EndDate= By.xpath("//input[@id=':r1:']");
 	By EndDateCalendarIcon= By.xpath("(//div[@class='MuiFormControl-root MuiTextField-root css-feqhe6']/div/div/button)[2]");
-//	By DateRange =By.xpath("//select[@id='spanSelector']");	
-	By GroupsSelectedIcon = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div)[1]");
+
+	By GroupsSelectedIcon = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-l4rh9y'])[2]/div");
 	By GroupsSelected = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
-	By SubmitButton = By.xpath("//button[@id=':r5:']");
+	By SubmitButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-l4rh9y'])[3]/button");
 	By Export = By.xpath("//button[@id='basic-button']");
 	By ExportDropDown = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
 	By CalendarBackward = By.xpath("(//div[@class='MuiPickersArrowSwitcher-root css-k008qs']/button)[1]");
 	By CalendarMonthYear = By.xpath("//div[@class='MuiPickersFadeTransitionGroup-root css-1bx5ylf']");
 	By CalendarForward = By.xpath("(//div[@class='MuiPickersArrowSwitcher-root css-k008qs']/button)[2]");
-	By CalendarDate =By.xpath("//div[@class='PrivatePickersSlideTransition-root MuiDayPicker-slideTransition css-1cnkspq']/div/div/button ");
+	By CalendarDate =By.xpath("//div[@class='PrivatePickersSlideTransition-root MuiDayPicker-slideTransition css-1cnkspq']/div/div/button/span");
 //	By CalendarDate =By.xpath("//div[@class='MuiDayPicker-weekContainer css-mvmu1r']/button[normalize-space()='18']");
 	By CalendarYearDropdown =By.xpath("//button[@aria-label='calendar view is open, switch to year view']//*[name()='svg']");
 	By NumberOfYear =By.xpath("//div[@class='MuiPickersFadeTransitionGroup-root MuiCalendarPicker-viewTransitionContainer css-1h73gvd']//button");
@@ -181,13 +179,17 @@ public class WSReports extends BaseClass {
 	public List<WebElement> getDeviceTypeSelectGroupOptions() {
 		return driver.findElements(DeviceTypeSelectGroupOptions);
 	}
-	By DeviceTypeSelectPolicy = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1fzlj8j'])[2]/div");
+	By DeviceTypeSelectPolicy = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-l4rh9y'])[1]/div");
 	public WebElement getDeviceTypeSelectPolicy() {
 		return driver.findElement(DeviceTypeSelectPolicy);
 	}
-	By DeviceTypeSelectPolicyOptions = By.xpath("(//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1fzlj8j'])[2]/div");
-	public WebElement getDeviceTypeSelectPolicyOptions() {
-		return driver.findElement(DeviceTypeSelectPolicyOptions);
+	By DeviceTypeSelectPolicyOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
+	public List<WebElement> getDeviceTypeSelectPolicyOptions() {
+		return driver.findElements(DeviceTypeSelectPolicyOptions);
+	}
+	By DeviceTypeSubmitButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-l4rh9y'])[2]/button");
+	public WebElement getDeviceTypeSubmitButton() {
+		return driver.findElement(DeviceTypeSubmitButton);
 	}
 	
 	
@@ -244,7 +246,7 @@ public class WSReports extends BaseClass {
 		return driver.findElement(ListOfPolicyText);
 	}
 	
-	By ActivityReportsIcon = By.xpath("//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected css-m92ebk']");
+	By ActivityReportsIcon = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-m92ebk'])[3]/div[2]");
 	public WebElement getActivityReportsIcon() {
 		return driver.findElement(ActivityReportsIcon);
 	}
@@ -276,6 +278,11 @@ public class WSReports extends BaseClass {
 	public List<WebElement> getActivityReportsDeviceSelectGroupOptions() {
 		return driver.findElements(ActivityReportsDeviceSelectGroupOptions);
 	}
+	By ActivityReportsDeviceUsageSubmitButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-l4rh9y'])[4]/button");
+	public WebElement getActivityReportsDeviceUsageSubmitButton() {
+		return driver.findElement(ActivityReportsDeviceUsageSubmitButton);
+	}
+	
 	
 	By ActivityReportsDeviceVsTime = By.xpath("(//div[@class='MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-c4sutr']//div[@class='MuiListItemText-root css-n5xu2x'])[2]");
 	public WebElement getActivityReportsDeviceVsTime() {
@@ -297,22 +304,42 @@ public class WSReports extends BaseClass {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	By ActivityReportsPowerstateVsTime = By.xpath("(//div[@class='MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-c4sutr']//div[@class='MuiListItemText-root css-n5xu2x'])[3]");
 	public WebElement getActivityReportsPowerstateVsTime() {
 		return driver.findElement(ActivityReportsPowerstateVsTime);
 	}
-	By ActivityReportsSavingsSummary = By.xpath("(//div[@class='MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-c4sutr']//div[@class='MuiListItemText-root css-n5xu2x'])[4]");
+	By ActivityReportsPowerandActivityReport = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-lmldiz']/p");
 	public WebElement getActivityReportsSavingsSummary() {
-		return driver.findElement(ActivityReportsSavingsSummary);
+		return driver.findElement(ActivityReportsPowerandActivityReport);
 	}
+	By ActivityReportsPowerStateVsTimeDateRange = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div[3]//div[@id='mui-component-select-date_range']");
+	public WebElement getActivityReportsPowerStateVsTimeDateRange() {
+		return driver.findElement(ActivityReportsPowerStateVsTimeDateRange);
+	}
+	By ActivityReportsPowerStateVsTimeDateRangeOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
+	public List<WebElement> getActivityReportsPowerStateVsTimeDateRangeOptions() {
+		return driver.findElements(ActivityReportsPowerStateVsTimeDateRangeOptions);
+	}
+	By ActivityReportsPowerStateVsTimeDateTimeInterval = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div[4]");
+	public WebElement getActivityReportsPowerStateVsTimeDateTimeInterval() {
+		return driver.findElement(ActivityReportsPowerStateVsTimeDateTimeInterval);
+	}
+	By ActivityReportsPowerStateVsTimeIntervalOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
+	public List<WebElement> getActivityReportsPowerStateVsTimeIntervalOptions() {
+		return driver.findElements(ActivityReportsPowerStateVsTimeIntervalOptions);
+	}
+	By ActivityReportsPowerStateVsTimeSelectDeviceType = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div[4]");
+	public WebElement getActivityReportsPowerStateVsTimeSelectDeviceType() {
+		return driver.findElement(ActivityReportsPowerStateVsTimeSelectDeviceType);
+	}
+	By ActivityReportsPowerStateVsTimeSelectDeviceOption = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
+	public List<WebElement> getActivityReportsPowerStateVsTimeSelectDeviceOption() {
+		return driver.findElements(ActivityReportsPowerStateVsTimeSelectDeviceOption);
+	}
+	By ActivityReportsPowerStateVsTimeSubmitButton = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div[8]");
+	public WebElement getActivityReportsPowerStateVsTimeSubmitButton() {
+		return driver.findElement(ActivityReportsPowerStateVsTimeSubmitButton);
+	}
+	
 
 }
