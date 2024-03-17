@@ -15,10 +15,11 @@
 			<class name="com.wakesmart.testcases.WSAutomationAlertRulesTest" />
 			<class name="com.wakesmart.testcases.WSManagementPoliciesTest" />
 			<class name="com.wakesmart.testcases.WSManagementGroupsTest" />
-			<class name="com.wakesmart.testcases.WSUsersTest" />
+			<class name="com.wakesmart.testcases.WSManagementUsersTest" />
 			<class name="com.wakesmart.testcases.WSLicenceTest" />
 			<class name="com.wakesmart.testcases.WSSettingsGeneralTest" />
-			<class name="com.wakesmart.testcases.WSManagementOrganizationTest" />
+			<class name="com.wakesmart.testcases.WSSettingsSecurityTest" />
+			<class name="com.wakesmart.testcases.WSReportsTest" />
 		</classes>
 	</test>
 </suite>

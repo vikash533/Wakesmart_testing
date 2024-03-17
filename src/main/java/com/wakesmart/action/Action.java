@@ -215,6 +215,15 @@ public class Action extends BaseClass {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ele);
 	}
+	public static void scrollToTop(WebDriver driver) {
+        try {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("window.scrollTo(0, 0);");
+            System.out.println("Scrolled to the top of the page.");
+        } catch (Exception e) {
+            System.out.println("Exception occurred while scrolling to the top: " + e.getMessage());
+        }
+    }
 
 	public void click(WebDriver driver, WebElement ele) {
 		Actions act = new Actions(driver);
@@ -258,6 +267,18 @@ public class Action extends BaseClass {
 			ele.sendKeys(text);
 	
 	}
+	public void typeAndHitEnter(WebElement ele, String text) {
+        try {
+        	ele.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+            ele.sendKeys(text);
+            Thread.sleep(4000);
+            ele.sendKeys(Keys.ENTER);
+            Thread.sleep(4000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 	public boolean findElement(WebDriver driver, WebElement ele) {
 		boolean flag = false;
@@ -888,4 +909,18 @@ public class Action extends BaseClass {
 		return element.getText();
 		 
 	 }
+		public  void scrollToLeft(WebDriver driver,String aurgment) {
+	        // Create a JavaScriptExecutor object
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	        // Execute JavaScript to scroll to the bottom of the table
+	        js.executeScript(aurgment);
+	        
+	        // Sleep for a short duration to allow the scroll to take effect
+	        try {
+	            Thread.sleep(1000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    }
 }

@@ -33,7 +33,7 @@ public class WSReportsTest extends BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass(enabled=false)
+	@AfterClass(enabled=true)
 	public void tearDown() {
 	        driver.quit();
 	}
@@ -273,7 +273,28 @@ public class WSReportsTest extends BaseClass {
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
 	}
 	@Test(priority=10,dependsOnMethods = {"DeviceVsTime"})
-	public void PowerStatesVsTime() {
+	public void PowerStatesVsTime() throws InterruptedException {
+		action.JSClick(driver,report.getActivityReportsPowerstateVsTime());
+		action.scrollToTop(driver);
+		softAssert.assertEquals(report.getActivityReportsSavingsSummary().getText(), prop.getProperty("ReportingPowerStateReportPopUpHeader"));
+		action.fluentWait(driver, report.getActivityReportsPowerStateVsTimeDateRange());
+		action.click(driver, report.getActivityReportsPowerStateVsTimeDateRange());
+		action.fluentWait1(driver, report.getActivityReportsPowerStateVsTimeDateRangeOptions());
+		action.nameVerifyFromTableAndClick(report.getActivityReportsPowerStateVsTimeDateRangeOptions(),prop.getProperty("ReportingPowerStateReportDateRange"));
+		action.explicitWait(driver, report.getActivityReportsPowerStateVsTimeDateTimeInterval(), 15);
+		action.JSClick(driver, report.getActivityReportsPowerStateVsTimeDateTimeInterval());
+		action.fluentWait1(driver, report.getActivityReportsPowerStateVsTimeIntervalOptions());
+		action.nameVerifyFromTableAndClick(report.getActivityReportsPowerStateVsTimeIntervalOptions(),prop.getProperty("ReportingPowerStateReportTimeIntervalDay"));
+		action.click(driver, report.getActivityReportsPowerStateVsTimeSubmitButton());
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ReportingPowerStateReportVerifyPopupMsg"));
+		action.click(driver, indexpage.getErrorMsg());
+		action.scrollToTop(driver);
+		action.click(driver, report.getActivityReportsPowerStateVsTimeExprotButton());
+		System.out.println(action.verifyDropdown(report.getAssetInventorySelectDeviceOptions()));
+		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
+		action.click(driver, report.getExport());
+		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
 		
 	}
 

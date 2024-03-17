@@ -55,7 +55,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		action.JSClick(driver, devices.getManagementDevices());
 
 		// Need to enable it after bug fixes
-//		softAssert.assertEquals(devices.getDevicesPageText().getText(),prop.getProperty("ManagementDevicesPageHeaderText"));
+		softAssert.assertEquals(devices.getDevicesPageText().getText(),prop.getProperty("ManagementDevicesPageHeaderText"));
 		softAssert.assertEquals(devices.getManagedSystemsText.getText(),prop.getProperty("ManagementManagedSystemsText"));
 
 		action.fluentWait(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("GroupsManagementGroupReName")));
@@ -110,7 +110,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		Assert.assertEquals(devicePresent, true);
 
 		//Commented for now
-//		softAssert.assertEquals(devices.getRightClickOptionVerify(), devices.getRightClickOptionVerifyText(),"Mis match in the options of device right click");
+		softAssert.assertEquals(devices.getRightClickOptionVerify(), devices.getRightClickOptionVerifyText(),"Mis match in the options of device right click");
 
 		softAssert.assertAll();
 	}
@@ -130,7 +130,6 @@ public class WSManagementDevicesTest extends BaseClass {
 		action.click(driver, devices.getSaveButton());
 		Thread.sleep(1200);
 		action.explicitWait(driver, indexpage.getErrorMsg(), 20);
-		System.out.println("------------->"+indexpage.getErrorMsg().getText());
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(),prop.getProperty("ManagementDevicesSendMessageConfirmationPopup1"));
 		action.click(driver, indexpage.getPopupCloseIcon());
 
@@ -146,18 +145,25 @@ public class WSManagementDevicesTest extends BaseClass {
 		devices = new WSManagementDevices(driver);
 
 		devices.getDevicesListSelect(prop.getProperty("GroupManagementDeviceName"));
-		Assert.assertTrue(devices.selectOption("Assign Group"));
+		Thread.sleep(3000);
+		Assert.assertTrue(devices.selectOption("Assign Group"),"DeviceSearching assign group text vefiy failed");
 
 		softAssert.assertEquals(devices.groupSelectedDeviceHeaderText.getText(),prop.getProperty("ManagementDevicesSelectGroupHeaderText"));
 		
 		//To select Wake smart UI automation group from the dropdown
-		Assert.assertTrue(devices.groupSelectForDevice(prop.getProperty("GroupsManagementGroupReName")));
+		Assert.assertTrue(devices.groupSelectForDevice(prop.getProperty("GroupManagementGroupAssign")));
 		
 		action.JSClick(driver, devices.getSaveButton());
-
+		action.fluentWait(driver, indexpage.getErrorMsg());
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(),prop.getProperty("ManagementDevicesSendMessageConfirmationPopup1"));
-//		action.click(driver, indexpage.getPopupCloseIcon());
-		
+		action.click(driver, indexpage.getPopupCloseIcon());
+		Thread.sleep(3000);
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		devices.getmanagedSystemsGroupSelection(prop.getProperty("GroupManagementGroupAssign"));
+		Thread.sleep(3000);
+		action.scrollToLeft(driver,"document.querySelector(\".MuiDataGrid-virtualScroller\").scrollLeft=1000000");
+		action.fluentWait(driver, devices.groupNameVerify);
+		softAssert.assertEquals(devices.groupNameVerify.getText(),prop.getProperty("GroupManagementGroupAssign"));
 		
 		softAssert.assertAll();
 	}
@@ -165,14 +171,75 @@ public class WSManagementDevicesTest extends BaseClass {
 	
 	
 	// Pending worked on 10/19/2023
-	@Test(dependsOnMethods = "deviceAssignGroup")
+	@Test(dependsOnMethods = "deviceAssignGroup",enabled = true)
 	public void deviceAssignPolicy() throws InterruptedException {
 		indexpage = new IndexPage(driver);
 		action = new Action();
 		SoftAssert softAssert = new SoftAssert();
 		devices = new WSManagementDevices(driver);
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		devices.getDevicesListSelect(prop.getProperty("GroupManagementDeviceName"));
+		Thread.sleep(3000);
+		Assert.assertTrue(devices.selectOption("Assign Policy"),"DeviceSearching assign group text vefiy failed");
+		Thread.sleep(3000);
+		softAssert.assertEquals(devices.policySelectedDeviceHeaderText.getText(),prop.getProperty("DevicePolicyHeaderText"));
+		
+		//To select JumpGrowth (OTS Testing) group from the dropdown
+		Assert.assertTrue(devices.policySelectDropdown(prop.getProperty("DevicePolicyAssign")),"AssingPolicyNotAssinged");
+		action.fluentWait(driver, devices.getSaveButton());
+		action.JSClick(driver, devices.getSaveButton());
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(),prop.getProperty("ManagementDevicesSendMessageConfirmationPopup1"));
+		action.click(driver, indexpage.getPopupCloseIcon());
+		Thread.sleep(3000);
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		devices.getmanagedSystemsGroupSelection(prop.getProperty("GroupManagementGroupAssign"));
+		Thread.sleep(3000);
+		action.scrollToLeft(driver,"document.querySelector(\".MuiDataGrid-virtualScroller\").scrollLeft=1000000");
+		action.fluentWait(driver, devices.groupNameVerify);
+		softAssert.assertEquals(devices.policyNameVerify.getText(),prop.getProperty("DevicePolicyAssign"));
+		
+		softAssert.assertAll();
 
 		
+	}
+	@Test(dependsOnMethods = "deviceAssignPolicy",enabled = true)
+	public void deviceAssingLabel() throws InterruptedException {
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		devices = new WSManagementDevices(driver);
+		
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
+		Thread.sleep(3000);
+		Assert.assertTrue(devices.selectOption("Assign Label"),"DeviceSearching and assignLabel failed");
+		softAssert.assertEquals(devices.deviceClientLabel.getText(),prop.getProperty("ManagementDeviceClientLabel"));
+		action.type(devices.deviceClientLabeltextField,prop.getProperty("ManagementDevicesDeviceClientLabeltextfield"));
+		action.JSClick(driver, devices.getSaveButton());
+		action.fluentWait(driver, indexpage.getErrorMsg());
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(),prop.getProperty("ManagementDevicesSendMessageConfirmationPopup1"));
+		action.click(driver, indexpage.getPopupCloseIcon());
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesDeviceClientLabeltextfield"));
+		softAssert.assertAll();
+		
+	}
+	
+	@Test(dependsOnMethods = "deviceAssingLabel",enabled = true)
+	public void searchDevice() {
+		
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		devices = new WSManagementDevices(driver);
+		
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchIp_Address"));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchOs_Version"));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchInvalidKeyword"));
+			
 	}
 	
 	

@@ -37,7 +37,7 @@ public class WSForgotPassword extends BaseClass {
         
 	}
 
-	@AfterClass(enabled=false)
+	@AfterClass(enabled=true)
 	public void tearDown() {
 		if (driver != null) {
 		driver.quit();
@@ -61,15 +61,16 @@ public class WSForgotPassword extends BaseClass {
 		softAssert.assertEquals(forgotpasswordpage.getCurrentTitle(driver),prop.getProperty("ForgotPagetitle") );
 		softAssert.assertAll();
 	}
-	@Test(priority=2,dependsOnMethods = {"forgotFunctionality"},enabled=false)
+	@Test(priority=3,dependsOnMethods = {"forgotFunctionality"},enabled=false)
 	public void validateErrorMsgWithoutCredential() throws InterruptedException {
+		action.JSClick(driver, forgotpasswordpage.getForgotPassword1());
 		action.click(driver,forgotpasswordpage.getsbubmitButton() );
 		System.out.println(forgotpasswordpage.getErrorMsgUsername().getText());
 		System.out.println(forgotpasswordpage.getErrorMsgEmail().getText());
 		softAssert.assertEquals(forgotpasswordpage.getErrorMsgUsername().getText(), prop.getProperty("ErrorMgsRegardingUsername"));
 		softAssert.assertEquals(forgotpasswordpage.getErrorMsgEmail().getText(), prop.getProperty("ErrorMgsRegardingEmail"));
 	}
-	@Test(priority=2,dependsOnMethods = {"forgotFunctionality"},enabled=false)
+	@Test(priority=2,dependsOnMethods = {"forgotFunctionality"},enabled=true)
 	public void ValidateUnregisterAccount() {
 		action.type(forgotpasswordpage.getForgotPasswordUsernameTextfield(), prop.getProperty("InvalidForgotUsername"));
 		action.type(forgotpasswordpage.getForgotPasswordEmailTextfield(), prop.getProperty("InvalidForgotEmail"));
@@ -81,20 +82,24 @@ public class WSForgotPassword extends BaseClass {
 	}
 	@Test(priority=3,dependsOnMethods = {"forgotFunctionality"})
 	public void validateRegisterUser() {
+		action.fluentWait(driver, forgotpasswordpage.getForgotPasswordUsernameTextfield());
 		action.type(forgotpasswordpage.getForgotPasswordUsernameTextfield(), prop.getProperty("ValidForgotUsername"));
 		action.type(forgotpasswordpage.getForgotPasswordEmailTextfield(), prop.getProperty("ValidForgotEmail"));
 		action.click(driver,forgotpasswordpage.getsbubmitButton() );
 		action.explicitWait(driver, indexpage.getErrorMsg(), 10);
 		System.out.println(indexpage.getErrorMsg().getText());
+		action.fluentWait(driver, indexpage.getErrorMsg());
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ErrorMsgForvalidUser"));
 		softAssert.assertAll();
 	}
 	@Test(priority=4,dependsOnMethods = {"forgotFunctionality"})
 	public void validateInvalidFormatEmail() {
 //		action.type(forgotpasswordpage.getForgotPasswordUsernameTextfield(), prop.getProperty("ValidForgotUsername"));
+		action.fluentWait(driver, forgotpasswordpage.getForgotPasswordEmailTextfield());
 		action.type(forgotpasswordpage.getForgotPasswordEmailTextfield(), prop.getProperty("InValidForgotEmail"));
 		action.click(driver,forgotpasswordpage.getsbubmitButton() );
 		System.out.println(forgotpasswordpage.getErrorMsgInvalidEmail().getText());
+		action.fluentWait(driver, forgotpasswordpage.getErrorMsgInvalidEmail());
 		softAssert.assertEquals(forgotpasswordpage.getErrorMsgInvalidEmail().getText(), prop.getProperty("ErrorMsgForInvalidEmail"));
 		softAssert.assertAll();
 	}

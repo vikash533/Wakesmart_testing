@@ -81,11 +81,11 @@ public class WSManagementGroupsTest extends BaseClass {
 			result = management.nameVerifyFromTableAndMouseHover(driver, groupName);
 			
 		}
-		
 		Assert.assertEquals(result,true);
 		
 		action.type(management.getPolicyName(), prop.getProperty("GroupsManagementGroupReName"));
-		management.getIsParentCheckBox().click();
+		action.type(management.getPolicyDescription(), prop.getProperty("GroupsManagementGroupDescription"));
+//		management.getIsParentCheckBox().click();
 		action.click(driver, management.getParentGroupDropDown());
 		action.getSelectOptionFromDropdown(management.getParentGroupDropDownList(), prop.getProperty("GroupsManagementDefaultGroupTop"));
 		action.click(driver, management.getAddNewPolicySubmitButton());
@@ -93,7 +93,7 @@ public class WSManagementGroupsTest extends BaseClass {
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("GroupsManagementGroupUpdatedSuccessMessage"));
 		action.click(driver, indexpage.getPopupCloseIcon());
 
-		action.click(driver, management.getArrowDownInTable());
+//		action.click(driver, management.getArrowDownInTable());
 		
 		boolean	resultOfTop =management.nameVerifyFromTableAndMouseHoverAfterRename(driver, prop.getProperty("GroupsManagementGroupReName")+" - "+prop.getProperty("GroupsManagementGroupDescription"));
 		

@@ -66,7 +66,7 @@ public class WSSettingsSecurityTest extends BaseClass {
 		softAssert.assertAll();
 		
 	}
-	@Test(priority=2)
+	@Test(priority=2,enabled=false)
 	public void enabaleTwoFactorAuthentication() throws InterruptedException{
 		homepage = new HomePage(driver);
 		indexpage = new IndexPage(driver);

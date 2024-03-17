@@ -1,5 +1,6 @@
 package com.wakesmart.pageObjects;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -10,6 +11,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import com.wakesmart.action.Action;
@@ -19,6 +21,7 @@ public class WSAutomationPage extends BaseClass{
 	
 	public WSAutomationPage(WebDriver driver) {
 		this.driver = driver;
+		
 	}
 	
 	By AutomationTab = By.xpath("//p[normalize-space()='Automation']");
@@ -99,8 +102,8 @@ public class WSAutomationPage extends BaseClass{
 	
 	
 	
-	public void getCraetedRuleVerify(String OrderNum, SoftAssert asserts, Properties prop) {
-		
+	public void getCraetedRuleVerify(String OrderNum, SoftAssert asserts, Properties prop) throws InterruptedException {
+		Thread.sleep(3000);
 		String RuleName = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[1]")).getText();
 		String RuleDescription = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[2]")).getText();
 		String RuleEnabled = driver.findElement(By.xpath("(//div[@class='MuiTabPanel-root css-19kzrtu'])[1]/table/tbody/tr["+OrderNum+"]/td[3]")).getText();
@@ -225,6 +228,7 @@ public void getCraetedPolicyRuleVerifyAfterMod(String OrderNum, SoftAssert asser
 	
 	
 	public void getAddClauseButton() {
+		new WebDriverWait(driver, Duration.ofSeconds(10));
 		 driver.findElement(AddClauseButton).click();;
 	}
 	

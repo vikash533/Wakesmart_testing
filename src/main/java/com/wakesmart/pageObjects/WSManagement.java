@@ -444,18 +444,36 @@ public class WSManagement extends BaseClass{
 
 	}
 	
+//	public void moveEle(WebDriver driver, WebElement elem) {
+//	    JavascriptExecutor js = (JavascriptExecutor) driver;
+//	    String script = "var x = arguments[0].getBoundingClientRect().left;" +
+//	                    "var y = arguments[0].getBoundingClientRect().top;" +
+//	                    "window.scrollTo(x, y);" +
+//	                    "var mouseEvent = document.createEvent('MouseEvents');" +
+//	                    "mouseEvent.initEvent('mouseover', true, true);" +
+//	                    "arguments[0].dispatchEvent(mouseEvent);";
+//	    js.executeScript(script, elem);
+//	}
+	
 	
 	public boolean nameVerifyFromTableAndMouseHover(WebDriver driver, String str) {
 		boolean result = false;
+		Actions act = new Actions(driver);
 		try {
-			WebElement option = getGroupCreatedNameVerify().stream().filter(e -> e.getText().equalsIgnoreCase(str)).findFirst().orElse(null);
-			if (option != null) {
-				//act.moveToElement(option).perform();
-				moveEle(driver,option);
+//			WebElement option = getGroupCreatedNameVerify().stream().filter(e -> e.getText().equalsIgnoreCase(str)).findFirst().orElse(null);
+			List<WebElement> options = getGroupCreatedNameVerify();
+			for(WebElement option:options) {
+				System.out.println(option.getText());
+			if (option.getText().endsWith(str)) {
+				act.moveToElement(option).perform();
+//				moveEle(driver,option);
 				if (getGroupEditButton().isDisplayed()) {
-					getGroupEditButton().click();
+					JavascriptExecutor executor = (JavascriptExecutor) driver;
+					executor.executeScript("arguments[0].click();", getGroupEditButton());
 					result = true;
+					break;
 				}
+			}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -507,7 +525,9 @@ public class WSManagement extends BaseClass{
 		*/
 	
 	
-	
+	public void nameVerifyFromTableAndMouseHoverFlash(WebDriver driver,String str) {
+		
+	}
 	
 	
 	

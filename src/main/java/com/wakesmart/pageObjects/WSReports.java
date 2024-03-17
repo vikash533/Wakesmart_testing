@@ -320,7 +320,7 @@ public class WSReports extends BaseClass {
 	public List<WebElement> getActivityReportsPowerStateVsTimeDateRangeOptions() {
 		return driver.findElements(ActivityReportsPowerStateVsTimeDateRangeOptions);
 	}
-	By ActivityReportsPowerStateVsTimeDateTimeInterval = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div[4]");
+	By ActivityReportsPowerStateVsTimeDateTimeInterval = By.xpath("//div[@id='mui-component-select-time_interval']");
 	public WebElement getActivityReportsPowerStateVsTimeDateTimeInterval() {
 		return driver.findElement(ActivityReportsPowerStateVsTimeDateTimeInterval);
 	}
@@ -328,7 +328,7 @@ public class WSReports extends BaseClass {
 	public List<WebElement> getActivityReportsPowerStateVsTimeIntervalOptions() {
 		return driver.findElements(ActivityReportsPowerStateVsTimeIntervalOptions);
 	}
-	By ActivityReportsPowerStateVsTimeSelectDeviceType = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div[4]");
+	By ActivityReportsPowerStateVsTimeSelectDeviceType = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div[4]/div");
 	public WebElement getActivityReportsPowerStateVsTimeSelectDeviceType() {
 		return driver.findElement(ActivityReportsPowerStateVsTimeSelectDeviceType);
 	}
@@ -339,6 +339,10 @@ public class WSReports extends BaseClass {
 	By ActivityReportsPowerStateVsTimeSubmitButton = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div[8]");
 	public WebElement getActivityReportsPowerStateVsTimeSubmitButton() {
 		return driver.findElement(ActivityReportsPowerStateVsTimeSubmitButton);
+	}
+	By ActivityReportsPowerStateVsTimeExportButton = By.xpath("//div[@class='MuiGrid-root css-1haci7g']/button");
+	public WebElement getActivityReportsPowerStateVsTimeExprotButton() {
+		return driver.findElement(ActivityReportsPowerStateVsTimeExportButton);
 	}
 	
 
