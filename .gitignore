@@ -1,0 +1,9 @@
+/target/
+test-output/
+reports/
+logs/
+HTMLreports/
+.metadata/
+.settings/
+.classpath
+bin/

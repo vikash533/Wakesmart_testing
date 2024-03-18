@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+	<listeners>
+		<listener class-name="com.wakesmart.utility.Listeners"></listener>
+	</listeners>
+
+	<test name="WakeSmart" verbose="3" parallel="none" thread-count="1">
+		<classes>
+			<class name="com.wakesmart.testcases.WSLoginPageTest" />
+			<class name="com.wakesmart.testcases.WSForgotPassword" />
+			<class name="com.wakesmart.testcases.WSHomePageTest" />
+			<class name="com.wakesmart.testcases.WSAutomationPolicyRules" />
+			<class name="com.wakesmart.testcases.WSAutomationGroupRulesTest" />
+			<class name="com.wakesmart.testcases.WSAutomationAlertRulesTest" />
+			<class name="com.wakesmart.testcases.WSManagementPoliciesTest" />
+			<class name="com.wakesmart.testcases.WSManagementDevicesTest" />
+			<class name="com.wakesmart.testcases.WSManagementGroupsTest" />
+			<class name="com.wakesmart.testcases.WSManagementUsersTest" />
+			<class name="com.wakesmart.testcases.WSLicenceTest" />
+			<class name="com.wakesmart.testcases.WSSettingsGeneralTest" />
+			<class name="com.wakesmart.testcases.WSSettingsSecurityTest" />
+			<class name="com.wakesmart.testcases.WSReportsTest" />
+		</classes>
+	</test>
+</suite>
