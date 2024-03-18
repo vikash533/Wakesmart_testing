@@ -37,7 +37,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		driver.get(prop.getProperty("url"));
 	}
 
-	@AfterClass(enabled = false)
+	@AfterClass(enabled = true)
 	public void tearDown() {
 		driver.quit();
 	}
@@ -134,6 +134,20 @@ public class WSManagementDevicesTest extends BaseClass {
 		action.click(driver, indexpage.getPopupCloseIcon());
 
 		softAssert.assertAll();
+	}
+	@Test(dependsOnMethods = "deviceSendMessage",enabled=false)
+	public void deviceWake() {
+		
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		devices = new WSManagementDevices(driver);
+
+		Assert.assertTrue(devices.selectOption("Wake"));
+		softAssert.assertEquals(devices.getwakeSlectedDeviceText().getText(), prop.getProperty("ManagementDevicesDeviceWakeSelectedDevice"));
+		action.JSClick(driver, devices.getwakeReasonforActionInputField());
+		String attributValue = devices.getwakeReasonforActionInputField().getAttribute("value");
+		System.out.println(attributValue);
 	}
 
 
@@ -240,6 +254,27 @@ public class WSManagementDevicesTest extends BaseClass {
 		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchOs_Version"));
 		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchInvalidKeyword"));
 			
+	}
+	@Test(dependsOnMethods= "searchDevice")
+	public void dragAndDropColumnsOrder() throws InterruptedException {
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		devices = new WSManagementDevices(driver);
+		
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		action.draganddrop(driver, devices.deviceNameColumn, devices.macAddresColumn);
+//		Thread.sleep(3000);
+		action.draganddrop(driver, devices.deviceNameColumn, devices.ipAddress);
+		Thread.sleep(3000);
+		action.draganddrop(driver, devices.deviceNameColumn, devices.osVersion);
+//		Thread.sleep(3000);
+		action.draganddrop(driver, devices.deviceNameColumn, devices.osName);
+//		Thread.sleep(3000);
+		action.draganddrop(driver, devices.deviceNameColumn, devices.macAddresColumn);
+		action.JSClick(driver, devices.saveColumnorder);
+		
+		
 	}
 	
 	

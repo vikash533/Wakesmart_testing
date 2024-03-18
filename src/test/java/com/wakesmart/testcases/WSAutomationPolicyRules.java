@@ -63,7 +63,8 @@ public class WSAutomationPolicyRules extends BaseClass{
 		
 		Thread.sleep(1000);
 		action.click(driver, automation.getAddRuleButton());
-		softAssert.assertEquals(automation.getAddNewRuleText().getText(), prop.getProperty("GroupAddNewpolicyText"));
+		action.fluentWait(driver, automation.getAddNewRuleText());
+		softAssert.assertEquals(automation.getAddNewRuleText().getText(), prop.getProperty("GroupAddNewpolicyText"),"Mismatch Add new Rule vlaue");
 		
 		orderNum = automation.getOrderDropdown();
 		
@@ -104,7 +105,7 @@ public class WSAutomationPolicyRules extends BaseClass{
 		automation.getEditGroupRules(orderNum);
 		action.click(driver, automation.getEnabledCheckBox());
 		action.JSClick(driver, automation.getSubmitBtn());
-//		Thread.sleep(3000);
+		Thread.sleep(3000);
 		action.fluentWait(driver, automation.getAlertConfirmationMessage());
 		System.out.println(automation.getAlertConfirmationMessage().getText());
 		softAssert.assertEquals(automation.getAlertConfirmationMessage().getText(), prop.getProperty("UpdationPopupConfirmation"));

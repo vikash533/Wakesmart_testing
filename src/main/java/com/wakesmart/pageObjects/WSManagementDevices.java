@@ -286,7 +286,15 @@ public class WSManagementDevices {
 	public WebElement getSaveButton() {
 		return driver.findElement(SaveButton);
 	}
-
+	//Wake
+	By wakeSlectedDevice = By.xpath("//h2[text()='Wake Selected Device']");
+	By wakeReasonforActionInputField = By.xpath("(//input[@type='text'])[2]");
+	public WebElement getwakeSlectedDeviceText() {
+		return driver.findElement(wakeSlectedDevice);
+	}
+	public WebElement getwakeReasonforActionInputField () {
+		return driver.findElement(wakeReasonforActionInputField);
+	}
 
 
 
@@ -398,7 +406,23 @@ public class WSManagementDevices {
 	@FindBy(xpath="(//input[@type='text'])[2]")
 	public WebElement deviceClientLabeltextField;
 
-
+	@FindBy(xpath="//div[contains(text(),'Device Name')]")
+	public WebElement deviceNameColumn;
+	
+	@FindBy(xpath="//div[contains(text(),'MAC Address')]")
+	public WebElement macAddresColumn;
+	
+	@FindBy(xpath="//div[contains(text(),'IP Address')]")
+	public WebElement ipAddress;
+	
+	@FindBy(xpath="//div[contains(text(),'OS Version')]")
+	public WebElement osVersion;
+	
+	@FindBy(xpath="//div[contains(text(),'OS Name')]")
+	public WebElement osName;
+	
+	@FindBy(xpath="//button[normalize-space()='Save Column Order']")
+	public WebElement saveColumnorder;
 }
 
 

@@ -81,14 +81,15 @@ public class WSForgotPassword extends BaseClass {
 		softAssert.assertAll();
 	}
 	@Test(priority=3,dependsOnMethods = {"forgotFunctionality"})
-	public void validateRegisterUser() {
+	public void validateRegisterUser() throws InterruptedException {
 		action.fluentWait(driver, forgotpasswordpage.getForgotPasswordUsernameTextfield());
 		action.type(forgotpasswordpage.getForgotPasswordUsernameTextfield(), prop.getProperty("ValidForgotUsername"));
 		action.type(forgotpasswordpage.getForgotPasswordEmailTextfield(), prop.getProperty("ValidForgotEmail"));
 		action.click(driver,forgotpasswordpage.getsbubmitButton() );
-		action.explicitWait(driver, indexpage.getErrorMsg(), 10);
+		action.fluentWait(driver, indexpage.getErrorMsg());
 		System.out.println(indexpage.getErrorMsg().getText());
 		action.fluentWait(driver, indexpage.getErrorMsg());
+		Thread.sleep(4000);
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ErrorMsgForvalidUser"));
 		softAssert.assertAll();
 	}

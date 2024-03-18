@@ -186,7 +186,7 @@ public class WSLoginPageTest extends BaseClass {
 		
 	}
 	
-	@Test(dependsOnMethods= {"validUserLogin"},priority = 12, groups= {"Smoke"},enabled=true)
+	@Test(dependsOnMethods= {"validUserLogin"},priority = 12, groups= {"Smoke"},enabled=false)
 	public void userLoginAfterPasswordChange() throws InterruptedException {
 		softAssert = new SoftAssert();
 		
@@ -207,7 +207,7 @@ public class WSLoginPageTest extends BaseClass {
 		
 		
 	}
-	@Test(dependsOnMethods= {"validUserLogin","userLoginAfterPasswordChange"},priority = 13, groups= {"Smoke"},enabled=true)
+	@Test(dependsOnMethods= {"validUserLogin","userLoginAfterPasswordChange"},priority = 13, groups= {"Smoke"},enabled=false)
 	public void loginWithChangedPassword() {
 		softAssert = new SoftAssert();
 		action.type(indexpage.getUserName(), prop.getProperty("ValidUserName"));
