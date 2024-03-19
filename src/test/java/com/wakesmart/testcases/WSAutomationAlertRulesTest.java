@@ -48,7 +48,7 @@ public class WSAutomationAlertRulesTest extends BaseClass{
 		softAssert = new SoftAssert();
 
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
-		
+		Thread.sleep(4000);
 		action.JSClick(driver, automation.getAutomationTab());
 		softAssert.assertEquals(automation.getAutomationTextInnerTab(), prop.getProperty("AutomationTabInnerText"),"Mismatch in automation Jims LLC");
 		softAssert.assertEquals(automation.getAutomationTableHeader(), automation.getgetAutomationTableHeaderDataToVerify(prop)," Mismatch automation table header text");

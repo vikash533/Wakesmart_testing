@@ -51,12 +51,11 @@ public class WSAutomationPolicyRules extends BaseClass{
 		softAssert = new SoftAssert();
 
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
-		
-		
+		Thread.sleep(4000);
 		action.click(driver, automation.getAutomationTab());
 		softAssert.assertEquals(automation.getAutomationTextInnerTab(), prop.getProperty("AutomationTabInnerText"),"Mismatch in automation Jims LLC");
 		softAssert.assertEquals(automation.getAutomationTableHeader(), automation.getgetAutomationTableHeaderDataToVerify(prop)," Mismatch automation table header text");
-		
+		action.fluentWait(driver,automation.getRuleName());
 		action.JSClick(driver, automation.getPolicyRules());
 		
 		softAssert.assertEquals(automation.getGroupsRulesTableHeaderText(), automation.getPolicyRulesTableHeaderTextVerify(prop)," Mismatch automation policy rules table header text");

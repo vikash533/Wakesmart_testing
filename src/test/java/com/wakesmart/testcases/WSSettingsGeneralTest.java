@@ -91,12 +91,13 @@ public class WSSettingsGeneralTest extends BaseClass{
 		softAssert.assertEquals(general.getPreferredSequestration().getText(), prop.getProperty("SettingsGeneralAcresofUSForest"));
 		
 		
-		softAssert.assertEquals(general.getDeviceDeatilsTables().getText(), prop.getProperty("SettingsGeneralDevicesDetailsTables"));
-		softAssert.assertEquals(general.getDeviceUsage().getText(), prop.getProperty("SettingsGeneralDeviceUsage"));
-		softAssert.assertEquals(general.getDevicesByOSandTypes().getText(), prop.getProperty("SettingsGeneralDevicesDevicesbyOSandType"));
-		softAssert.assertEquals(general.getPowerStateActvity().getText(), prop.getProperty("SettingsGeneralDevicesPowerStateActivity"));
-		softAssert.assertEquals(general.getBatteryChargeCapacity().getText(), prop.getProperty("SettingsGeneralDevicesBatteryChargeCapacity"));
-		softAssert.assertEquals(general.getDevicesVSTime().getText(), prop.getProperty("SettingsGeneralDevicesDevicesvsTime"));
+		softAssert.assertEquals(general.getDeviceDeatilsTables().getText(), prop.getProperty("SettingsGeneralDevicesDetailsTables"),"Mismatch getDeviceDeatilsTables ");
+		action.fluentWait(driver, general.getDeviceUsage());
+		softAssert.assertEquals(general.getDeviceUsage().getText(), prop.getProperty("SettingsGeneralDeviceUsage"),"Mismatch getDeviceUsage");
+		softAssert.assertEquals(general.getDevicesByOSandTypes().getText(), prop.getProperty("SettingsGeneralDevicesDevicesbyOSandType"),"MismatchDevicesByOSandTypes ");
+		softAssert.assertEquals(general.getPowerStateActvity().getText(), prop.getProperty("SettingsGeneralDevicesPowerStateActivity"),"Mismatch PowerStateActvity ");
+		softAssert.assertEquals(general.getBatteryChargeCapacity().getText(), prop.getProperty("SettingsGeneralDevicesBatteryChargeCapacity"),"Mismatch BatteryChargeCapacity ");
+		softAssert.assertEquals(general.getDevicesVSTime().getText(), prop.getProperty("SettingsGeneralDevicesDevicesvsTime"),"mismatch DeviceVsTime ");
 		
 		// Always Show Unlicensed Devices
 //		softAssert.assertEquals(general.getAlwaysShowUnlicensedDevicesToggleEnabled().isDisplayed(),true);
