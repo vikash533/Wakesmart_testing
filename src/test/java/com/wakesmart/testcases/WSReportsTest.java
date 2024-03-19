@@ -220,6 +220,7 @@ public class WSReportsTest extends BaseClass {
 	}
 	@Test(priority=8,dependsOnMethods = {"groupSummary"})
 	public void ActivityReport() throws InterruptedException {
+		Thread.sleep(6000);
 //		action.JSClick(driver,report.getoperationalReports());
 		action.scrollByVisibilityOfElement(driver, report.getActivityReportsIcon());
 		action.fluentWait(driver, report.getActivityReportsIcon());

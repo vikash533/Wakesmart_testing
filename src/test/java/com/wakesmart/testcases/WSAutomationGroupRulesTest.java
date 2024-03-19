@@ -48,11 +48,11 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 		softAssert = new SoftAssert();
 
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
-		
+		Thread.sleep(4000);
 		action.JSClick(driver, automation.getAutomationTab());
-		softAssert.assertEquals(automation.getAutomationTextInnerTab(), prop.getProperty("AutomationTabInnerText"),"Mismatch in automation Jims LLC");
+		softAssert.assertEquals(automation.getAutomationTextInnerTab(), prop.getProperty("AutomationTabInnerText"),"Mismatch in automation Jims Inc");
 		softAssert.assertEquals(automation.getAutomationTableHeader(), automation.getgetAutomationTableHeaderDataToVerify(prop)," Mismatch automation table header text");
-
+		action.fluentWait(driver,automation.getRuleName());
 		softAssert.assertEquals(automation.getGroupsRulesTableHeaderText(), automation.getGroupRulesTableHeaderTextVerify(prop)," Mismatch automation group rules table header text");
 		Thread.sleep(1000);
 		action.JSClick(driver, automation.getAddRuleButton());

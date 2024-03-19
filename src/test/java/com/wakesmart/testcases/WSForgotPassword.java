@@ -75,6 +75,7 @@ public class WSForgotPassword extends BaseClass {
 		action.type(forgotpasswordpage.getForgotPasswordUsernameTextfield(), prop.getProperty("InvalidForgotUsername"));
 		action.type(forgotpasswordpage.getForgotPasswordEmailTextfield(), prop.getProperty("InvalidForgotEmail"));
 		action.click(driver,forgotpasswordpage.getsbubmitButton() );
+		action.JSClick(driver,indexpage.getErrorMsg());
 		action.explicitWait(driver, indexpage.getErrorMsg(), 10);
 		System.out.println(indexpage.getErrorMsg().getText());
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ErrorMsgForInvalidUser"));
@@ -89,8 +90,7 @@ public class WSForgotPassword extends BaseClass {
 		action.fluentWait(driver, indexpage.getErrorMsg());
 		System.out.println(indexpage.getErrorMsg().getText());
 		action.fluentWait(driver, indexpage.getErrorMsg());
-		Thread.sleep(4000);
-		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ErrorMsgForvalidUser"));
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ErrorMsgForvalidUser"),"Mismatch of get error message ---->");
 		softAssert.assertAll();
 	}
 	@Test(priority=4,dependsOnMethods = {"forgotFunctionality"})

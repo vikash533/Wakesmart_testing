@@ -164,6 +164,9 @@ public void getCraetedPolicyRuleVerifyAfterMod(String OrderNum, SoftAssert asser
 	
 	//return asserts;
 }
+	public WebElement getRuleName() {
+		return driver.findElement(By.xpath("//th[text()='Rule Name']"));
+	}
 	
 	public String getOrderDropdown() {
 		return driver.findElement(OrderDropdown).getAttribute("value");
