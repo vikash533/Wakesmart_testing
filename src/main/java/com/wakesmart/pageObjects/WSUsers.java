@@ -127,6 +127,7 @@ public class WSUsers {
 		
 		textVerify.add(prop.getProperty("ManagementUsersTableUserName"));
 		textVerify.add(prop.getProperty("ManagementUsersTableUserEmailAddress"));
+		textVerify.add(prop.getProperty("ManagementUsersTableUserSsoUser"));
 		textVerify.add(prop.getProperty("ManagementUsersTableUserValidated"));
 		textVerify.add(prop.getProperty("ManagementUsersTableUserLocked"));
 		textVerify.add(prop.getProperty("ManagementUsersTableUserOptions"));

@@ -42,9 +42,10 @@ public class WSSettingsSecurityTest extends BaseClass {
 		softAssert = new SoftAssert();
 		security = new WSSettingsSecurity(driver);
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
+		action.fluentWait(driver, security.getSecurity);
 		action.JSClick(driver,security.getSecurity);
 		
-		Thread.sleep(7000);
+		Thread.sleep(9000);
 		
 		softAssert.assertEquals(security.getSecuritySettingText.getText(), prop.getProperty("SettingsSecurityPageText"));
 		softAssert.assertEquals(security.getSystemOptionsText.getText(), prop.getProperty("SettingsSecuritySystemOptionText"));

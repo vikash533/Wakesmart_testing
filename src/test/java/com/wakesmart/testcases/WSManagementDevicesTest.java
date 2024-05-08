@@ -142,7 +142,9 @@ public class WSManagementDevicesTest extends BaseClass {
 		action = new Action();
 		SoftAssert softAssert = new SoftAssert();
 		devices = new WSManagementDevices(driver);
-
+		boolean devicePresent = devices.getDevicesList(prop.getProperty("GroupManagementDeviceName"));
+		Assert.assertEquals(devicePresent, true);
+		action.rightclick(driver, null);
 		Assert.assertTrue(devices.selectOption("Wake"));
 		softAssert.assertEquals(devices.getwakeSlectedDeviceText().getText(), prop.getProperty("ManagementDevicesDeviceWakeSelectedDevice"));
 		action.JSClick(driver, devices.getwakeReasonforActionInputField());
@@ -157,6 +159,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		action = new Action();
 		SoftAssert softAssert = new SoftAssert();
 		devices = new WSManagementDevices(driver);
+		Thread.sleep(3000);
 
 		devices.getDevicesListSelect(prop.getProperty("GroupManagementDeviceName"));
 		Thread.sleep(3000);

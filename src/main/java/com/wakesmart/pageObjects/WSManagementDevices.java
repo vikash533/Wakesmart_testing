@@ -391,7 +391,7 @@ public class WSManagementDevices {
 		return flag;
 
 	}
-	@FindBy(xpath="(//div[text()='JumpGrowth (OTS Testing)'])[2]")
+	@FindBy(xpath="(//div[text()='Wake smart automation'])[2]")
 	public WebElement groupNameVerify;
 
 	@FindBy(xpath="//div[@title='Automation Policy']")

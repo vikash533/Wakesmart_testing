@@ -104,10 +104,4 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 		automation.getCraetedRuleVerifyAfterEnabled(orderNum, softAssert, prop);
 		softAssert.assertAll();
 	}
-	
-	
-	
-	
-	
-	
 }

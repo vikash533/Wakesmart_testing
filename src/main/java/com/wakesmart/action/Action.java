@@ -923,4 +923,33 @@ public class Action extends BaseClass {
 	            e.printStackTrace();
 	        }
 	    }
+		public void scrollToAndClickProject(WebDriver driver, String projectName, By listLocator) throws InterruptedException {
+		    JavascriptExecutor js = (JavascriptExecutor) driver;
+		    WebElement list = driver.findElement(listLocator);
+
+		    while (true) {
+		        // Scroll down by a fixed amount (adjust as needed)
+		        js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight", list);
+
+		        // Check if the desired project is now visible within the viewport
+		        WebElement project = driver.findElement(By.xpath("//*[text()= '" + projectName + "']"));
+
+		        if (project.isDisplayed()) {
+		            // Move to and click the project (optional for better visibility)
+		            Actions action = new Actions(driver); // Use 'this' to reference the current object
+		            action.moveToElement(project).click().perform();
+		            break;
+		        }
+
+		        // Optional: Add a check for reaching the end of the scrollable area
+		        if (!project.isDisplayed()) {
+		            System.out.println("Project not found in the list.");
+		            break;
+		        }
+
+		        // Add a wait to avoid excessive scrolling (adjust as needed)
+		        Thread.sleep(1000); // Adjust the wait time based on your application's speed
+		    }
+		}
+
 }
