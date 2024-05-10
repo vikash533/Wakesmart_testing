@@ -128,7 +128,8 @@ public class WSLoginPageTest extends BaseClass {
 		
 		action.type(indexpage.getPassWord(), prop.getProperty("InvalidPassword"));
 		Thread.sleep(6000);
-		String passwordValue = indexpage.getpasswordVisibiltyOnDom().getDomAttribute(prop.getProperty("passwordDOMAttribute"));
+		String passwordValue = indexpage.getpasswordVisibiltyOnDom().getAttribute("value");
+		System.out.println(passwordValue);
 		softAssert.assertNotEquals(passwordValue, prop.getProperty("InvalidPassword"),"Password is visible on the DOM=");
 		softAssert.assertAll();
 	}
