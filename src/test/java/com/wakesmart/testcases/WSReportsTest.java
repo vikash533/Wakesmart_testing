@@ -170,6 +170,7 @@ public class WSReportsTest extends BaseClass {
 		action.click(driver,report.getDeviceTypeSubmitButton());
 		action.fluentWait(driver, report.getAssetInventoryExportButton());
 		action.click(driver, report.getAssetInventoryExportButton());
+		Thread.sleep(4000);
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
 		action.click(driver, report.getExport());
 		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));

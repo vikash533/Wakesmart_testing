@@ -46,7 +46,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		action.fluentWait(driver, general.getGeneral);
-		action.JSClick(driver, general.getGeneral);
+		action.JSClick(driver, general.getGeneral); 
 		
 		Thread.sleep(1000);
 		softAssert.assertEquals(general.getGeneralSettingsText.getText(), prop.getProperty("SettingsGeneralPageText"));
@@ -89,6 +89,8 @@ public class WSSettingsGeneralTest extends BaseClass{
 		
 		softAssert.assertEquals(general.getPreferredSequestration().getText(), prop.getProperty("SettingsGeneralTreeSeedlingsGrownfor10Years"));
 		general.getPreferredSequestration().click();
+//		general.getPreferredSequestration().click();
+//		general.getPreferredSequestration().click();
 		Thread.sleep(400);
 		softAssert.assertEquals(general.getPreferredSequestrationDropdownOptions(), general.getPreferredSequestrationDropdownOptionsVerify(prop));
 		general.getPreferredSequestrationDropdownElements().get(1).click();

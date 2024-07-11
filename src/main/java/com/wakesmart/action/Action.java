@@ -121,6 +121,16 @@ public class Action extends BaseClass {
 			}
 		}
 	}
+	public void ClickOnEditGroup(List<WebElement> ele, String str,WebElement editElement) {
+
+		for (WebElement option : ele) {
+
+			if (option.getText().equalsIgnoreCase(str)) {
+				editElement.click();
+				break;
+			}
+		}
+	}
 	
 	public void nameVerifyFromTableAndClick(List<WebElement> ele, String str) {
 

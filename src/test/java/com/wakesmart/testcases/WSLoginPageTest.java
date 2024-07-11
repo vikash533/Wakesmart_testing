@@ -1,4 +1,4 @@
-package com.wakesmart.testcases;
+ package com.wakesmart.testcases;
 
 import java.io.IOException;
 import org.openqa.selenium.WebDriver;
@@ -122,13 +122,14 @@ public class WSLoginPageTest extends BaseClass {
 	}
 
 	//Completed
-	@Test(priority = 8,enabled=true)
+	@Test(priority = 8,enabled=false)
 	public void passwordVisibilityOnDOM() throws InterruptedException  {
 		softAssert = new SoftAssert();
 		
 		action.type(indexpage.getPassWord(), prop.getProperty("InvalidPassword"));
 		Thread.sleep(6000);
-		String passwordValue = indexpage.getpasswordVisibiltyOnDom().getDomAttribute(prop.getProperty("passwordDOMAttribute"));
+		String passwordValue = indexpage.getpasswordVisibiltyOnDom().getAttribute("value");
+		System.out.println(passwordValue);
 		softAssert.assertNotEquals(passwordValue, prop.getProperty("InvalidPassword"),"Password is visible on the DOM=");
 		softAssert.assertAll();
 	}

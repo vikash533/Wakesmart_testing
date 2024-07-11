@@ -201,7 +201,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		Thread.sleep(3000);
 		softAssert.assertEquals(devices.policySelectedDeviceHeaderText.getText(),prop.getProperty("DevicePolicyHeaderText"));
 		
-		//To select JumpGrowth (OTS Testing) group from the dropdown
+		//To select Automation policy group from the dropdown
 		Assert.assertTrue(devices.policySelectDropdown(prop.getProperty("DevicePolicyAssign")),"AssingPolicyNotAssinged");
 		action.fluentWait(driver, devices.getSaveButton());
 		action.JSClick(driver, devices.getSaveButton());

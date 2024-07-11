@@ -137,7 +137,7 @@ public class WSManagementPoliciesTest extends BaseClass{
 		
 		action.fluentWait(driver, indexpage.getErrorMsg());
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("CreatedMessageOnPopUp"));
-		
+		Thread.sleep(5000);
 		String rulesCreated = action.nameVerifyFromTable(management.getPolicyNameVerify(), prop.getProperty("PoliciesManagementPolicyName"));
 		String rulesCreatedDescription = action.nameVerifyFromTable(management.getPolicyDescriptionVerify(), prop.getProperty("PoliciesManagementPolicyDescription"));
 		System.out.println(rulesCreated);
