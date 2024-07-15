@@ -45,9 +45,10 @@ public class WSSettingsGeneralTest extends BaseClass{
 		general = new WSSettingsGeneral(driver);
 		
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
-		action.JSClick(driver, general.getGeneral);
+		action.fluentWait(driver, general.getGeneral);
+		action.JSClick(driver, general.getGeneral); 
 		
-		Thread.sleep(7000);
+		Thread.sleep(1000);
 		softAssert.assertEquals(general.getGeneralSettingsText.getText(), prop.getProperty("SettingsGeneralPageText"));
 		softAssert.assertEquals(general.getSystemOptionsText.getText(), prop.getProperty("SettingsGeneralSystemOptionsText"));
 		softAssert.assertEquals(general.getGeneralSettingsBoxText.getText(), prop.getProperty("SettingsGeneralPageText"));
@@ -67,25 +68,30 @@ public class WSSettingsGeneralTest extends BaseClass{
 	
 		softAssert.assertEquals(general.getPreferedEquilent().getText(), prop.getProperty("SettingsGeneralBarrelsofOilConsumedinOneYear"));
 		general.getPreferedEquilent().click();
-
+		Thread.sleep(400);
 		softAssert.assertEquals(general.PreferdEquilentDropdownOptions(), general.getPreferdEquilentDropdownOptionsVerify(prop));
 		
 		general.PreferdEquilentDropdownOptionsElements().get(0).click();
+		Thread.sleep(400);
 		softAssert.assertEquals(general.getPreferedEquilent().getText(), prop.getProperty("SettingsGeneralSmartphonesChargedinaYear"));
 	
 		//Preferred Avoidance
 		softAssert.assertEquals(general.getPreferedAvoidance().getText(), prop.getProperty("SettingsGeneralWindTurbinesRunningforaYear"));
 		general.getPreferedAvoidance().click();
+		Thread.sleep(400);
 		softAssert.assertEquals(general.getPreferedAvoidanceDropdownOptions(), general.getPreferedAvoidanceDropdownOptionsVerify(prop));
 		
 		general.getgetPreferedAvoidanceDropdownElements().get(0).click();
+		Thread.sleep(400);
 		softAssert.assertEquals(general.getPreferedAvoidance().getText(), prop.getProperty("SettingsGeneralTonsofWasteRecycled"));
 		
 		//Preferred Sequestration
 		
 		softAssert.assertEquals(general.getPreferredSequestration().getText(), prop.getProperty("SettingsGeneralTreeSeedlingsGrownfor10Years"));
 		general.getPreferredSequestration().click();
-		
+//		general.getPreferredSequestration().click();
+//		general.getPreferredSequestration().click();
+		Thread.sleep(400);
 		softAssert.assertEquals(general.getPreferredSequestrationDropdownOptions(), general.getPreferredSequestrationDropdownOptionsVerify(prop));
 		general.getPreferredSequestrationDropdownElements().get(1).click();
 		softAssert.assertEquals(general.getPreferredSequestration().getText(), prop.getProperty("SettingsGeneralAcresofUSForest"));
@@ -125,7 +131,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		//Multiple popups coming need to check with the requirement
 //		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("UpdationPopupConfirmation"));
 		
-		Thread.sleep(7000);
+		Thread.sleep(10000);
 		
 		//verfy the updated  value
 		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
@@ -153,7 +159,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 	@Test(priority=3,enabled=true)
 	public void settingsGeneralModifiedOptionsUpdate() throws InterruptedException {
 		
-		Thread.sleep(2000);
+		Thread.sleep(9000);
 		
 		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRows"));
 		action.type(general.getdataRetention(), prop.getProperty("SettingsGeneralDataRetention"));
@@ -182,7 +188,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		//Multiple popups coming need to check with the requirement
 //		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("UpdationPopupConfirmation"));
 		
-		Thread.sleep(7000);
+		Thread.sleep(9000);
 		
 		//verfy the updated  value
 		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));

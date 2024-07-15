@@ -129,7 +129,7 @@ public class WSManagementUsersTest extends BaseClass {
 		action.click(driver, users.getAddNewUserSubmitButton());
 		Thread.sleep(2000);
 		action.fluentWait(driver, users.getAlertCloseButton());
-		softAssert.assertEquals(users.getAlertMessage(),  prop.getProperty("ManagementUserNameWithInvalidMailID"));
+		softAssert.assertEquals(users.getAlertMessage(),  prop.getProperty("ManagementUserNameWithInvalidMailID"),"mismatch of Alert message");
 		action.click(driver, users.getAlertCloseButton());
 		softAssert.assertAll();
 	}

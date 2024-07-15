@@ -132,7 +132,7 @@ public class WSReports extends BaseClass {
 	By SubmitButtonAssetInventory = By.xpath("//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']//button");
 	By AssetInventorySelectGroup = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div/div)[1]/div/div");
 	By AssetInventorySelectDevice = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div/div)[2]/div/div");
-	By AssetInventorySelectGroupOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
+	public By AssetInventorySelectGroupOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
 	By AssetInventorySelectDeviceOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
 	By AssetInventoryExportButton =By.xpath("//div[@class='MuiGrid-root css-1haci7g']/button");
 	
@@ -171,7 +171,7 @@ public class WSReports extends BaseClass {
 	public WebElement getDeviceSummaryContextText() {
 		return driver.findElement(DeviceSummaryContextText);
 	}
-	By DeviceTypeSelectGroup = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div/div)[1]/div/div");
+	By DeviceTypeSelectGroup = By.xpath("//div[@id='mui-component-select-group']");
 	public WebElement getDeviceTypeSelectGroup() {
 		return driver.findElement(DeviceTypeSelectGroup);
 	}
@@ -179,7 +179,7 @@ public class WSReports extends BaseClass {
 	public List<WebElement> getDeviceTypeSelectGroupOptions() {
 		return driver.findElements(DeviceTypeSelectGroupOptions);
 	}
-	By DeviceTypeSelectPolicy = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-l4rh9y'])[1]/div");
+	By DeviceTypeSelectPolicy = By.xpath("//div[@id='mui-component-select-policy']");
 	public WebElement getDeviceTypeSelectPolicy() {
 		return driver.findElement(DeviceTypeSelectPolicy);
 	}

@@ -49,7 +49,7 @@ public class WSManagementGroupsTest extends BaseClass {
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		
 		action.JSClick(driver, management.getManagementTab());
-		action.JSClick(driver, management.getGroups());
+ 		action.JSClick(driver, management.getGroups());
 		
 		softAssert.assertEquals(management.getPolicyManagement(),prop.getProperty("GroupsManagementHeaderText"));
 		softAssert.assertEquals(management.getPolicyManagementTableHeaderText(),prop.getProperty("GroupsManagementInnerTableHeaderText"));
@@ -71,15 +71,12 @@ public class WSManagementGroupsTest extends BaseClass {
 		Thread.sleep(2000);
 		String GroupNameWithDescription = prop.getProperty("GroupsManagementGroupName")+ " - "+ prop.getProperty("GroupsManagementGroupDescription");
 		String groupName =action.nameVerifyFromTable(management.getGroupCreatedNameVerify(), GroupNameWithDescription);
-		
-		
+		System.out.println(groupName);
 		softAssert.assertEquals(groupName,GroupNameWithDescription);
-		
 		boolean result = false;
-		
 		if (groupName.equalsIgnoreCase(GroupNameWithDescription)) {
 			result = management.nameVerifyFromTableAndMouseHover(driver, groupName);
-			
+
 		}
 		Assert.assertEquals(result,true);
 		
@@ -92,8 +89,7 @@ public class WSManagementGroupsTest extends BaseClass {
 		action.fluentWait(driver, indexpage.getErrorMsg());
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("GroupsManagementGroupUpdatedSuccessMessage"));
 		action.click(driver, indexpage.getPopupCloseIcon());
-
-//		action.click(driver, management.getArrowDownInTable());
+		action.click(driver, management.getArrowDownInTable());
 		
 		boolean	resultOfTop =management.nameVerifyFromTableAndMouseHoverAfterRename(driver, prop.getProperty("GroupsManagementGroupReName")+" - "+prop.getProperty("GroupsManagementGroupDescription"));
 		
@@ -101,41 +97,4 @@ public class WSManagementGroupsTest extends BaseClass {
 		
 		softAssert.assertAll();
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

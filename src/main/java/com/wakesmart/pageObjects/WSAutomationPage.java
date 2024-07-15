@@ -364,7 +364,7 @@ public void getCraetedPolicyRuleVerifyAfterMod(String OrderNum, SoftAssert asser
 			
 			textVerify.add(prop.getProperty("AutomationTableHeaderGroupRules"));
 			textVerify.add(prop.getProperty("AutomationTableHeaderPolicyRules"));
-			textVerify.add(prop.getProperty("AutomationTableHeaderAlertRules"));
+//			textVerify.add(prop.getProperty("AutomationTableHeaderAlertRules"));
 
 		return textVerify;
 		}

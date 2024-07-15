@@ -33,7 +33,7 @@ public class WSSettingsSecurityTest extends BaseClass {
 
 	@AfterClass(enabled=true)
 	public void tearDown() {
-//	        driver.quit();
+	        driver.quit();
 	}
 	@Test(priority=1)
 	public void setingSecurityoptionVerify() throws InterruptedException {
@@ -42,27 +42,28 @@ public class WSSettingsSecurityTest extends BaseClass {
 		softAssert = new SoftAssert();
 		security = new WSSettingsSecurity(driver);
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
+		action.fluentWait(driver, security.getSecurity);
 		action.JSClick(driver,security.getSecurity);
 		
-		Thread.sleep(7000);
+		Thread.sleep(9000);
 		
-		softAssert.assertEquals(security.getSecuritySettingText.getText(), prop.getProperty("SettingsSecurityPageText"));
-		softAssert.assertEquals(security.getSystemOptionsText.getText(), prop.getProperty("SettingsSecuritySystemOptionText"));
-		softAssert.assertEquals(security.getPasswordComplexitySettingText.getText(), prop.getProperty("SettingsSecurityPasswordComplexitySettingsText"));
-		softAssert.assertEquals(security.getDeviceUpgradeSettingsText.getText(), prop.getProperty("SettingsSecurityDeviceUpgradeSettings"));
-		softAssert.assertEquals(security.getMinimumLength.getAttribute("value"),prop.getProperty("SettingSecurityMinimumLength"));
-		softAssert.assertEquals(security.getMissedAttemptsLimit.getAttribute("value"),prop.getProperty("SettingSecurityMissedAttemptsLimit"));
-		softAssert.assertEquals(security.getExpirationLimit.getAttribute("value"),prop.getProperty("SettingSecurityExpirationLimit"));
-		softAssert.assertEquals(security.getReuseCycle.getAttribute("value"),prop.getProperty("SettingSecurityReuseCycle"));
-		softAssert.assertEquals(security.getActiveTwoFactorAuthenticationText.getText(),prop.getProperty("SettingSecurityActiveTwoFactorAutenticationText"));
-		softAssert.assertEquals(security.getRequireCapitalLetterText.getText(),prop.getProperty("SettingSecurityRequireCapitalLetterText"));
-		softAssert.assertEquals(security.getRequireLowerCaseText.getText(),prop.getProperty("SettingSecurityRequireLowerCaseText"));
-		softAssert.assertEquals(security.getRequireNumberText.getText(),prop.getProperty("SettingSecurityRequireNumberText"));
-		softAssert.assertEquals(security.getRequireSpecialCharacterText.getText(),prop.getProperty("SettingSecurityRequireSpecialCharacterText"));
-		softAssert.assertEquals(security.getSpecialCharacterText.getText(),prop.getProperty("SettingSecuritySpecialCharacterText"));
-		softAssert.assertEquals(security.getWakeSMARTClientUpgraderText.getText(),prop.getProperty("SettingSecurityWakeSMARTClientUpgraderText"));
-		softAssert.assertEquals(security.getCurrentReleaseVersionsText.getText(),prop.getProperty("SettingSecurityCurrentReleaseVersionsText"));
-		softAssert.assertEquals(security.getAutoUpgradeVersionText.getText(),prop.getProperty("SettingSecurityAutoUpgradeVersionText"));
+		softAssert.assertEquals(security.getSecuritySettingText.getText(), prop.getProperty("SettingsSecurityPageText"),"SettingSecurityPageTextMessage");
+		softAssert.assertEquals(security.getSystemOptionsText.getText(), prop.getProperty("SettingsSecuritySystemOptionText"),"SettingsSecuritySystemOptionTextMessage");
+		softAssert.assertEquals(security.getPasswordComplexitySettingText.getText(), prop.getProperty("SettingsSecurityPasswordComplexitySettingsText"),"SettingsSecurityPasswordComplexitySettingsTextMessage");
+		softAssert.assertEquals(security.getDeviceUpgradeSettingsText.getText(), prop.getProperty("SettingsSecurityDeviceUpgradeSettings"),"SettingsSecurityDeviceUpgradeSettingsMessage");
+		softAssert.assertEquals(security.getMinimumLength.getAttribute("value"),prop.getProperty("SettingSecurityMinimumLength"),"SettingSecurityMinimumLengthMessage");
+		softAssert.assertEquals(security.getMissedAttemptsLimit.getAttribute("value"),prop.getProperty("SettingSecurityMissedAttemptsLimit"),"SettingSecurityMissedAttemptsLimitMessageText");
+		softAssert.assertEquals(security.getExpirationLimit.getAttribute("value"),prop.getProperty("SettingSecurityExpirationLimit"),"SettingSecurityExpirationLimitMessagetext");
+		softAssert.assertEquals(security.getReuseCycle.getAttribute("value"),prop.getProperty("SettingSecurityReuseCycle"),"SettingSecurityReuseCycle MessageText");
+		softAssert.assertEquals(security.getActiveTwoFactorAuthenticationText.getText(),prop.getProperty("SettingSecurityActiveTwoFactorAutenticationText"),"SettingSecurityActiveTwoFactorAutenticationText MessageText");
+		softAssert.assertEquals(security.getRequireCapitalLetterText.getText(),prop.getProperty("SettingSecurityRequireCapitalLetterText"),"SettingSecurityRequireCapitalLetterText MessageText");
+		softAssert.assertEquals(security.getRequireLowerCaseText.getText(),prop.getProperty("SettingSecurityRequireLowerCaseText"),"SettingSecurityRequireLowerCaseTextMessage Text");
+		softAssert.assertEquals(security.getRequireNumberText.getText(),prop.getProperty("SettingSecurityRequireNumberText"),"SettingSecurityRequireNumberText Message text");
+		softAssert.assertEquals(security.getRequireSpecialCharacterText.getText(),prop.getProperty("SettingSecurityRequireSpecialCharacterText"),"SettingSecurityRequireSpecialCharacterText Message text");
+		softAssert.assertEquals(security.getSpecialCharacterText.getText(),prop.getProperty("SettingSecuritySpecialCharacterText"),"SettingSecuritySpecialCharacterText Message Text");
+		softAssert.assertEquals(security.getWakeSMARTClientUpgraderText.getText(),prop.getProperty("SettingSecurityWakeSMARTClientUpgraderText"),"SettingSecurityWakeSMARTClientUpgraderText Message text");
+		softAssert.assertEquals(security.getCurrentReleaseVersionsText.getText(),prop.getProperty("SettingSecurityCurrentReleaseVersionsText"),"SettingSecurityCurrentReleaseVersionsText Message text ");
+		softAssert.assertEquals(security.getAutoUpgradeVersionText.getText(),prop.getProperty("SettingSecurityAutoUpgradeVersionText"),"SettingSecurityAutoUpgradeVersionText Message text");
 		softAssert.assertAll();
 		
 	}
