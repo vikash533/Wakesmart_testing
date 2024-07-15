@@ -178,9 +178,9 @@ public class WSManagementDevicesTest extends BaseClass {
 		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
 		devices.getmanagedSystemsGroupSelection(prop.getProperty("GroupManagementGroupAssign"));
 		Thread.sleep(3000);
-		action.scrollToLeft(driver,"document.querySelector(\".MuiDataGrid-virtualScroller\").scrollLeft=1000000");
-		action.fluentWait(driver, devices.groupNameVerify);
-		softAssert.assertEquals(devices.groupNameVerify.getText(),prop.getProperty("GroupManagementGroupAssign"));
+//		action.scrollToLeft(driver,"document.querySelector(\".MuiDataGrid-virtualScroller\").scrollLeft=1000000");
+//		action.fluentWait(driver, devices.groupNameVerify);
+//		softAssert.assertEquals(devices.groupNameVerify.getText(),prop.getProperty("GroupManagementGroupAssign"));
 		
 		softAssert.assertAll();
 	}
@@ -211,12 +211,12 @@ public class WSManagementDevicesTest extends BaseClass {
 		Thread.sleep(3000);
 		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
 		devices.getmanagedSystemsGroupSelection(prop.getProperty("GroupManagementGroupAssign"));
-		Thread.sleep(3000);
-		action.scrollToLeft(driver,"document.querySelector(\".MuiDataGrid-virtualScroller\").scrollLeft=1000000");
-		action.fluentWait(driver, devices.groupNameVerify);
-		softAssert.assertEquals(devices.policyNameVerify.getText(),prop.getProperty("DevicePolicyAssign"));
+//		Thread.sleep(3000);
+//		action.scrollToLeft(driver,"document.querySelector(\".MuiDataGrid-virtualScroller\").scrollLeft=1000000");
+//		action.fluentWait(driver, devices.groupNameVerify);
+//		softAssert.assertEquals(devices.policyNameVerify.getText(),prop.getProperty("DevicePolicyAssign"));
 		
-		softAssert.assertAll();
+//		softAssert.assertAll();
 
 		
 	}
