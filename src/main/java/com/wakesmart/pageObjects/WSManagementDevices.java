@@ -423,6 +423,40 @@ public class WSManagementDevices {
 	
 	@FindBy(xpath="//button[normalize-space()='Save Column Order']")
 	public WebElement saveColumnorder;
+	
+	//forLicense/Unlicensed device
+	@FindBy(xpath = "(//h2[normalize-space()='License Selection For Selected Device'])[1]")
+	public WebElement LicenseSelectionForSelectedDevice;
+	
+	@FindBy(xpath="//div[normalize-space()='Use Rule']")
+	public WebElement LisceneseDropdown;
+	
+	@FindBy(xpath="//ul[@role='listbox']//li")
+	public List<WebElement> LisceneseDropdowList;
+	
+	@FindBy(xpath="//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-1vskg8q']/button[2]")
+	public WebElement submitButton;
+	
+	
+	public void LiscenceSelectDropdown(String LiscenesNeedToSelect) throws InterruptedException {
+		Thread.sleep(3000);
+		boolean flag =false;
+		LisceneseDropdown.click();
+		for(WebElement element:LisceneseDropdowList)
+		{
+			if(element.getText().equalsIgnoreCase(LiscenesNeedToSelect)) {
+				Thread.sleep(2000);
+				element.click();
+				flag=true;
+				break;
+
+			}
+		}
+
+	}
+	
+	
+	
 }
 
 
