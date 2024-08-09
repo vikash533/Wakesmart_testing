@@ -374,6 +374,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		action.click(driver, devices.submitButton);
 		Thread.sleep(3000);
 		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
+		
 	}
 	@Test
 	public void changeDeviceName() throws InterruptedException {
