@@ -279,6 +279,127 @@ public class WSManagementDevicesTest extends BaseClass {
 		
 		
 	}
+	@Test
+	public void deviceAssingLisence() throws InterruptedException {
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		management = new WSManagement(driver);
+		devices = new WSManagementDevices(driver);
+		
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
+		action.JSClick(driver, management.getManagementTab());
+		action.JSClick(driver, devices.getManagementDevices());
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
+		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
+		Thread.sleep(3000);
+		Assert.assertTrue(devices.selectOption("License/Unlicensed"),"DeviceSearching and License/Unlicensed failed");
+		devices.LiscenceSelectDropdown("License");
+		Thread.sleep(8000);
+		action.click(driver, devices.submitButton);
+		Thread.sleep(8000);
+		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
+		System.out.println(indexpage.getErrorMsg().getText());
+		
+		
+		
+	}
+	@Test
+	public void deviceAssingUnLisence() throws InterruptedException {
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		management = new WSManagement(driver);
+		devices = new WSManagementDevices(driver);
+		
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
+		action.JSClick(driver, management.getManagementTab());
+		action.JSClick(driver, devices.getManagementDevices());
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
+		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
+		Thread.sleep(3000);
+		Assert.assertTrue(devices.selectOption("License/Unlicensed"),"DeviceSearching and License/Unlicensed failed");
+		devices.LiscenceSelectDropdown("Do Not License");
+		Thread.sleep(3000);
+		action.click(driver, devices.submitButton);
+		Thread.sleep(3000);
+		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
+		System.out.println(indexpage.getErrorMsg().getText());
+
+		
+	}
+	@Test
+	public void deviceUpgrade() throws InterruptedException {
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		management = new WSManagement(driver);
+		devices = new WSManagementDevices(driver);
+		
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
+		action.JSClick(driver, management.getManagementTab());
+		action.JSClick(driver, devices.getManagementDevices());
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
+		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
+		Thread.sleep(3000);
+		Assert.assertTrue(devices.selectOption("Upgrade/No Upgrade"),"DeviceSearching and License/Unlicensed failed");
+		devices.LiscenceSelectDropdown("Upgrade");
+		Thread.sleep(3000);
+		action.click(driver, devices.submitButton);
+		Thread.sleep(3000);
+		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
+		
+	}
+	@Test
+	public void deviceDoNOTupgrade() throws InterruptedException {
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		management = new WSManagement(driver);
+		devices = new WSManagementDevices(driver);
+		
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
+		action.JSClick(driver, management.getManagementTab());
+		action.JSClick(driver, devices.getManagementDevices());
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
+		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
+		Thread.sleep(3000);
+		Assert.assertTrue(devices.selectOption("Upgrade/No Upgrade"),"DeviceSearching and License/Unlicensed failed");
+		devices.LiscenceSelectDropdown("Do NOT upgrade");
+		Thread.sleep(3000);
+		action.click(driver, devices.submitButton);
+		Thread.sleep(3000);
+		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
+		
+	}
+	@Test
+	public void changeDeviceName() throws InterruptedException {
+		indexpage = new IndexPage(driver);
+		action = new Action();
+		SoftAssert softAssert = new SoftAssert();
+		management = new WSManagement(driver);
+		devices = new WSManagementDevices(driver);
+		
+		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
+		action.JSClick(driver, management.getManagementTab());
+		action.JSClick(driver, devices.getManagementDevices());
+		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
+		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
+		Thread.sleep(3000);
+		Assert.assertTrue(devices.selectOption("Change Device Name"),"DeviceSearching and License/Unlicensed failed");
+		devices.LiscenceSelectDropdown("Change Device Name");
+		Thread.sleep(3000);
+		action.click(driver, devices.submitButton);
+		Thread.sleep(3000);
+		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
+		
+	}
+	
 	
 	
 	
