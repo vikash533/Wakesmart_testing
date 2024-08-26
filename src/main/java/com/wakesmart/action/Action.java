@@ -866,6 +866,11 @@ public class Action extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
+	public void explicitWaitForInvisibility(WebDriver driver, WebElement element, int timeOut) {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+	    wait.until(ExpectedConditions.invisibilityOf(element));
+	}
+
 
 	public  void moveToElementClickClearAndSendValue(WebDriver driver, WebElement element, String value) {
         Actions actions = new Actions(driver);

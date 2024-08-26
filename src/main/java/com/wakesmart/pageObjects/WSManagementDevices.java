@@ -26,12 +26,12 @@ public class WSManagementDevices {
 		PageFactory.initElements(driver, this);
 	}
 
-
+ 
 	By ManagementDevices = By.xpath("//div[@class='MuiList-root css-1xidfkz']//a[1]");
 	By DevicesPageText = By.xpath("//div[@class='MuiCardHeader-root css-1dj5oyi']//span[text()='Device Management - Joel Inc']");
 
 
-	@FindBy(xpath = "//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc']/button[2]")
+	@FindBy(xpath = "//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-1vskg8q']//button[2]")
 	public WebElement getSubmitButton;
 
 	@FindBy(xpath = "//p[@class='MuiTypography-root MuiTypography-body1 css-1ilqee0']")
@@ -87,9 +87,9 @@ public class WSManagementDevices {
 	public void uncheckAllCheckboxes() {
 
 		//		String value = "MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked css-dt6pu2-MuiButtonBase-root-MuiCheckbox-root";
-		String value = "MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked css-1vb6jjw";
+		String value = "MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-1vb6jjw";
 
-		for (int i = 1; i < 23; i++) {
+		for (int i = 1; i < 24; i++) {
 			WebElement ele = driver
 					.findElement(By.xpath("//div[@class='MuiBox-root css-1sdcacc']/div/div[" + i + "]/label/span[1]"));
 			if (ele.getAttribute("class").equalsIgnoreCase(value)) {
@@ -98,14 +98,15 @@ public class WSManagementDevices {
 		}
 	}
 
-	public void checkAllCheckboxes() {
+	public void checkAllCheckboxes() throws InterruptedException {
 
 		//		String value = "MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary css-dt6pu2-MuiButtonBase-root-MuiCheckbox-root";
-		String value = "MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary css-1vb6jjw";
+		String value = "MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-1vb6jjw";
 
-		for (int i = 1; i < 23; i++) {
+		for (int i = 1; i < 24; i++) {
 			WebElement ele = driver.findElement(By.xpath("//div[@class='MuiBox-root css-1sdcacc']/div/div[" + i + "]/label/span[1]"));
 			if (ele.getAttribute("class").equalsIgnoreCase(value)) {
+//				Thread.sleep(4000);
 				ele.click();
 			}
 		}
@@ -141,7 +142,9 @@ public class WSManagementDevices {
 		boolean result = false;
 		for (WebElement ele : driver.findElements(DevicesList)) {
 			if (ele.getText().equalsIgnoreCase(deviceName)) {
-				ele.click();
+//				ele.click();
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+	            js.executeScript("arguments[0].click()", ele);
 				act.contextClick(ele).perform();
 				result = true;
 				break;
@@ -158,13 +161,20 @@ public class WSManagementDevices {
 				}
 				for (WebElement ele : driver.findElements(DevicesList)) {
 					if (ele.getText().equalsIgnoreCase(deviceName)) {
-						ele.click();
+//						ele.click();
+						JavascriptExecutor js = (JavascriptExecutor) driver;
+			            js.executeScript("arguments[0].click()", ele);
 						act.contextClick(ele).perform();
 						result = true;
 						break;
 					}
 				}
 			}
+		}
+		if(!result) {
+			if (!result) {
+		        
+		    }
 		}
 		return result;
 	}
@@ -209,7 +219,9 @@ public class WSManagementDevices {
 		boolean result = false;
 		for (WebElement ele : driver.findElements(DevicesList)) {
 			if (ele.getText().equalsIgnoreCase(deviceName)) {
-									ele.click();
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+	            js.executeScript("arguments[0].click()", ele);
+//									ele.click();
 				act.contextClick(ele).perform();
 				result = true;
 				break;
@@ -226,7 +238,9 @@ public class WSManagementDevices {
 				}
 				for (WebElement ele : driver.findElements(DevicesList)) {
 					if (ele.getText().equalsIgnoreCase(deviceName)) {
-						//							ele.click();
+						//ele.click();
+						JavascriptExecutor js = (JavascriptExecutor) driver;
+			            js.executeScript("arguments[0].click()", ele);
 						act.contextClick(ele).perform();
 						result = true;
 						break;
@@ -289,11 +303,16 @@ public class WSManagementDevices {
 	//Wake
 	By wakeSlectedDevice = By.xpath("//h2[text()='Wake Selected Device']");
 	By wakeReasonforActionInputField = By.xpath("(//input[@type='text'])[2]");
+	By WakeSaveButton = By.xpath("//button[normalize-space()='Save']");
 	public WebElement getwakeSlectedDeviceText() {
 		return driver.findElement(wakeSlectedDevice);
 	}
 	public WebElement getwakeReasonforActionInputField () {
 		return driver.findElement(wakeReasonforActionInputField);
+	}
+	public WebElement getclickSaveButton() {
+		return driver.findElement(WakeSaveButton);
+		
 	}
 
 
@@ -302,7 +321,7 @@ public class WSManagementDevices {
 	@FindBy(xpath = "(//h2[normalize-space()='Group Selected Device'])[1]")
 	public WebElement groupSelectedDeviceHeaderText;
 
-	@FindBy(xpath = "(//div[@aria-haspopup='listbox' and  @role='button'])[2]")
+	@FindBy(xpath = "//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1fzlj8j']/child::div")
 	public WebElement groupSelectDropdownClick;
 
 	@FindBy(xpath = "//ul[@role='listbox']/li")
@@ -368,7 +387,7 @@ public class WSManagementDevices {
 	@FindBy(xpath="(//h2[normalize-space()='Policy Selected Device'])[1]")
 	public WebElement policySelectedDeviceHeaderText;
 
-	@FindBy(xpath="(//div[@role='button' and @aria-haspopup='listbox'])[2]")
+	@FindBy(xpath="(//div[@role='combobox' and @aria-haspopup='listbox'])[2]")
 	public WebElement policyDropdownClick;
 
 	@FindBy(xpath = "//ul[@role='listbox']/li")

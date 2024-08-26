@@ -44,8 +44,11 @@ public class IndexPage extends BaseClass {
 	By PopupCloseIcon = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");
 	By OrganizationManagementHeaderText = By.xpath("//span[@class='MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-en0w5h']");
 	By OrganizationTableHeader = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-lmldiz']/p");
+	By PleaseWait = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/child::div)[4]/child::p");
 	
-	
+	public WebElement getPleaseWaitPopup() {
+		return driver.findElement(PleaseWait);
+	}
 	public WebElement getOrganizationManagementHeaderText() {
 		return driver.findElement(OrganizationManagementHeaderText);
 	}
