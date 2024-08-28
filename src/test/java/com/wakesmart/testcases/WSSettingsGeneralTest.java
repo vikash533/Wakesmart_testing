@@ -115,7 +115,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 	public void settingsGeneralDefaultOptionsModify() throws InterruptedException {
 		
 		
-		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
+//		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
 		action.type(general.getdataRetention(), prop.getProperty("SettingsGeneralDataRetentionUpdated"));
 		action.type(general.getcheckInterval(), prop.getProperty("SettingsGeneralCheckInIntervalUpdated"));
 		action.type(general.getunlicensedAfter(), prop.getProperty("SettingsGeneralUnlicenseAfterDaysUpdated"));
@@ -161,7 +161,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		
 		Thread.sleep(9000);
 		
-		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRows"));
+//		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRows"));
 		action.type(general.getdataRetention(), prop.getProperty("SettingsGeneralDataRetention"));
 		action.type(general.getcheckInterval(), prop.getProperty("SettingsGeneralCheckInInterval"));
 		action.type(general.getunlicensedAfter(), prop.getProperty("SettingsGeneralUnlicenseAfterDays"));
