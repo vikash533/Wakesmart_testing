@@ -98,13 +98,14 @@ public class Action extends BaseClass {
 		}
 	}
 
-	public String nameVerifyFromTable(List<WebElement> ele, String str) {
+	public String nameVerifyFromTable(List<WebElement> ele, String str) throws InterruptedException {
 
 		String tablename = "";
 		for (WebElement option : ele) {
 
 			if (option.getText().equalsIgnoreCase(str)) {
 				tablename = option.getText();
+				System.out.println("Plociy table name "+tablename);
 				break;
 			}
 		}

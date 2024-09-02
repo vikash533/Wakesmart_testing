@@ -58,7 +58,7 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 		action.JSClick(driver, automation.getAddRuleButton());
 		
 		action.fluentWait(driver, automation.getAddNewRuleText());
-		softAssert.assertEquals(automation.getAddNewRuleText().getText(), prop.getProperty("GroupAddNewpolicyText"));
+		softAssert.assertEquals(automation.getAddNewRuleText().getText(), prop.getProperty("GroupAddNewpolicyText"),"Mismatch GroupAddNewPolicy Text");
 		
 		orderNum = automation.getOrderDropdown();
 		System.out.println(orderNum);
@@ -88,7 +88,7 @@ public class WSAutomationGroupRulesTest extends BaseClass {
 		action.JSClick(driver, automation.getSubmitBtn());
 		
 		action.fluentWait(driver, automation.getAlertConfirmationMessage());
-		softAssert.assertEquals(automation.getAlertConfirmationMessage().getText(), prop.getProperty("CreatedMessageOnPopUp"));
+		softAssert.assertEquals(automation.getAlertConfirmationMessage().getText(), prop.getProperty("CreatedMessageOnPopUp"),"Mismatch of CreatedMessageOnPopUp");
 		action.click(driver, indexpage.getPopupCloseIcon());
 		
 		automation.getCraetedRuleVerify(orderNum, softAssert, prop);

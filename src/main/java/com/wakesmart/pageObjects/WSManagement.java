@@ -90,6 +90,7 @@ public class WSManagement extends BaseClass{
 	By AddNewPolicySubmitButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-1vskg8q']/button[2]");
 	By PolicyNameVerify = By.xpath("//tbody[@class]//tr/td[1]");
 	By PolicyDescriptionVerify = By.xpath("//tbody[@class]//tr/td[2]");
+	By AddPolicy = By.xpath("(//h2[normalize-space()='Add New Policy'])[1]");
 	
 	
 	public List<WebElement> getPolicyDescriptionVerify() {
@@ -530,7 +531,9 @@ public class WSManagement extends BaseClass{
 	public void nameVerifyFromTableAndMouseHoverFlash(WebDriver driver,String str) {
 		
 	}
-	
+	public WebElement getAddPolicy() {
+		return driver.findElement(AddPolicy);
+	}
 	
 	
 	
