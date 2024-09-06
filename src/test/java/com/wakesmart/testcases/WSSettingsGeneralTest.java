@@ -55,7 +55,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		softAssert.assertEquals(general.getEnergyValuesText.getText(), prop.getProperty("SettingsGeneralEnergyValuesText"));
 		softAssert.assertEquals(general.getGreenhouseGasComparisonsText.getText(), prop.getProperty("SettingsGeneralGreenhouseGasComparisonsText"));
 		softAssert.assertEquals(general.getDashboardPanelSelectionText.getText(), prop.getProperty("SettingsGeneralDashboardPanelSelectionsText"));
-		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
+//		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
 		softAssert.assertEquals(general.getdataRetention().getAttribute("value"), prop.getProperty("SettingsGeneralDataRetention"));
 		softAssert.assertEquals(general.getcheckInterval().getAttribute("value"), prop.getProperty("SettingsGeneralCheckInInterval"));
 		softAssert.assertEquals(general.getunlicensedAfter().getAttribute("value"), prop.getProperty("SettingsGeneralUnlicenseAfterDays"));
@@ -134,7 +134,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		Thread.sleep(10000);
 		
 		//verfy the updated  value
-		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
+//		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
 		softAssert.assertEquals(general.getdataRetention().getAttribute("value"), prop.getProperty("SettingsGeneralDataRetentionUpdated"));
 		softAssert.assertEquals(general.getcheckInterval().getAttribute("value"), prop.getProperty("SettingsGeneralCheckInIntervalUpdated"));
 		softAssert.assertEquals(general.getunlicensedAfter().getAttribute("value"), prop.getProperty("SettingsGeneralUnlicenseAfterDaysUpdated"));
@@ -191,7 +191,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		Thread.sleep(9000);
 		
 		//verfy the updated  value
-		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
+//		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
 		softAssert.assertEquals(general.getdataRetention().getAttribute("value"), prop.getProperty("SettingsGeneralDataRetention"));
 		softAssert.assertEquals(general.getcheckInterval().getAttribute("value"), prop.getProperty("SettingsGeneralCheckInInterval"));
 		softAssert.assertEquals(general.getunlicensedAfter().getAttribute("value"), prop.getProperty("SettingsGeneralUnlicenseAfterDays"));

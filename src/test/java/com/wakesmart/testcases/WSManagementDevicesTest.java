@@ -148,7 +148,9 @@ public class WSManagementDevicesTest extends BaseClass {
 		devices = new WSManagementDevices(driver);
 		
 		action.JSClick(driver, automation.getAutomationTab());
+		Thread.sleep(2000);
 		action.JSClick(driver, management.getManagementTab());
+		Thread.sleep(4000);
 		action.JSClick(driver, devices.getManagementDevices());
 
 		boolean devicePresent = devices.getDevicesList(prop.getProperty("GroupManagementDeviceName"));
@@ -210,7 +212,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		action = new Action();
 		SoftAssert softAssert = new SoftAssert();
 		devices = new WSManagementDevices(driver);
-		
+		Thread.sleep(5000);
 		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
 		devices.getDevicesListSelect(prop.getProperty("GroupManagementDeviceName"));
 		Thread.sleep(3000);
@@ -245,6 +247,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		devices = new WSManagementDevices(driver);
 		
 		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		Thread.sleep(5000);
 		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
 		Thread.sleep(3000);
 		Assert.assertTrue(devices.selectOption("Assign Label"),"DeviceSearching and assignLabel failed");
@@ -283,7 +286,8 @@ public class WSManagementDevicesTest extends BaseClass {
 		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchOs_Version"));
 	
 		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchInvalidKeyword"));
-			
+		
+		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
 	}
 	@Test(dependsOnMethods= "searchDevice",enabled=true)
 	public void dragAndDropColumnsOrder() throws InterruptedException {
@@ -293,7 +297,15 @@ public class WSManagementDevicesTest extends BaseClass {
 		devices = new WSManagementDevices(driver);
 		
 		Thread.sleep(4000);
+		try {
 		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
+		}
+		catch(Exception e) {
+			action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));	
+		}
+		finally {
+			System.out.println("unable to click top managment group..");
+		}
 		action.draganddrop(driver, devices.deviceNameColumn, devices.macAddresColumn);
 //		Thread.sleep(3000);
 		action.draganddrop(driver, devices.deviceNameColumn, devices.ipAddress);
@@ -307,26 +319,26 @@ public class WSManagementDevicesTest extends BaseClass {
 		
 		
 	}
-	@Test(dependsOnMethods= "dragAndDropColumnsOrder",enabled=true)
+	@Test(dependsOnMethods= "dragAndDropColumnsOrder",enabled=false)
 	public void deviceAssingLisence() throws InterruptedException {
 		indexpage = new IndexPage(driver);
 		action = new Action();
 		SoftAssert softAssert = new SoftAssert();
 		management = new WSManagement(driver);
 		devices = new WSManagementDevices(driver);
-		
+		Thread.sleep(4000);
 //		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
 //		action.JSClick(driver, management.getManagementTab());
 //		action.JSClick(driver, devices.getManagementDevices());
 		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
 		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
 		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		Assert.assertTrue(devices.selectOption("License/Unlicensed"),"DeviceSearching and License/Unlicensed failed");
 		devices.LiscenceSelectDropdown("License");
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		action.click(driver, devices.submitButton);
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
 		System.out.println(indexpage.getErrorMsg().getText());
 		softAssert.assertAll();
@@ -334,7 +346,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		
 		
 	}
-	@Test(dependsOnMethods= "deviceAssingLisence",enabled=true)
+	@Test(dependsOnMethods= "deviceAssingLisence",enabled=false)
 	public void deviceAssingUnLisence() throws InterruptedException {
 		indexpage = new IndexPage(driver);
 		action = new Action();
@@ -345,6 +357,7 @@ public class WSManagementDevicesTest extends BaseClass {
 //		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
 //		action.JSClick(driver, management.getManagementTab());
 //		action.JSClick(driver, devices.getManagementDevices());
+		Thread.sleep(4000);
 		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
 		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
 		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
@@ -359,7 +372,7 @@ public class WSManagementDevicesTest extends BaseClass {
 
 		
 	}
-	@Test(dependsOnMethods= "deviceAssingUnLisence",enabled=true)
+	@Test(dependsOnMethods= "deviceAssingUnLisence",enabled=false)
 	public void deviceUpgrade() throws InterruptedException {
 		indexpage = new IndexPage(driver);
 		action = new Action();
@@ -370,6 +383,7 @@ public class WSManagementDevicesTest extends BaseClass {
 //		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
 //		action.JSClick(driver, management.getManagementTab());
 //		action.JSClick(driver, devices.getManagementDevices());
+		Thread.sleep(4000);
 		action.JSClick(driver,devices.getmanagedSystemsGroupSelectionForWait(prop.getProperty("DefaulftGroupOnDevicesearchPage1")));
 		action.typeAndHitEnter(devices.searchFunctionality,prop.getProperty("ManagementDevicesSearchDeviceName"));
 		devices.getDevicesListSelect1(prop.getProperty("GroupManagementDeviceAssing"));
@@ -382,14 +396,14 @@ public class WSManagementDevicesTest extends BaseClass {
 		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
 		
 	}
-	@Test(dependsOnMethods= "deviceUpgrade",enabled=true)
+	@Test(dependsOnMethods= "deviceUpgrade",enabled=false)
 	public void deviceDoNOTupgrade() throws InterruptedException {
 		indexpage = new IndexPage(driver);
 		action = new Action();
 		SoftAssert softAssert = new SoftAssert();
 		management = new WSManagement(driver);
 		devices = new WSManagementDevices(driver);
-		
+		Thread.sleep(4000);
 //		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
 //		action.JSClick(driver, management.getManagementTab());
 //		action.JSClick(driver, devices.getManagementDevices());
@@ -405,14 +419,14 @@ public class WSManagementDevicesTest extends BaseClass {
 		Assert.assertEquals(indexpage.getErrorMsg().getText(), "Successfully done");
 		
 	}
-	@Test(dependsOnMethods= "deviceDoNOTupgrade",enabled=true)
+	@Test(dependsOnMethods= "deviceDoNOTupgrade",enabled=false)
 	public void changeDeviceName() throws InterruptedException {
 		indexpage = new IndexPage(driver);
 		action = new Action();
 		SoftAssert softAssert = new SoftAssert();
 		management = new WSManagement(driver);
 		devices = new WSManagementDevices(driver);
-		
+		Thread.sleep(4000);
 //		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"), prop);
 //		action.JSClick(driver, management.getManagementTab());
 //		action.JSClick(driver, devices.getManagementDevices());

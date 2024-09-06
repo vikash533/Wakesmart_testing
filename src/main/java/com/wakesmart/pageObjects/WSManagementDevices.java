@@ -132,7 +132,7 @@ public class WSManagementDevices {
 	//	
 
 	//	 By DevicesList = By.xpath("(//div[@role='presentation'])/div/div/div/div[3]/div");
-	By DevicesList = By.xpath("//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/child::div/child::div[2]");
+	By DevicesList = By.xpath("//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']/child::div/child::div[3]");
 	@FindBy(xpath = "//button[@title='Go to next page']")
 	public WebElement GoToNextPage;
 
