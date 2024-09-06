@@ -331,7 +331,7 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	@Test(priority=6,enabled=false)
-	public void manageEditGroups() {
+	public void manageEditGroups() throws InterruptedException {
 		
 		manage = new Manage(driver);
 		softAssert = new SoftAssert();

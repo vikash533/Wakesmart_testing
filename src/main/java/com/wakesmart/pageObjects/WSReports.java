@@ -246,7 +246,7 @@ public class WSReports extends BaseClass {
 		return driver.findElement(ListOfPolicyText);
 	}
 	
-	By ActivityReportsIcon = By.xpath("(//div[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-m92ebk'])[3]/div[2]");
+	By ActivityReportsIcon = By.xpath("//div[@class='MuiListItemText-root css-n5xu2x']/p[text()='Activity Reports']");
 	public WebElement getActivityReportsIcon() {
 		return driver.findElement(ActivityReportsIcon);
 	}

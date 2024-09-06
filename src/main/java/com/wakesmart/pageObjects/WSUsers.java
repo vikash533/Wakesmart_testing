@@ -26,7 +26,7 @@ public class WSUsers {
 	By UserName = By.xpath("(//div[@class='MuiDialogContent-root css-18vaxhi']//div//input)[1]");
 	By Email = By.xpath("(//div[@class='MuiDialogContent-root css-18vaxhi']//div//input)[2]");
 	By ConfirmEmail = By.xpath("(//div[@class='MuiDialogContent-root css-18vaxhi']//div//input)[3]");
-	By AddNewUserSubmitButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-14b29qc']/button[2]");
+	By AddNewUserSubmitButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-1vskg8q']/button[2]");
 	By AddNewUserCancelButton = By.xpath("//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root']/button[1]");
 	By AlertMessage = By.xpath("//div[@role='alert']/div[2]");
 	By AlertCloseButton = By.xpath("//button[@class='Toastify__close-button Toastify__close-button--light']");

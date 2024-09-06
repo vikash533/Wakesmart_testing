@@ -98,13 +98,14 @@ public class Action extends BaseClass {
 		}
 	}
 
-	public String nameVerifyFromTable(List<WebElement> ele, String str) {
+	public String nameVerifyFromTable(List<WebElement> ele, String str) throws InterruptedException {
 
 		String tablename = "";
 		for (WebElement option : ele) {
 
 			if (option.getText().equalsIgnoreCase(str)) {
 				tablename = option.getText();
+				System.out.println("Plociy table name "+tablename);
 				break;
 			}
 		}
@@ -117,6 +118,16 @@ public class Action extends BaseClass {
 
 			if (option.getText().equalsIgnoreCase(str)) {
 				option.click();
+				break;
+			}
+		}
+	}
+	public void ClickOnEditGroup(List<WebElement> ele, String str,WebElement editElement) {
+
+		for (WebElement option : ele) {
+
+			if (option.getText().equalsIgnoreCase(str)) {
+				editElement.click();
 				break;
 			}
 		}
@@ -856,6 +867,11 @@ public class Action extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
+	public void explicitWaitForInvisibility(WebDriver driver, WebElement element, int timeOut) {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+	    wait.until(ExpectedConditions.invisibilityOf(element));
+	}
+
 
 	public  void moveToElementClickClearAndSendValue(WebDriver driver, WebElement element, String value) {
         Actions actions = new Actions(driver);

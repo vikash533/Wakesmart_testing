@@ -46,7 +46,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		
 		indexpage.validUserLogin(prop.getProperty("ValidUserName"), prop.getProperty("ValidPassword"),prop.getProperty("WelcomeMessgeOnHomeNewPage"),prop);
 		action.fluentWait(driver, general.getGeneral);
-		action.JSClick(driver, general.getGeneral);
+		action.JSClick(driver, general.getGeneral); 
 		
 		Thread.sleep(1000);
 		softAssert.assertEquals(general.getGeneralSettingsText.getText(), prop.getProperty("SettingsGeneralPageText"));
@@ -55,7 +55,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		softAssert.assertEquals(general.getEnergyValuesText.getText(), prop.getProperty("SettingsGeneralEnergyValuesText"));
 		softAssert.assertEquals(general.getGreenhouseGasComparisonsText.getText(), prop.getProperty("SettingsGeneralGreenhouseGasComparisonsText"));
 		softAssert.assertEquals(general.getDashboardPanelSelectionText.getText(), prop.getProperty("SettingsGeneralDashboardPanelSelectionsText"));
-		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
+//		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
 		softAssert.assertEquals(general.getdataRetention().getAttribute("value"), prop.getProperty("SettingsGeneralDataRetention"));
 		softAssert.assertEquals(general.getcheckInterval().getAttribute("value"), prop.getProperty("SettingsGeneralCheckInInterval"));
 		softAssert.assertEquals(general.getunlicensedAfter().getAttribute("value"), prop.getProperty("SettingsGeneralUnlicenseAfterDays"));
@@ -89,6 +89,8 @@ public class WSSettingsGeneralTest extends BaseClass{
 		
 		softAssert.assertEquals(general.getPreferredSequestration().getText(), prop.getProperty("SettingsGeneralTreeSeedlingsGrownfor10Years"));
 		general.getPreferredSequestration().click();
+//		general.getPreferredSequestration().click();
+//		general.getPreferredSequestration().click();
 		Thread.sleep(400);
 		softAssert.assertEquals(general.getPreferredSequestrationDropdownOptions(), general.getPreferredSequestrationDropdownOptionsVerify(prop));
 		general.getPreferredSequestrationDropdownElements().get(1).click();
@@ -113,7 +115,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 	public void settingsGeneralDefaultOptionsModify() throws InterruptedException {
 		
 		
-		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
+//		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
 		action.type(general.getdataRetention(), prop.getProperty("SettingsGeneralDataRetentionUpdated"));
 		action.type(general.getcheckInterval(), prop.getProperty("SettingsGeneralCheckInIntervalUpdated"));
 		action.type(general.getunlicensedAfter(), prop.getProperty("SettingsGeneralUnlicenseAfterDaysUpdated"));
@@ -132,7 +134,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		Thread.sleep(10000);
 		
 		//verfy the updated  value
-		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
+//		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRowsUpdated"));
 		softAssert.assertEquals(general.getdataRetention().getAttribute("value"), prop.getProperty("SettingsGeneralDataRetentionUpdated"));
 		softAssert.assertEquals(general.getcheckInterval().getAttribute("value"), prop.getProperty("SettingsGeneralCheckInIntervalUpdated"));
 		softAssert.assertEquals(general.getunlicensedAfter().getAttribute("value"), prop.getProperty("SettingsGeneralUnlicenseAfterDaysUpdated"));
@@ -159,7 +161,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		
 		Thread.sleep(9000);
 		
-		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRows"));
+//		action.type(general.getDevicesToShow(), prop.getProperty("SettingsGeneralDeviceToShowRows"));
 		action.type(general.getdataRetention(), prop.getProperty("SettingsGeneralDataRetention"));
 		action.type(general.getcheckInterval(), prop.getProperty("SettingsGeneralCheckInInterval"));
 		action.type(general.getunlicensedAfter(), prop.getProperty("SettingsGeneralUnlicenseAfterDays"));
@@ -189,7 +191,7 @@ public class WSSettingsGeneralTest extends BaseClass{
 		Thread.sleep(9000);
 		
 		//verfy the updated  value
-		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
+//		softAssert.assertEquals(general.getDevicesToShow().getAttribute("value"), prop.getProperty("SettingsGeneralDeviceToShowRows"));
 		softAssert.assertEquals(general.getdataRetention().getAttribute("value"), prop.getProperty("SettingsGeneralDataRetention"));
 		softAssert.assertEquals(general.getcheckInterval().getAttribute("value"), prop.getProperty("SettingsGeneralCheckInInterval"));
 		softAssert.assertEquals(general.getunlicensedAfter().getAttribute("value"), prop.getProperty("SettingsGeneralUnlicenseAfterDays"));

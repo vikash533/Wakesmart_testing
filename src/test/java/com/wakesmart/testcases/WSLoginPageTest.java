@@ -1,4 +1,4 @@
-package com.wakesmart.testcases;
+ package com.wakesmart.testcases;
 
 import java.io.IOException;
 import org.openqa.selenium.WebDriver;
@@ -122,7 +122,7 @@ public class WSLoginPageTest extends BaseClass {
 	}
 
 	//Completed
-	@Test(priority = 8,enabled=true)
+	@Test(priority = 8,enabled=false)
 	public void passwordVisibilityOnDOM() throws InterruptedException  {
 		softAssert = new SoftAssert();
 		

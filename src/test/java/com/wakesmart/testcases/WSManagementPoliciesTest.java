@@ -1,9 +1,11 @@
-package com.wakesmart.testcases;
+ package com.wakesmart.testcases;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -54,15 +56,15 @@ public class WSManagementPoliciesTest extends BaseClass{
 		
 		action.JSClick(driver, management.getManagementTab());
 		action.JSClick(driver, management.getPolicies());
-		softAssert.assertEquals(management.getPolicyManagement(),prop.getProperty("PoliciesManagementHeaderText"));
-		softAssert.assertEquals(management.getPolicyManagementTableHeaderText(),prop.getProperty("PoliciesManagementTableHeaderText"));
+		softAssert.assertEquals(management.getPolicyManagement(),prop.getProperty("PoliciesManagementHeaderText"),"Mismatch PoliciesManagementHeaderText ");
+		softAssert.assertEquals(management.getPolicyManagementTableHeaderText(),prop.getProperty("PoliciesManagementTableHeaderText"),"Mismatch PoliciesManagementTableHeaderText");
 		softAssert.assertEquals(management.getTableHeaderTextVerify(management.PoliciesInnerTableHeaderText()), management.getPoliciesTableHeaderDataToVerify(prop)," Mismatch automation table header text");
 		action.JSClick(driver, management.getAddPolicyBtn());
 		action.type(management.getPolicyName(), prop.getProperty("PoliciesManagementPolicyName"));
 		action.type(management.getPolicyDescription(), prop.getProperty("PoliciesManagementPolicyDescription"));
 		action.click(driver, management.getDefaultPolicyDeleteButton());
 		action.fluentWait(driver, management.getWarningMessegePopupOnDeleteDefaultScheme());
-		softAssert.assertEquals(management.getWarningMessegePopupOnDeleteDefaultScheme().getText(), prop.getProperty("PoliciesManagementPoliciesWarningMessegePopupOnDeleteDefaultScheme"));
+		softAssert.assertEquals(management.getWarningMessegePopupOnDeleteDefaultScheme().getText(), prop.getProperty("PoliciesManagementPoliciesWarningMessegePopupOnDeleteDefaultScheme"),"Mismatch PoliciesManagementPoliciesWarningMessegePopupOnDeleteDefaultScheme");
 		action.fluentWait(driver, management.getAddSchemeButton());
 		action.JSClick(driver, management.getAddSchemeButton());
 		
@@ -104,15 +106,15 @@ public class WSManagementPoliciesTest extends BaseClass{
 		action.type(management.getBrightness(), prop.getProperty("PoliciesManagementPoliciesBrightness"));
 		action.click(driver, management.getAddNewSchemeSaveButton());
 		
-		softAssert.assertEquals(management.getNewSchemeNameVerifyText(), prop.getProperty("PoliciesManagementNewSchemeName"));
-		softAssert.assertEquals(management.getNewSchemeDaysVerifyText(), prop.getProperty("PoliciesManagementNewSchemeDayVerifyText"));
-		softAssert.assertEquals(management.getNewSchemeStartTimeVerifyText(), prop.getProperty("PoliciesManagementPoliciesNewSchemeStartTimeVerifyText"));
-		softAssert.assertEquals(management.getNewSchemeEndTimeVerifyText(), prop.getProperty("PoliciesManagementPoliciesNewSchemeEndTimeVerifyText"));
+		softAssert.assertEquals(management.getNewSchemeNameVerifyText(), prop.getProperty("PoliciesManagementNewSchemeName"),"Mismatch PoliciesManagementNewSchemeName");
+		softAssert.assertEquals(management.getNewSchemeDaysVerifyText(), prop.getProperty("PoliciesManagementNewSchemeDayVerifyText"),"Mismatch PoliciesManagementNewSchemeDayVerifyText");
+		softAssert.assertEquals(management.getNewSchemeStartTimeVerifyText(), prop.getProperty("PoliciesManagementPoliciesNewSchemeStartTimeVerifyText"),"Mismatch PoliciesManagementPoliciesNewSchemeStartTimeVerifyText");
+		softAssert.assertEquals(management.getNewSchemeEndTimeVerifyText(), prop.getProperty("PoliciesManagementPoliciesNewSchemeEndTimeVerifyText"),"Mismatch PoliciesManagementPoliciesNewSchemeEndTimeVerifyText");
 		
-		softAssert.assertEquals(management.getNewDefaultSchemeNameVerifyText().getText(), prop.getProperty("PoliciesManagementDefaultSchemeName"));
-		softAssert.assertEquals(management.getDefaultSchemeDaysVerifyText().getText(), prop.getProperty("PoliciesManagementDefaultSchemeDayVerifyText"));
-		softAssert.assertEquals(management.getDefaultSchemeStartTimeVerifyText().getText(), prop.getProperty("PoliciesManagementPoliciesDefaultSchemeStartTimeVerifyText"));
-		softAssert.assertEquals(management.getDefaultSchemeEndTimeVerifyText().getText(), prop.getProperty("PoliciesManagementPoliciesDefaultSchemeEndTimeVerifyText"));
+		softAssert.assertEquals(management.getNewDefaultSchemeNameVerifyText().getText(), prop.getProperty("PoliciesManagementDefaultSchemeName"),"Mismatch PoliciesManagementDefaultSchemeName");
+		softAssert.assertEquals(management.getDefaultSchemeDaysVerifyText().getText(), prop.getProperty("PoliciesManagementDefaultSchemeDayVerifyText"),"Mismatch PoliciesManagementDefaultSchemeDayVerifyText");
+		softAssert.assertEquals(management.getDefaultSchemeStartTimeVerifyText().getText(), prop.getProperty("PoliciesManagementPoliciesDefaultSchemeStartTimeVerifyText"),"Mismatch PoliciesManagementPoliciesDefaultSchemeStartTimeVerifyText");
+		softAssert.assertEquals(management.getDefaultSchemeEndTimeVerifyText().getText(), prop.getProperty("PoliciesManagementPoliciesDefaultSchemeEndTimeVerifyText"),"Mismatch PoliciesManagementPoliciesDefaultSchemeEndTimeVerifyText");
 		
 		//new scheduled events
 		action.click(driver, management.getScduledEventAddButton());
@@ -126,9 +128,9 @@ public class WSManagementPoliciesTest extends BaseClass{
 		action.type(management.getEventStartDelayTime(), prop.getProperty("PoliciesScheduledEventStartDelayTime"));
 		action.type(management.getEventStartMessege(), prop.getProperty("PoliciesScheduledEventStartMessege"));
 		action.click(driver, management.getEventStartSaveButton());
-		softAssert.assertEquals(management.getScheduledEventNameTextVerify(), prop.getProperty("PoliciesManagementScheduledEventSelector"));
-		softAssert.assertEquals(management.getScheduledEventdaysTextVerify(), prop.getProperty("PoliciesManagementNewSchemeDayVerifyText"));
-		softAssert.assertEquals(management.getScheduledEventStartTextVerify(), prop.getProperty("PoliciesManagementPoliciesNewSchemeStartTimeVerifyText"));
+		softAssert.assertEquals(management.getScheduledEventNameTextVerify(), prop.getProperty("PoliciesManagementScheduledEventSelector"),"Mismatch PoliciesManagementScheduledEventSelector");
+		softAssert.assertEquals(management.getScheduledEventdaysTextVerify(), prop.getProperty("PoliciesManagementNewSchemeDayVerifyText"),"Mismatch PoliciesManagementNewSchemeDayVerifyText");
+		softAssert.assertEquals(management.getScheduledEventStartTextVerify(), prop.getProperty("PoliciesManagementPoliciesNewSchemeStartTimeVerifyText"),"Mismatch PoliciesManagementPoliciesNewSchemeStartTimeVerifyText");
 		
 		action.click(driver, management.getScduledEventAddButton());
 		management.getScheduledDays();
@@ -136,29 +138,13 @@ public class WSManagementPoliciesTest extends BaseClass{
 		action.click(driver, management.getAddNewPolicySubmitButton());
 		
 		action.fluentWait(driver, indexpage.getErrorMsg());
-		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("CreatedMessageOnPopUp"));
-		
+		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("CreatedMessageOnPopUp"),"Mismatch CreatedMessageOnPopUp");
+		action.explicitWaitForInvisibility(driver,management.getAddPolicy(), 15);
 		String rulesCreated = action.nameVerifyFromTable(management.getPolicyNameVerify(), prop.getProperty("PoliciesManagementPolicyName"));
 		String rulesCreatedDescription = action.nameVerifyFromTable(management.getPolicyDescriptionVerify(), prop.getProperty("PoliciesManagementPolicyDescription"));
-		System.out.println(rulesCreated);
-		System.out.println(rulesCreatedDescription);
-		softAssert.assertEquals(rulesCreated, prop.getProperty("PoliciesManagementPolicyName"));
-		softAssert.assertEquals(rulesCreatedDescription, prop.getProperty("PoliciesManagementPolicyDescription"));
+		softAssert.assertEquals(rulesCreated, prop.getProperty("PoliciesManagementPolicyName"),"Mismatch PoliciesManagementPolicyName");
+		softAssert.assertEquals(rulesCreatedDescription, prop.getProperty("PoliciesManagementPolicyDescription"),"Mismatch PoliciesManagementPolicyDescription");
 		softAssert.assertAll();
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
