@@ -91,30 +91,30 @@ public class WSReportsTest extends BaseClass {
 
 	
 	}
-	@Test(priority = 3,dependsOnMethods = {"operationalReports"},enabled=false)
-	public void validateBatteryHealth()  {
-		try {
-		action.fluentWait(driver, report.getBatteryHealthIcon());
-		action.JSClick(driver, report.getBatteryHealthIcon());
-		softAssert.assertEquals(report.getBatteryHealthPopUpHeader().getText(), prop.getProperty("BatteryHealthStatisticsText"));
-		softAssert.assertEquals(report.getGroupSelectedText().getText(), prop.getProperty("GroupSelectedText"));
-		softAssert.assertEquals(report.getStartDateText().getText(), prop.getProperty("StartDateText"));
-		softAssert.assertEquals(report.getEndDateText().getText(), prop.getProperty("EndDateText"));
-		action.click(driver, report.getGroupsSelectedIcon());
-		Thread.sleep(4000);
-		action.getSelectOptionFromDropdown(report.getGroupsSelected(), prop.getProperty("GroupSelectedText"));
-		action.isEnabled(driver, report.getSubmitButton());
-		action.click(driver, report.getSubmitButton());
-		action.click(driver, report.getExport());
-		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
-		action.click(driver, report.getExport());
-		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
-		
-		}catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-	}
+//	@Test(priority = 3,dependsOnMethods = {"operationalReports"},enabled=false)
+//	public void validateBatteryHealth()  {
+//		try {
+//		action.fluentWait(driver, report.getBatteryHealthIcon());
+//		action.JSClick(driver, report.getBatteryHealthIcon());
+//		softAssert.assertEquals(report.getBatteryHealthPopUpHeader().getText(), prop.getProperty("BatteryHealthStatisticsText"));
+//		softAssert.assertEquals(report.getGroupSelectedText().getText(), prop.getProperty("GroupSelectedText"));
+//		softAssert.assertEquals(report.getStartDateText().getText(), prop.getProperty("StartDateText"));
+//		softAssert.assertEquals(report.getEndDateText().getText(), prop.getProperty("EndDateText"));
+//		action.click(driver, report.getGroupsSelectedIcon());
+//		Thread.sleep(4000);
+//		action.getSelectOptionFromDropdown(report.getGroupsSelected(), prop.getProperty("GroupSelectedText"));
+//		action.isEnabled(driver, report.getSubmitButton());
+//		action.click(driver, report.getSubmitButton());
+//		action.click(driver, report.getExport());
+//		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadCSVText"));
+//		action.click(driver, report.getExport());
+//		action.nameVerifyFromTableAndClick(report.getExportDropDown(),prop.getProperty("ExportDownloadPdfText"));
+//
+//		}catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
 
 	@Test(priority=4,dependsOnMethods = {"operationalReports"})

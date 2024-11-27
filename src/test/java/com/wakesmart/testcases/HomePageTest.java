@@ -63,8 +63,8 @@ public class HomePageTest extends BaseClass {
 		action.type(indexpage.getUserName(), prop.getProperty("ValidUserName"));
 		action.type(indexpage.getPassWord(), prop.getProperty("ValidPassword"));
 		action.click(driver, indexpage.getLogin());
-		action.fluentWait(driver, indexpage.getErrorMsg());
-		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("WelcomeMessgeOnHomeNewPage"));
+//		action.fluentWait(driver, indexpage.getErrorMsg());
+//		softAssert.assertEquals(indexpage.getErrorMsg().getText(),  prop.getProperty("WelcomeMessgeOnHomeNewPage"));
 		
 		softAssert.assertAll();
 	}

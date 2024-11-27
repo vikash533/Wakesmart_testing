@@ -50,7 +50,6 @@ public class WSManagementGroupsTest extends BaseClass {
 		
 		action.JSClick(driver, management.getManagementTab());
  		action.JSClick(driver, management.getGroups());
-		
 		softAssert.assertEquals(management.getPolicyManagement(),prop.getProperty("GroupsManagementHeaderText"));
 		softAssert.assertEquals(management.getPolicyManagementTableHeaderText(),prop.getProperty("GroupsManagementInnerTableHeaderText"));
 		action.JSClick(driver, management.getAddGroupButton());

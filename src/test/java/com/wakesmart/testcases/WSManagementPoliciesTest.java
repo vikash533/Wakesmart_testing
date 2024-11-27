@@ -139,7 +139,8 @@ public class WSManagementPoliciesTest extends BaseClass{
 		
 		action.fluentWait(driver, indexpage.getErrorMsg());
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("CreatedMessageOnPopUp"),"Mismatch CreatedMessageOnPopUp");
-		action.explicitWaitForInvisibility(driver,management.getAddPolicy(), 15);
+//		action.explicitWaitForInvisibility(driver,management.getAddPolicy(), 15);
+		action.refresPage(driver);
 		String rulesCreated = action.nameVerifyFromTable(management.getPolicyNameVerify(), prop.getProperty("PoliciesManagementPolicyName"));
 		String rulesCreatedDescription = action.nameVerifyFromTable(management.getPolicyDescriptionVerify(), prop.getProperty("PoliciesManagementPolicyDescription"));
 		softAssert.assertEquals(rulesCreated, prop.getProperty("PoliciesManagementPolicyName"),"Mismatch PoliciesManagementPolicyName");

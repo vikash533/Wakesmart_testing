@@ -102,7 +102,7 @@ public class Action extends BaseClass {
 
 		String tablename = "";
 		for (WebElement option : ele) {
-
+//			System.out.println(option.getText());
 			if (option.getText().equalsIgnoreCase(str)) {
 				tablename = option.getText();
 				System.out.println("Plociy table name "+tablename);
@@ -966,6 +966,14 @@ public class Action extends BaseClass {
 		        // Add a wait to avoid excessive scrolling (adjust as needed)
 		        Thread.sleep(1000); // Adjust the wait time based on your application's speed
 		    }
+		}
+		public void refresPage(WebDriver driver){
+			try {
+				driver.navigate().refresh(); // Refresh the page
+				System.out.println("Page refreshed successfully.");
+			} catch (Exception e) {
+				System.out.println("An error occurred while refreshing the page: " + e.getMessage());
+			}
 		}
 
 }

@@ -47,12 +47,12 @@ public class WSAutomationPage extends BaseClass{
 	By AndOrList = By.xpath("(//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9'])/li");
 	By SubmitBtn = By.xpath("//button[normalize-space()='Submit']");
 	
-			//(//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1y0jp63'])[2]
+	//(//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1y0jp63'])[2]
 	By AlertConfirmationMessage = By.xpath("(//div[@class='Toastify__toast-body'])/div[2]");
 	By OrderDropdown = By.xpath("(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8'])[2]//input");
 	By EnabledCheckBox = By.xpath("(//input[@type='checkbox'])[1]");
 	By DeleteClauseButton = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu'])[2]/div[13]/button");
-	
+	By CreatedGroupRuleText  = By.xpath("//div[@id='mui-p-62218-P-1']//ancestor::tbody/tr//td[1]");
 	
 	//Policy rules
 	By PolicyRules = By.xpath("(//div[@class='MuiTabs-flexContainer css-k008qs'])//button[2]");
@@ -70,6 +70,8 @@ public class WSAutomationPage extends BaseClass{
 	public WebElement getPolicyRules() {
 		return driver.findElement(PolicyRules);
 	}
+
+//	public List<WebElement> getGroupRuleCreated(){ return driver.findElements(CreatedGroupRuleText);}
 	
 	public void getCraetedRuleVerifyAfterEnabled(String OrderNum, SoftAssert asserts, Properties prop) {
 		
@@ -223,13 +225,7 @@ public void getCraetedPolicyRuleVerifyAfterMod(String OrderNum, SoftAssert asser
 	public WebElement getDeleteClauseButton() {
 		return driver.findElement(DeleteClauseButton);
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	public void getAddClauseButton() {
 		new WebDriverWait(driver, Duration.ofSeconds(10));
 		 driver.findElement(AddClauseButton).click();;
@@ -411,6 +407,16 @@ public void getCraetedPolicyRuleVerifyAfterMod(String OrderNum, SoftAssert asser
 			textVerify.add(prop.getProperty("GroupRulesTableDataOptions"));
 
 		return textVerify;
+		}
+
+		public  boolean checkIfDataExistsInTable(String dataToCheck ){
+			List<WebElement> table = driver.findElements(CreatedGroupRuleText);
+			for (WebElement tabledata : table) {
+				if (tabledata.getText().equals(dataToCheck)) {
+					return true; // Data found
+				}
+			}
+			return false;
 		}
 	
 

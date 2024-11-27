@@ -14,7 +14,8 @@ public class WSHomePage extends BaseClass{
 	
 	By AccountSettingsIcon = By.xpath("//div[@class='MuiButtonBase-root MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-outlinedPrimary css-1bi0tq7']");
 	By logout = By.xpath("(//div[@class='MuiListItemText-root css-n5xu2x'])[2]");
-	By MenuButton = By.xpath("//div[@class='MuiAvatar-root MuiAvatar-rounded MuiAvatar-colorDefault css-1sha7oh']");
+	//MenuButton --->Left menu slider Button.
+	By MenuButton = By.xpath("//div[contains(@class, 'MuiAvatar-root') and contains(@class, 'MuiAvatar-rounded')]");
 	By GeneralMenu = By.xpath("(//span[@class='MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom css-lb3gvf'])[1]");
 	By AccountSettings = By.xpath("//p[.='Account Settings']");
 	By ChangedPasswordButton = By.xpath("//button[.='Change Password']");
