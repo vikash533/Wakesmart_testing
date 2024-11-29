@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e69492e1-4d35-496b-8847-af512a85d11d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSActivityReports.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSOperationalReportAssetInventoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSOperationalReportDeviceTypeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSOperationalReportsGroupSummaryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSOperationalReportsLicenseSummaryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSOperationalReportsPolicySummaryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/master.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wakesmart/pageObjects/WSReports.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wakesmart/pageObjects/WSReports.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSReportsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSReportsTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2pQPW0ZaJeVGfVWHADRpMsdVB5G" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;TestNG.D:/Wakesmart-Testing/master.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSActivityReport.activityReports.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSActivityReport.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSActivityReports.activityReports.executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.WSActivityReports.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSBattaryHealtReport.BattaryHealthOpertionalReport.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportAssetInventory (1).executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportAssetInventory.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportAssetInventory.reportAssetInventory.executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.WSOperationalReportDeviceType (1).executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.WSOperationalReportDeviceType.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportDeviceType.reportDeviceType.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportsGroupSummary.reportGroupSummary.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportsLicenseSummary.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportsLicenseSummary.reportLicenseSummary.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportsPolicySummary.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSOperationalReportsPolicySummary.reportPolicySummary.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WSReportsTest.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;NewUI01&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="RunManager" selected="TestNG.D:/Wakesmart-Testing/master.xml">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="D:/Wakesmart-Testing/master.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="wakesmart" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/master.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WSActivityReport" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="wakesmart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wakesmart.testcases.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wakesmart.testcases" />
+      <option name="MAIN_CLASS_NAME" value="com.wakesmart.testcases.WSActivityReport" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WSActivityReports" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="wakesmart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wakesmart.testcases.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wakesmart.testcases" />
+      <option name="MAIN_CLASS_NAME" value="com.wakesmart.testcases.WSActivityReports" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WSActivityReports.activityReports" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="wakesmart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wakesmart.testcases.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wakesmart.testcases" />
+      <option name="MAIN_CLASS_NAME" value="com.wakesmart.testcases.WSActivityReports" />
+      <option name="METHOD_NAME" value="activityReports" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WSReportsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="wakesmart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wakesmart.testcases.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wakesmart.testcases" />
+      <option name="MAIN_CLASS_NAME" value="com.wakesmart.testcases.WSReportsTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.D:/Wakesmart-Testing/master.xml" />
+        <item itemvalue="TestNG.WSActivityReports" />
+        <item itemvalue="TestNG.WSActivityReports.activityReports" />
+        <item itemvalue="TestNG.WSReportsTest" />
+        <item itemvalue="TestNG.WSActivityReport" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e69492e1-4d35-496b-8847-af512a85d11d" name="Changes" comment="" />
+      <created>1732695356894</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732695356894</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSOperationalReportDeviceTypeTest.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/wakesmart/testcases/WSActivityReports.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

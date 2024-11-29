@@ -22,6 +22,12 @@
 			<class name="com.wakesmart.testcases.WSSettingsGeneralTest" />
 			<class name="com.wakesmart.testcases.WSSettingsSecurityTest" />
 			<class name="com.wakesmart.testcases.WSReportsTest" />
+			<class name="com.wakesmart.testcases.WSOperationalReportAssetInventoryTest"/>
+			<class name="com.wakesmart.testcases.WSOperationalReportDeviceTypeTest"/>
+			<class name="com.wakesmart.testcases.WSOperationalReportsLicenseSummaryTest"/>
+			<class name="com.wakesmart.testcases.WSOperationalReportsPolicySummaryTest"/>
+			<class name="com.wakesmart.testcases.WSOperationalReportsGroupSummaryTest"/>
+			<class name="com.wakesmart.testcases.WSActivityReports"/>
 		</classes>
 	</test>
 </suite>

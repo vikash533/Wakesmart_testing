@@ -134,7 +134,7 @@ public class WSReports extends BaseClass {
 	By AssetInventorySelectDevice = By.xpath("(//div[@class='MuiGrid-root MuiGrid-container css-1d3bbye']/div/div)[2]/div/div");
 	public By AssetInventorySelectGroupOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
 	By AssetInventorySelectDeviceOptions = By.xpath("//ul[@class='MuiList-root MuiList-padding MuiMenu-list css-r8u8y9']/li");
-	By AssetInventoryExportButton =By.xpath("//div[@class='MuiGrid-root css-1haci7g']/button");
+	By AssetInventoryExportButton =By.xpath("//button[@id='basic-button']");
 	
 	public WebElement getAssetInventoryIcon() {
 		return driver.findElement(AssetInventoryIcon);
