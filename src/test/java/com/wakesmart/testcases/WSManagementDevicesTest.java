@@ -100,7 +100,7 @@ public class WSManagementDevicesTest extends BaseClass {
 		devices.getmanagedSystemsGroupSelection(prop.getProperty("GroupsManagementDefaultGroupTopWithOrg"));
 
 		Thread.sleep(5000);
-		devices.getDevicesListSelect(prop.getProperty("GroupManagementDeviceName"));
+		devices.getDevicesListSelect2(prop.getProperty("GroupManagementDeviceName"));
 
 		Thread.sleep(2000);
 		softAssert.assertEquals(indexpage.getErrorMsg().getText(), prop.getProperty("ManagementDevicesToasterText"));

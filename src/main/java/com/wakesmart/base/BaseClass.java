@@ -41,7 +41,7 @@ public class BaseClass {
 
 		else if (browserName.equalsIgnoreCase("edge")) {
 			driver = new EdgeDriver();
-		}
+		}    
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.manage().window().maximize();

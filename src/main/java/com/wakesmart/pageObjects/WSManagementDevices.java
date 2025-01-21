@@ -4,6 +4,7 @@ package com.wakesmart.pageObjects;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -141,6 +142,7 @@ public class WSManagementDevices {
 		Actions act = new Actions(driver);
 		boolean result = false;
 		for (WebElement ele : driver.findElements(DevicesList)) {
+			System.out.println("device name "+ele.getText());
 			if (ele.getText().equalsIgnoreCase(deviceName)) {
 //				ele.click();
 				JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -160,6 +162,7 @@ public class WSManagementDevices {
 					e.printStackTrace();
 				}
 				for (WebElement ele : driver.findElements(DevicesList)) {
+					System.out.println("device name "+ele.getText());
 					if (ele.getText().equalsIgnoreCase(deviceName)) {
 //						ele.click();
 						JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -185,7 +188,9 @@ public class WSManagementDevices {
 	public boolean getDevicesListSelect(String deviceName) {
 		Actions act = new Actions(driver);
 		boolean result = false;
+		int elementCounter =0;
 		for (WebElement ele : driver.findElements(DevicesList)) {
+			System.out.println(ele.getText());
 			if (ele.getText().equalsIgnoreCase(deviceName)) {
 //									ele.click();
 				act.contextClick(ele).perform();
@@ -197,13 +202,16 @@ public class WSManagementDevices {
 		if(!result) {
 			while(!result) {
 				GoToNextPage.click();
+				System.out.println("next page -----------------------------");
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				for (WebElement ele : driver.findElements(DevicesList)) {
+					System.out.println(ele.getText());
 					if (ele.getText().equalsIgnoreCase(deviceName)) {
+						
 						//							ele.click();
 						act.contextClick(ele).perform();
 						result = true;
@@ -410,6 +418,8 @@ public class WSManagementDevices {
 		return flag;
 
 	}
+	@FindBy(xpath="//div[@class='MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy']")
+	public WebElement horizonatlPageScroller;
 	@FindBy(xpath="(//div[normalize-space()='Wake smart UI automation'])[4]")
 	public WebElement groupNameVerify;
 
@@ -473,9 +483,73 @@ public class WSManagementDevices {
 		}
 
 	}
-	
-	
-	
+
+	public boolean getDevicesListSelect2(String deviceName) {
+	    Actions act = new Actions(driver);
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    boolean result = false;
+	    int elementCounter = 0;
+	    int scrollBatchSize = 8;  // Scroll every 8 elements
+	    int scrollAmount = 500;   // Scroll down by 500 pixels
+
+	    while (!result) {
+	        // Get the list of device elements on the current page
+	        List<WebElement> deviceElements = driver.findElements(DevicesList);
+	        int elementsCount = deviceElements.size();  // Count elements for edge case handling
+
+	        for (WebElement ele : deviceElements) {
+	            elementCounter++;
+	            System.out.println(ele.getText());
+
+	            if (ele.getText().equalsIgnoreCase(deviceName)) {
+	                // Right-click on the device element (context-click)
+	                act.contextClick(ele).perform();
+	                result = true;
+	                break;
+	            }
+
+	            // Scroll down the page after every 8th element
+	            if (elementCounter % scrollBatchSize == 0 && elementCounter < elementsCount) {
+	                js.executeScript("window.scrollBy(0, " + scrollAmount + ");");
+	                System.out.println("Scrolled down the page");
+	                try {
+	                    // Small wait for scroll action to complete and load any new elements
+	                    Thread.sleep(1000);  
+	                } catch (InterruptedException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+
+	        // If the device was not found on the current page, go to the next page
+	        if (!result) {
+	            try {
+	                // Check if the "Next" page button is available and click
+	                if (GoToNextPage.isDisplayed()) {
+	                    GoToNextPage.click();
+	                    System.out.println("Next page -----------------------------");
+	                    try {
+	                        // Wait for the next page to load
+	                        Thread.sleep(2000);  
+	                    } catch (InterruptedException e) {
+	                        e.printStackTrace();
+	                    }
+	                    // Reset element counter for the next page
+	                    elementCounter = 0;
+	                } else {
+	                    System.out.println("No more pages to navigate.");
+	                    break;  // Exit loop if no more pages are available
+	                }
+	            } catch (NoSuchElementException e) {
+	                System.out.println("No 'Next' page button found.");
+	                break;  // Exit loop if no "Next" button is found
+	            }
+	        }
+	    }
+
+	    return result;
+	}
+
 }
 
 
